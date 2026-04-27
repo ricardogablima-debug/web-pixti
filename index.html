@@ -3,80 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PIxTI® - Sistema de Performance Infinita</title>
+    <title>PIxTI® - Performance Infinita</title>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root { --oro: #d4af37; --oscuro: #121212; --gris: #1e1e1e; --blanco: #e0e0e0; }
         body { font-family: 'Lexend', sans-serif; background-color: var(--oscuro); color: var(--blanco); margin: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; text-align: center; }
-        header { margin-bottom: 30px; padding: 20px; }
-        h1 { color: var(--oro); font-size: 2.5rem; letter-spacing: 2px; margin-bottom: 5px; }
-        .subtitle { font-size: 1.1rem; opacity: 0.8; margin-top: 0; }
         
-        .grid-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 800px; width: 90%; }
-        .fase-card { background: var(--gris); border: 1px solid #333; padding: 30px; border-radius: 15px; position: relative; overflow: hidden; cursor: pointer; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); min-height: 200px; display: flex; flex-direction: column; justify-content: center; }
-        .fase-card:hover { border-color: var(--oro); transform: translateY(-10px); background: #252525; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .grid-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; max-width: 600px; width: 95%; margin-top: 20px; }
         
-        .fase-number { color: var(--oro); font-weight: bold; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 10px; }
-        .fase-title { font-size: 1.4rem; margin-bottom: 15px; }
-        .fase-desc { font-size: 0.95rem; line-height: 1.6; display: none; color: #bbb; }
-        .fase-card:hover .fase-desc { display: block; animation: fadeIn 0.5s forwards; }
-        .fase-card:hover .fase-title { color: var(--oro); }
+        .fase-card { 
+            background: var(--gris); 
+            border: 2px solid #333; 
+            aspect-ratio: 1 / 1; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 15px;
+            transition: 0.3s;
+            position: relative;
+        }
 
-        .ancla-tag { display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--oro); padding: 2px 8px; border-radius: 4px; font-weight: bold; margin-top: 10px; font-size: 0.8rem; }
+        .fase-card:hover { border-color: var(--oro); background: #252525; }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        footer { margin-top: 40px; font-size: 0.8rem; opacity: 0.5; }
+        .fase-title { font-weight: bold; font-size: 1.2rem; margin-bottom: 10px; color: var(--oro); }
+        
+        /* Texto oculto que aparece al pasar el mouse */
+        .fase-info { 
+            font-size: 0.85rem; 
+            line-height: 1.3; 
+            display: none; 
+            position: absolute; 
+            background: var(--gris); 
+            padding: 10px;
+            height: 100%;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .fase-card:hover .fase-info { opacity: 1; display: flex; }
+        .fase-card:hover .fase-title { display: none; }
+
+        .ancla-label { color: var(--oro); font-weight: bold; display: block; margin-bottom: 5px; text-transform: uppercase; font-size: 0.7rem; }
+        
+        header h1 { color: var(--oro); letter-spacing: 4px; margin-bottom: 5px; }
+        .tagline { opacity: 0.7; font-size: 0.9rem; margin-bottom: 20px; }
     </style>
 </head>
 <body>
 
 <header>
     <h1>PIxTI®</h1>
-    <p class="subtitle">Principios Isométricos para la Transformación Isotónica</p>
-    <p style="color: var(--oro); font-weight: bold;">Entrenar desde adentro hacia afuera</p>
+    <div class="tagline">Entrenar desde adentro hacia afuera [cite: 212]</div>
 </header>
 
 <div class="grid-container">
     <div class="fase-card">
-        <div class="fase-number">Fase 1</div>
-        <div class="fase-title">Isometría</div>
-        <div class="fase-desc">
-            Es el descubrimiento de la estabilidad profunda. Aquí establecés el <strong>Ancla</strong>, la raíz donde la energía se organiza antes de ser proyectada.
-            <div class="ancla-tag">PUNTO DE APOYO FIJO</div>
+        <div class="fase-title">1. ISOMETRÍA</div>
+        <div class="fase-info">
+            <div>
+                <span class="ancla-label">Ancla: Punto de Apoyo Fijo [cite: 237]</span>
+                Establece la estabilidad profunda. Es la raíz donde la energía se organiza antes de ser proyectada[cite: 238].
+            </div>
         </div>
     </div>
 
     <div class="fase-card">
-        <div class="fase-number">Fase 2</div>
-        <div class="fase-title">Activación</div>
-        <div class="fase-desc">
-            Con el <strong>Ancla</strong> firme, reclutás cada fibra. Aquí la fuerza es <strong>infinita</strong>: cuanto más entrenás la intención, mayor es la carga interna.
-            <div class="ancla-tag">FUERZA SIN TECHO</div>
+        <div class="fase-title">2. ACTIVACIÓN</div>
+        <div class="fase-info">
+            <div>
+                <span class="ancla-label">Fuerza Infinita [cite: 200]</span>
+                Con el Ancla firme, reclutás cada fibra. Cuanto más entrenás la intención, mayor es la carga interna[cite: 242].
+            </div>
         </div>
     </div>
 
     <div class="fase-card">
-        <div class="fase-number">Fase 3</div>
-        <div class="fase-title">Reacción</div>
-        <div class="fase-desc">
-            La energía organizada en el <strong>Ancla</strong> se proyecta al espacio. Transformás la tensión en una potencia dirigida y exacta en cada milímetro.
-            <div class="ancla-tag">PROYECCIÓN DE PODER</div>
+        <div class="fase-info">
+            <div>
+                <span class="ancla-label">Proyección de Poder [cite: 249]</span>
+                La energía del Ancla se proyecta al espacio. Transformás la tensión en potencia dirigida y exacta[cite: 250].
+            </div>
         </div>
+        <div class="fase-title">3. REACCIÓN</div>
     </div>
 
     <div class="fase-card">
-        <div class="fase-number">Fase 4</div>
-        <div class="fase-title">Movilidad Consciente</div>
-        <div class="fase-desc">
-            Maestría absoluta. El <strong>Ancla</strong> se vuelve dinámica y el cuerpo fluye con dominio total. Una evolución motriz que mejora sin límites.
-            <div class="ancla-tag">INTEGRACIÓN SOBERANA</div>
+        <div class="fase-info">
+            <div>
+                <span class="ancla-label">Integración Soberana [cite: 251]</span>
+                Maestría absoluta. El Ancla se vuelve dinámica y el cuerpo fluye con dominio total y evolución sin límites[cite: 254].
+            </div>
         </div>
+        <div class="fase-title">4. MOVILIDAD</div>
     </div>
 </div>
 
-<footer>
-    © 2026 PIxTI® - Autor: Ricardo Gabriel Lima<br>
-    Propiedad intelectual: INPI - Acta 4571711
+<footer style="margin-top: 30px; font-size: 0.7rem; opacity: 0.4;">
+    © 2026 PIxTI® - Autor: Ricardo Gabriel Lima [cite: 193]
 </footer>
 
 </body>
