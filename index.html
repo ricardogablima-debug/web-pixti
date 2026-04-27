@@ -3,110 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PIxTI® - Performance Infinita</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>PIxTI®</title>
     <style>
-        :root { --oro: #d4af37; --oscuro: #121212; --gris: #1e1e1e; --blanco: #e0e0e0; }
-        body { font-family: 'Lexend', sans-serif; background-color: var(--oscuro); color: var(--blanco); margin: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; text-align: center; }
+        body { background-color: #121212; color: white; font-family: sans-serif; text-align: center; margin: 0; padding: 20px; }
+        h1 { color: #d4af37; margin-bottom: 5px; }
+        .tagline { color: #888; font-size: 0.9rem; margin-bottom: 30px; }
         
-        .grid-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; max-width: 600px; width: 95%; margin-top: 20px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 500px; margin: 0 auto; }
         
-        .fase-card { 
-            background: var(--gris); 
-            border: 2px solid #333; 
-            aspect-ratio: 1 / 1; 
+        .cuadrante { 
+            border: 1px solid #333; 
+            aspect-ratio: 1/1; 
             display: flex; 
-            flex-direction: column; 
             align-items: center; 
             justify-content: center; 
             padding: 15px;
+            cursor: pointer;
             transition: 0.3s;
-            position: relative;
         }
 
-        .fase-card:hover { border-color: var(--oro); background: #252525; }
-
-        .fase-title { font-weight: bold; font-size: 1.2rem; margin-bottom: 10px; color: var(--oro); }
+        .titulo { font-weight: bold; color: #d4af37; font-size: 1.1rem; }
         
-        /* Texto oculto que aparece al pasar el mouse */
-        .fase-info { 
+        .detalle { 
+            display: none; 
             font-size: 0.85rem; 
             line-height: 1.3; 
-            display: none; 
-            position: absolute; 
-            background: var(--gris); 
-            padding: 10px;
-            height: 100%;
-            width: 100%;
-            box-sizing: border-box;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s;
+            color: #e0e0e0;
         }
 
-        .fase-card:hover .fase-info { opacity: 1; display: flex; }
-        .fase-card:hover .fase-title { display: none; }
-
-        .ancla-label { color: var(--oro); font-weight: bold; display: block; margin-bottom: 5px; text-transform: uppercase; font-size: 0.7rem; }
-        
-        header h1 { color: var(--oro); letter-spacing: 4px; margin-bottom: 5px; }
-        .tagline { opacity: 0.7; font-size: 0.9rem; margin-bottom: 20px; }
+        /* Al pasar el mouse, el título se oculta y aparece el detalle */
+        .cuadrante:hover .titulo { display: none; }
+        .cuadrante:hover .detalle { display: block; }
+        .cuadrante:hover { border-color: #d4af37; background-color: #1a1a1a; }
     </style>
 </head>
 <body>
 
-<header>
     <h1>PIxTI®</h1>
-    <div class="tagline">Entrenar desde adentro hacia afuera [cite: 212]</div>
-</header>
+    <div class="tagline">Entrenar desde adentro hacia afuera</div>
 
-<div class="grid-container">
-    <div class="fase-card">
-        <div class="fase-title">1. ISOMETRÍA</div>
-        <div class="fase-info">
-            <div>
-                <span class="ancla-label">Ancla: Punto de Apoyo Fijo [cite: 237]</span>
-                Establece la estabilidad profunda. Es la raíz donde la energía se organiza antes de ser proyectada[cite: 238].
+    <div class="grid">
+        <div class="cuadrante">
+            <div class="titulo">1. ISOMETRÍA</div>
+            <div class="detalle">
+                <strong>EL ANCLA:</strong> Es el punto de apoyo fijo donde nace el control[cite: 124]. Aquí establecés la estabilidad profunda y organizás la energía antes de proyectarla[cite: 56, 57].
+            </div>
+        </div>
+
+        <div class="cuadrante">
+            <div class="titulo">2. ACTIVACIÓN</div>
+            <div class="detalle">
+                <strong>FUERZA INFINITA:</strong> Con el Ancla firme, reclutás cada fibra muscular[cite: 130]. A mayor intención consciente, mayor es la carga interna y la performance, sin límites externos[cite: 61, 95].
+            </div>
+        </div>
+
+        <div class="cuadrante">
+            <div class="titulo">3. REACCIÓN</div>
+            <div class="detalle">
+                <strong>PROYECCIÓN:</strong> La fuerza organizada en el Ancla se proyecta hacia el espacio[cite: 68]. El movimiento es una extensión exacta de la orden neural, logrando potencia dirigida[cite: 69].
+            </div>
+        </div>
+
+        <div class="cuadrante">
+            <div class="titulo">4. MOVILIDAD</div>
+            <div class="detalle">
+                <strong>INTEGRACIÓN:</strong> El Ancla se vuelve dinámica[cite: 70]. El cuerpo fluye con dominio absoluto y eficiencia, permitiendo una evolución constante de la performance[cite: 73, 80].
             </div>
         </div>
     </div>
 
-    <div class="fase-card">
-        <div class="fase-title">2. ACTIVACIÓN</div>
-        <div class="fase-info">
-            <div>
-                <span class="ancla-label">Fuerza Infinita [cite: 200]</span>
-                Con el Ancla firme, reclutás cada fibra. Cuanto más entrenás la intención, mayor es la carga interna[cite: 242].
-            </div>
-        </div>
-    </div>
-
-    <div class="fase-card">
-        <div class="fase-info">
-            <div>
-                <span class="ancla-label">Proyección de Poder [cite: 249]</span>
-                La energía del Ancla se proyecta al espacio. Transformás la tensión en potencia dirigida y exacta[cite: 250].
-            </div>
-        </div>
-        <div class="fase-title">3. REACCIÓN</div>
-    </div>
-
-    <div class="fase-card">
-        <div class="fase-info">
-            <div>
-                <span class="ancla-label">Integración Soberana [cite: 251]</span>
-                Maestría absoluta. El Ancla se vuelve dinámica y el cuerpo fluye con dominio total y evolución sin límites[cite: 254].
-            </div>
-        </div>
-        <div class="fase-title">4. MOVILIDAD</div>
-    </div>
-</div>
-
-<footer style="margin-top: 30px; font-size: 0.7rem; opacity: 0.4;">
-    © 2026 PIxTI® - Autor: Ricardo Gabriel Lima [cite: 193]
-</footer>
+    <p style="margin-top: 40px; font-size: 0.7rem; color: #444;">
+        © 2026 PIxTI® - Autor: Ricardo Gabriel Lima<br>
+        Propiedad intelectual: INPI - Acta 4571711 [cite: 10]
+    </p>
 
 </body>
 </html>
