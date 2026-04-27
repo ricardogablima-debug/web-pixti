@@ -3,38 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PIxTI®</title>
+    <title>PIxTI® - Sistema de Performance Infinita</title>
     <style>
-        body { background-color: #121212; color: white; font-family: sans-serif; text-align: center; margin: 0; padding: 20px; }
-        h1 { color: #d4af37; margin-bottom: 5px; }
-        .tagline { color: #888; font-size: 0.9rem; margin-bottom: 30px; }
+        body { background-color: #0a0a0a; color: white; font-family: sans-serif; text-align: center; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; }
+        h1 { color: #d4af37; margin-bottom: 5px; font-size: 2.2rem; letter-spacing: 3px; }
+        .tagline { color: #d4af37; font-size: 0.9rem; margin-bottom: 40px; font-weight: bold; }
         
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 500px; margin: 0 auto; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 600px; width: 100%; }
         
         .cuadrante { 
             border: 1px solid #333; 
-            aspect-ratio: 1/1; 
+            background-color: #111;
+            aspect-ratio: 1.2 / 1; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
-            padding: 15px;
+            padding: 20px;
             cursor: pointer;
-            transition: 0.3s;
+            transition: all 0.3s ease;
+            position: relative;
+            border-radius: 8px;
         }
 
-        .titulo { font-weight: bold; color: #d4af37; font-size: 1.1rem; }
+        .titulo { font-weight: bold; color: #d4af37; font-size: 1.2rem; text-transform: uppercase; }
         
         .detalle { 
             display: none; 
             font-size: 0.85rem; 
-            line-height: 1.3; 
-            color: #e0e0e0;
+            line-height: 1.4; 
+            color: #efefef;
+            text-align: left;
         }
 
-        /* Al pasar el mouse, el título se oculta y aparece el detalle */
+        .cuadrante:hover { border-color: #d4af37; background-color: #1a1a1a; transform: scale(1.02); }
         .cuadrante:hover .titulo { display: none; }
         .cuadrante:hover .detalle { display: block; }
-        .cuadrante:hover { border-color: #d4af37; background-color: #1a1a1a; }
+        
+        footer { margin-top: 50px; font-size: 0.75rem; color: #666; line-height: 1.5; }
     </style>
 </head>
 <body>
@@ -46,36 +51,36 @@
         <div class="cuadrante">
             <div class="titulo">1. ISOMETRÍA</div>
             <div class="detalle">
-                <strong>EL ANCLA:</strong> Es el punto de apoyo fijo donde nace el control[cite: 124]. Aquí establecés la estabilidad profunda y organizás la energía antes de proyectarla[cite: 56, 57].
+                <strong>EL ANCLA (PUNTO FIJO):</strong> Representa el descubrimiento de la estabilidad profunda. Es la raíz donde la energía se organiza antes de ser proyectada[cite: 236, 238, 239].
             </div>
         </div>
 
         <div class="cuadrante">
             <div class="titulo">2. ACTIVACIÓN</div>
             <div class="detalle">
-                <strong>FUERZA INFINITA:</strong> Con el Ancla firme, reclutás cada fibra muscular[cite: 130]. A mayor intención consciente, mayor es la carga interna y la performance, sin límites externos[cite: 61, 95].
+                <strong>FUERZA INFINITA:</strong> Con el <strong>Ancla</strong> firme, la intención cortical recluta cada fibra[cite: 240, 241]. A más entrenamiento, mayor es la carga interna y la performance, sin techos externos.
             </div>
         </div>
 
         <div class="cuadrante">
             <div class="titulo">3. REACCIÓN</div>
             <div class="detalle">
-                <strong>PROYECCIÓN:</strong> La fuerza organizada en el Ancla se proyecta hacia el espacio[cite: 68]. El movimiento es una extensión exacta de la orden neural, logrando potencia dirigida[cite: 69].
+                <strong>PROYECCIÓN:</strong> La energía organizada en el <strong>Ancla</strong> se proyecta al espacio[cite: 248, 249]. Es el puente donde la fuerza interna se convierte en potencia dirigida y exacta[cite: 250].
             </div>
         </div>
 
         <div class="cuadrante">
             <div class="titulo">4. MOVILIDAD</div>
             <div class="detalle">
-                <strong>INTEGRACIÓN:</strong> El Ancla se vuelve dinámica[cite: 70]. El cuerpo fluye con dominio absoluto y eficiencia, permitiendo una evolución constante de la performance[cite: 73, 80].
+                <strong>INTEGRACIÓN SOBERANA:</strong> El <strong>Ancla</strong> se vuelve dinámica[cite: 251]. El cuerpo fluye con dominio absoluto, mejorando la performance indefinidamente en un estado de autorregulación[cite: 253, 254].
             </div>
         </div>
     </div>
 
-    <p style="margin-top: 40px; font-size: 0.7rem; color: #444;">
-        © 2026 PIxTI® - Autor: Ricardo Gabriel Lima<br>
-        Propiedad intelectual: INPI - Acta 4571711 [cite: 10]
-    </p>
+    <footer>
+        © 2026 PIxTI® - Autor: Ricardo Gabriel Lima [cite: 184, 190]<br>
+        Propiedad intelectual: INPI - Acta 4571711 [cite: 191]
+    </footer>
 
 </body>
 </html>
