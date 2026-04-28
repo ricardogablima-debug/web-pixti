@@ -8,7 +8,28 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
-        body { background-color: #f4eee0; color: #0f172a; font-family: 'Inter', sans-serif; }
+        body { 
+            background-color: #f4eee0; 
+            color: #0f172a; 
+            font-family: 'Inter', sans-serif;
+            position: relative; 
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.08; 
+            z-index: -1;
+            background-image: url('PIxTI_tapa.jpg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            mix-blend-mode: multiply; 
+        }
         .font-serif { font-family: 'Playfair Display', serif; }
         .accent-orange { color: #f59e0b; }
         input[type="range"] { accent-color: #f59e0b; }
