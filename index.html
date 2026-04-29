@@ -1,176 +1,217 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PIxTI - Performance & Technology</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-    
+    <title>PIxTI® - Principios Isométricos para la Transformación Isotónica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        :root {
-            --bg-crema: #fdfcf8; /* El color cremita de fondo */
-            --texto: #1a1a1a;
-            --acento: #8c7851; /* Un dorado/bronce sobrio */
-        }
-
-        body { 
-            font-family: 'Inter', sans-serif; 
-            margin: 0; 
-            background-color: var(--bg-crema); 
-            color: var(--texto); 
-            text-align: center; 
-            line-height: 1.8; 
-        }
-
-        nav { 
-            padding: 20px 5%; 
-            display: flex; 
-            justify-content: flex-end; 
-            gap: 15px; 
-            background: rgba(253, 252, 248, 0.9); 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000;
-            border-bottom: 1px solid #eee;
-        }
-
-        .lang-btn { 
-            color: var(--texto); 
-            cursor: pointer; 
-            font-size: 0.8em;
-            text-decoration: none;
-            border: 1px solid #ddd;
-            padding: 4px 12px;
-            border-radius: 4px;
-        }
-
-        .hero { padding: 80px 20px; }
-
-        .hero img { 
-            max-width: 600px; 
-            width: 100%; 
-            height: auto; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
-            margin-bottom: 40px; 
-        }
-
-        h1 { 
-            font-family: 'Playfair Display', serif; 
-            font-size: 3.5em; 
-            margin: 0; 
-            font-weight: 700;
-        }
-
-        .hero p { 
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 1.2em; 
-            color: var(--acento);
-        }
-
-        .section { padding: 80px 20px; max-width: 800px; margin: auto; }
-
-        h2 { 
-            font-family: 'Playfair Display', serif; 
-            font-size: 2.2em; 
-            margin-bottom: 20px;
-            border-bottom: 1px solid var(--acento);
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-
-        .steps-container { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 40px; 
-            margin-top: 50px; 
-            text-align: left;
-        }
-
-        .step h3 { 
-            font-family: 'Playfair Display', serif;
-            color: var(--acento); 
-            font-size: 1.8em; 
-            margin: 0 0 10px 0; 
-        }
-
-        .instagram-btn { 
-            display: inline-block; 
-            border: 1px solid var(--texto);
-            color: var(--texto); 
-            padding: 15px 40px; 
-            text-decoration: none; 
-            margin: 60px 0; 
-            font-weight: bold; 
-            letter-spacing: 2px;
-            transition: 0.3s;
-        }
-
-        .instagram-btn:hover { background: var(--texto); color: #fff; }
-
-        footer { padding: 60px; font-size: 0.8em; color: #999; }
-
-        .lang-en { display: none; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+        body { background-color: #f4eee0; color: #0f172a; font-family: 'Inter', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .accent-orange { color: #f59e0b; }
+        input[type="range"] { accent-color: #f59e0b; }
     </style>
 </head>
 <body>
 
-    <nav>
-        <span class="lang-btn" onclick="setLang('es')">ESP</span>
-        <span class="lang-btn" onclick="setLang('en')">ENG</span>
-    </nav>
+    <header class="py-24 px-6 text-center border-b border-black/5">
+        <div class="max-w-4xl mx-auto">
+            <p class="text-[10px] font-bold uppercase tracking-[0.3em] accent-orange mb-4">Ricardo Gabriel Lima</p>
+            <h1 class="font-serif text-7xl md:text-8xl font-bold mb-6 italic">PIxTI<span class="text-3xl align-top">®</span></h1>
+            <p class="text-xl md:text-2xl italic font-serif text-gray-700 leading-relaxed">
+                Principios Isométricos para la <br>
+                <span class="not-italic font-bold text-[#0f172a] border-b-4 border-[#f59e0b]">Transformación Isotónica</span>
+            </p>
+        </div>
+    </header>
 
-    <div class="hero">
-        <img src="PIxTI_tapa.jpg" alt="PIxTI Tapa Libro">
-        <h1>PIxTI</h1>
-        <p>Performance Intelligence & Technology Integration</p>
-    </div>
-
-    <div class="section">
-        <h2 class="lang-es">¿Qué es PIxTI?</h2>
-        <h2 class="lang-en">What is PIxTI?</h2>
-        <p class="lang-es">Es la intersección exacta entre la tecnología de datos y el rendimiento humano. Aplicamos ciencia para optimizar cada movimiento.</p>
-        <p class="lang-en">It is the exact intersection between data technology and human performance. We apply science to optimize every movement.</p>
-    </div>
-
-    <div class="section">
-        <h2 class="lang-es">El Proceso</h2>
-        <h2 class="lang-en">The Process</h2>
-        <div class="steps-container">
-            <div class="step">
-                <h3>01. Captura</h3>
-                <p class="lang-es">Recolección de datos biomecánicos de alta precisión.</p>
-                <p class="lang-en">High-precision biomechanical data collection.</p>
+    <section class="py-20 px-6 max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="font-serif text-4xl mb-4 italic">El Viaje de la Tensión</h2>
+            <p class="text-gray-500 uppercase text-[10px] tracking-widest font-bold">Arquitectura del Movimiento Humano</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-black/5">
+                <span class="font-serif italic text-3xl accent-orange">Fase 1</span>
+                <h3 class="font-bold mt-2 mb-4 text-sm uppercase">Isometría CIMV</h3>
+                <p class="text-xs text-gray-600 leading-relaxed">La base del sistema. Contracción Isométrica Máxima Voluntaria. Aprendemos a encender la "perilla de tensión" sin depender de la inercia externa.</p>
             </div>
-            <div class="step">
-                <h3>02. Análisis</h3>
-                <p class="lang-es">Procesamiento inteligente de la información deportiva.</p>
-                <p class="lang-en">Intelligent processing of sports information.</p>
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-black/5">
+                <span class="font-serif italic text-3xl accent-orange">Fase 2</span>
+                <h3 class="font-bold mt-2 mb-4 text-sm uppercase">Intención Cortical</h3>
+                <p class="text-xs text-gray-600 leading-relaxed">El puente neuromuscular. Reducimos el tiempo entre la orden cerebral y la manifestación de la fuerza (Velocidad de Reacción).</p>
             </div>
-            <div class="step">
-                <h3>03. Optimización</h3>
-                <p class="lang-es">Diseño de planes basados en evidencia científica.</p>
-                <p class="lang-en">Design of plans based on scientific evidence.</p>
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-black/5">
+                <span class="font-serif italic text-3xl accent-orange">Fase 3</span>
+                <h3 class="font-bold mt-2 mb-4 text-sm uppercase">Reacción / Stiffness</h3>
+                <p class="text-xs text-gray-600 leading-relaxed">La capacidad de absorber energía y liberarla. Entrenamos la rigidez funcional para evitar fugas de potencia en el gesto deportivo.</p>
             </div>
-            <div class="step">
-                <h3>04. Resultado</h3>
-                <p class="lang-es">Máximo rendimiento con mínimo riesgo de lesión.</p>
-                <p class="lang-en">Maximum performance with minimum risk of injury.</p>
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-black/5">
+                <span class="font-serif italic text-3xl accent-orange">Fase 4</span>
+                <h3 class="font-bold mt-2 mb-4 text-sm uppercase">Movilidad Consciente</h3>
+                <p class="text-xs text-gray-600 leading-relaxed">La transformación final. Aplicamos torque máximo en todo el rango angular (0-180°) bajo control absoluto del sistema.</p>
             </div>
         </div>
-    </div>
+    </section>
 
-    <a href="https://instagram.com/TU_USUARIO" target="_blank" class="instagram-btn">INSTAGRAM</a>
+    <section class="py-20 bg-white/40 border-y border-black/5 px-4">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            
+            <div class="bg-white p-10 rounded-[3rem] shadow-sm border border-black/5">
+                <h2 class="font-serif text-3xl mb-8 italic">Simulador de Subgrupos</h2>
+                <div class="space-y-10">
+                    <div>
+                        <div class="flex justify-between mb-2 text-[10px] font-bold uppercase tracking-widest">
+                            <span>Fuerza (Tensión Endógena)</span>
+                            <span id="valF" class="accent-orange font-mono text-base">80%</span>
+                        </div>
+                        <input type="range" id="fuerza" min="0" max="100" value="80" class="w-full">
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2 text-[10px] font-bold uppercase tracking-widest">
+                            <span>Resistencia (Tiempo: 0-3 min)</span>
+                            <span id="valR" class="accent-orange font-mono text-base">5s</span>
+                        </div>
+                        <input type="range" id="resistencia" min="0" max="180" value="5" class="w-full">
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2 text-[10px] font-bold uppercase tracking-widest">
+                            <span>Velocidad (Aceleración)</span>
+                            <span id="valV" class="accent-orange font-mono text-base">Med</span>
+                        </div>
+                        <input type="range" id="velocidad" min="0" max="100" value="50" class="w-full">
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2 text-[10px] font-bold uppercase tracking-widest">
+                            <span>Flexibilidad (Rango Angular)</span>
+                            <span id="valA" class="accent-orange font-mono text-base">160°</span>
+                        </div>
+                        <input type="range" id="flexibilidad" min="0" max="180" value="160" class="w-full">
+                    </div>
+                </div>
 
-    <footer>&copy; 2026 PIxTI. Estética Editorial y Rendimiento Humano.</footer>
+                <div class="mt-12 pt-8 border-t border-gray-100 grid grid-cols-2 gap-6">
+                    <div class="p-6 bg-[#f4eee0] rounded-3xl text-center">
+                        <p class="text-[10px] uppercase font-bold text-gray-500 mb-2 font-sans">Potencia</p>
+                        <p id="resPotencia" class="text-4xl font-bold text-[#0f172a]">--</p>
+                    </div>
+                    <div class="p-6 bg-[#f4eee0] rounded-3xl text-center">
+                        <p class="text-[10px] uppercase font-bold text-gray-500 mb-2 font-sans">Torque Relativo</p>
+                        <p id="resTorque" class="text-4xl font-bold text-[#0f172a]">--</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-10 rounded-[3rem] shadow-2xl border border-black/5 flex flex-col items-center justify-center min-h-[550px]">
+                <div class="w-full h-[350px]">
+                    <canvas id="radarChart"></canvas>
+                </div>
+                <div class="mt-8 text-center bg-[#f4eee0] px-8 py-4 rounded-2xl w-full border border-black/5">
+                    <p class="text-[9px] uppercase font-bold text-gray-400 tracking-[0.3em] mb-1">Clasificación Fisiológica y Mecánica</p>
+                    <p id="diagnostico" class="text-xl italic font-serif accent-orange"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-24 bg-[#0f172a] text-[#f4eee0]">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-serif text-5xl mb-12 italic text-center">Contacto Profesional</h2>
+            <form name="contacto-pixti" method="POST" data-netlify="true" class="grid md:grid-cols-2 gap-8 bg-white/5 p-12 rounded-[3rem] border border-white/10 shadow-2xl">
+                <input type="hidden" name="form-name" value="contacto-pixti">
+                <div class="space-y-6">
+                    <input type="text" name="nombre" placeholder="Nombre completo" required class="w-full bg-transparent border-b border-white/20 py-4 outline-none focus:border-[#f59e0b]">
+                    <input type="tel" name="celular" placeholder="Número de contacto" required class="w-full bg-transparent border-b border-white/20 py-4 outline-none focus:border-[#f59e0b]">
+                    <input type="email" name="email" placeholder="Correo electrónico" required class="w-full bg-transparent border-b border-white/20 py-4 outline-none focus:border-[#f59e0b]">
+                </div>
+                <div class="space-y-6">
+                    <input type="text" name="ubicacion" placeholder="Ciudad y País" required class="w-full bg-transparent border-b border-white/20 py-4 outline-none focus:border-[#f59e0b]">
+                    <select name="motivo" required class="w-full bg-[#0f172a] border-b border-white/20 py-4 outline-none focus:border-[#f59e0b] cursor-pointer">
+                        <option value="" disabled selected>Motivo de consulta...</option>
+                        <option value="clases">Entrenamiento Personal</option>
+                        <option value="profesores">Capacitación de Grado</option>
+                        <option value="gimnasios">Consultoría de Negocio</option>
+                    </select>
+                    <button type="submit" class="w-full bg-[#f59e0b] text-[#0f172a] font-bold py-6 rounded-2xl hover:bg-white hover:scale-105 transition-all uppercase text-xs tracking-widest mt-4">
+                        Enviar Solicitud
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center text-[10px] opacity-30 uppercase tracking-[0.5em] font-bold">
+        PIxTI® • Ricardo Gabriel Lima • Buenos Aires 2026
+    </footer>
 
     <script>
-        function setLang(lang) {
-            const es = document.querySelectorAll('.lang-es');
-            const en = document.querySelectorAll('.lang-en');
-            es.forEach(el => el.style.display = (lang === 'es' ? 'block' : 'none'));
-            en.forEach(el => el.style.display = (lang === 'en' ? 'block' : 'none'));
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        let chart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['FUERZA', 'RESISTENCIA', 'VELOCIDAD', 'FLEXIBILIDAD'],
+                datasets: [{
+                    data: [80, 5, 50, 88],
+                    backgroundColor: 'rgba(245, 158, 11, 0.2)',
+                    borderColor: '#f59e0b',
+                    borderWidth: 4,
+                    pointBackgroundColor: '#0f172a',
+                    pointRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { 
+                    r: { 
+                        min: 0, max: 100, 
+                        ticks: { display: false },
+                        pointLabels: { font: { size: 12, weight: '700' }, color: '#0f172a' }
+                    } 
+                },
+                plugins: { legend: { display: false } }
+            }
+        });
+
+        function update() {
+            const f = parseInt(document.getElementById('fuerza').value);
+            const r_sec = parseInt(document.getElementById('resistencia').value);
+            const v = parseInt(document.getElementById('velocidad').value);
+            const a_raw = parseInt(document.getElementById('flexibilidad').value);
+            
+            const r_radar = (r_sec / 180) * 100;
+            const a_radar = (a_raw / 180) * 100;
+
+            document.getElementById('valF').textContent = f + '%';
+            document.getElementById('valR').textContent = r_sec + 's';
+            document.getElementById('valV').textContent = v > 75 ? 'Máxima' : (v < 30 ? 'Mínima' : 'Submáxima');
+            document.getElementById('valA').textContent = a_raw + '°';
+
+            document.getElementById('resPotencia').textContent = (f * v / 100).toFixed(0) + '%';
+            document.getElementById('resTorque').textContent = (f * (a_radar/100)).toFixed(0) + '%';
+
+            chart.data.datasets[0].data = [f, r_radar, v, a_radar];
+            chart.update();
+
+            // CLASIFICACIÓN BASADA EN EL ÁRBOL DE RICARDO
+            let d = "Ajuste las variables para análisis";
+            
+            if (f > 85 && v > 85) d = "Fuerza Explosiva / Potencia";
+            else if (f > 70 && r_sec > 60) d = "Fuerza Resistencia";
+            else if (f > 90 && r_sec <= 15) d = "Resistencia Anaeróbica Aláctica";
+            else if (r_sec > 15 && r_sec < 120) d = "Resistencia Anaeróbica Láctica";
+            else if (f >= 65 && f <= 85) d = "Fuerza Submáxima (Perilla de Control)";
+            else if (f > 70 && a_raw > 150) d = "Fuerza Dinámica Flexible";
+            else if (r_sec >= 180) d = "Resistencia Aeróbica";
+            
+            document.getElementById('diagnostico').textContent = d;
         }
+
+        document.querySelectorAll('input').forEach(i => i.addEventListener('input', update));
+        update();
     </script>
 </body>
 </html>
