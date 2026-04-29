@@ -81,7 +81,7 @@
 
         .steps-container { 
             display: grid; 
-            grid-template-columns: 1fr 1fr; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
             gap: 40px; 
             margin-top: 50px; 
             text-align: left;
@@ -161,13 +161,15 @@
     </div>
 
     <a href="https://instagram.com/TU_USUARIO" target="_blank" class="instagram-btn">INSTAGRAM</a>
-<img src="PIxTI_tapa.jpg" alt="PIxTI Tapa">
+
     <footer>&copy; 2026 PIxTI. Estética Editorial y Rendimiento Humano.</footer>
 
     <script>
         function setLang(lang) {
-            document.querySelectorAll('.lang-es').forEach(el => el.style.display = (lang === 'es' ? 'block' : 'none'));
-            document.querySelectorAll('.lang-en').forEach(el => el.style.display = (lang === 'en' ? 'block' : 'none'));
+            const es = document.querySelectorAll('.lang-es');
+            const en = document.querySelectorAll('.lang-en');
+            es.forEach(el => el.style.display = (lang === 'es' ? 'block' : 'none'));
+            en.forEach(el => el.style.display = (lang === 'en' ? 'block' : 'none'));
         }
     </script>
 </body>
