@@ -4,23 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PIxTI - Performance & Technology</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary: #00ffcc;
-            --bg: #050505;
-            --card-bg: #111;
+            --bg-crema: #fdfcf8; /* El color cremita de fondo */
+            --texto: #1a1a1a;
+            --acento: #8c7851; /* Un dorado/bronce sobrio */
         }
 
         body { 
             font-family: 'Inter', sans-serif; 
             margin: 0; 
-            background-color: var(--bg); 
-            color: #fff; 
+            background-color: var(--bg-crema); 
+            color: var(--texto); 
             text-align: center; 
             line-height: 1.8; 
-            overflow-x: hidden;
         }
 
         nav { 
@@ -28,128 +27,89 @@
             display: flex; 
             justify-content: flex-end; 
             gap: 15px; 
-            background: rgba(0,0,0,0.9); 
-            position: fixed; 
-            width: 90%; 
+            background: rgba(253, 252, 248, 0.9); 
+            position: sticky; 
             top: 0; 
             z-index: 1000;
-            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #eee;
         }
 
         .lang-btn { 
-            color: var(--primary); 
+            color: var(--texto); 
             cursor: pointer; 
-            font-weight: bold; 
-            border: 1px solid var(--primary); 
-            padding: 5px 15px; 
-            border-radius: 20px; 
             font-size: 0.8em;
-            transition: 0.3s;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            padding: 4px 12px;
+            border-radius: 4px;
         }
 
-        .lang-btn:hover { background: var(--primary); color: #000; }
+        .hero { padding: 80px 20px; }
 
-        .hero { 
-            padding: 150px 20px 80px; 
-            background: radial-gradient(circle at center, #00ffcc15 0%, transparent 70%);
-        }
-
-        /* AJUSTE DE IMAGEN: Si tu archivo se llama tapa.jpg, asegúrate de subirlo a GitHub con ese nombre exacto */
         .hero img { 
-            max-width: 800px; 
+            max-width: 600px; 
             width: 100%; 
             height: auto; 
-            border-radius: 20px; 
-            box-shadow: 0 20px 50px rgba(0,255,204,0.15); 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
             margin-bottom: 40px; 
-            border: 1px solid rgba(0,255,204,0.3);
         }
 
         h1 { 
-            font-family: 'Orbitron', sans-serif; 
-            font-size: clamp(3em, 8vw, 5em); 
+            font-family: 'Playfair Display', serif; 
+            font-size: 3.5em; 
             margin: 0; 
-            letter-spacing: 10px;
-            color: #fff;
+            font-weight: 700;
         }
 
         .hero p { 
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
             font-size: 1.2em; 
-            letter-spacing: 2px; 
-            text-transform: uppercase; 
-            color: var(--primary);
-            font-weight: 300;
+            color: var(--acento);
         }
 
-        .section { padding: 100px 20px; max-width: 1000px; margin: auto; }
+        .section { padding: 80px 20px; max-width: 800px; margin: auto; }
 
         h2 { 
-            font-family: 'Orbitron', sans-serif; 
-            color: var(--primary); 
-            text-transform: uppercase; 
-            letter-spacing: 5px; 
-            font-size: 2em; 
-            margin-bottom: 30px;
+            font-family: 'Playfair Display', serif; 
+            font-size: 2.2em; 
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--acento);
+            display: inline-block;
+            padding-bottom: 10px;
         }
-
-        p { font-size: 1.1em; color: #ccc; max-width: 700px; margin: auto; }
 
         .steps-container { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
-            gap: 25px; 
-            margin-top: 60px; 
-        }
-
-        .step { 
-            background: var(--card-bg); 
-            padding: 40px 30px; 
-            border-radius: 20px; 
-            border: 1px solid #222;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            text-align: left; 
-            position: relative;
-            overflow: hidden;
-        }
-
-        .step:hover { 
-            transform: translateY(-12px); 
-            border-color: var(--primary);
-            box-shadow: 0 10px 30px rgba(0,255,204,0.1);
+            grid-template-columns: 1fr 1fr; 
+            gap: 40px; 
+            margin-top: 50px; 
+            text-align: left;
         }
 
         .step h3 { 
-            font-family: 'Orbitron', sans-serif;
-            color: var(--primary); 
-            font-size: 3em; 
-            margin: 0 0 15px 0; 
-            opacity: 0.2; 
+            font-family: 'Playfair Display', serif;
+            color: var(--acento); 
+            font-size: 1.8em; 
+            margin: 0 0 10px 0; 
         }
-
-        .step b { color: #fff; display: block; margin-bottom: 5px; font-size: 1.2em; }
 
         .instagram-btn { 
             display: inline-block; 
-            background: #fff; 
-            color: #000; 
-            padding: 18px 45px; 
-            border-radius: 50px; 
+            border: 1px solid var(--texto);
+            color: var(--texto); 
+            padding: 15px 40px; 
             text-decoration: none; 
             margin: 60px 0; 
             font-weight: bold; 
-            font-size: 1em; 
+            letter-spacing: 2px;
             transition: 0.3s;
-            font-family: 'Orbitron', sans-serif;
         }
 
-        .instagram-btn:hover { 
-            background: var(--primary); 
-            transform: scale(1.05);
-        }
+        .instagram-btn:hover { background: var(--texto); color: #fff; }
 
-        footer { padding: 80px 20px; font-size: 0.9em; color: #444; border-top: 1px solid #111; letter-spacing: 2px; }
+        footer { padding: 60px; font-size: 0.8em; color: #999; }
 
-        /* Lógica de idiomas mejorada */
         .lang-en { display: none; }
     </style>
 </head>
@@ -161,7 +121,7 @@
     </nav>
 
     <div class="hero">
-        <img src="PIxTI_tapa.jpg" alt="PIxTI Training Technology">
+        <img src="PIxTI_tapa.jpg" alt="PIxTI Tapa Libro">
         <h1>PIxTI</h1>
         <p>Performance Intelligence & Technology Integration</p>
     </div>
@@ -169,7 +129,6 @@
     <div class="section">
         <h2 class="lang-es">¿Qué es PIxTI?</h2>
         <h2 class="lang-en">What is PIxTI?</h2>
-        
         <p class="lang-es">Es la intersección exacta entre la tecnología de datos y el rendimiento humano. Aplicamos ciencia para optimizar cada movimiento.</p>
         <p class="lang-en">It is the exact intersection between data technology and human performance. We apply science to optimize every movement.</p>
     </div>
@@ -177,51 +136,39 @@
     <div class="section">
         <h2 class="lang-es">El Proceso</h2>
         <h2 class="lang-en">The Process</h2>
-        
         <div class="steps-container">
             <div class="step">
-                <h3>01</h3>
-                <p class="lang-es"><b>Captura:</b> Recolección de datos biomecánicos de alta precisión.</p>
-                <p class="lang-en"><b>Capture:</b> High-precision biomechanical data collection.</p>
+                <h3>01. Captura</h3>
+                <p class="lang-es">Recolección de datos biomecánicos de alta precisión.</p>
+                <p class="lang-en">High-precision biomechanical data collection.</p>
             </div>
             <div class="step">
-                <h3>02</h3>
-                <p class="lang-es"><b>Análisis:</b> Procesamiento inteligente de la información deportiva.</p>
-                <p class="lang-en"><b>Analysis:</b> Intelligent processing of sports information.</p>
+                <h3>02. Análisis</h3>
+                <p class="lang-es">Procesamiento inteligente de la información deportiva.</p>
+                <p class="lang-en">Intelligent processing of sports information.</p>
             </div>
             <div class="step">
-                <h3>03</h3>
-                <p class="lang-es"><b>Optimización:</b> Diseño de planes basados en evidencia científica.</p>
-                <p class="lang-en"><b>Optimization:</b> Design of plans based on scientific evidence.</p>
+                <h3>03. Optimización</h3>
+                <p class="lang-es">Diseño de planes basados en evidencia científica.</p>
+                <p class="lang-en">Design of plans based on scientific evidence.</p>
             </div>
             <div class="step">
-                <h3>04</h3>
-                <p class="lang-es"><b>Resultado:</b> Máximo rendimiento con mínimo riesgo de lesión.</p>
-                <p class="lang-en"><b>Result:</b> Maximum performance with minimum risk of injury.</p>
+                <h3>04. Resultado</h3>
+                <p class="lang-es">Máximo rendimiento con mínimo riesgo de lesión.</p>
+                <p class="lang-en">Maximum performance with minimum risk of injury.</p>
             </div>
         </div>
     </div>
 
     <a href="https://instagram.com/TU_USUARIO" target="_blank" class="instagram-btn">INSTAGRAM</a>
 
-    <footer>
-        &copy; 2026 PIxTI. PERFORMANCE & TECHNOLOGY.
-    </footer>
+    <footer>&copy; 2026 PIxTI. Estética Editorial y Rendimiento Humano.</footer>
 
     <script>
         function setLang(lang) {
-            const esElements = document.querySelectorAll('.lang-es');
-            const enElements = document.querySelectorAll('.lang-en');
-            
-            if (lang === 'es') {
-                esElements.forEach(el => el.style.display = 'block');
-                enElements.forEach(el => el.style.display = 'none');
-            } else {
-                esElements.forEach(el => el.style.display = 'none');
-                enElements.forEach(el => el.style.display = 'block');
-            }
+            document.querySelectorAll('.lang-es').forEach(el => el.style.display = (lang === 'es' ? 'block' : 'none'));
+            document.querySelectorAll('.lang-en').forEach(el => el.style.display = (lang === 'en' ? 'block' : 'none'));
         }
     </script>
-
 </body>
 </html>
