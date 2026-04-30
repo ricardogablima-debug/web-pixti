@@ -11,12 +11,18 @@
         /* Capa de fondo fija que abarca todo el sitio */
         .bg-expansivo {
             background-image: url('PIxTI 22_2.jpg');
-            background-size: cover;
-            background-position: center;
+            /* Ajustamos para que la imagen mantenga su proporción y nitidez */
+            background-size: 100% auto; 
+            background-position: top center;
             background-attachment: fixed;
             position: fixed;
             inset: 0;
             z-index: -1;
+            
+            /* MEJORA DE RESOLUCIÓN: Instrucciones para el navegador */
+            image-rendering: -webkit-optimize-contrast; /* Para navegadores basados en Chrome/Safari */
+            image-rendering: high-quality;
+            background-color: #f4eee0; /* Color de respaldo que coincide con tu fondo */
         }
 
         body { font-family: 'Inter', sans-serif; background-color: #f4eee0; }
