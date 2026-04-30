@@ -129,37 +129,58 @@
         </div>
     </section>
 
-    <script>
-        let currentLang = 'esp';
-        const langData = {
-            esp: {
-                tagline: "Principios isométricos para la Transformación Isotónica",
-                f1: "Fase 1", t1: "Isometría", d1: "Texto en espera...",
-                contact: "Contacto Profesional", name: "Nombre y Apellido",
-                phone: "Celular", country: "País", msg: "Mensaje", btn: "Enviar Solicitud"
-            },
-            eng: {
-                tagline: "Isometric Principles for Isotonic Transformation",
-                f1: "Phase 1", t1: "Isometrics", d1: "Pending content...",
-                contact: "Professional Contact", name: "Full Name",
-                phone: "Mobile", country: "Country", msg: "Message", btn: "Send Request"
-            }
-        };
+    let currentLang = 'esp';
 
-        function toggleLanguage() {
-            currentLang = currentLang === 'esp' ? 'eng' : 'esp';
-            const data = langData[currentLang];
-            document.getElementById('main-tagline').innerText = data.tagline;
-            document.getElementById('lbl-fase1').innerText = data.f1;
-            document.getElementById('tit-fase1').innerText = data.t1;
-            document.getElementById('desc-fase1').innerText = data.d1;
-            document.getElementById('contact-title').innerText = data.contact;
-            document.getElementById('form-name').placeholder = data.name;
-            document.getElementById('form-phone').placeholder = data.phone;
-            document.getElementById('form-country').placeholder = data.country;
-            document.getElementById('form-msg').placeholder = data.msg;
-            document.getElementById('form-submit').innerText = data.btn;
-        }
-    </script>
+const langData = {
+    esp: {
+        tagline: "Principios isométricos para la Transformación Isotónica",
+        contact: "Contacto Profesional",
+        btn: "Enviar Solicitud",
+        // Array con los datos de las 4 fases
+        fases: [
+            { label: "Fase 1", title: "Isometría", desc: "Texto en espera..." },
+            { label: "Fase 2", title: "Activación", desc: "Texto en espera..." },
+            { label: "Fase 3", title: "Inserción", desc: "Texto en espera..." },
+            { label: "Fase 4", title: "Movilidad", desc: "Texto en espera..." }
+        ],
+        form: { name: "Nombre y Apellido", phone: "Celular", country: "País", msg: "Mensaje" }
+    },
+    eng: {
+        tagline: "Isometric Principles for Isotonic Transformation",
+        contact: "Professional Contact",
+        btn: "Send Request",
+        fases: [
+            { label: "Phase 1", title: "Isometrics", desc: "Pending content..." },
+            { label: "Phase 2", title: "Activation", desc: "Pending content..." },
+            { label: "Phase 3", title: "Insertion", desc: "Pending content..." },
+            { label: "Phase 4", title: "Mobility", desc: "Pending content..." }
+        ],
+        form: { name: "Full Name", phone: "Mobile", country: "Country", msg: "Message" }
+    }
+};
+
+function toggleLanguage() {
+    currentLang = currentLang === 'esp' ? 'eng' : 'esp';
+    const data = langData[currentLang];
+
+    // Traducción de textos generales
+    document.getElementById('main-tagline').innerText = data.tagline;
+    document.getElementById('contact-title').innerText = data.contact;
+    document.getElementById('form-submit').innerText = data.btn;
+
+    // TRADUCCIÓN AUTOMÁTICA DE LAS 4 FASES
+    for (let i = 1; i <= 4; i++) {
+        const infoFase = data.fases[i - 1]; // Accedemos a la lista (0 a 3)
+        document.getElementById(`lbl-fase${i}`).innerText = infoFase.label;
+        document.getElementById(`tit-fase${i}`).innerText = infoFase.title;
+        document.getElementById(`desc-fase${i}`).innerText = infoFase.desc;
+    }
+
+    // Traducción de los placeholders del formulario
+    document.getElementById('form-name').placeholder = data.form.name;
+    document.getElementById('form-phone').placeholder = data.form.phone;
+    document.getElementById('form-country').placeholder = data.form.country;
+    document.getElementById('form-msg').placeholder = data.form.msg;
+}
 </body>
 </html>
