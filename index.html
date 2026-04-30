@@ -8,17 +8,47 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
-        body { background-color: #f4eee0; color: #0f172a; font-family: 'Inter', sans-serif; }
+        body { 
+            background-color: #f4eee0; 
+            color: #0f172a; 
+            font-family: 'Inter', sans-serif;
+            position: relative; 
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.15; 
+            z-index: -1;
+            background-image: url('PIxTI_tapa.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            mix-blend-mode: multiply;
+            filter: contrast(150%) brightness(120%);
+        }
         .font-serif { font-family: 'Playfair Display', serif; }
         .accent-orange { color: #f59e0b; }
         input[type="range"] { accent-color: #f59e0b; }
+        
+        /* Efecto de revelación para los cuadrantes */
+        .fase-card { transition: all 0.5s ease; position: relative; overflow: hidden; cursor: pointer; min-height: 280px; display: flex; flex-direction: column; justify-content: center; }
+        .fase-card:hover { transform: translateY(-5px); background-color: #0f172a; color: #f4eee0; }
+        .fase-card .detalle-manual { display: none; opacity: 0; transition: opacity 0.5s ease; }
+        .fase-card:hover .detalle-manual { display: block; opacity: 1; }
+        .fase-card:hover .resumen-inicial { display: none; }
+        .fase-card:hover .accent-orange { color: #f59e0b; }
     </style>
 </head>
 <body>
 
     <header class="py-24 px-6 text-center border-b border-black/5">
         <div class="max-w-4xl mx-auto">
-            <p class="text-[10px] font-bold uppercase tracking-[0.3em] accent-orange mb-4">Ricardo Gabriel Lima</p>
+            <p class="text-[10px] font-bold uppercase tracking-[0.3em] accent-orange mb-4">Desde adentro hacia afuera</p>
             <h1 class="font-serif text-7xl md:text-8xl font-bold mb-6 italic">PIxTI<span class="text-3xl align-top">®</span></h1>
             <p class="text-xl md:text-2xl italic font-serif text-gray-700 leading-relaxed">
                 Principios Isométricos para la <br>
@@ -29,37 +59,68 @@
 
     <section class="py-20 px-6 max-w-6xl mx-auto">
         <div class="text-center mb-16">
-            <h2 class="font-serif text-4xl mb-4 italic">El Viaje de la Tensión</h2>
-            <p class="text-gray-500 uppercase text-[10px] tracking-widest font-bold">Arquitectura del Movimiento Humano</p>
+            <div class="text-center mb-16">
+    <h2 class="text-4xl md:text-5xl font-serif italic text-azul-oscuro mb-6">El Método PIxTI</h2>
+    <p class="max-w-3xl mx-auto text-lg text-gray-600 leading-relaxed">
+        <strong>(Principios Isométricos para la Transformación Isotónica)</strong> es un modelo de entrenamiento neuromuscular avanzado que desplaza el foco de la carga externa (los kilogramos) hacia la gestión interna del sistema (la intención de fuerza)[cite: 48, 49].
+    </p>
+</div>
+            <p class="text-gray-500 uppercase text-[10px] tracking-widest font-bold">Pasa el mouse para descubrir la ciencia del método</p>
         </div>
         
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-black/5">
-                <span class="font-serif italic text-3xl accent-orange">Fase 1</span>
-                <h3 class="font-bold mt-2 mb-4 text-sm uppercase">Isometría CIMV</h3>
-                <p class="text-xs text-gray-600 leading-relaxed">La base del sistema. Contracción Isométrica Máxima Voluntaria. Aprendemos a encender la "perilla de tensión" sin depender de la inercia externa.</p>
+            <div class="fase-card bg-white p-8 rounded-3xl shadow-sm border border-black/5">
+                <div class="resumen-inicial">
+                    <span class="font-serif italic text-3xl accent-orange">Fase 1</span>
+                    <h3 class="font-bold mt-2 mb-4 text-sm uppercase tracking-tighter">Isometría (CIMV)</h3>
+                    <p class="text-xs opacity-60 uppercase font-bold tracking-widest">El Anclaje</p>
+                </div>
+                <div class="detalle-manual">
+                    <p class="text-sm italic mb-4">"El descubrimiento de la estabilidad profunda."</p>
+                    <p class="text-xs leading-relaxed">Aquí establecemos el <strong>Ancla</strong> (punto de apoyo fijo). Es la raíz donde la energía se organiza antes de ser proyectada. Es donde aprendes a encender la tensión sin depender de la inercia externa.</p>
+                </div>
             </div>
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-black/5">
-                <span class="font-serif italic text-3xl accent-orange">Fase 2</span>
-                <h3 class="font-bold mt-2 mb-4 text-sm uppercase">Intención Cortical</h3>
-                <p class="text-xs text-gray-600 leading-relaxed">El puente neuromuscular. Reducimos el tiempo entre la orden cerebral y la manifestación de la fuerza (Velocidad de Reacción).</p>
+
+            <div class="fase-card bg-white p-8 rounded-3xl shadow-sm border border-black/5">
+                <div class="resumen-inicial">
+                    <span class="font-serif italic text-3xl accent-orange">Fase 2</span>
+                    <h3 class="font-bold mt-2 mb-4 text-sm uppercase tracking-tighter">Activación Cortical</h3>
+                    <p class="text-xs opacity-60 uppercase font-bold tracking-widest">Fuerza Infinita</p>
+                </div>
+                <div class="detalle-manual">
+                    <p class="text-sm italic mb-4">"El encendido neuromuscular."</p>
+                    <p class="text-xs leading-relaxed">Con el <strong>Ancla</strong> firme, la intención recluta cada fibra. Aquí la fuerza es <strong>infinita</strong>: cuanto más entrenas la conexión cerebro-músculo, mayor es la carga interna generada, sin techos impuestos por el hierro.</p>
+                </div>
             </div>
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-black/5">
-                <span class="font-serif italic text-3xl accent-orange">Fase 3</span>
-                <h3 class="font-bold mt-2 mb-4 text-sm uppercase">Reacción / Stiffness</h3>
-                <p class="text-xs text-gray-600 leading-relaxed">La capacidad de absorber energía y liberarla. Entrenamos la rigidez funcional para evitar fugas de potencia en el gesto deportivo.</p>
+
+            <div class="fase-card bg-white p-8 rounded-3xl shadow-sm border border-black/5">
+                <div class="resumen-inicial">
+                    <span class="font-serif italic text-3xl accent-orange">Fase 3</span>
+                    <h3 class="font-bold mt-2 mb-4 text-sm uppercase tracking-tighter">Reacción / Stiffness</h3>
+                    <p class="text-xs opacity-60 uppercase font-bold tracking-widest">Proyección</p>
+                </div>
+                <div class="detalle-manual">
+                    <p class="text-sm italic mb-4">"La proyección del poder."</p>
+                    <p class="text-xs leading-relaxed">La energía organizada en el <strong>Ancla</strong> se proyecta hacia el espacio. Transformamos la tensión en potencia dirigida y exacta, mejorando la performance biomecánica en cada milímetro de la trayectoria.</p>
+                </div>
             </div>
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-black/5">
-                <span class="font-serif italic text-3xl accent-orange">Fase 4</span>
-                <h3 class="font-bold mt-2 mb-4 text-sm uppercase">Movilidad Consciente</h3>
-                <p class="text-xs text-gray-600 leading-relaxed">La transformación final. Aplicamos torque máximo en todo el rango angular (0-180°) bajo control absoluto del sistema.</p>
+
+            <div class="fase-card bg-white p-8 rounded-3xl shadow-sm border border-black/5">
+                <div class="resumen-inicial">
+                    <span class="font-serif italic text-3xl accent-orange">Fase 4</span>
+                    <h3 class="font-bold mt-2 mb-4 text-sm uppercase tracking-tighter">Movilidad Consciente</h3>
+                    <p class="text-xs opacity-60 uppercase font-bold tracking-widest">Integración</p>
+                </div>
+                <div class="detalle-manual">
+                    <p class="text-sm italic mb-4">"La integración soberana."</p>
+                    <p class="text-xs leading-relaxed">Culminación del proceso. El <strong>Ancla</strong> se vuelve dinámica. El cuerpo fluye con dominio absoluto y eficiencia motriz, logrando una evolución constante de la performance bajo autorregulación.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="py-20 bg-white/40 border-y border-black/5 px-4">
         <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-            
             <div class="bg-white p-10 rounded-[3rem] shadow-sm border border-black/5">
                 <h2 class="font-serif text-3xl mb-8 italic">Simulador de Subgrupos</h2>
                 <div class="space-y-10">
@@ -196,9 +257,7 @@
             chart.data.datasets[0].data = [f, r_radar, v, a_radar];
             chart.update();
 
-            // CLASIFICACIÓN BASADA EN EL ÁRBOL DE RICARDO
-            let d = "Ajuste las variables para análisis";
-            
+            let d = "Ajuste las variables";
             if (f > 85 && v > 85) d = "Fuerza Explosiva / Potencia";
             else if (f > 70 && r_sec > 60) d = "Fuerza Resistencia";
             else if (f > 90 && r_sec <= 15) d = "Resistencia Anaeróbica Aláctica";
