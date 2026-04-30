@@ -9,25 +9,29 @@
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;600&display=swap');
         
         /* Capa de fondo fija que abarca todo el sitio */
-       /* Capa de fondo fija con la nueva imagen de alta resolución */
+       /* Capa de fondo optimizada para alta resolución y nitidez */
         .bg-expansivo {
-            /* 1. Usamos el nombre exacto del archivo que subiste a GitHub */
+            /* Referencia exacta al nuevo archivo en tu GitHub */
             background-image: url('fondo-pixti.png');
             
-            /* 2. 'contain' asegura que la imagen sea nítida y no se deforme */
+            /* 'contain' evita el pixelado al no estirar la imagen más de su tamaño real */
             background-size: contain; 
             background-position: top center;
             background-repeat: no-repeat;
             background-attachment: fixed;
             
-            /* 3. Color crema que combina con los bordes de tu imagen */
+            /* Color exacto para que el fondo se vea infinito a los lados */
             background-color: #f3eee1; 
             
             position: fixed;
             inset: 0;
             z-index: -1;
 
-            /* 4. Instrucciones para que el navegador mantenga los bordes definidos */
+            /* Propiedades críticas de renderizado para evitar bordes borrosos */
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: high-quality;
+            -webkit-font-smoothing: antialiased;
+        }
             image-rendering: high-quality;
             -webkit-backface-visibility: hidden; /* Ayuda a la fluidez del renderizado */
         }
