@@ -1,180 +1,72 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PIxTI® - Versión Expansiva</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;600&display=swap');
-        
-        /* Capa de fondo fija que abarca todo el sitio */
-       /* Capa de fondo optimizada para alta resolución y nitidez */
-        .bg-expansivo {
-            /* Referencia exacta al nuevo archivo en tu GitHub */
-            background-image: url('fondo-pixti.png');
-            
-            /* 'contain' evita el pixelado al no estirar la imagen más de su tamaño real */
-            background-size: contain; 
-            background-position: top center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            
-            /* Color exacto para que el fondo se vea infinito a los lados */
-            background-color: #f3eee1; 
-            
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-
-            /* Propiedades críticas de renderizado para evitar bordes borrosos */
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: high-quality;
-            -webkit-font-smoothing: antialiased;
-        }
-            image-rendering: high-quality;
-            -webkit-backface-visibility: hidden; /* Ayuda a la fluidez del renderizado */
-        }
-
-        body { font-family: 'Inter', sans-serif; background-color: #f4eee0; }
-        .font-serif { font-family: 'Playfair Display', serif; }
-        
-        /* Efecto de cristal para legibilidad sobre el fondo */
-        .glass-effect {
-            background: rgba(244, 238, 224, 0.8);
-            backdrop-filter: blur(8px);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PIxTI</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
 
-    <!-- Fondo fijo -->
-    <div class="bg-expansivo"></div>
-
-    <!-- Botón de Idioma -->
-    <nav class="fixed top-6 right-6 z-50">
-        <button onclick="toggleLanguage()" class="bg-[#0f172a] text-white px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-[#f59e0b] transition-all">
-            ESP / ENG
-        </button>
-    </nav>
-
-    <!-- Header -->
-    <!-- Header: Mantiene el espacio sin duplicar el texto de la imagen de fondo -->
-<header class="h-screen flex items-center justify-center">
-    <div class="opacity-0">
-        <h1 id="main-title">PIxTI®</h1>
-        <p id="main-tagline">Principios Isométricos para la Transformación Isotónica</p>
-    </div>
+<header class="header">
+  <h1 class="logo">PIxTI</h1>
+  <nav>
+    <a href="#">Método</a>
+    <a href="#">Ciencia</a>
+    <a href="#">Aplicaciones</a>
+    <a href="#">Autor</a>
+  </nav>
 </header>
 
-    <!-- Sección de Cuadrantes -->
-  <!-- Cuadrante Fase 1 -->
-<div class="relative overflow-hidden rounded-[2.5rem] h-80 bg-transparent group cursor-pointer">
-    <!-- Eliminamos el <span> que decía "Fase 1" porque ya está en el dibujo -->
-    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-        <span id="lbl-fase1"></span> 
-    </div>
+<section class="hero">
+  <div class="hero-content">
+    <h2>Entrenamiento desde adentro hacia afuera</h2>
     
-    <!-- Este es el panel móvil que sube al pasar el mouse -->
-    <div class="absolute inset-0 glass-effect p-8 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-in-out flex flex-col justify-center border border-white/20 shadow-2xl">
-        <h3 class="font-bold text-xs uppercase tracking-widest mb-3 text-[#0f172a]" id="tit-fase1">Isometría</h3>
-        <p class="text-sm text-gray-700 leading-relaxed" id="desc-fase1">Texto bilingüe que aparece al mover el mouse...</p>
+    <p class="hero-sub">
+      Generación interna de tensión.  
+      Activación neuromuscular consciente.  
+      Aplicación inmediata.
+    </p>
+
+    <p class="hero-validation">
+      Método en desarrollo científico con aplicación práctica en entrenamiento y educación física.
+    </p>
+
+    <div class="hero-buttons">
+      <button>Explorar el método</button>
+      <button class="secondary">Comenzar ahora</button>
     </div>
-</div>
-          <!-- Cuadrante Fase 2 -->
-    <div class="relative overflow-hidden rounded-[2.5rem] h-80 bg-transparent group cursor-pointer">
-        <!-- El panel que se desliza hacia arriba -->
-        <div class="absolute inset-0 glass-effect p-8 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-in-out flex flex-col justify-center border border-white/20 shadow-2xl">
-            <h3 class="font-bold text-xs uppercase tracking-widest mb-3 text-[#0f172a]" id="tit-fase2">Activación</h3>
-            <p class="text-sm text-gray-700 leading-relaxed" id="desc-fase2">Texto pendiente...</p>
-        </div>
-    </div>
+  </div>
+</section>
 
-    <!-- Cuadrante Fase 3 -->
-    <div class="relative overflow-hidden rounded-[2.5rem] h-80 bg-transparent group cursor-pointer">
-        <div class="absolute inset-0 glass-effect p-8 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-in-out flex flex-col justify-center border border-white/20 shadow-2xl">
-            <h3 class="font-bold text-xs uppercase tracking-widest mb-3 text-[#0f172a]" id="tit-fase3">Inserción</h3>
-            <p class="text-sm text-gray-700 leading-relaxed" id="desc-fase3">Texto pendiente...</p>
-        </div>
-    </div>
+<section class="section">
+  <h3>¿Qué es PIxTI?</h3>
+  <p>
+    PIxTI es un sistema de entrenamiento basado en la generación interna de tensión, 
+    que activa el sistema neuromuscular y transforma esa energía en movimiento controlado.
+  </p>
+</section>
 
-    <!-- Cuadrante Fase 4 -->
-    <div class="relative overflow-hidden rounded-[2.5rem] h-80 bg-transparent group cursor-pointer">
-        <div class="absolute inset-0 glass-effect p-8 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-in-out flex flex-col justify-center border border-white/20 shadow-2xl">
-            <h3 class="font-bold text-xs uppercase tracking-widest mb-3 text-[#0f172a]" id="tit-fase4">Movilidad</h3>
-            <p class="text-sm text-gray-700 leading-relaxed" id="desc-fase4">Texto pendiente...</p>
-        </div>
-    </div>
+<section class="section dark">
+  <h3>El ciclo PIxTI</h3>
+  <p>
+    Isometría → Activación → Reacción → Movimiento
+  </p>
+</section>
 
-    <!-- Formulario de Contacto -->
-    <section class="glass-effect py-24 px-6 rounded-t-[4rem]">
-        <div class="max-w-4xl mx-auto">
-            <h2 id="contact-title" class="font-serif text-5xl mb-12 italic text-center text-[#0f172a]">Contacto Profesional</h2>
-            <form class="grid md:grid-cols-2 gap-8">
-                <input type="text" id="form-name" placeholder="Nombre y Apellido" class="bg-transparent border-b border-black/20 py-4 outline-none focus:border-[#f59e0b]">
-                <input type="tel" id="form-phone" placeholder="Celular" class="bg-transparent border-b border-black/20 py-4 outline-none focus:border-[#f59e0b]">
-                <input type="email" id="form-email" placeholder="Email" class="bg-transparent border-b border-black/20 py-4 outline-none focus:border-[#f59e0b]">
-                <input type="text" id="form-country" placeholder="País" class="bg-transparent border-b border-black/20 py-4 outline-none focus:border-[#f59e0b]">
-                <textarea id="form-msg" placeholder="Mensaje" class="md:col-span-2 bg-transparent border-b border-black/20 py-4 h-32 outline-none focus:border-[#f59e0b]"></textarea>
-                <button id="form-submit" class="md:col-span-2 bg-[#f59e0b] text-[#0f172a] font-bold py-6 rounded-2xl uppercase text-xs tracking-[0.3em] hover:bg-[#0f172a] hover:text-white transition-all">
-                    Enviar Solicitud
-                </button>
-            </form>
-        </div>
-    </section>
+<section class="section">
+  <h3>Aplicación inmediata</h3>
+  <p>
+    El método puede ser aplicado en entrenamiento deportivo, educación física y desarrollo corporal consciente.
+  </p>
+</section>
 
-    let currentLang = 'esp';
+<footer>
+  <p>© Ricardo Gabriel Lima - Método PIxTI</p>
+</footer>
 
-const langData = {
-    esp: {
-        tagline: "Principios isométricos para la Transformación Isotónica",
-        contact: "Contacto Profesional",
-        btn: "Enviar Solicitud",
-        // Array con los datos de las 4 fases
-        fases: [
-            { label: "Fase 1", title: "Isometría", desc: "Texto en espera..." },
-            { label: "Fase 2", title: "Activación", desc: "Texto en espera..." },
-            { label: "Fase 3", title: "Inserción", desc: "Texto en espera..." },
-            { label: "Fase 4", title: "Movilidad", desc: "Texto en espera..." }
-        ],
-        form: { name: "Nombre y Apellido", phone: "Celular", country: "País", msg: "Mensaje" }
-    },
-    eng: {
-        tagline: "Isometric Principles for Isotonic Transformation",
-        contact: "Professional Contact",
-        btn: "Send Request",
-        fases: [
-            { label: "Phase 1", title: "Isometrics", desc: "Pending content..." },
-            { label: "Phase 2", title: "Activation", desc: "Pending content..." },
-            { label: "Phase 3", title: "Insertion", desc: "Pending content..." },
-            { label: "Phase 4", title: "Mobility", desc: "Pending content..." }
-        ],
-        form: { name: "Full Name", phone: "Mobile", country: "Country", msg: "Message" }
-    }
-};
+<script src="js/script.js"></script>
 
-function toggleLanguage() {
-    currentLang = currentLang === 'esp' ? 'eng' : 'esp';
-    const data = langData[currentLang];
-
-    // Traducción de textos generales
-    document.getElementById('main-tagline').innerText = data.tagline;
-    document.getElementById('contact-title').innerText = data.contact;
-    document.getElementById('form-submit').innerText = data.btn;
-
-    // TRADUCCIÓN AUTOMÁTICA DE LAS 4 FASES
-    for (let i = 1; i <= 4; i++) {
-        const infoFase = data.fases[i - 1]; // Accedemos a la lista (0 a 3)
-        document.getElementById(`lbl-fase${i}`).innerText = infoFase.label;
-        document.getElementById(`tit-fase${i}`).innerText = infoFase.title;
-        document.getElementById(`desc-fase${i}`).innerText = infoFase.desc;
-    }
-
-    // Traducción de los placeholders del formulario
-    document.getElementById('form-name').placeholder = data.form.name;
-    document.getElementById('form-phone').placeholder = data.form.phone;
-    document.getElementById('form-country').placeholder = data.form.country;
-    document.getElementById('form-msg').placeholder = data.form.msg;
-}
 </body>
 </html>
