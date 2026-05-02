@@ -42,3 +42,22 @@ function setLang(lang) {
     }
   });
 }
+const translations = {
+  es: {
+    hero_title: "Entrenamiento desde adentro hacia afuera"
+  },
+  en: {
+    hero_title: "Training from the inside out"
+  }
+};
+
+function setLang(lang) {
+  const elements = document.querySelectorAll("[data-key]");
+  
+  elements.forEach(el => {
+    const key = el.getAttribute("data-key");
+    if (translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+}
