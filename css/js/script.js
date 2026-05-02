@@ -1,16 +1,25 @@
 const fases = document.querySelectorAll(".fase");
 const descripcion = document.getElementById("ciclo-descripcion");
 
-fases.forEach(fase => {
+let index = 0;
+
+function activarFase(i) {
+  fases.forEach(f => f.classList.remove("activa"));
+
+  fases[i].classList.add("activa");
+  descripcion.textContent = fases[i].getAttribute("data-text");
+}
+
+// animación automática
+setInterval(() => {
+  activarFase(index);
+  index = (index + 1) % fases.length;
+}, 2000);
+
+// interacción manual (no se pierde)
+fases.forEach((fase, i) => {
   fase.addEventListener("click", () => {
-
-    // reset visual
-    fases.forEach(f => f.classList.remove("activa"));
-
-    // activar la seleccionada
-    fase.classList.add("activa");
-
-    // cambiar texto
-    descripcion.textContent = fase.getAttribute("data-text");
+    index = i;
+    activarFase(index);
   });
 });
