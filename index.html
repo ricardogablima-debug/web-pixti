@@ -12,22 +12,21 @@
 <header class="header">
   <h1 class="logo">PIxTI</h1>
   <nav>
-    <a href="#">Método</a>
-    <a href="#">Ciencia</a>
-    <a href="#">Aplicaciones</a>
-    <a href="#">Autor</a>
+    <a href="#metodo">Método</a>
+    <a href="#ciclo">Ciclo</a>
+    <a href="#conceptos">Conceptos</a>
+    <a href="#ciencia">Ciencia</a>
+    <a href="#autor">Autor</a>
   </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    
-    <h2>
-      Entrenamiento desde adentro hacia afuera
-    </h2>
+    <h2>Entrenamiento desde adentro hacia afuera</h2>
 
     <p class="hero-sub">
-      Generación interna de tensión • Activación neuromuscular • Movimiento consciente
+      Un modelo de entrenamiento basado en la generación y control de resistencia interna mediante oposición neuromuscular.
     </p>
 
     <p class="hero-validation">
@@ -35,32 +34,140 @@
     </p>
 
     <div class="hero-buttons">
-      <button id="btnMetodo">Explorar el método</button>
+      <button onclick="document.getElementById('metodo').scrollIntoView()">Explorar el método</button>
       <button class="secondary">Comenzar ahora</button>
+    </div>
+  </div>
+</section>
+
+<!-- QUE ES -->
+<section class="section" id="metodo">
+  <h3>¿Qué es PIxTI?</h3>
+
+  <p>
+    PIxTI (Principios Isométricos para la Transformación Isotónica) es un sistema de entrenamiento neuromuscular basado en la generación consciente de tensión interna.
+  </p>
+
+  <p>
+    El método integra activación muscular, control neuromuscular y oposición interna para producir movimiento bajo condiciones de tensión continua.
+  </p>
+
+  <ul>
+    <li>Se genera tensión</li>
+    <li>Se sostiene esa tensión</li>
+    <li>Se produce movimiento dentro de esa tensión</li>
+  </ul>
+</section>
+
+<!-- CICLO -->
+<section class="section ciclo" id="ciclo">
+  <h3>Cómo funciona PIxTI</h3>
+
+  <div class="ciclo-container">
+
+    <div class="fase" data-text="Generación de tensión contra una referencia estable">
+      Activación isométrica
+    </div>
+
+    <div class="fase" data-text="Acumulación de energía interna sin desplazamiento visible">
+      Tensión interna
+    </div>
+
+    <div class="fase" data-text="Resistencia generada por el propio sistema neuromuscular">
+      Oposición
+    </div>
+
+    <div class="fase" data-text="Regulación consciente del esfuerzo durante el movimiento">
+      Modulación
+    </div>
+
+    <div class="fase" data-text="Movimiento generado dentro de un entorno de tensión constante">
+      Movimiento
     </div>
 
   </div>
-</section>
-<section class="section">
-  <h3>¿Qué es PIxTI?</h3>
-  <p>
-    PIxTI es un sistema de entrenamiento basado en la generación interna de tensión, 
-    que activa el sistema neuromuscular y transforma esa energía en movimiento controlado.
+
+  <p id="ciclo-descripcion">
+    Interactuá con cada fase para comprender el proceso.
   </p>
+
+  <p><strong>La isometría se transforma en movimiento.</strong></p>
 </section>
 
+<!-- CONCEPTOS -->
+<section class="section" id="conceptos">
+  <h3>Conceptos clave</h3>
+
+  <h4>Punto fijo</h4>
+  <p>El punto fijo organiza la dirección de la tensión.</p>
+
+  <h4>Pesa interna</h4>
+  <p>El cuerpo genera su propia resistencia.</p>
+
+  <h4>Co-contracción</h4>
+  <p>La resistencia se organiza a nivel del sistema.</p>
+</section>
+
+<!-- DIFERENCIAL -->
 <section class="section dark">
-  <h3>El ciclo PIxTI</h3>
+  <h3>Diferencial del método</h3>
+
+  <div class="tabla">
+    <div>
+      <h4>Entrenamiento tradicional</h4>
+      <ul>
+        <li>Carga externa</li>
+        <li>Variación mecánica</li>
+        <li>Dependencia del equipamiento</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>PIxTI</h4>
+      <ul>
+        <li>Resistencia interna</li>
+        <li>Tensión continua</li>
+        <li>Control neuromuscular</li>
+      </ul>
+    </div>
+  </div>
+
+  <p><strong>La carga se construye desde el sistema.</strong></p>
+</section>
+
+<!-- CIENCIA -->
+<section class="section" id="ciencia">
+  <h3>Base científica</h3>
+
   <p>
-    Isometría → Activación → Reacción → Movimiento
+    El método PIxTI se fundamenta en principios ampliamente estudiados en la literatura científica:
+  </p>
+
+  <ul>
+    <li>Co-contracción muscular</li>
+    <li>Control neuromuscular</li>
+    <li>Propiocepción</li>
+    <li>Activación isométrica</li>
+    <li>Coordinación intermuscular</li>
+  </ul>
+
+  <p>
+    Diversos estudios han demostrado que la activación simultánea de múltiples grupos musculares permite regular la estabilidad articular, la producción de fuerza y el control del movimiento.
   </p>
 </section>
 
-<section class="section">
-  <h3>Aplicación inmediata</h3>
-  <p>
-    El método puede ser aplicado en entrenamiento deportivo, educación física y desarrollo corporal consciente.
-  </p>
+<!-- AUTOR -->
+<section class="section" id="autor">
+  <h3>Autor</h3>
+
+  <p><strong>Ricardo Gabriel Lima</strong></p>
+  <p>Creador del Método PIxTI</p>
+  <p>MBA | Profesor y Licenciado en Educación Física y Deportes</p>
+
+  <a href="https://www.linkedin.com/in/ricardo-gabriel-lima-mba/" target="_blank" class="linkedin">
+    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="20">
+    Ver perfil en LinkedIn
+  </a>
 </section>
 
 <footer>
