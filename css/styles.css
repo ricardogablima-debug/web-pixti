@@ -85,3 +85,29 @@ button.secondary {
 .section.dark {
   background: #111;
 }
+/* Mejora tipográfica */
+.hero h2 {
+  font-size: 52px;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+/* Separación visual */
+.hero-sub {
+  margin-top: 20px;
+}
+
+.hero-validation {
+  margin-top: 25px;
+  font-style: italic;
+}
+
+/* Botones más modernos */
+button {
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
