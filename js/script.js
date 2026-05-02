@@ -64,3 +64,19 @@ function setLang(lang) {
     }
   });
 }
+es: {
+  ...
+  menu_method: "Método",
+  menu_cycle: "Ciclo",
+  menu_concepts: "Conceptos",
+  menu_science: "Ciencia",
+  menu_author: "Autor"
+},
+en: {
+  ...
+  menu_method: "Method",
+  menu_cycle: "Cycle",
+  menu_concepts: "Concepts",
+  menu_science: "Science",
+  menu_author: "Author"
+}
