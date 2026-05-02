@@ -167,3 +167,20 @@ button:hover {
 .fase:last-child::after {
   content: "";
 }
+/* lo que ya tenías */
+
+/* ciclo */
+.fase {
+  ...
+}
+
+.fase:hover {
+  ...
+}
+
+/* NUEVO — fase activa */
+.fase.activa {
+  background: white;
+  color: black;
+  transform: scale(1.08);
+}
