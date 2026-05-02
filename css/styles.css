@@ -186,6 +186,7 @@ button:hover {
 }
 .vector {
   text-align: center;
+  padding: 60px 20px;
 }
 
 .vector-container {
@@ -197,9 +198,10 @@ button:hover {
 
 .vector-box {
   width: 40%;
-  border: 1px solid white;
+  border: 2px solid white;
   padding: 30px;
   transition: all 0.3s ease;
+  margin: 10px;
 }
 
 .vector-box:hover {
