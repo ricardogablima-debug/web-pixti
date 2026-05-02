@@ -26,11 +26,13 @@ fases.forEach((fase, i) => {
 const translations = {
   es: {
   hero_title: "Entrenamiento desde adentro hacia afuera",
-  hero_desc: "Un modelo de entrenamiento basado en la generación y control de resistencia interna mediante oposición neuromuscular."
+  hero_desc: "Un modelo de entrenamiento basado en la generación y control de resistencia interna mediante oposición neuromuscular.",
+  hero_phrase: "La carga se construye desde el propio cuerpo."
 },
 en: {
   hero_title: "Training from the inside out",
-  hero_desc: "A training model based on the generation and control of internal resistance through neuromuscular opposition."
+  hero_desc: "A training model based on the generation and control of internal resistance through neuromuscular opposition.",
+  hero_phrase: "Load is built from within the body."
 }
 
 function setLang(lang) {
