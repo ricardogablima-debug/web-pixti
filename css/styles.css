@@ -238,3 +238,61 @@ footer {
   padding: 30px;
   color: #777;
 }
+
+/* ==========================
+   MOBILE FIX
+========================== */
+
+@media (max-width: 768px) {
+
+  .header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero h2 {
+    font-size: 32px;
+  }
+
+  .hero-sub {
+    font-size: 16px;
+  }
+
+  .ciclo-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .fase {
+    width: 80%;
+  }
+
+  .fase::after {
+    display: none;
+  }
+
+  .tabla {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tabla div {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .vector-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .vector-box {
+    width: 90%;
+  }
+}
