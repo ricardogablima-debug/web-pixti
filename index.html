@@ -3,66 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PIxTI | Metodología Neuromuscular Avanzada</title>
+    <title>PIxTI | Entrenamiento Neuromuscular Avanzado</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Fuentes y Iconos -->
     <link href="https://googleapis.com" rel="stylesheet">
     <script src="https://unpkg.com"></script>
+    <script src="https://jsdelivr.net"></script>
 </head>
 <body>
-    <nav class="navbar">
+    <div class="glow"></div>
+    
+    <nav>
         <div class="logo">PI<span>x</span>TI</div>
-        <ul class="nav-links">
-            <li><a href="#metodo">Método</a></li>
-            <li><a href="#pilares">Pilares</a></li>
-            <li><a href="#ciencia">Ciencia</a></li>
-        </ul>
+        <div class="nav-links">
+            <a href="#metodo">El Método</a>
+            <a href="#ciencia">Ciencia</a>
+            <a href="#autor">Autor</a>
+        </div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-content">
-            <h1 class="fade-in">EFICIENCIA <br><span class="highlight">NEUROMUSCULAR</span></h1>
-            <p>Evolución del entrenamiento basada en evidencia científica y precisión isométrica.</p>
-            <a href="#metodo" class="btn-main">Descubrir Método</a>
-        </div>
+    <header>
+        <div class="hero-tag">Entrenamiento desde adentro hacia afuera</div>
+        <h1>Transformación <span class="gradient-text">Isotónica</span></h1>
+        <p>Un modelo basado en la generación y control de resistencia interna mediante oposición neuromuscular consciente.</p>
+        <a href="#metodo" class="btn-primary">Descubrir PIxTI</a>
     </header>
 
-    <section id="metodo" class="section">
-        <h2 class="section-title">La Metodología</h2>
-        <div class="grid-concept">
-            <div class="card">
-                <i data-lucide="activity"></i>
-                <h3>¿Qué es PIxTI?</h3>
-                <p>Es un sistema de entrenamiento que maximiza la activación muscular mediante el control de ángulos y tiempos de tensión específicos.</p>
+    <section id="metodo" class="container">
+        <h2 class="section-title">¿Qué es PIxTI?</h2>
+        <div class="glass-card main-concept">
+            <p><strong>Principios Isométricos para la Transformación Isotónica.</strong> Es un sistema donde el músculo protagonista actúa dentro de un sistema que genera resistencia interna activa. La carga se construye desde el propio cuerpo.</p>
+        </div>
+
+        <div class="grid">
+            <div class="pilar-card">
+                <i data-lucide="anchor"></i>
+                <h3>El Punto Fijo</h3>
+                <p>Referencia de apoyo (pared, barra o suelo) que organiza la dirección de la tensión y permite la activación inicial.</p>
             </div>
-            <div class="card">
-                <i data-lucide="target"></i>
-                <h3>Objetivo</h3>
-                <p>Redefinir la magnitud funcional de activación, reduciendo el riesgo de lesión y optimizando la fuerza real.</p>
+            <div class="pilar-card">
+                <i data-lucide="weight"></i>
+                <h3>La Pesa Interna</h3>
+                <p>Resistencia generada por el propio sistema corporal mediante la integración de estructuras estabilizadoras.</p>
+            </div>
+            <div class="pilar-card">
+                <i data-lucide="refresh-cw"></i>
+                <h3>Co-Contracción</h3>
+                <p>Mecanismo de oposición interna distribuida que organiza la resistencia a nivel de todo el sistema.</p>
             </div>
         </div>
     </section>
 
-    <section id="pilares" class="section dark-bg">
-        <h2 class="section-title">Pilares Técnicos</h2>
-        <div class="bento-grid">
-            <div class="bento-item">
-                <h4>Tantus Angular</h4>
-                <p>Precisión en el ángulo de mayor ventaja mecánica.</p>
-            </div>
-            <div class="bento-item">
-                <h4>Isotonía</h4>
-                <p>Tensión constante durante todo el rango de movimiento.</p>
-            </div>
-            <div class="bento-item">
-                <h4>Isometría</h4>
-                <p>Puntos de pausa estratégica para reclutamiento máximo.</p>
+    <section id="ciencia" class="container">
+        <h2 class="section-title">Perfil de Intensidad</h2>
+        <div class="glass-card chart-container">
+            <canvas id="intensityChart"></canvas>
+            <p class="chart-caption">En PIxTI, la intensidad se regula internamente, permitiendo niveles elevados de activación en todo el rango (0°–180°).</p>
+        </div>
+    </section>
+
+    <section id="autor" class="container">
+        <div class="author-box">
+            <div class="author-info">
+                <h2>Ricardo Gabriel Lima</h2>
+                <p class="tagline">Creador y desarrollador del Método PIxTI</p>
+                <p>MBA, Profesor y Licenciado en Educación Física y Deportes. Especialista en entrenamiento neuromuscular y biomecánica aplicada.</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 PIxTI - Entrenamiento de Precisión. <br> <small>Dominio: pixti.ar</small></p>
+        <p>&copy; 2026 PIxTI — pixti.ar</p>
     </footer>
 
     <script src="script.js"></script>
