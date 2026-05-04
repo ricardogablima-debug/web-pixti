@@ -3,154 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PIxTI | Neuromuscular Efficiency</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@300;500&display=swap" rel="stylesheet">
+    <title>PIxTI | Metodología Neuromuscular Avanzada</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fuentes y Iconos -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <script src="https://unpkg.com"></script>
 </head>
 <body>
+    <nav class="navbar">
+        <div class="logo">PI<span>x</span>TI</div>
+        <ul class="nav-links">
+            <li><a href="#metodo">Método</a></li>
+            <li><a href="#pilares">Pilares</a></li>
+            <li><a href="#ciencia">Ciencia</a></li>
+        </ul>
+    </nav>
 
-<header class="header">
-    <div class="header-container">
-        <div class="logo-group">
-            <h1 class="logo">PIxTI</h1>
-            <span class="sub-brand">Principles Isometrics for Isotonic Transformation</span>
-        </div>
-
-        <nav class="nav-links">
-            <a href="#metodo" data-key="menu_method" class="nav-item">Método</a>
-            <a href="#ciclo" data-key="menu_cycle" class="nav-item">Ciclo</a>
-            <a href="#conceptos" data-key="menu_concepts" class="nav-item">Conceptos</a>
-            <a href="#ciencia" data-key="menu_science" class="nav-item">Ciencia</a>
-            <a href="#autor" data-key="menu_author" class="nav-item">Autor</a>
-        </nav>
-
-        <div class="controls">
-            <div class="lang-switch">
-                <button class="lang-btn active" data-lang="es" onclick="setLang('es')">ES</button>
-                <span class="divider">/</span>
-                <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
-            </div>
-        </div>
-    </div>
-</header>
-
-<main>
-    <!-- HERO SECTON -->
-    <section class="hero">
+    <header class="hero">
         <div class="hero-content">
-            <h1 class="fade-in" data-key="hero_title">PIxTI — Internal Resistance Training System</h1>
-            <p class="hero-sub fade-in" data-key="hero_desc">
-                Un modelo neuromuscular de vanguardia basado en la tensión generada internamente y la oposición controlada.
-            </p>
-            <div class="hero-highlight-box fade-in">
-                <p class="hero-highlight" data-key="hero_phrase">
-                    El cuerpo genera su propia resistencia a través de la coherencia de tensión.
-                </p>
+            <h1 class="fade-in">EFICIENCIA <br><span class="highlight">NEUROMUSCULAR</span></h1>
+            <p>Evolución del entrenamiento basada en evidencia científica y precisión isométrica.</p>
+            <a href="#metodo" class="btn-main">Descubrir Método</a>
+        </div>
+    </header>
+
+    <section id="metodo" class="section">
+        <h2 class="section-title">La Metodología</h2>
+        <div class="grid-concept">
+            <div class="card">
+                <i data-lucide="activity"></i>
+                <h3>¿Qué es PIxTI?</h3>
+                <p>Es un sistema de entrenamiento que maximiza la activación muscular mediante el control de ángulos y tiempos de tensión específicos.</p>
             </div>
-            <div class="hero-buttons">
-                <button class="btn-primary" onclick="document.getElementById('metodo').scrollIntoView({behavior: 'smooth'})" data-key="btn_explore">
-                    Explorar Método
-                </button>
-                <button class="btn-secondary" onclick="document.getElementById('ciencia').scrollIntoView({behavior: 'smooth'})" data-key="btn_science">
-                    Base Científica
-                </button>
+            <div class="card">
+                <i data-lucide="target"></i>
+                <h3>Objetivo</h3>
+                <p>Redefinir la magnitud funcional de activación, reduciendo el riesgo de lesión y optimizando la fuerza real.</p>
             </div>
         </div>
     </section>
 
-    <!-- METHOD SECTION -->
-    <section class="section section-light" id="metodo">
-        <div class="container">
-            <h2 class="section-title" data-key="what_title">¿Qué es PIxTI?</h2>
-            <div class="grid-2">
-                <p class="text-lead" data-key="what_p1">
-                    PIxTI es una metodología de entrenamiento avanzada que integra la isometría con la isotonía continua para maximizar la eficiencia neuromuscular.
-                </p>
-                <p data-key="what_p2">
-                    Este sistema se enfoca en la mecanotransducción molecular y el aprovechamiento de la titina en el modelo de los tres filamentos.
-                </p>
+    <section id="pilares" class="section dark-bg">
+        <h2 class="section-title">Pilares Técnicos</h2>
+        <div class="bento-grid">
+            <div class="bento-item">
+                <h4>Tantus Angular</h4>
+                <p>Precisión en el ángulo de mayor ventaja mecánica.</p>
+            </div>
+            <div class="bento-item">
+                <h4>Isotonía</h4>
+                <p>Tensión constante durante todo el rango de movimiento.</p>
+            </div>
+            <div class="bento-item">
+                <h4>Isometría</h4>
+                <p>Puntos de pausa estratégica para reclutamiento máximo.</p>
             </div>
         </div>
     </section>
 
-    <!-- CYCLE SECTION -->
-    <section class="section section-dark" id="ciclo">
-        <div class="container">
-            <h2 class="section-title" data-key="how_title">El Ciclo de Transformación</h2>
-            <div class="ciclo-wrapper">
-                <div class="ciclo-container">
-                    <div class="fase" data-key="fase1" data-desc="Activación neuromuscular profunda">Activación</div>
-                    <div class="fase" data-key="fase2" data-desc="Generación de tensión isométrica">Tensión</div>
-                    <div class="fase" data-key="fase3" data-desc="Establecimiento de la oposición interna">Oposición</div>
-                    <div class="fase" data-key="fase4" data-desc="Control de la magnitud funcional">Modulación</div>
-                    <div class="fase" data-key="fase5" data-desc="Integración isotónica continua">Movimiento</div>
-                </div>
-                <div class="ciclo-info-box">
-                    <p id="ciclo-descripcion" class="text-center">Selecciona una fase para ver el detalle técnico.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <footer>
+        <p>&copy; 2026 PIxTI - Entrenamiento de Precisión. <br> <small>Dominio: pixti.ar</small></p>
+    </footer>
 
-    <!-- CONCEPTS SECTION -->
-    <section class="section section-light" id="conceptos">
-        <div class="container">
-            <h2 class="section-title" data-key="concepts_title">Pilares Técnicos</h2>
-            <div class="concepts-grid">
-                <div class="concept-card">
-                    <h4 data-key="concept1_title">Tantus Angular</h4>
-                    <p data-key="concept1_desc">La magnitud funcional de activación neuromuscular generada en un ángulo articular específico.</p>
-                </div>
-                <div class="concept-card">
-                    <h4 data-key="concept2_title">Isotonía Continua</h4>
-                    <p data-key="concept2_desc">La aplicación de tensión constante durante todo el rango de movimiento articular.</p>
-                </div>
-                <div class="concept-card">
-                    <h4 data-key="concept3_title">Mecanotransducción</h4>
-                    <p data-key="concept3_desc">El proceso por el cual las células musculares convierten estímulos mecánicos en respuestas químicas.</p>
-                </div>
-                <div class="concept-card">
-                    <h4 data-key="concept4_title">Coherencia de Tensión</h4>
-                    <p data-key="concept4_desc">La alineación precisa de la intención motora con la resistencia interna generada.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SCIENCE SECTION -->
-    <section class="section section-gradient" id="ciencia">
-        <div class="container grid-2">
-            <div class="science-text">
-                <h2 class="section-title" data-key="science_title">Evidencia y Papers</h2>
-                <p data-key="science_p">
-                    PIxTI se sustenta en la investigación contemporánea de la fisiología de los filamentos y la biomecánica aplicada.
-                </p>
-                <ul class="science-list">
-                    <li>Co-contracción Controlada</li>
-                    <li>Control Neuromuscular Periférico</li>
-                    <li>Propiocepción de Alta Resolución</li>
-                    <li>Coordinación Intermuscular</li>
-                </ul>
-            </div>
-            <div class="science-visual">
-                <div class="lab-card">
-                    <span>Estado: Etapa Experimental</span>
-                    <h3>Original Research Paper 2026</h3>
-                    <p>Análisis de la eficiencia en el modelo de los tres filamentos.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-</main>
-
-<footer class="footer">
-    <div class="container">
-        <p>© 2026 Ricardo Gabriel Lima — PIxTI System</p>
-        <p class="footer-note">Buenos Aires, Argentina</p>
-    </div>
-</footer>
-
-<script src="js/script.js"></script>
+    <script src="script.js"></script>
+    <script>lucide.createIcons();</script>
 </body>
 </html>
