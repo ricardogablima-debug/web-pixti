@@ -153,6 +153,11 @@ button:hover {
   transform: scale(1.05);
 }
 
+.fase.activa {
+  background: white;
+  color: black;
+  transform: scale(1.08);
+}
 /* Flechas entre fases */
 .fase::after {
   content: "→";
