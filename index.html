@@ -11,231 +11,104 @@
 
 <header class="header">
   <h1 class="logo">PIxTI</h1>
+
   <nav>
     <a href="#metodo" data-key="menu_method">Método</a>
-<a href="#ciclo" data-key="menu_cycle">Ciclo</a>
-<a href="#conceptos" data-key="menu_concepts">Conceptos</a>
-<a href="#ciencia" data-key="menu_science">Ciencia</a>
-<a href="#autor" data-key="menu_author">Autor</a>  </nav>
+    <a href="#ciclo" data-key="menu_cycle">Ciclo</a>
+    <a href="#conceptos" data-key="menu_concepts">Conceptos</a>
+    <a href="#ciencia" data-key="menu_science">Ciencia</a>
+    <a href="#autor" data-key="menu_author">Autor</a>
+  </nav>
 
-<div class="lang-switch">
-  <button data-lang="es" onclick="setLang('es')">ES</button>
-  <button data-lang="en" onclick="setLang('en')">EN</button>
-</div>
-  
+  <div class="lang-switch">
+    <button data-lang="es" onclick="setLang('es')">ES</button>
+    <button data-lang="en" onclick="setLang('en')">EN</button>
+  </div>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-content">
+  <h2 data-key="hero_title">PIxTI — Sistema de Entrenamiento por Resistencia Interna</h2>
+  <p data-key="hero_desc">Modelo neuromuscular basado en la generación de tensión interna y la oposición controlada.</p>
+  <p data-key="hero_phrase">El movimiento emerge desde la tensión interna.</p>
 
-    <h2 data-key="hero_title">
-      Entrenamiento desde adentro hacia afuera
-    </h2>
-
-    <p class="hero-sub" data-key="hero_desc">
-      Un modelo de entrenamiento basado en la generación y control de resistencia interna mediante oposición neuromuscular.
-    </p>
-
-    <p data-key="hero_phrase">
-      La carga se construye desde el propio cuerpo.
-    </p>
-
-    <div class="hero-buttons">
-      <button onclick="document.getElementById('metodo').scrollIntoView()">
-        Explorar el método
-      </button>
-      <button class="secondary">
-        Comenzar ahora
-      </button>
-    </div>
-
+  <div class="hero-buttons">
+    <button data-key="btn_explore">Explorar el método</button>
+    <button data-key="btn_science">Base científica</button>
   </div>
 </section>
-<!-- QUE ES -->
+
+<!-- WHAT -->
 <section class="section" id="metodo">
-  <h3 data-key="metodo_title">¿Qué es PIxTI?</h3>
-
-  <p data-key="metodo_p1">
-    PIxTI (Principios Isométricos para la Transformación Isotónica) es un sistema de entrenamiento neuromuscular basado en la generación consciente de tensión interna.
-  </p>
-
-  <p data-key="metodo_p2">
-    El método integra activación muscular, control neuromuscular y oposición interna para producir movimiento bajo condiciones de tensión continua.
-  </p>
-
-  <ul>
-    <li data-key="metodo_l1">Se genera tensión</li>
-    <li data-key="metodo_l2">Se sostiene esa tensión</li>
-    <li data-key="metodo_l3">Se produce movimiento dentro de esa tensión</li>
-  </ul>
+  <h3 data-key="what_title">¿Qué es PIxTI?</h3>
+  <p data-key="what_p1"></p>
+  <p data-key="what_p2"></p>
 </section>
-<!-- CICLO -->
+
+<!-- HOW -->
 <section class="section ciclo" id="ciclo">
-  <h3 data-key="cycle_title">Cómo funciona PIxTI</h3>
-  
-<div class="ciclo-container">
+  <h3 data-key="how_title"></h3>
 
-  <div class="fase"
-       data-key="fase1"
-       data-text="Generación de tensión contra una referencia estable"
-       data-text-key="fase1_desc">
-    Activación isométrica
+  <div class="ciclo-container">
+    <div class="fase" data-key="fase1" data-text-key="fase1_desc">Activación</div>
+    <div class="fase" data-key="fase2" data-text-key="fase2_desc">Tensión</div>
+    <div class="fase" data-key="fase3" data-text-key="fase3_desc">Oposición</div>
+    <div class="fase" data-key="fase4" data-text-key="fase4_desc">Modulación</div>
+    <div class="fase" data-key="fase5" data-text-key="fase5_desc">Movimiento</div>
   </div>
 
-  <div class="fase"
-       data-key="fase2"
-       data-text="Acumulación de energía interna sin desplazamiento visible"
-       data-text-key="fase2_desc">
-    Tensión interna
-  </div>
-
-  <div class="fase"
-       data-key="fase3"
-       data-text="Resistencia generada por el propio sistema neuromuscular"
-       data-text-key="fase3_desc">
-    Oposición
-  </div>
-
-  <div class="fase"
-       data-key="fase4"
-       data-text="Regulación consciente del esfuerzo durante el movimiento"
-       data-text-key="fase4_desc">
-    Modulación
-  </div>
-
-  <div class="fase"
-       data-key="fase5"
-       data-text="Movimiento generado dentro de un entorno de tensión constante"
-       data-text-key="fase5_desc">
-    Movimiento
-  </div>
-
-  </div>
-  
-  <p id="ciclo-descripcion">
-    Interactuá con cada fase para comprender el proceso.
-  </p>
-
-  <p><strong>La isometría se transforma en movimiento.</strong></p>
+  <p id="ciclo-descripcion"></p>
 </section>
 
-<!-- CONCEPTOS -->
+<!-- CONCEPTS -->
 <section class="section" id="conceptos">
+  <h3 data-key="concepts_title"></h3>
 
-  <h3 data-key="concepts_title">Conceptos clave</h3>
+  <h4 data-key="concept1_title"></h4>
+  <p data-key="concept1_desc"></p>
 
-  <h4 data-key="fixed_point_title">Punto fijo</h4>
-  <p data-key="fixed_point_desc">
-    El punto fijo organiza la dirección de la tensión.
-  </p>
+  <h4 data-key="concept2_title"></h4>
+  <p data-key="concept2_desc"></p>
 
-  <h4 data-key="internal_load_title">Pesa interna</h4>
-  <p data-key="internal_load_desc">
-    El cuerpo genera su propia resistencia.
-  </p>
+  <h4 data-key="concept3_title"></h4>
+  <p data-key="concept3_desc"></p>
 
-  <h4 data-key="cocontraction_title">Co-contracción</h4>
-  <p data-key="cocontraction_desc">
-    La resistencia se organiza a nivel del sistema.
-  </p>
-
+  <h4 data-key="concept4_title"></h4>
+  <p data-key="concept4_desc"></p>
 </section>
-<!-- DIFERENCIAL -->
-<section class="section dark">
-  <h3 data-key="diff_title">Diferencial del método</h3>
 
-<button data-key="btn_explore">Explorar el método</button>
-<button data-key="btn_start">Comenzar ahora</button>
-
-<p id="ciclo-descripcion" data-key="ciclo_interaccion"></p>
-  <div class="tabla">
-    <div>
-      <h4 data-key="trad_title">Entrenamiento tradicional</h4>
-      <ul>
-        <li data-key="trad_l1">Carga externa</li>
-        <li data-key="trad_l2">Variación mecánica</li>
-        <li data-key="trad_l3">Dependencia del equipamiento</li>
-      </ul>
-    </div>
-
-    <div>
-      <h4>PIxTI</h4>
-      <ul>
-        <li data-key="pixti_l1">Resistencia interna</li>
-        <li data-key="pixti_l2">Tensión continua</li>
-        <li data-key="pixti_l3">Control neuromuscular</li>
-      </ul>
-    </div>
-  </div>
-
-  <p data-key="diff_phrase">
-    <strong>La carga se construye desde el sistema.</strong>
-  </p>
+<!-- BIOMECHANICS -->
+<section class="section">
+  <h3 data-key="bio_title"></h3>
+  <p data-key="bio_p1"></p>
+  <p data-key="bio_p2"></p>
 </section>
-  <section class="section vector">
-<h3 data-key="vector_title">Vector de fuerza: interno vs externo</h3>
 
-    <div class="vector-box externo">
-      <h4 data-key="vector_trad">Modelo tradicional</h4>
-      <p data-key="vector_trad_p1">Carga externa aplicada al cuerpo</p>
-      <div class="flecha">↓</div>
-      <p data-key="vector_trad_p2">La fuerza viene desde fuera</p>
-    </div>
-
-    <div class="vector-box interno">
-      <h4>PIxTI</h4>
-      <p data-key="vector_pixti_p1">Generación de tensión interna</p>
-      <div class="flecha">↑</div>
-      <p data-key="vector_pixti_p2">La fuerza se origina en el sistema</p>
-    </div>
-
-  </div>
-
-  <p class="vector-frase" data-key="vector_phrase">
-    La carga se construye desde el propio cuerpo.
-  </p>
-</section>
-<!-- CIENCIA -->
+<!-- SCIENCE -->
 <section class="section" id="ciencia">
-<section class="section" id="ciencia">
-  <h3 data-key="science_title">Base científica</h3>
-
-  <p data-key="science_p1">
-    El método PIxTI se fundamenta en principios ampliamente estudiados en la literatura científica:
-  </p>
+  <h3 data-key="science_title"></h3>
 
   <ul>
-    <li data-key="science_l1">Co-contracción muscular</li>
-    <li data-key="science_l2">Control neuromuscular</li>
-    <li data-key="science_l3">Propiocepción</li>
-    <li data-key="science_l4">Activación isométrica</li>
-    <li data-key="science_l5">Coordinación intermuscular</li>
+    <li>Co-contraction</li>
+    <li>Neuromuscular control</li>
+    <li>Proprioception</li>
+    <li>Intermuscular coordination</li>
   </ul>
 
-  <p data-key="science_p2">
-    Diversos estudios han demostrado que la activación simultánea de múltiples grupos musculares permite regular la estabilidad articular, la producción de fuerza y el control del movimiento.
-  </p>
+  <p data-key="science_p"></p>
 </section>
-<!-- AUTOR -->
-<section class="section" id="autor">
-  <h3>Autor</h3>
 
-  <p><strong>Ricardo Gabriel Lima</strong></p>
-  <p>Creador del Método PIxTI</p>
-  <p>MBA | Profesor y Licenciado en Educación Física y Deportes</p>
-
-  <a href="https://www.linkedin.com/in/ricardo-gabriel-lima-mba/" target="_blank" class="linkedin">
-    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="20">
-    Ver perfil en LinkedIn
-  </a>
+<!-- CTA -->
+<section class="section">
+  <h3 data-key="cta_title"></h3>
+  <button data-key="cta1"></button>
+  <button data-key="cta2"></button>
 </section>
 
 <footer>
-  <p>© Ricardo Gabriel Lima - Método PIxTI</p>
+  <p>© Ricardo Gabriel Lima - PIxTI</p>
 </footer>
 
 <script src="js/script.js"></script>
-
 </body>
 </html>
