@@ -28,16 +28,28 @@
 
 <!-- HERO -->
 <section class="hero">
-  <h2 data-key="hero_title">PIxTI — Sistema de Entrenamiento por Resistencia Interna</h2>
-  <p data-key="hero_desc">Modelo neuromuscular basado en la generación de tensión interna y la oposición controlada.</p>
-  <p data-key="hero_phrase">El movimiento emerge desde la tensión interna.</p>
+  <div class="hero-content">
+    <h1 data-key="hero_title">PIxTI — Internal Resistance Training System</h1>
 
-  <div class="hero-buttons">
-    <button data-key="btn_explore">Explorar el método</button>
-    <button data-key="btn_science">Base científica</button>
+    <p class="hero-sub" data-key="hero_desc">
+      A neuromuscular model based on internally generated tension and controlled opposition
+    </p>
+
+    <p class="hero-highlight" data-key="hero_phrase">
+      The body generates its own resistance.
+    </p>
+
+    <div class="hero-buttons">
+      <button onclick="document.getElementById('metodo').scrollIntoView()">
+        Explore Method
+      </button>
+      <button class="secondary" onclick="document.getElementById('ciencia').scrollIntoView()">
+        Scientific Basis
+      </button>
+    </div>
   </div>
 </section>
-
+  
 <!-- WHAT -->
 <section class="section" id="metodo">
   <h3 data-key="what_title">¿Qué es PIxTI?</h3>
