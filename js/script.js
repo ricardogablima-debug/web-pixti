@@ -229,6 +229,22 @@ function setLang(lang) {
     }
   });
 
+// ==========================
+// BOTÓN ACTIVO (UI)
+// ==========================
+document.querySelectorAll(".lang-switch button").forEach(btn => {
+  btn.classList.remove("active");
+});
+
+document
+  .querySelector(`.lang-switch button[onclick="setLang('${lang}')"]`)
+  ?.classList.add("active");
+
+// ==========================
+// HTML LANG (SEO)
+// ==========================
+document.documentElement.lang = lang;
+
   // refrescar fase activa
   activarFase(index);
 }
