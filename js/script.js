@@ -234,12 +234,12 @@ function setLang(lang) {
 // ==========================
 document.querySelectorAll(".lang-switch button").forEach(btn => {
   btn.classList.remove("active");
+
+  if (btn.dataset.lang === lang) {
+    btn.classList.add("active");
+  }
 });
-
-document
-  .querySelector(`.lang-switch button[onclick="setLang('${lang}')"]`)
-  ?.classList.add("active");
-
+  
 // ==========================
 // HTML LANG (SEO)
 // ==========================
