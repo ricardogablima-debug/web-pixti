@@ -1,136 +1,154 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PIxTI</title>
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIxTI | Neuromuscular Efficiency</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@300;500&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
 <header class="header">
-  <div class="header-container">
-    <div class="logo-group">
-      <h1 class="logo">PIxTI</h1>
-      <span class="sub-brand">Principles Isometrics for Isotonic Transformation</span>
-    </div>
+    <div class="header-container">
+        <div class="logo-group">
+            <h1 class="logo">PIxTI</h1>
+            <span class="sub-brand">Principles Isometrics for Isotonic Transformation</span>
+        </div>
 
-    <nav class="nav-links">
-      <a href="#metodo" data-key="menu_method" class="nav-item">Método</a>
-      <a href="#ciclo" data-key="menu_cycle" class="nav-item">Ciclo</a>
-      <a href="#conceptos" data-key="menu_concepts" class="nav-item">Conceptos</a>
-      <a href="#ciencia" data-key="menu_science" class="nav-item">Ciencia</a>
-      <a href="#autor" data-key="menu_author" class="nav-item">Autor</a>
-    </nav>
+        <nav class="nav-links">
+            <a href="#metodo" data-key="menu_method" class="nav-item">Método</a>
+            <a href="#ciclo" data-key="menu_cycle" class="nav-item">Ciclo</a>
+            <a href="#conceptos" data-key="menu_concepts" class="nav-item">Conceptos</a>
+            <a href="#ciencia" data-key="menu_science" class="nav-item">Ciencia</a>
+            <a href="#autor" data-key="menu_author" class="nav-item">Autor</a>
+        </nav>
 
-    <div class="controls">
-      <div class="lang-switch">
-        <button class="lang-btn active" data-lang="es" onclick="setLang('es')">ES</button>
-        <span class="divider">|</span>
-        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
-      </div>
+        <div class="controls">
+            <div class="lang-switch">
+                <button class="lang-btn active" data-lang="es" onclick="setLang('es')">ES</button>
+                <span class="divider">/</span>
+                <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+            </div>
+        </div>
     </div>
-  </div>
 </header>
-  
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <h1 data-key="hero_title">PIxTI — Internal Resistance Training System</h1>
 
-    <p class="hero-sub" data-key="hero_desc">
-      A neuromuscular model based on internally generated tension and controlled opposition
-    </p>
+<main>
+    <!-- HERO SECTON -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="fade-in" data-key="hero_title">PIxTI — Internal Resistance Training System</h1>
+            <p class="hero-sub fade-in" data-key="hero_desc">
+                Un modelo neuromuscular de vanguardia basado en la tensión generada internamente y la oposición controlada.
+            </p>
+            <div class="hero-highlight-box fade-in">
+                <p class="hero-highlight" data-key="hero_phrase">
+                    El cuerpo genera su propia resistencia a través de la coherencia de tensión.
+                </p>
+            </div>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="document.getElementById('metodo').scrollIntoView({behavior: 'smooth'})" data-key="btn_explore">
+                    Explorar Método
+                </button>
+                <button class="btn-secondary" onclick="document.getElementById('ciencia').scrollIntoView({behavior: 'smooth'})" data-key="btn_science">
+                    Base Científica
+                </button>
+            </div>
+        </div>
+    </section>
 
-    <p class="hero-highlight" data-key="hero_phrase">
-      The body generates its own resistance.
-    </p>
+    <!-- METHOD SECTION -->
+    <section class="section section-light" id="metodo">
+        <div class="container">
+            <h2 class="section-title" data-key="what_title">¿Qué es PIxTI?</h2>
+            <div class="grid-2">
+                <p class="text-lead" data-key="what_p1">
+                    PIxTI es una metodología de entrenamiento avanzada que integra la isometría con la isotonía continua para maximizar la eficiencia neuromuscular.
+                </p>
+                <p data-key="what_p2">
+                    Este sistema se enfoca en la mecanotransducción molecular y el aprovechamiento de la titina en el modelo de los tres filamentos.
+                </p>
+            </div>
+        </div>
+    </section>
 
-<div class="hero-buttons">
-  <button onclick="document.getElementById('metodo').scrollIntoView()">
-    Explore Method
-  </button>
+    <!-- CYCLE SECTION -->
+    <section class="section section-dark" id="ciclo">
+        <div class="container">
+            <h2 class="section-title" data-key="how_title">El Ciclo de Transformación</h2>
+            <div class="ciclo-wrapper">
+                <div class="ciclo-container">
+                    <div class="fase" data-key="fase1" data-desc="Activación neuromuscular profunda">Activación</div>
+                    <div class="fase" data-key="fase2" data-desc="Generación de tensión isométrica">Tensión</div>
+                    <div class="fase" data-key="fase3" data-desc="Establecimiento de la oposición interna">Oposición</div>
+                    <div class="fase" data-key="fase4" data-desc="Control de la magnitud funcional">Modulación</div>
+                    <div class="fase" data-key="fase5" data-desc="Integración isotónica continua">Movimiento</div>
+                </div>
+                <div class="ciclo-info-box">
+                    <p id="ciclo-descripcion" class="text-center">Selecciona una fase para ver el detalle técnico.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<button 
-  type="button"
-  class="secondary"
-  onclick="document.getElementById('ciencia').scrollIntoView({ behavior: 'smooth' })">
-  Scientific Basis
-</button>
-</div>
+    <!-- CONCEPTS SECTION -->
+    <section class="section section-light" id="conceptos">
+        <div class="container">
+            <h2 class="section-title" data-key="concepts_title">Pilares Técnicos</h2>
+            <div class="concepts-grid">
+                <div class="concept-card">
+                    <h4 data-key="concept1_title">Tantus Angular</h4>
+                    <p data-key="concept1_desc">La magnitud funcional de activación neuromuscular generada en un ángulo articular específico.</p>
+                </div>
+                <div class="concept-card">
+                    <h4 data-key="concept2_title">Isotonía Continua</h4>
+                    <p data-key="concept2_desc">La aplicación de tensión constante durante todo el rango de movimiento articular.</p>
+                </div>
+                <div class="concept-card">
+                    <h4 data-key="concept3_title">Mecanotransducción</h4>
+                    <p data-key="concept3_desc">El proceso por el cual las células musculares convierten estímulos mecánicos en respuestas químicas.</p>
+                </div>
+                <div class="concept-card">
+                    <h4 data-key="concept4_title">Coherencia de Tensión</h4>
+                    <p data-key="concept4_desc">La alineación precisa de la intención motora con la resistencia interna generada.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</section>
-  
-<!-- WHAT -->
-<section class="section" id="metodo">
-  <h3 data-key="what_title">¿Qué es PIxTI?</h3>
-  <p data-key="what_p1"></p>
-  <p data-key="what_p2"></p>
-</section>
+    <!-- SCIENCE SECTION -->
+    <section class="section section-gradient" id="ciencia">
+        <div class="container grid-2">
+            <div class="science-text">
+                <h2 class="section-title" data-key="science_title">Evidencia y Papers</h2>
+                <p data-key="science_p">
+                    PIxTI se sustenta en la investigación contemporánea de la fisiología de los filamentos y la biomecánica aplicada.
+                </p>
+                <ul class="science-list">
+                    <li>Co-contracción Controlada</li>
+                    <li>Control Neuromuscular Periférico</li>
+                    <li>Propiocepción de Alta Resolución</li>
+                    <li>Coordinación Intermuscular</li>
+                </ul>
+            </div>
+            <div class="science-visual">
+                <div class="lab-card">
+                    <span>Estado: Etapa Experimental</span>
+                    <h3>Original Research Paper 2026</h3>
+                    <p>Análisis de la eficiencia en el modelo de los tres filamentos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 
-<!-- HOW -->
-<section class="section ciclo" id="ciclo">
-  <h3 data-key="how_title"></h3>
-
-  <div class="ciclo-container">
-    <div class="fase" data-key="fase1" data-text-key="fase1_desc">Activación</div>
-    <div class="fase" data-key="fase2" data-text-key="fase2_desc">Tensión</div>
-    <div class="fase" data-key="fase3" data-text-key="fase3_desc">Oposición</div>
-    <div class="fase" data-key="fase4" data-text-key="fase4_desc">Modulación</div>
-    <div class="fase" data-key="fase5" data-text-key="fase5_desc">Movimiento</div>
-  </div>
-
-  <p id="ciclo-descripcion"></p>
-</section>
-
-<!-- CONCEPTS -->
-<section class="section" id="conceptos">
-  <h3 data-key="concepts_title"></h3>
-
-  <h4 data-key="concept1_title"></h4>
-  <p data-key="concept1_desc"></p>
-
-  <h4 data-key="concept2_title"></h4>
-  <p data-key="concept2_desc"></p>
-
-  <h4 data-key="concept3_title"></h4>
-  <p data-key="concept3_desc"></p>
-
-  <h4 data-key="concept4_title"></h4>
-  <p data-key="concept4_desc"></p>
-</section>
-
-<!-- BIOMECHANICS -->
-<section class="section">
-  <h3 data-key="bio_title"></h3>
-  <p data-key="bio_p1"></p>
-  <p data-key="bio_p2"></p>
-</section>
-
-<!-- SCIENCE -->
-<section class="section" id="ciencia">
-  <h3 data-key="science_title"></h3>
-
-  <ul>
-    <li>Co-contraction</li>
-    <li>Neuromuscular control</li>
-    <li>Proprioception</li>
-    <li>Intermuscular coordination</li>
-  </ul>
-
-  <p data-key="science_p"></p>
-</section>
-
-<!-- CTA -->
-<section class="section">
-  <h3 data-key="cta_title"></h3>
-  <button data-key="cta1"></button>
-  <button data-key="cta2"></button>
-</section>
-
-<footer>
-  <p>© Ricardo Gabriel Lima - PIxTI</p>
+<footer class="footer">
+    <div class="container">
+        <p>© 2026 Ricardo Gabriel Lima — PIxTI System</p>
+        <p class="footer-note">Buenos Aires, Argentina</p>
+    </div>
 </footer>
 
 <script src="js/script.js"></script>
