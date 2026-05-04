@@ -10,22 +10,30 @@
 <body>
 
 <header class="header">
-  <h1 class="logo">PIxTI</h1>
+  <div class="header-container">
+    <div class="logo-group">
+      <h1 class="logo">PIxTI</h1>
+      <span class="sub-brand">Principles Isometrics for Isotonic Transformation</span>
+    </div>
 
-  <nav>
-    <a href="#metodo" data-key="menu_method">Método</a>
-    <a href="#ciclo" data-key="menu_cycle">Ciclo</a>
-    <a href="#conceptos" data-key="menu_concepts">Conceptos</a>
-    <a href="#ciencia" data-key="menu_science">Ciencia</a>
-    <a href="#autor" data-key="menu_author">Autor</a>
-  </nav>
+    <nav class="nav-links">
+      <a href="#metodo" data-key="menu_method" class="nav-item">Método</a>
+      <a href="#ciclo" data-key="menu_cycle" class="nav-item">Ciclo</a>
+      <a href="#conceptos" data-key="menu_concepts" class="nav-item">Conceptos</a>
+      <a href="#ciencia" data-key="menu_science" class="nav-item">Ciencia</a>
+      <a href="#autor" data-key="menu_author" class="nav-item">Autor</a>
+    </nav>
 
-  <div class="lang-switch">
-    <button data-lang="es" onclick="setLang('es')">ES</button>
-    <button data-lang="en" onclick="setLang('en')">EN</button>
+    <div class="controls">
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="es" onclick="setLang('es')">ES</button>
+        <span class="divider">|</span>
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+      </div>
+    </div>
   </div>
 </header>
-
+  
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
