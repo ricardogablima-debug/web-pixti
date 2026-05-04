@@ -165,3 +165,41 @@ const savedLang = localStorage.getItem("lang") || "es";
 setLang(savedLang);
 cycle_title: "Cómo funciona PIxTI",
   cycle_title: "How PIxTI works",
+  // DIFERENCIAL
+diff_title: "Method differential",
+
+trad_title: "Traditional training",
+trad_l1: "External load",
+trad_l2: "Mechanical variation",
+trad_l3: "Equipment dependency",
+
+pixti_l1: "Internal resistance",
+pixti_l2: "Continuous tension",
+pixti_l3: "Neuromuscular control",
+
+diff_phrase: "Load is built from the system",
+
+// VECTOR
+vector_title: "Force vector: internal vs external",
+
+vector_trad: "Traditional model",
+vector_trad_p1: "External load applied to the body",
+vector_trad_p2: "Force comes from outside",
+
+vector_pixti_p1: "Generation of internal tension",
+vector_pixti_p2: "Force originates within the system",
+
+vector_phrase: "Load is built from within the body",
+
+// CIENCIA
+science_title: "Scientific basis",
+
+science_p1: "The PIxTI method is based on principles widely studied in scientific literature:",
+
+science_l1: "Muscle co-contraction",
+science_l2: "Neuromuscular control",
+science_l3: "Proprioception",
+science_l4: "Isometric activation",
+science_l5: "Intermuscular coordination",
+
+science_p2: "Studies have shown that simultaneous activation of multiple muscle groups allows regulation of joint stability, force production, and movement control."
