@@ -59,6 +59,26 @@ const translations = {
 
     fase5: "Movimiento",
     fase5_desc: "Movimiento generado dentro de un entorno de tensión constante"
+
+    // MÉTODO
+metodo_title: "¿Qué es PIxTI?",
+metodo_p1: "PIxTI (Principios Isométricos para la Transformación Isotónica) es un sistema de entrenamiento neuromuscular basado en la generación consciente de tensión interna.",
+metodo_p2: "El método integra activación muscular, control neuromuscular y oposición interna para producir movimiento bajo condiciones de tensión continua.",
+metodo_l1: "Se genera tensión",
+metodo_l2: "Se sostiene esa tensión",
+metodo_l3: "Se produce movimiento dentro de esa tensión",
+
+// CONCEPTOS
+concepts_title: "Conceptos clave",
+
+fixed_point_title: "Punto fijo",
+fixed_point_desc: "El punto fijo organiza la dirección de la tensión.",
+
+internal_load_title: "Pesa interna",
+internal_load_desc: "El cuerpo genera su propia resistencia.",
+
+cocontraction_title: "Co-contracción",
+cocontraction_desc: "La resistencia se organiza a nivel del sistema."
   },
 
   en: {
@@ -89,6 +109,26 @@ const translations = {
 
     fase5: "Movement",
     fase5_desc: "Movement generated within a constant tension environment"
+
+    // MÉTODO
+metodo_title: "What is PIxTI?",
+metodo_p1: "PIxTI (Isometric Principles for Isotonic Transformation) is a neuromuscular training system based on the conscious generation of internal tension.",
+metodo_p2: "The method integrates muscle activation, neuromuscular control, and internal opposition to produce movement under continuous tension conditions.",
+metodo_l1: "Tension is generated",
+metodo_l2: "That tension is sustained",
+metodo_l3: "Movement is produced within that tension",
+
+// CONCEPTOS
+concepts_title: "Key concepts",
+
+fixed_point_title: "Fixed point",
+fixed_point_desc: "The fixed point organizes the direction of tension.",
+
+internal_load_title: "Internal load",
+internal_load_desc: "The body generates its own resistance.",
+
+cocontraction_title: "Co-contraction",
+cocontraction_desc: "Resistance is organized at the system level."
   }
 };
 
