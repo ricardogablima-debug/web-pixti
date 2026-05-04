@@ -250,11 +250,6 @@ footer {
 ========================== */
 
 @media (max-width: 768px) {
-  .hero-buttons {
-    flex-direction: column;
-    width: 100%;
-  }
-}
 
   .header {
     flex-direction: column;
