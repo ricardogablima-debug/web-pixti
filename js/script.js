@@ -1,123 +1,75 @@
 // ==========================
-// CICLO PIxTI
+// MOTOR LÓGICO PIxTI
 // ==========================
 const fases = document.querySelectorAll(".fase");
 const descripcion = document.getElementById("ciclo-descripcion");
-
 let index = 0;
+let autoPlay = true;
 
-function activarFase(i) {
-  fases.forEach(f => f.classList.remove("activa"));
+const translations = {
+  es: {
+    hero_title: "PIxTI — Entrenamiento de Resistencia Interna",
+    hero_desc: "Modelo neuromuscular basado en la tensión generada endógenamente y la oposición controlada.",
+    fase1: "Activación", fase1_desc: "Inicio de la señal neural consciente.",
+    fase2: "Tensión", fase2_desc: "Reclutamiento de unidades motoras sin carga externa.",
+    fase3: "Oposición", fase3_desc: "Generación de torque interno contrapuesto.",
+    fase4: "Modulación", fase4_desc: "Ajuste del Tantus Angular en tiempo real.",
+    fase5: "Movimiento", fase5_desc: "Transformación de la isometría en isotonía continua.",
+    // ... resto de traducciones
+  },
+  en: {
+    hero_title: "PIxTI — Internal Resistance Training System",
+    hero_desc: "Neuromuscular model based on internally generated tension and controlled opposition.",
+    fase1: "Activation", fase1_desc: "Onset of conscious neural signaling.",
+    fase2: "Tension", fase2_desc: "Motor unit recruitment without external load.",
+    fase3: "Opposition", fase3_desc: "Generation of opposing internal torque.",
+    fase4: "Modulation", fase4_desc: "Real-time adjustment of the Tantus Angular.",
+    fase5: "Movement", fase5_desc: "Transformation of isometrics into continuous isotony.",
+    // ... resto de traducciones
+  }
+};
 
-  fases[i].classList.add("activa");
-  descripcion.textContent = fases[i].getAttribute("data-text");
+function updateCycleContent(i, lang) {
+  const key = fases[i].getAttribute("data-text-key");
+  if (translations[lang][key]) {
+    descripcion.style.opacity = 0;
+    setTimeout(() => {
+      descripcion.textContent = translations[lang][key];
+      descripcion.style.opacity = 1;
+    }, 200);
+  }
 }
 
-// animación automática
-setInterval(() => {
-  activarFase(index);
-  index = (index + 1) % fases.length;
-}, 2000);
+function activarFase(i) {
+  const lang = localStorage.getItem("lang") || "es";
+  fases.forEach(f => f.classList.remove("activa"));
+  fases[i].classList.add("activa");
+  updateCycleContent(i, lang);
+}
 
-// interacción manual
+// Control de Animación
+setInterval(() => {
+  if (autoPlay) {
+    index = (index + 1) % fases.length;
+    activarFase(index);
+  }
+}, 3500);
+
 fases.forEach((fase, i) => {
   fase.addEventListener("click", () => {
+    autoPlay = false; // Detener animación al interactuar
     index = i;
     activarFase(index);
+    setTimeout(() => { autoPlay = true; }, 10000); // Reanudar tras 10s de inactividad
   });
 });
 
-// ==========================
-// TRADUCCIONES
-// ==========================
-const translations = {
-
-  es: {
-    hero_title: "Entrenamiento desde adentro hacia afuera",
-    hero_desc: "Un modelo de entrenamiento basado en la generación y control de resistencia interna mediante oposición neuromuscular.",
-    hero_phrase: "La carga se construye desde el propio cuerpo.",
-
-    menu_method: "Método",
-    menu_cycle: "Ciclo",
-    menu_concepts: "Conceptos",
-    menu_science: "Ciencia",
-    menu_author: "Autor",
-
-    metodo_title: "¿Qué es PIxTI?",
-    metodo_p1: "PIxTI es un sistema de entrenamiento neuromuscular basado en la generación consciente de tensión interna.",
-    metodo_p2: "Integra activación, control neuromuscular y oposición interna para producir movimiento bajo tensión continua.",
-
-    concepts_title: "Conceptos clave",
-    fixed_point_title: "Punto fijo",
-    fixed_point_desc: "Organiza la dirección de la tensión.",
-    internal_load_title: "Pesa interna",
-    internal_load_desc: "El cuerpo genera su propia resistencia.",
-    cocontraction_title: "Co-contracción",
-    cocontraction_desc: "La resistencia se organiza a nivel del sistema."
-  },
-
-  en: {
-    hero_title: "Training from the inside out",
-    hero_desc: "A neuromuscular training model based on internally generated resistance.",
-    hero_phrase: "The body generates its own resistance.",
-
-    menu_method: "Method",
-    menu_cycle: "Cycle",
-    menu_concepts: "Concepts",
-    menu_science: "Science",
-    menu_author: "Author",
-
-    metodo_title: "What is PIxTI?",
-    metodo_p1: "PIxTI is a neuromuscular training system based on the conscious generation of internal tension.",
-    metodo_p2: "It integrates activation, neuromuscular control, and internal opposition to produce movement under continuous tension.",
-
-    concepts_title: "Key concepts",
-    fixed_point_title: "Fixed point",
-    fixed_point_desc: "Organizes the direction of tension.",
-    internal_load_title: "Internal load",
-    internal_load_desc: "The body generates its own resistance.",
-    cocontraction_title: "Co-contraction",
-    cocontraction_desc: "Resistance is organized at the system level."
-  }
-
-};
-
-// ==========================
-// CAMBIO DE IDIOMA
-// ==========================
+// Inicialización de Idioma
 function setLang(lang) {
-
   localStorage.setItem("lang", lang);
-
-  const elements = document.querySelectorAll("[data-key]");
-  
-  elements.forEach(el => {
+  document.querySelectorAll("[data-key]").forEach(el => {
     const key = el.getAttribute("data-key");
-
-    if (translations[lang][key]) {
-      el.textContent = translations[lang][key];
-    }
-
-    if (el.dataset.textKey && translations[lang][el.dataset.textKey]) {
-      el.setAttribute("data-text", translations[lang][el.dataset.textKey]);
-    }
+    if (translations[lang][key]) el.textContent = translations[lang][key];
   });
-
-  // actualizar ciclo
-  if (fases[index]) {
-    descripcion.textContent = fases[index].getAttribute("data-text");
-  }
-
-  // botón activo
-  document.querySelectorAll(".lang-switch button").forEach(btn => {
-    btn.classList.remove("active");
-  });
-
-  document
-    .querySelector(`.lang-switch button[onclick="setLang('${lang}')"]`)
-    ?.classList.add("active");
+  activarFase(index); // Refrescar el ciclo al cambiar idioma
 }
-
-// idioma inicial
-const savedLang = localStorage.getItem("lang") || "es";
-setLang(savedLang);
