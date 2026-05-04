@@ -256,12 +256,46 @@ footer {
     justify-content: center;
   }
 
+  .hero {
+    height: auto;
+    padding: 60px 20px;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 100%;
+  }
+
   .hero h2 {
-    font-size: 32px;
+    font-size: 30px;
+    line-height: 1.2;
+    margin-bottom: 15px;
   }
 
   .hero-sub {
-    font-size: 16px;
+    font-size: 15px;
+    margin-bottom: 10px;
+    max-width: 90%;
+  }
+
+  .hero p[data-key="hero_phrase"] {
+    font-size: 13px;
+    margin-bottom: 20px;
+    color: #aaa;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .hero-buttons button {
+    width: 100%;
   }
 
   .ciclo-container {
@@ -270,7 +304,7 @@ footer {
   }
 
   .fase {
-    width: 80%;
+    width: 85%;
   }
 
   .fase::after {
@@ -294,54 +328,5 @@ footer {
 
   .vector-box {
     width: 90%;
-  }
-}
-
-/* ==========================
-   HERO MOBILE FIX (CLAVE)
-========================== */
-
-@media (max-width: 768px) {
-
-  .hero {
-    height: auto;
-    padding: 60px 20px;
-  }
-
-  .hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    max-width: 100%;
-  }
-
-  .hero h2 {
-    font-size: 32px;
-    line-height: 1.2;
-    margin-bottom: 20px;
-  }
-
-  .hero-sub {
-    font-size: 16px;
-    margin-bottom: 15px;
-    max-width: 90%;
-  }
-
-  .hero p[data-key="hero_phrase"] {
-    font-size: 14px;
-    margin-bottom: 25px;
-    color: #aaa;
-  }
-
-  .hero-buttons {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 10px;
-  }
-
-  .hero-buttons button {
-    width: 100%;
   }
 }
