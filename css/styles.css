@@ -2,13 +2,11 @@
    VARIABLES Y REFINAMIENTO
 ========================== */
 :root {
-  --primary: #0369a1;    /* Azul Investigación */
-  --accent: #c2410c;     /* Naranja Activación */
-  --bg-dark: #050505;
-  --surface: #111111;
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --primary: #0ea5e9;    /* Azul para ciencia y tecnología */
+  --accent: #f97316;     /* Naranja para activación y energía */
+  --bg-deep: #020617;    /* Fondo oscuro profesional */
+  --glass: rgba(255, 255, 255, 0.03);
+  --border-glass: rgba(255, 255, 255, 0.1);
 }
 
 body {
@@ -76,4 +74,27 @@ body {
 .concept-card:hover {
   border-color: var(--accent);
   background: #161616;
+}
+
+.glass-nav {
+  background: var(--glass);
+  backdrop-filter: blur(12px); /* Efecto de vidrio esmerilado */
+  border-bottom: 1px solid var(--border-glass);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.paper-card {
+  background: var(--glass);
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid var(--border-glass);
+  transition: transform 0.3s ease;
+}
+
+.paper-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
 }
