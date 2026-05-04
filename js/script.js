@@ -136,6 +136,7 @@ cocontraction_desc: "Resistance is organized at the system level."
 // CAMBIO DE IDIOMA
 // ==========================
 function setLang(lang) {
+  // guardar idioma
   localStorage.setItem("lang", lang);
 
   const elements = document.querySelectorAll("[data-key]");
@@ -154,12 +155,11 @@ function setLang(lang) {
     }
   });
 
-  // actualizar descripción activa
+  // actualizar descripción activa del ciclo
   if (fases[index]) {
     descripcion.textContent = fases[index].getAttribute("data-text");
   }
 }
-
 // idioma inicial
 const savedLang = localStorage.getItem("lang") || "es";
 setLang(savedLang);
