@@ -219,3 +219,37 @@ button:hover {
   font-size: 18px;
   font-weight: bold;
 }
+
+/* ==========================
+   CONCEPTOS - MEJORA VISUAL
+========================== */
+
+#conceptos h4 {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+#conceptos p {
+  margin-bottom: 10px;
+  color: #cccccc;
+  max-width: 700px;
+}
+
+.lang-switch button {
+  margin-left: 5px;
+  padding: 5px 10px;
+  border: none;
+  background: #222;
+  color: white;
+  cursor: pointer;
+}
+
+.lang-switch button:hover {
+  background: #444;
+}
+
+.lang-switch button.active {
+  background: white;
+  color: black;
+}
