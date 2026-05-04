@@ -1,338 +1,79 @@
 /* ==========================
-   RESET + BASE
+   VARIABLES Y REFINAMIENTO
 ========================== */
+:root {
+  --primary: #0369a1;    /* Azul Investigación */
+  --accent: #c2410c;     /* Naranja Activación */
+  --bg-dark: #050505;
+  --surface: #111111;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0b0b0b;
-  color: #ffffff;
-}
-
-h1, h2, h3, h4 {
-  margin: 0;
-}
-
-.section {
-  padding: 80px 20px;
-  max-width: 1000px;
-  margin: auto;
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-main);
+  line-height: 1.6;
 }
 
 /* ==========================
-   HEADER
-========================== */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  background: black;
-}
-
-.logo {
-  font-weight: bold;
-  letter-spacing: 2px;
-}
-
-nav a {
-  margin-left: 20px;
-  color: #ccc;
-  text-decoration: none;
-}
-
-nav a:hover {
-  color: white;
-}
-
-/* ==========================
-   LANGUAGE SWITCH
-========================== */
-.lang-switch button {
-  margin-left: 5px;
-  padding: 5px 10px;
-  border: none;
-  background: #222;
-  color: white;
-  cursor: pointer;
-}
-
-.lang-switch button.active {
-  background: white;
-  color: black;
-}
-
-/* ==========================
-   HERO
+   HERO - IMPACTO VISUAL
 ========================== */
 .hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 40px 20px;
+  background: radial-gradient(circle at center, #1e293b 0%, #050505 100%);
+  border-bottom: 1px solid #222;
 }
 
-.hero-content {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.hero h2 {
-  font-size: 52px;
-  line-height: 1.2;
-  letter-spacing: -1px;
-  margin-bottom: 20px;
-}
-
-.hero-sub {
-  font-size: 18px;
-  color: #ccc;
-  line-height: 1.6;
-  margin-top: 20px;
-}
-
-..hero-buttons {
-  margin-top: 30px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-button {
-  padding: 12px 25px;
-  margin: 10px;
-  border: none;
-  cursor: pointer;
-  background: white;
-  color: black;
-  transition: all 0.3s ease;
-}
-
-button.secondary {
-  background: transparent;
-  border: 1px solid white;
-  color: white;
-}
-
-button:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  background: linear-gradient(to right, #fff, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* ==========================
-   CICLO PIxTI
+   CICLO PIxTI - INTERACTIVIDAD
 ========================== */
-.ciclo-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 40px;
-}
-
 .fase {
-  border: 1px solid white;
-  padding: 20px 25px;
-  cursor: pointer;
-  min-width: 140px;
-  text-align: center;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.fase:hover {
-  background: white;
-  color: black;
-  transform: scale(1.05);
+  border: 1px solid #333;
+  border-radius: 12px;
+  background: var(--surface);
+  padding: 24px;
+  transition: var(--transition);
+  filter: grayscale(1);
 }
 
 .fase.activa {
-  background: white;
-  color: black;
-  transform: scale(1.08);
-}
-
-/* Flecha */
-.fase::after {
-  content: "→";
-  position: absolute;
-  right: -15px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #888;
-}
-
-.fase:last-child::after {
-  content: "";
+  filter: grayscale(0);
+  border-color: var(--primary);
+  box-shadow: 0 0 20px rgba(3, 105, 161, 0.3);
+  transform: translateY(-5px);
 }
 
 /* ==========================
-   CONCEPTOS
+   TARJETAS DE CONCEPTOS (NUEVO)
 ========================== */
-#conceptos h4 {
-  margin-top: 20px;
-  font-size: 18px;
-}
-
-#conceptos p {
-  color: #ccc;
-  max-width: 700px;
-}
-
-/* ==========================
-   DIFERENCIAL
-========================== */
-.section.dark {
-  background: #111;
-}
-
-.tabla {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 30px;
-  flex-wrap: wrap;
-}
-
-.tabla div {
-  width: 45%;
-}
-
-/* ==========================
-   VECTOR
-========================== */
-.vector {
-  text-align: center;
-}
-
-.vector-container {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+.science-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
   margin-top: 40px;
 }
 
-.vector-box {
-  width: 40%;
-  border: 2px solid white;
-  padding: 30px;
-  margin: 10px;
-  transition: all 0.3s ease;
+.concept-card {
+  background: var(--surface);
+  padding: 32px;
+  border-radius: 20px;
+  border: 1px solid #222;
+  transition: var(--transition);
 }
 
-.vector-box:hover {
-  background: white;
-  color: black;
-}
-
-.flecha {
-  font-size: 40px;
-  margin: 20px 0;
-}
-
-.vector-frase {
-  margin-top: 30px;
-  font-weight: bold;
-}
-
-/* ==========================
-   FOOTER
-========================== */
-footer {
-  text-align: center;
-  padding: 30px;
-  color: #777;
-}
-
-/* ==========================
-   MOBILE FIX
-========================== */
-
-@media (max-width: 768px) {
-
-  .header {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .hero {
-    height: auto;
-    padding: 60px 20px;
-  }
-
-  .hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    max-width: 100%;
-  }
-
-  .hero h2 {
-    font-size: 30px;
-    line-height: 1.2;
-    margin-bottom: 15px;
-  }
-
-  .hero-sub {
-    font-size: 15px;
-    margin-bottom: 10px;
-    max-width: 90%;
-  }
-
-  .hero p[data-key="hero_phrase"] {
-    font-size: 13px;
-    margin-bottom: 20px;
-    color: #aaa;
-  }
-
-  .hero-buttons {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 10px;
-  }
-
-  .hero-buttons button {
-    width: 100%;
-  }
-
-  .ciclo-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .fase {
-    width: 85%;
-  }
-
-  .fase::after {
-    display: none;
-  }
-
-  .tabla {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .tabla div {
-    width: 90%;
-    margin-bottom: 20px;
-  }
-
-  .vector-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .vector-box {
-    width: 90%;
-  }
+.concept-card:hover {
+  border-color: var(--accent);
+  background: #161616;
 }
