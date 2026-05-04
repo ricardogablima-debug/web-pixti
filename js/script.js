@@ -163,3 +163,5 @@ function setLang(lang) {
 // idioma inicial
 const savedLang = localStorage.getItem("lang") || "es";
 setLang(savedLang);
+cycle_title: "Cómo funciona PIxTI",
+  cycle_title: "How PIxTI works",
