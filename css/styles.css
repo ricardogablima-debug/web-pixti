@@ -93,8 +93,11 @@ nav a:hover {
   margin-top: 20px;
 }
 
-.hero-buttons {
+..hero-buttons {
   margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 button {
