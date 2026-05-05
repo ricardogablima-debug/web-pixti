@@ -6,514 +6,225 @@
 <title>PIxTI | Entrenamiento Neuromuscular Avanzado</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
 <style>
-/* ─── TOKENS ────────────────────────────────────────────── */
 :root {
-  --bg:       #050507;
-  --surface:  #0c0c10;
-  --cyan:     #00e5ff;
-  --cyan-dim: rgba(0,229,255,0.12);
-  --red:      #ff3b3b;
-  --white:    #f0f0f0;
-  --muted:    #5a5a6e;
-  --border:   rgba(255,255,255,0.06);
-  --r:        16px;
+  --bg:#050507;--surface:#0b0b0e;--surface2:#111116;
+  --cyan:#00e5ff;--red:#ff4040;--white:#efefef;
+  --muted:#52526a;--muted2:#7a7a96;--border:rgba(255,255,255,0.055);--r:14px;
 }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");background-size:256px;opacity:.35;}
 
-/* ─── RESET ─────────────────────────────────────────────── */
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--bg);
-  color: var(--white);
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 300;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:22px 7%;transition:background .4s,border-color .4s;border-bottom:1px solid transparent;}
+nav.scrolled{background:rgba(5,5,7,.88);backdrop-filter:blur(20px);border-color:var(--border);}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.75rem;letter-spacing:3px;}
+.logo span{color:var(--cyan);}
+.nav-links{display:flex;gap:36px;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.75rem;font-weight:500;letter-spacing:1.8px;text-transform:uppercase;transition:color .2s;}
+.nav-links a:hover{color:var(--white);}
 
-/* ─── NOISE TEXTURE OVERLAY ─────────────────────────────── */
-body::before {
-  content:'';
-  position:fixed; inset:0; z-index:0; pointer-events:none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-  background-size: 256px 256px;
-  opacity: 0.4;
-}
+/* HERO */
+#hero{position:relative;min-height:100svh;display:grid;place-items:center;padding:130px 7% 100px;overflow:hidden;}
+#hero::before{content:'';position:absolute;top:-15%;left:50%;transform:translateX(-50%);width:1000px;height:1000px;background:radial-gradient(circle,rgba(0,229,255,.065) 0%,transparent 62%);pointer-events:none;}
+#hero::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px);background-size:88px 88px;mask-image:radial-gradient(ellipse 65% 55% at 50% 50%,black 30%,transparent 100%);pointer-events:none;}
+.hero-inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:30px;}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(0,229,255,.22);background:rgba(0,229,255,.05);padding:7px 18px;border-radius:100px;font-size:.7rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);}
+.hero-tag::before{content:'';width:6px;height:6px;background:var(--cyan);border-radius:50%;animation:blink 2.2s infinite;}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.3;transform:scale(1.5);}}
+h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.8rem,12vw,9rem);line-height:.88;letter-spacing:2px;}
+h1 .l1{display:block;-webkit-text-fill-color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.2);}
+h1 .l2{display:block;background:linear-gradient(95deg,var(--cyan) 0%,#fff 55%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero-sub{max-width:540px;color:var(--muted2);font-size:1.05rem;line-height:1.75;}
+.hero-cta{display:flex;gap:14px;align-items:center;flex-wrap:wrap;justify-content:center;}
+.btn-primary{background:var(--cyan);color:#000;padding:14px 36px;border-radius:100px;text-decoration:none;font-weight:500;font-size:.88rem;letter-spacing:.5px;transition:transform .2s,box-shadow .2s;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(0,229,255,.3);}
+.btn-ghost{color:var(--muted2);text-decoration:none;font-size:.85rem;font-weight:400;display:flex;align-items:center;gap:6px;transition:color .2s;}
+.btn-ghost:hover{color:var(--white);}
+.btn-ghost svg{width:13px;height:13px;}
 
-/* ─── NAV ────────────────────────────────────────────────── */
-nav {
-  position: fixed; top:0; left:0; right:0; z-index:100;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 22px 7%;
-  border-bottom: 1px solid transparent;
-  transition: background 0.4s, border-color 0.4s;
-}
-nav.scrolled {
-  background: rgba(5,5,7,0.85);
-  backdrop-filter: blur(20px);
-  border-color: var(--border);
-}
-.logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.8rem;
-  letter-spacing: 3px;
-  color: var(--white);
-}
-.logo span { color: var(--cyan); }
-.nav-links { display:flex; gap:36px; }
-.nav-links a {
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--white); }
+/* SECTIONS */
+section{position:relative;z-index:1;padding:100px 7%;}
+.s-label{font-size:.68rem;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--cyan);margin-bottom:14px;}
+.s-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,5.5vw,4rem);letter-spacing:1px;line-height:.92;margin-bottom:16px;}
+.s-desc{color:var(--muted2);max-width:540px;line-height:1.75;font-size:.97rem;}
+.divider{height:1px;background:linear-gradient(to right,transparent,var(--border),transparent);margin:0 7%;}
 
-/* ─── HERO ───────────────────────────────────────────────── */
-#hero {
-  position: relative;
-  min-height: 100svh;
-  display: grid;
-  place-items: center;
-  padding: 120px 7% 80px;
-  overflow: hidden;
-}
+/* QUÉ ES */
+#que-es .layout{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-top:60px;}
+.def-block{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:40px;}
+.def-block p{color:var(--muted2);line-height:1.8;font-size:.97rem;}
+.def-block p strong{color:var(--white);font-weight:500;}
+.def-block .hl{margin-top:28px;padding-top:24px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:10px;}
+.def-block .hl span{display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--muted2);}
+.def-block .hl span::before{content:'';flex-shrink:0;width:5px;height:5px;border-radius:50%;background:var(--cyan);}
+.pilares{display:flex;flex-direction:column;gap:12px;}
+.pilar{display:grid;grid-template-columns:48px 1fr;gap:18px;align-items:start;padding:24px 26px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);transition:border-color .25s,background .25s;}
+.pilar:hover{border-color:rgba(0,229,255,.28);background:rgba(0,229,255,.025);}
+.pilar-icon{width:48px;height:48px;display:grid;place-items:center;border:1px solid var(--border);border-radius:10px;color:var(--cyan);}
+.pilar-icon svg{width:18px;height:18px;stroke-width:1.5;}
+.pilar h3{font-size:.93rem;font-weight:500;margin-bottom:5px;}
+.pilar p{font-size:.85rem;color:var(--muted);line-height:1.6;}
 
-/* Orb de fondo */
-#hero::before {
-  content:'';
-  position:absolute;
-  top:-20%; left:50%; transform:translateX(-50%);
-  width:900px; height:900px;
-  background: radial-gradient(circle, rgba(0,229,255,0.07) 0%, transparent 65%);
-  pointer-events:none;
-}
+/* STATS */
+#stats{padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);position:relative;z-index:1;}
+.stat{background:var(--bg);padding:52px 40px;display:flex;flex-direction:column;gap:6px;}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:3.6rem;letter-spacing:1px;color:var(--white);line-height:1;}
+.stat-num em{color:var(--cyan);font-style:normal;}
+.stat-label{font-size:.8rem;color:var(--muted);line-height:1.5;}
 
-/* Grid de líneas */
-#hero::after {
-  content:'';
-  position:absolute; inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
-  background-size: 80px 80px;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 40%, transparent 100%);
-  pointer-events:none;
-}
+/* CÓMO */
+#como .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:56px;background:var(--border);border-radius:var(--r);overflow:hidden;}
+.step{background:var(--surface);padding:32px 24px;display:flex;flex-direction:column;gap:14px;transition:background .25s;}
+.step:hover{background:var(--surface2);}
+.step-num{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;letter-spacing:1px;color:rgba(255,255,255,.07);line-height:1;}
+.step h3{font-size:.85rem;font-weight:500;color:var(--white);line-height:1.3;}
+.step p{font-size:.8rem;color:var(--muted);line-height:1.6;}
+.step-accent{margin-top:auto;font-size:.7rem;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--cyan);opacity:.7;}
 
-.hero-inner {
-  position:relative; z-index:1;
-  display:flex; flex-direction:column; align-items:center; text-align:center;
-  gap: 28px;
-}
+/* DIFERENCIAL */
+#diferencial .compare{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:56px;background:var(--border);border-radius:var(--r);overflow:hidden;}
+.compare-col{background:var(--surface);padding:40px;}
+.compare-col.pixti{background:rgba(0,229,255,.03);border:1px solid rgba(0,229,255,.12);}
+.compare-col h3{font-size:.7rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:24px;display:flex;align-items:center;gap:8px;}
+.compare-col.pixti h3{color:var(--cyan);}
+.compare-col h3::before{content:'';width:18px;height:1px;background:currentColor;}
+.compare-col ul{list-style:none;display:flex;flex-direction:column;gap:14px;}
+.compare-col ul li{font-size:.9rem;color:var(--muted2);line-height:1.5;display:flex;align-items:flex-start;gap:10px;}
+.compare-col ul li::before{content:'';flex-shrink:0;width:4px;height:4px;border-radius:50%;background:var(--muted);margin-top:8px;}
+.compare-col.pixti ul li::before{background:var(--cyan);}
+.compare-col.pixti ul li{color:var(--white);}
 
-.hero-tag {
-  display:inline-flex; align-items:center; gap:8px;
-  border: 1px solid rgba(0,229,255,0.25);
-  background: rgba(0,229,255,0.05);
-  padding: 7px 18px;
-  border-radius: 100px;
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  color: var(--cyan);
-}
-.hero-tag::before {
-  content:'';
-  width:6px; height:6px;
-  background: var(--cyan);
-  border-radius:50%;
-  animation: pulse 2s infinite;
-}
+/* CIENCIA */
+#ciencia .chart-wrap{margin-top:56px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:40px 40px 32px;}
+.chart-legend{display:flex;gap:28px;margin-bottom:28px;flex-wrap:wrap;}
+.legend-item{display:flex;align-items:center;gap:10px;font-size:.8rem;color:var(--muted2);}
+.l-dot{width:26px;height:3px;border-radius:2px;}
+canvas{display:block;width:100%!important;}
+.chart-note{margin-top:28px;padding-top:24px;border-top:1px solid var(--border);font-size:.83rem;color:var(--muted);line-height:1.65;max-width:680px;}
+.chart-note em{color:var(--cyan);font-style:normal;}
 
-@keyframes pulse {
-  0%,100% { opacity:1; transform:scale(1); }
-  50%      { opacity:0.4; transform:scale(1.4); }
-}
+/* PROGRESIÓN */
+#progresion .prog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:56px;}
+.prog-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:32px;transition:border-color .25s;}
+.prog-card:hover{border-color:rgba(0,229,255,.2);}
+.prog-num{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:rgba(0,229,255,.2);margin-bottom:12px;}
+.prog-card h3{font-size:.93rem;font-weight:500;margin-bottom:8px;}
+.prog-card p{font-size:.85rem;color:var(--muted);line-height:1.6;}
 
-h1 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(4rem, 13vw, 9.5rem);
-  line-height: 0.88;
-  letter-spacing: 2px;
-  color: var(--white);
-}
-h1 .line-accent {
-  display:block;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 1px rgba(255,255,255,0.25);
-}
-h1 .line-cyan {
-  display:block;
-  background: linear-gradient(90deg, var(--cyan) 0%, #fff 60%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+/* BASE */
+#base .base-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:56px;}
+.base-item{padding:28px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);transition:border-color .25s,background .25s;}
+.base-item:hover{border-color:rgba(0,229,255,.2);background:rgba(0,229,255,.025);}
+.base-item h3{font-size:.9rem;font-weight:500;margin-bottom:8px;}
+.base-item p{font-size:.83rem;color:var(--muted);line-height:1.6;}
 
-.hero-desc {
-  max-width: 520px;
-  color: var(--muted);
-  font-size: 1.05rem;
-  line-height: 1.7;
-}
+/* AUTOR */
+#autor{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.autor-label{font-size:.68rem;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--cyan);margin-bottom:16px;}
+.autor-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,5.5vw,4.8rem);line-height:.88;letter-spacing:1px;margin-bottom:28px;}
+.autor-name span{color:var(--cyan);}
+.autor-bio{color:var(--muted2);line-height:1.8;font-size:.95rem;margin-bottom:24px;}
+.tags{display:flex;flex-wrap:wrap;gap:7px;}
+.tag{border:1px solid var(--border);background:var(--surface);padding:5px 13px;border-radius:100px;font-size:.73rem;color:var(--muted);}
+.autor-visual{aspect-ratio:1;border-radius:var(--r);overflow:hidden;border:1px solid var(--border);background:var(--surface);display:grid;place-items:center;position:relative;}
+.autor-bg{position:absolute;inset:0;background:radial-gradient(circle at 30% 70%,rgba(0,229,255,.04) 0%,transparent 60%),radial-gradient(circle at 70% 30%,rgba(255,255,255,.02) 0%,transparent 60%);}
+.autor-mono{position:absolute;font-family:'Bebas Neue',sans-serif;font-size:9rem;letter-spacing:6px;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.04);user-select:none;}
+.autor-card{position:relative;z-index:1;text-align:center;}
+.autor-card h2{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:2px;margin-bottom:4px;}
+.autor-card p{font-size:.75rem;color:var(--cyan);letter-spacing:1.5px;text-transform:uppercase;}
 
-.hero-cta {
-  display:flex; gap:14px; align-items:center; flex-wrap:wrap; justify-content:center;
-}
-.btn-primary {
-  background: var(--cyan);
-  color: #000;
-  padding: 14px 36px;
-  border-radius: 100px;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.9rem;
-  letter-spacing: 0.5px;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 40px rgba(0,229,255,0.35);
-}
-.btn-ghost {
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: 500;
-  display:flex; align-items:center; gap:6px;
-  transition: color 0.2s;
-}
-.btn-ghost:hover { color: var(--white); }
-.btn-ghost svg { width:14px; height:14px; }
+/* CIERRE */
+#cierre{text-align:center;padding:100px 7% 80px;}
+.cierre-quote{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3.8rem);letter-spacing:1px;line-height:1.08;max-width:760px;margin:0 auto 40px;color:rgba(255,255,255,.18);}
+.cierre-quote span{color:var(--white);}
 
-/* ─── SECTIONS COMUNES ───────────────────────────────────── */
-section { position:relative; z-index:1; padding: 100px 7%; }
-.section-label {
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: var(--cyan);
-  margin-bottom: 16px;
-}
-.section-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(2.5rem, 6vw, 4.2rem);
-  letter-spacing: 1px;
-  line-height: 0.95;
-  margin-bottom: 16px;
-}
-.section-sub {
-  color: var(--muted);
-  max-width: 560px;
-  line-height: 1.7;
-  font-size: 1rem;
-}
+/* FOOTER */
+footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:32px 7%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:3px;color:var(--muted);}
+.footer-logo span{color:var(--cyan);}
+footer p{font-size:.76rem;color:var(--muted);}
 
-/* ─── MÉTODO ─────────────────────────────────────────────── */
-#metodo .layout {
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
-  margin-top: 64px;
-}
-.concept-block {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--r);
-  padding: 40px;
-}
-.concept-block p {
-  color: var(--muted);
-  font-size: 1rem;
-  line-height: 1.8;
-}
-.concept-block p strong {
-  color: var(--white);
-  font-weight: 500;
-}
-.pilares { display:flex; flex-direction:column; gap:16px; }
-.pilar {
-  display:grid;
-  grid-template-columns: 52px 1fr;
-  gap: 20px;
-  align-items: start;
-  padding: 28px 28px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--r);
-  transition: border-color 0.25s, background 0.25s;
-  cursor: default;
-}
-.pilar:hover {
-  border-color: rgba(0,229,255,0.3);
-  background: rgba(0,229,255,0.03);
-}
-.pilar-icon {
-  width:52px; height:52px;
-  display:grid; place-items:center;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  color: var(--cyan);
-  flex-shrink:0;
-}
-.pilar-icon svg { width:20px; height:20px; }
-.pilar-text h3 {
-  font-size: 1rem;
-  font-weight: 500;
-  margin-bottom: 6px;
-  color: var(--white);
-}
-.pilar-text p {
-  font-size: 0.88rem;
-  color: var(--muted);
-  line-height: 1.65;
-}
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:none;}
+.d1{transition-delay:.1s;}.d2{transition-delay:.18s;}.d3{transition-delay:.26s;}.d4{transition-delay:.34s;}
 
-/* ─── DIVISOR ────────────────────────────────────────────── */
-.divider {
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--border), transparent);
-  margin: 0 7%;
+/* RESPONSIVE */
+@media(max-width:1000px){
+  #que-es .layout,#autor{grid-template-columns:1fr;gap:48px;}
+  #como .steps{grid-template-columns:1fr 1fr;}
+  #diferencial .compare{grid-template-columns:1fr;}
+  #base .base-grid{grid-template-columns:1fr 1fr;}
+  #stats{grid-template-columns:1fr 1fr;}
+  #progresion .prog-grid{grid-template-columns:1fr;}
 }
-
-/* ─── CIENCIA ────────────────────────────────────────────── */
-#ciencia .chart-wrap {
-  margin-top: 56px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--r);
-  padding: 40px;
-}
-.chart-legend-custom {
-  display:flex; gap:28px; margin-bottom:32px; flex-wrap:wrap;
-}
-.legend-item {
-  display:flex; align-items:center; gap:10px;
-  font-size: 0.82rem; color: var(--muted); font-weight:400;
-}
-.legend-dot {
-  width:28px; height:3px; border-radius:2px;
-}
-.chart-caption {
-  margin-top:24px;
-  font-size:0.85rem;
-  color:var(--muted);
-  line-height:1.6;
-  max-width:620px;
-}
-
-/* ─── STATS ──────────────────────────────────────────────── */
-#stats {
-  padding: 80px 7%;
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  background: var(--border);
-}
-.stat-cell {
-  background: var(--bg);
-  padding: 48px 40px;
-  display:flex; flex-direction:column; gap:8px;
-}
-.stat-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 3.8rem;
-  letter-spacing: 1px;
-  color: var(--white);
-  line-height:1;
-}
-.stat-num span { color: var(--cyan); }
-.stat-label {
-  font-size: 0.82rem;
-  color: var(--muted);
-  letter-spacing: 0.5px;
-  line-height:1.5;
-}
-
-/* ─── AUTOR ──────────────────────────────────────────────── */
-#autor {
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-.autor-headline {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(2.8rem, 5vw, 4.5rem);
-  line-height: 0.92;
-  letter-spacing: 1px;
-  margin-bottom: 24px;
-}
-.autor-headline span { color: var(--cyan); }
-.autor-bio {
-  color: var(--muted);
-  line-height: 1.8;
-  font-size: 0.95rem;
-  margin-bottom: 20px;
-}
-.autor-credentials {
-  display:flex; flex-wrap:wrap; gap:8px;
-}
-.cred-tag {
-  border: 1px solid var(--border);
-  background: var(--surface);
-  padding: 5px 14px;
-  border-radius: 100px;
-  font-size: 0.75rem;
-  color: var(--muted);
-  font-weight: 400;
-}
-.autor-visual {
-  position:relative;
-  aspect-ratio: 1;
-  border-radius: var(--r);
-  overflow:hidden;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  display:grid; place-items:center;
-}
-.autor-monogram {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 9rem;
-  letter-spacing: 4px;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(255,255,255,0.06);
-  user-select:none;
-  position:absolute;
-}
-.autor-name-card {
-  position:relative; z-index:1;
-  text-align:center;
-}
-.autor-name-card h2 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.2rem;
-  letter-spacing: 2px;
-  margin-bottom: 4px;
-}
-.autor-name-card p {
-  font-size: 0.8rem;
-  color: var(--cyan);
-  letter-spacing: 1px;
-  text-transform:uppercase;
-}
-
-/* ─── FOOTER ─────────────────────────────────────────────── */
-footer {
-  position:relative; z-index:1;
-  border-top: 1px solid var(--border);
-  padding: 36px 7%;
-  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
-}
-.footer-logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.4rem;
-  letter-spacing: 3px;
-  color: var(--muted);
-}
-.footer-logo span { color: var(--cyan); }
-footer p { font-size: 0.78rem; color: var(--muted); }
-
-/* ─── REVEAL ANIMATIONS ──────────────────────────────────── */
-.reveal {
-  opacity:0;
-  transform: translateY(28px);
-  transition: opacity 0.75s ease, transform 0.75s ease;
-}
-.reveal.visible { opacity:1; transform:none; }
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-
-/* ─── RESPONSIVE ─────────────────────────────────────────── */
-@media (max-width: 900px) {
-  #metodo .layout,
-  #autor { grid-template-columns:1fr; gap:48px; }
-  #stats { grid-template-columns: 1fr; }
-  .stat-cell { padding:36px 7%; }
-  .nav-links { display:none; }
+@media(max-width:640px){
+  nav{justify-content:center;}.nav-links{display:none;}
+  #como .steps{grid-template-columns:1fr;}
+  #base .base-grid{grid-template-columns:1fr;}
+  #stats{grid-template-columns:1fr;}
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav id="navbar">
   <div class="logo">PI<span>x</span>TI</div>
   <div class="nav-links">
-    <a href="#metodo">El Método</a>
+    <a href="#que-es">El Método</a>
+    <a href="#como">Cómo Funciona</a>
     <a href="#ciencia">Ciencia</a>
     <a href="#autor">Autor</a>
   </div>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <div class="hero-inner">
     <div class="hero-tag">Entrenamiento desde adentro hacia afuera</div>
     <h1>
-      <span class="line-accent">Transformación</span>
-      <span class="line-cyan">Isotónica</span>
+      <span class="l1">Transformación</span>
+      <span class="l2">Isotónica</span>
     </h1>
-    <p class="hero-desc">Un modelo basado en la generación y control de resistencia interna mediante oposición neuromuscular consciente.</p>
+    <p class="hero-sub">Un modelo de entrenamiento basado en la generación y control de resistencia interna mediante oposición neuromuscular. El movimiento se construye a partir de la tensión del propio cuerpo.</p>
     <div class="hero-cta">
-      <a href="#metodo" class="btn-primary">Descubrir PIxTI</a>
-      <a href="#ciencia" class="btn-ghost">
-        Ver la ciencia
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
+      <a href="#que-es" class="btn-primary">Descubrir PIxTI</a>
+      <a href="#ciencia" class="btn-ghost">Ver la ciencia <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
   </div>
 </section>
 
-<!-- MÉTODO -->
-<section id="metodo">
-  <div class="section-label">El Método</div>
-  <h2 class="section-title">¿Qué es PIxTI?</h2>
-  <p class="section-sub">Principios Isométricos para la Transformación Isotónica. La carga se construye desde el propio cuerpo.</p>
-
+<section id="que-es">
+  <div class="s-label">El Método</div>
+  <h2 class="s-title">¿Qué es PIxTI?</h2>
+  <p class="s-desc">Principios Isométricos para la Transformación Isotónica. La carga se construye desde el propio cuerpo.</p>
   <div class="layout">
-    <div class="concept-block reveal">
-      <p><strong>PIxTI</strong> es un sistema donde el músculo protagonista actúa dentro de un sistema que genera <strong>resistencia interna activa</strong>. No hay carga externa: la tensión se produce por la integración consciente del propio aparato neuromuscular. El cuerpo es el instrumento y la resistencia.</p>
+    <div class="def-block reveal">
+      <p><strong>PIxTI</strong> es un sistema de entrenamiento neuromuscular basado en la generación consciente de tensión interna. Integra activación muscular, control neuromuscular y oposición interna para producir movimiento bajo condiciones de <strong>tensión continua</strong>.</p>
+      <p style="margin-top:16px;">El músculo protagonista actúa dentro de un sistema que genera resistencia interna activa. No hay carga externa: la tensión emerge del propio aparato neuromuscular.</p>
+      <div class="hl">
+        <span>Se genera tensión</span>
+        <span>Se sostiene esa tensión</span>
+        <span>Se produce movimiento dentro de esa tensión</span>
+      </div>
     </div>
-
     <div class="pilares">
-      <div class="pilar reveal reveal-delay-1">
-        <div class="pilar-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12h20M12 2v20M5 5l14 14M19 5L5 19"/></svg>
-        </div>
-        <div class="pilar-text">
-          <h3>El Punto Fijo</h3>
-          <p>Referencia de apoyo —pared, barra o suelo— que organiza la dirección de la tensión y permite la activación inicial.</p>
-        </div>
+      <div class="pilar reveal d1">
+        <div class="pilar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <div><h3>El Punto Fijo</h3><p>Referencia de apoyo —pared, barra, suelo— que organiza la dirección de la tensión y permite la activación inicial. Puede ser absoluto o relativo.</p></div>
       </div>
-      <div class="pilar reveal reveal-delay-2">
-        <div class="pilar-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-        </div>
-        <div class="pilar-text">
-          <h3>La Pesa Interna</h3>
-          <p>Resistencia generada por el propio sistema corporal mediante la integración de estructuras estabilizadoras.</p>
-        </div>
+      <div class="pilar reveal d2">
+        <div class="pilar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2.5 2.5"/></svg></div>
+        <div><h3>La Pesa Interna</h3><p>Resistencia generada por el propio sistema corporal mediante la integración de estructuras estabilizadoras y control neuromuscular. El cuerpo es la carga.</p></div>
       </div>
-      <div class="pilar reveal reveal-delay-3">
-        <div class="pilar-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>
-        </div>
-        <div class="pilar-text">
-          <h3>Co-Contracción</h3>
-          <p>Mecanismo de oposición interna distribuida que organiza la resistencia a nivel de todo el sistema.</p>
-        </div>
+      <div class="pilar reveal d3">
+        <div class="pilar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 12c0-4.4 3.6-8 8-8s8 3.6 8 8M4 12c0 4.4 3.6 8 8 8"/><path d="m16 16 2 2 2-2M6 8 4 6 2 8"/></svg></div>
+        <div><h3>Co-Contracción</h3><p>Mecanismo de oposición interna distribuida que involucra múltiples grupos musculares, configurando resistencia a nivel de todo el sistema neuromuscular.</p></div>
       </div>
     </div>
   </div>
@@ -521,166 +232,189 @@ footer p { font-size: 0.78rem; color: var(--muted); }
 
 <div class="divider"></div>
 
-<!-- STATS -->
 <div id="stats">
-  <div class="stat-cell reveal">
-    <div class="stat-num">0°<span>–</span>180°</div>
-    <div class="stat-label">Rango completo de movimiento<br>con activación sostenida</div>
-  </div>
-  <div class="stat-cell reveal reveal-delay-1">
-    <div class="stat-num">3<span>×</span></div>
-    <div class="stat-label">Pilares que definen<br>el sistema PIxTI</div>
-  </div>
-  <div class="stat-cell reveal reveal-delay-2">
-    <div class="stat-num">100<span>%</span></div>
-    <div class="stat-label">Resistencia generada<br>por el propio cuerpo</div>
-  </div>
+  <div class="stat reveal"><div class="stat-num">0°<em>–</em>180°</div><div class="stat-label">Rango completo con activación sostenida y uniforme</div></div>
+  <div class="stat reveal d1"><div class="stat-num">5</div><div class="stat-label">Fases de activación que estructuran cada ejercicio</div></div>
+  <div class="stat reveal d2"><div class="stat-num">3</div><div class="stat-label">Pilares: punto fijo, pesa interna, co-contracción</div></div>
+  <div class="stat reveal d3"><div class="stat-num">100<em>%</em></div><div class="stat-label">Resistencia generada por el propio sistema neuromuscular</div></div>
 </div>
 
 <div class="divider"></div>
 
-<!-- CIENCIA -->
-<section id="ciencia">
-  <div class="section-label">Ciencia</div>
-  <h2 class="section-title">Perfil de Intensidad</h2>
-  <p class="section-sub">En PIxTI la intensidad se regula internamente, permitiendo niveles elevados de activación en todo el rango articular.</p>
-
-  <div class="chart-wrap reveal">
-    <div class="chart-legend-custom">
-      <div class="legend-item">
-        <div class="legend-dot" style="background:var(--red)"></div>
-        Tradicional (Carga Externa)
-      </div>
-      <div class="legend-item">
-        <div class="legend-dot" style="background:var(--cyan)"></div>
-        PIxTI (Resistencia Interna)
-      </div>
-    </div>
-    <canvas id="intensityChart"></canvas>
-    <p class="chart-caption">Comparación del torque muscular activo a lo largo del rango de movimiento (0°–180°). La curva PIxTI mantiene activación elevada y sostenida frente al valle central del método tradicional.</p>
+<section id="como">
+  <div class="s-label">Mecánica</div>
+  <h2 class="s-title">¿Cómo Funciona?</h2>
+  <p class="s-desc">Una secuencia continua de activación y control. La isometría se transforma en movimiento.</p>
+  <div class="steps">
+    <div class="step reveal"><div class="step-num">01</div><h3>Activación isométrica inicial</h3><p>Se genera fuerza contra una referencia de apoyo. Sin desplazamiento visible aún.</p><div class="step-accent">Isometría</div></div>
+    <div class="step reveal d1"><div class="step-num">02</div><h3>Generación de tensión interna</h3><p>El sistema neuromuscular acumula energía. La tensión se instala en toda la cadena.</p><div class="step-accent">Acumulación</div></div>
+    <div class="step reveal d2"><div class="step-num">03</div><h3>Oposición neuromuscular</h3><p>Se activa una resistencia interna distribuida. Los grupos antagonistas se integran.</p><div class="step-accent">Oposición</div></div>
+    <div class="step reveal d3"><div class="step-num">04</div><h3>Modulación del esfuerzo</h3><p>El usuario regula la intensidad en tiempo real mediante control consciente.</p><div class="step-accent">Control</div></div>
+    <div class="step reveal d4"><div class="step-num">05</div><h3>Expresión del movimiento</h3><p>El movimiento aparece dentro de un entorno de tensión constante. Isotónico activo.</p><div class="step-accent">Movimiento</div></div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- AUTOR -->
-<section id="autor" style="padding: 60px 0; border-top: 1px solid #eee;">
-  <div class="autor-content">
-    <div class="section-label" style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.75rem; color: #888; margin-bottom: 15px;">Investigación y Desarrollo</div>
-    
-    <!-- Nombre con jerarquía reducida y moderna -->
-    <h2 class="autor-headline-new" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; font-weight: 300; letter-spacing: 1px; margin-bottom: 20px;">
-      Ricardo <span style="font-weight: 600;">Gabriel</span> Lima
-    </h2>
-
-    <p class="autor-bio" style="max-width: 600px; line-height: 1.6; color: #444;">
-      Creador y desarrollador del Método PIxTI. Representa la evolución de dos décadas dedicadas a la educación física, la biomecánica aplicada y el entrenamiento neuromuscular de alta performance.
-    </p>
-
-    <div class="autor-credentials" style="margin-top: 25px; display: flex; gap: 10px; flex-wrap: wrap;">
-      <span class="cred-tag-new">MBA</span>
-      <span class="cred-tag-new">Lic. Educación Física y Deportes</span>
-      <span class="cred-tag-new">Especialista en Biomecánica</span>
+<section id="diferencial">
+  <div class="s-label">Diferencial</div>
+  <h2 class="s-title">PIxTI vs. Tradicional</h2>
+  <p class="s-desc">La diferencia no está en el ejercicio. Está en de dónde viene la resistencia.</p>
+  <div class="compare">
+    <div class="compare-col">
+      <h3>Enfoque Tradicional</h3>
+      <ul>
+        <li>Carga externa (peso, máquina, banda)</li>
+        <li>Variación mecánica del esfuerzo a lo largo del rango</li>
+        <li>Dependencia del equipamiento disponible</li>
+        <li>Picos de torque en ángulos específicos</li>
+        <li>Zonas de baja carga efectiva en los extremos del rango</li>
+      </ul>
+    </div>
+    <div class="compare-col pixti">
+      <h3>PIxTI</h3>
+      <ul>
+        <li>Resistencia interna generada por el propio sistema</li>
+        <li>Tensión continua y regulable a voluntad</li>
+        <li>Sin dependencia de equipamiento externo</li>
+        <li>Activación homogénea en todo el rango articular</li>
+        <li>El progreso surge del control de la tensión, no del peso</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<style>
-  .cred-tag-new {
-    background: #f4f4f4;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    color: #555;
-    border: 1px solid #e0e0e0;
-  }
-</style>
-<!-- FOOTER -->
+<div class="divider"></div>
+
+<section id="ciencia">
+  <div class="s-label">Ciencia</div>
+  <h2 class="s-title">Perfil de Intensidad</h2>
+  <p class="s-desc">En ejercicios con carga externa, el torque articular varía según el brazo de momento. PIxTI sostiene niveles elevados en todo el recorrido.</p>
+  <div class="chart-wrap reveal">
+    <div class="chart-legend">
+      <div class="legend-item"><div class="l-dot" style="background:var(--red)"></div>Tradicional (carga externa)</div>
+      <div class="legend-item"><div class="l-dot" style="background:var(--cyan)"></div>PIxTI (resistencia interna)</div>
+    </div>
+    <canvas id="chart" height="360"></canvas>
+    <p class="chart-note">En el método tradicional, el torque alcanza su máximo en 90° y cae en los extremos del rango, generando <em>zonas de baja carga efectiva</em>. PIxTI, al modular la tensión internamente, distribuye la activación de forma homogénea a lo largo de los 180° de recorrido articular.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="progresion">
+  <div class="s-label">Progresión</div>
+  <h2 class="s-title">¿Cómo se Progresa?</h2>
+  <p class="s-desc">No se agrega peso. Se desarrolla la capacidad interna del sistema neuromuscular.</p>
+  <div class="prog-grid">
+    <div class="prog-card reveal"><div class="prog-num">01</div><h3>Mayor generación de tensión</h3><p>Incremento progresivo en la capacidad de producir y acumular fuerza interna en cada repetición.</p></div>
+    <div class="prog-card reveal d1"><div class="prog-num">02</div><h3>Mayor capacidad de sostenerla</h3><p>Resistencia neuromuscular: mantener la tensión a lo largo de todo el recorrido sin colapso de la activación.</p></div>
+    <div class="prog-card reveal d2"><div class="prog-num">03</div><h3>Mayor control de la modulación</h3><p>Regulación voluntaria y precisa de la intensidad en tiempo real durante el movimiento.</p></div>
+    <div class="prog-card reveal d3"><div class="prog-num">04</div><h3>Mayor precisión neuromuscular</h3><p>Refinamiento de la coordinación intermuscular y la activación selectiva de estructuras específicas.</p></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="base">
+  <div class="s-label">Fundamentos</div>
+  <h2 class="s-title">Base Científica</h2>
+  <p class="s-desc">PIxTI integra principios ampliamente estudiados en fisiología del ejercicio y neurociencia motora.</p>
+  <div class="base-grid">
+    <div class="base-item reveal"><h3>Co-Contracción Muscular</h3><p>Activación simultánea de agonistas y antagonistas como mecanismo de estabilización y generación de resistencia interna.</p></div>
+    <div class="base-item reveal d1"><h3>Control Neuromuscular</h3><p>Capacidad del sistema nervioso para modular la activación muscular en tiempo real. Base del control voluntario de la tensión.</p></div>
+    <div class="base-item reveal d2"><h3>Propiocepción</h3><p>Retroalimentación sensorial interna que permite percibir y regular el estado de tensión del sistema durante el movimiento.</p></div>
+    <div class="base-item reveal"><h3>Activación Isométrica</h3><p>Generación de fuerza sin desplazamiento visible. Punto de partida del método: acumulación de tensión antes del movimiento.</p></div>
+    <div class="base-item reveal d1"><h3>Coordinación Intermuscular</h3><p>Integración de múltiples grupos musculares y estructuras estabilizadoras en un patrón de activación sistémica distribuida.</p></div>
+    <div class="base-item reveal d2"><h3>Modelo Sistémico</h3><p>PIxTI integra todos estos principios en un sistema coherente de entrenamiento, no como técnicas aisladas.</p></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="autor">
+  <div>
+    <div class="autor-label">Quién lo desarrolló</div>
+    <h2 class="autor-name">Ricardo<br><span>Gabriel</span><br>Lima</h2>
+    <p class="autor-bio">Creador y desarrollador del Método PIxTI. Especialista en entrenamiento neuromuscular con enfoque en la integración entre biomecánica, control motor y desarrollo de la tensión interna aplicada al movimiento.</p>
+    <div class="tags">
+      <span class="tag">MBA</span>
+      <span class="tag">Profesor en Educación Física</span>
+      <span class="tag">Licenciado en Deportes</span>
+      <span class="tag">Biomecánica Aplicada</span>
+      <span class="tag">Control Motor</span>
+      <span class="tag">Entrenamiento Neuromuscular</span>
+    </div>
+  </div>
+  <div class="autor-visual reveal">
+    <div class="autor-bg"></div>
+    <div class="autor-mono">RGL</div>
+    <div class="autor-card"><h2>R. G. Lima</h2><p>Creador · PIxTI</p></div>
+  </div>
+</section>
+
+<section id="cierre">
+  <p class="cierre-quote">
+    <span>Entrenar implica</span><br>
+    <span>generar, sostener</span><br>
+    y controlar la fuerza<br>
+    <span>desde el propio cuerpo.</span>
+  </p>
+  <a href="#que-es" class="btn-primary">Comenzar desde el principio</a>
+</section>
+
 <footer>
   <div class="footer-logo">PI<span>x</span>TI</div>
   <p>&copy; 2026 PIxTI — pixti.ar</p>
 </footer>
 
 <script>
-/* ── Navbar scroll ─────────────────────────────────────── */
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 40);
-});
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
 
-/* ── Reveal on scroll ──────────────────────────────────── */
-const revealEls = document.querySelectorAll('.reveal');
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
-}, { threshold: 0.12 });
-revealEls.forEach(el => revealObserver.observe(el));
+const ro = new IntersectionObserver(entries =>
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 
-/* ── Chart ─────────────────────────────────────────────── */
-const ctx = document.getElementById('intensityChart').getContext('2d');
-Chart.defaults.color = '#5a5a6e';
+Chart.register(window['chartjs-plugin-annotation']);
+Chart.defaults.color = '#52526a';
 Chart.defaults.font.family = 'DM Sans';
+Chart.defaults.font.weight = '300';
 
-new Chart(ctx, {
+new Chart(document.getElementById('chart'), {
   type: 'line',
   data: {
     labels: ['0°','15°','30°','45°','60°','75°','90°','105°','120°','135°','150°','165°','180°'],
     datasets: [
-      {
-        label: 'Tradicional',
-        data: [10, 20, 35, 55, 75, 90, 100, 90, 75, 55, 35, 20, 10],
-        borderColor: '#ff3b3b',
-        borderWidth: 2,
-        tension: 0.4,
-        pointRadius: 0,
-        fill: false
-      },
-      {
-        label: 'PIxTI',
-        data: [80, 85, 90, 90, 95, 95, 95, 95, 90, 90, 85, 80, 80],
-        borderColor: '#00e5ff',
-        borderWidth: 3,
-        tension: 0.3,
-        pointRadius: 0,
-        fill: true,
-        backgroundColor: (ctx) => {
-          const gradient = ctx.chart.ctx.createLinearGradient(0, 0, 0, 320);
-          gradient.addColorStop(0, 'rgba(0,229,255,0.12)');
-          gradient.addColorStop(1, 'rgba(0,229,255,0.0)');
-          return gradient;
+      { label:'Tradicional', data:[10,20,35,55,75,90,100,90,75,55,35,20,10], borderColor:'#ff4040', borderWidth:2, tension:0.42, pointRadius:0, fill:false },
+      { label:'PIxTI', data:[80,85,90,90,95,95,95,95,90,90,85,80,80], borderColor:'#00e5ff', borderWidth:3, tension:0.3, pointRadius:0, fill:true,
+        backgroundColor: ctx => {
+          const g = ctx.chart.ctx.createLinearGradient(0,0,0,340);
+          g.addColorStop(0,'rgba(0,229,255,.1)'); g.addColorStop(1,'rgba(0,229,255,0)'); return g;
         }
       }
     ]
   },
   options: {
-    responsive: true,
-    interaction: { mode: 'index', intersect: false },
+    responsive:true,
+    interaction:{mode:'index',intersect:false},
     plugins: {
-      legend: { display: false },
-      tooltip: {
-        backgroundColor: '#0c0c10',
-        borderColor: 'rgba(255,255,255,0.08)',
-        borderWidth: 1,
-        titleColor: '#f0f0f0',
-        bodyColor: '#5a5a6e',
-        padding: 12,
-        callbacks: {
-          label: (ctx) => ` ${ctx.dataset.label}: ${ctx.parsed.y}%`
-        }
-      }
+      legend:{display:false},
+      tooltip:{backgroundColor:'#0b0b0e',borderColor:'rgba(255,255,255,.07)',borderWidth:1,titleColor:'#efefef',bodyColor:'#52526a',padding:12,
+        callbacks:{label: c => ` ${c.dataset.label}: ${c.parsed.y}%`}},
+      annotation:{annotations:{
+        line90:{type:'line',scaleID:'x',value:'90°',borderColor:'rgba(255,255,255,.06)',borderWidth:1,borderDash:[4,4]},
+        lPico:{type:'label',xValue:'90°',yValue:106,content:['Máxima carga mecánica externa'],color:'rgba(255,64,64,.7)',font:{size:11},textAlign:'center'},
+        lZonaL:{type:'label',xValue:'15°',yValue:30,content:['Zona de baja','carga efectiva'],color:'rgba(255,64,64,.4)',font:{size:10},textAlign:'center'},
+        lZonaR:{type:'label',xValue:'165°',yValue:30,content:['Zona de baja','carga efectiva'],color:'rgba(255,64,64,.4)',font:{size:10},textAlign:'center'},
+        lPixti:{type:'label',xValue:'90°',yValue:76,content:['Intensidad regulada en todo el rango'],color:'rgba(0,229,255,.8)',font:{size:11},textAlign:'center'}
+      }}
     },
-    scales: {
-      y: {
-        min: 0, max: 110,
-        grid: { color: 'rgba(255,255,255,0.04)' },
-        border: { display: false },
-        ticks: { font: { size: 11 }, callback: v => v + '%' },
-        title: { display: true, text: 'Intensidad / Torque (%)', color: '#3a3a4e', font: { size: 11 } }
-      },
-      x: {
-        grid: { display: false },
-        border: { display: false },
-        ticks: { font: { size: 11 } }
-      }
+    scales:{
+      y:{min:0,max:118,grid:{color:'rgba(255,255,255,.035)'},border:{display:false},
+        ticks:{font:{size:11},stepSize:20,callback:v=>v+'%'},
+        title:{display:true,text:'Intensidad / Torque relativo (%)',color:'#3a3a52',font:{size:11}}},
+      x:{grid:{display:false},border:{display:false},ticks:{font:{size:11}}}
     }
   }
 });
