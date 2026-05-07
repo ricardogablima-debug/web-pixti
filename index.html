@@ -301,29 +301,25 @@ footer p{font-size:.76rem;color:var(--muted);}
 
 /* MOVIMIENTO DIDÁCTICO */
 #movimiento{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
-.mov-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:56px;background:var(--border);border-radius:var(--r);overflow:hidden;}
-.mov-card{background:var(--bg);padding:28px 22px 24px;display:flex;flex-direction:column;gap:0;position:relative;transition:background .25s;}
-.mov-card:hover{background:rgba(0,229,255,.025);}
-.mov-phase{font-size:.6rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
-.mov-phase-num{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:var(--cyan);letter-spacing:1px;}
-.mov-svg-wrap{width:100%;aspect-ratio:1/1.1;margin-bottom:20px;position:relative;}
-.mov-svg-wrap svg{width:100%;height:100%;}
-.mov-angle{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:1px;color:var(--white);line-height:1;margin-bottom:4px;}
-.mov-angle-sub{font-size:.62rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;}
-.mov-title{font-size:.82rem;font-weight:500;color:var(--white);margin-bottom:8px;line-height:1.3;}
-.mov-desc{font-size:.74rem;color:var(--muted);line-height:1.6;}
-.mov-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:14px;}
-.mov-tag{font-size:.6rem;font-weight:500;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:100px;border:1px solid;}
-.mov-tag.iso{color:rgba(255,200,64,.8);border-color:rgba(255,200,64,.25);background:rgba(255,200,64,.05);}
-.mov-tag.con{color:rgba(0,229,255,.8);border-color:rgba(0,229,255,.25);background:rgba(0,229,255,.05);}
-.mov-tag.ecc{color:rgba(180,100,255,.8);border-color:rgba(180,100,255,.25);background:rgba(180,100,255,.05);}
-.mov-arrow{display:flex;justify-content:center;align-items:center;padding:0 4px;color:var(--muted);font-size:.6rem;align-self:flex-start;margin-top:60px;}
-.mov-legend{margin-top:32px;display:flex;flex-wrap:wrap;gap:20px;padding-top:20px;border-top:1px solid var(--border);}
+.mov-strip{display:grid;grid-template-columns:1fr 32px 1fr 32px 1fr 32px 1fr;align-items:start;gap:0;margin-top:56px;}
+.mov-frame{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:border-color .25s;}
+.mov-frame:hover{border-color:rgba(0,229,255,.2);}
+.mov-frame-head{display:flex;align-items:center;gap:8px;padding:14px 16px 10px;border-bottom:1px solid var(--border);}
+.mov-phase-num{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--cyan);letter-spacing:1px;line-height:1;}
+.mov-phase-label{font-size:.62rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);flex:1;}
+.mov-angle-badge{font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:1px;color:rgba(255,200,64,0.9);}
+.mov-fig-wrap{width:100%;padding:8px 4px 4px;}
+.mov-fig-wrap svg{width:100%;display:block;}
+.mov-frame-text{padding:12px 16px 16px;font-size:.74rem;color:var(--muted);line-height:1.65;border-top:1px solid var(--border);}
+.mov-arrow-wrap{display:flex;align-items:center;justify-content:center;padding-top:80px;}
+.mov-arrow-wrap svg{width:28px;opacity:.5;}
+.mov-legend{margin-top:28px;display:flex;flex-wrap:wrap;gap:20px;padding-top:20px;border-top:1px solid var(--border);}
 .mov-legend-item{display:flex;align-items:center;gap:8px;font-size:.72rem;color:var(--muted2);}
-.mov-legend-line{width:20px;height:3px;border-radius:2px;flex-shrink:0;}
-.mov-legend-line.dashed{background:repeating-linear-gradient(90deg,#ff4040 0,#ff4040 4px,transparent 4px,transparent 8px);}
-@media(max-width:900px){.mov-grid{grid-template-columns:1fr 1fr;}}
-@media(max-width:500px){.mov-grid{grid-template-columns:1fr;}}
+.mov-legend-line{width:22px;height:3px;border-radius:2px;flex-shrink:0;}
+.mov-benefits{margin-top:20px;display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:.7rem;color:var(--muted);padding:14px 0;border-top:1px solid var(--border);}
+.mov-sep{color:var(--border);font-size:.8rem;}
+@media(max-width:900px){.mov-strip{grid-template-columns:1fr 24px 1fr;}.mov-strip .mov-frame:nth-child(5),.mov-strip .mov-frame:nth-child(7),.mov-strip .mov-arrow-wrap:nth-child(6){display:none;}}
+@media(max-width:560px){.mov-strip{grid-template-columns:1fr;}.mov-arrow-wrap{padding-top:0;transform:rotate(0deg);}}
 
 /* RESPONSIVE */
 @media(max-width:1000px){
@@ -472,213 +468,256 @@ footer p{font-size:.76rem;color:var(--muted);}
 <section id="movimiento">
   <div class="s-label" data-i18n="mov.label">El Método en Acción</div>
   <h2 class="s-title" data-i18n="mov.title">Curl de Bíceps PIxTI</h2>
-  <p class="s-desc" data-i18n="mov.desc">Secuencia de activación en cuatro posiciones. La tensión interna no cesa en ningún ángulo del recorrido.</p>
+  <p class="s-desc" data-i18n="mov.desc">Secuencia completa del movimiento. La tensión interna no cesa en ningún ángulo del recorrido.</p>
 
-  <div class="mov-grid">
+  <!-- TIRA CONTINUA -->
+  <div class="mov-strip">
 
-    <!-- FASE 1: 0-10° isométrica -->
-    <div class="mov-card reveal">
-      <div class="mov-phase"><span class="mov-phase-num">01</span> <span data-i18n="mov1.phase">Isométrica inicial</span></div>
-      <div class="mov-svg-wrap">
-        <svg viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg" fill="none">
+    <!-- FASE 1 -->
+    <div class="mov-frame">
+      <div class="mov-frame-head">
+        <span class="mov-phase-num">01</span>
+        <span class="mov-phase-label" data-i18n="mov1.phase">Isométrica inicial</span>
+        <span class="mov-angle-badge">0°–10°</span>
+      </div>
+      <div class="mov-fig-wrap">
+        <svg viewBox="0 0 130 210" xmlns="http://www.w3.org/2000/svg" fill="none">
           <!-- PARED -->
-          <rect x="138" y="0" width="3" height="200" fill="rgba(255,255,255,0.06)"/>
-          <rect x="141" y="0" width="10" height="200" fill="rgba(255,255,255,0.03)"/>
+          <rect x="110" y="0" width="4" height="210" fill="rgba(255,255,255,0.07)"/>
+          <rect x="114" y="0" width="14" height="210" fill="rgba(255,255,255,0.025)"/>
           <!-- CABEZA -->
-          <ellipse cx="62" cy="18" rx="11" ry="13" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
+          <ellipse cx="52" cy="16" rx="12" ry="14" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.25)" stroke-width="1.2"/>
           <!-- CUELLO -->
-          <rect x="58" y="30" width="8" height="10" rx="2" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+          <rect x="47" y="29" width="9" height="11" rx="3" fill="rgba(220,220,220,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
           <!-- TORSO -->
-          <path d="M44 40 Q40 42 38 60 L38 110 Q38 116 44 118 L80 118 Q86 116 86 110 L86 60 Q84 42 80 40 Z" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.13)" stroke-width="1.2"/>
-          <!-- HOMBRO derecho -->
-          <ellipse cx="84" cy="48" rx="7" ry="6" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-          <!-- HÚMERO - brazo casi horizontal (0-10°) -->
-          <line x1="84" y1="52" x2="122" y2="58" stroke="rgba(255,255,255,0.22)" stroke-width="6" stroke-linecap="round"/>
-          <!-- CODO -->
-          <ellipse cx="122" cy="58" rx="5" ry="4" fill="rgba(255,200,64,0.5)" stroke="rgba(255,200,64,0.8)" stroke-width="1"/>
-          <!-- ANTEBRAZO casi horizontal hacia pared -->
-          <line x1="122" y1="58" x2="137" y2="61" stroke="rgba(255,255,255,0.18)" stroke-width="5" stroke-linecap="round"/>
-          <!-- MANO / mancuerna -->
-          <rect x="133" y="56" width="9" height="8" rx="2" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
-          <!-- BÍCEPS activado (sobre húmero, tensor) -->
-          <path d="M88 50 Q103 44 120 52 Q116 58 100 60 Q88 58 88 50Z" fill="rgba(255,64,64,0.45)" stroke="rgba(255,64,64,0.8)" stroke-width="1.2"/>
-          <!-- TRÍCEPS lado interno -->
-          <path d="M88 54 Q103 62 120 58 Q116 64 100 66 Q88 62 88 54Z" fill="rgba(255,64,64,0.15)" stroke="rgba(255,64,64,0.3)" stroke-width="0.8"/>
-          <!-- VECTOR fuerza → pared (rojo) -->
-          <line x1="104" y1="54" x2="133" y2="57" stroke="#ff4040" stroke-width="2" stroke-dasharray="4,2"/>
-          <polygon points="133,53 141,57 133,61" fill="#ff4040"/>
-          <!-- VECTORES oposición interna ← (cyan) -->
-          <line x1="96" y1="64" x2="60" y2="68" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="3,2"/>
-          <polygon points="60,64 52,68 60,72" fill="#00e5ff"/>
-          <line x1="92" y1="70" x2="58" y2="74" stroke="rgba(0,229,255,0.5)" stroke-width="1" stroke-dasharray="3,2"/>
-          <polygon points="58,70 50,74 58,78" fill="rgba(0,229,255,0.5)"/>
-          <!-- ARCO ángulo codo -->
-          <path d="M127 58 A10 10 0 0 0 122 48" stroke="rgba(255,200,64,0.6)" stroke-width="1" fill="none"/>
-          <text x="128" y="50" fill="rgba(255,200,64,0.9)" font-size="9" font-family="'DM Sans',sans-serif" font-weight="500">~5°</text>
-          <!-- PIERNAS sugeridas -->
-          <line x1="50" y1="118" x2="48" y2="170" stroke="rgba(255,255,255,0.1)" stroke-width="5" stroke-linecap="round"/>
-          <line x1="74" y1="118" x2="76" y2="170" stroke="rgba(255,255,255,0.1)" stroke-width="5" stroke-linecap="round"/>
-          <ellipse cx="48" cy="174" rx="6" ry="3" fill="rgba(255,255,255,0.07)"/>
-          <ellipse cx="76" cy="174" rx="6" ry="3" fill="rgba(255,255,255,0.07)"/>
-        </svg>
-      </div>
-      <div class="mov-angle">0°–10°</div>
-      <div class="mov-angle-sub" data-i18n="mov1.anglesub">Ángulo del codo</div>
-      <div class="mov-title" data-i18n="mov1.title">Activación isométrica máxima</div>
-      <div class="mov-desc" data-i18n="mov1.desc">Co-contracción máxima. El brazo presiona hacia la pared sin desplazarse. La tensión interna se instala en todo el sistema antes de que exista movimiento visible.</div>
-      <div class="mov-tags"><span class="mov-tag iso" data-i18n="tag.iso">Isométrica</span></div>
-    </div>
-
-    <!-- FASE 2: 90° concéntrica media -->
-    <div class="mov-card reveal d1">
-      <div class="mov-phase"><span class="mov-phase-num">02</span> <span data-i18n="mov2.phase">Concéntrica media</span></div>
-      <div class="mov-svg-wrap">
-        <svg viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg" fill="none">
-          <rect x="138" y="0" width="3" height="200" fill="rgba(255,255,255,0.06)"/>
-          <rect x="141" y="0" width="10" height="200" fill="rgba(255,255,255,0.03)"/>
-          <!-- CABEZA -->
-          <ellipse cx="62" cy="18" rx="11" ry="13" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
-          <rect x="58" y="30" width="8" height="10" rx="2" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-          <!-- TORSO -->
-          <path d="M44 40 Q40 42 38 60 L38 110 Q38 116 44 118 L80 118 Q86 116 86 110 L86 60 Q84 42 80 40 Z" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.13)" stroke-width="1.2"/>
+          <path d="M32 40 C28 44 26 58 26 80 L26 122 C26 130 32 133 42 133 L66 133 C76 133 80 130 80 122 L80 80 C80 58 78 44 74 40 Z" fill="rgba(220,220,220,0.07)" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
+          <!-- PECHO / músculo pectoral sugerido -->
+          <path d="M38 48 Q52 55 66 48 Q68 62 52 66 Q36 62 38 48Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="0.8"/>
           <!-- HOMBRO -->
-          <ellipse cx="84" cy="48" rx="7" ry="6" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-          <!-- HÚMERO bajando desde hombro -->
-          <line x1="84" y1="52" x2="102" y2="80" stroke="rgba(255,255,255,0.22)" stroke-width="6" stroke-linecap="round"/>
-          <!-- CODO a 90° -->
-          <ellipse cx="102" cy="80" rx="5" ry="4" fill="rgba(255,200,64,0.5)" stroke="rgba(255,200,64,0.8)" stroke-width="1"/>
-          <!-- ANTEBRAZO vertical hacia arriba -->
-          <line x1="102" y1="80" x2="102" y2="42" stroke="rgba(255,255,255,0.18)" stroke-width="5" stroke-linecap="round"/>
-          <!-- MANO / mancuerna -->
-          <rect x="97" y="34" width="11" height="8" rx="2" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
-          <!-- BÍCEPS contraído (prominente, máxima contracción) -->
-          <path d="M86 58 Q94 46 102 54 Q100 68 92 72 Q84 68 86 58Z" fill="rgba(255,64,64,0.5)" stroke="rgba(255,64,64,0.85)" stroke-width="1.3"/>
+          <ellipse cx="76" cy="52" rx="8" ry="7" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <!-- DELTOIDES -->
+          <path d="M70 46 Q82 46 84 58 Q80 62 72 58 Q68 54 70 46Z" fill="rgba(200,200,200,0.1)" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
+          <!-- HÚMERO — casi horizontal 0-10° -->
+          <line x1="76" y1="56" x2="108" y2="60" stroke="rgba(240,240,240,0.3)" stroke-width="7" stroke-linecap="round"/>
+          <!-- CODO -->
+          <ellipse cx="108" cy="60" rx="5" ry="4" fill="rgba(255,200,64,0.7)" stroke="rgba(255,200,64,1)" stroke-width="1"/>
+          <!-- ANTEBRAZO — horizontal hacia pared -->
+          <line x1="108" y1="60" x2="111" y2="62" stroke="rgba(240,240,240,0.25)" stroke-width="5" stroke-linecap="round"/>
+          <!-- BÍCEPS — tenso isométrico (rojo prominente) -->
+          <path d="M80 52 C90 44 106 50 108 58 C104 64 90 66 80 60 Z" fill="rgba(255,64,64,0.5)" stroke="rgba(255,64,64,0.9)" stroke-width="1.3"/>
+          <!-- BÍCEPS highlight -->
+          <path d="M86 50 C94 46 104 52 106 56" stroke="rgba(255,120,120,0.4)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
           <!-- TRÍCEPS -->
-          <path d="M86 62 Q94 70 102 66 Q100 78 92 80 Q84 76 86 62Z" fill="rgba(255,64,64,0.15)" stroke="rgba(255,64,64,0.3)" stroke-width="0.8"/>
-          <!-- VECTOR → pared -->
-          <line x1="104" y1="62" x2="130" y2="62" stroke="#ff4040" stroke-width="2" stroke-dasharray="4,2"/>
-          <polygon points="130,58 138,62 130,66" fill="#ff4040"/>
-          <!-- VECTORES ← oposición -->
-          <line x1="82" y1="74" x2="52" y2="74" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="3,2"/>
-          <polygon points="52,70 44,74 52,78" fill="#00e5ff"/>
-          <line x1="80" y1="82" x2="52" y2="82" stroke="rgba(0,229,255,0.5)" stroke-width="1" stroke-dasharray="3,2"/>
-          <polygon points="52,78 44,82 52,86" fill="rgba(0,229,255,0.5)"/>
-          <!-- ARCO 90° -->
-          <path d="M102 80 A18 18 0 0 0 120 80" stroke="rgba(255,200,64,0.6)" stroke-width="1" fill="none"/>
-          <text x="118" y="76" fill="rgba(255,200,64,0.9)" font-size="9" font-family="'DM Sans',sans-serif" font-weight="500">90°</text>
+          <path d="M80 60 C90 66 106 62 108 60 C104 68 88 72 80 66 Z" fill="rgba(200,200,200,0.08)" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
+          <!-- ANTEBRAZO músculo -->
+          <path d="M94 62 C102 60 110 62 111 66 C108 70 98 70 92 68 Z" fill="rgba(200,200,200,0.1)" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
+          <!-- MANO / agarre barra -->
+          <rect x="108" y="56" width="5" height="10" rx="2" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+          <!-- BARRA paralela al suelo -->
+          <rect x="109" y="59" width="3" height="3" rx="1" fill="rgba(180,180,180,0.6)"/>
+          <!-- VECTOR fuerza → pared (rojo) -->
+          <line x1="94" y1="56" x2="106" y2="57" stroke="#ff4040" stroke-width="2" stroke-dasharray="4,2"/>
+          <polygon points="106,54 114,57 106,60" fill="#ff4040"/>
+          <!-- VECTORES oposición ← (cyan) -->
+          <line x1="72" y1="68" x2="48" y2="71" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="3,2"/>
+          <polygon points="48,68 40,71 48,74" fill="#00e5ff"/>
+          <line x1="70" y1="75" x2="48" y2="78" stroke="rgba(0,229,255,0.5)" stroke-width="1" stroke-dasharray="3,2"/>
+          <polygon points="48,75 40,78 48,81" fill="rgba(0,229,255,0.5)"/>
+          <line x1="68" y1="82" x2="46" y2="85" stroke="rgba(0,229,255,0.3)" stroke-width="0.8" stroke-dasharray="3,2"/>
+          <polygon points="46,82 38,85 46,88" fill="rgba(0,229,255,0.3)"/>
+          <!-- ARCO ángulo -->
+          <path d="M108 60 A12 12 0 0 0 108 48" stroke="rgba(255,200,64,0.6)" stroke-width="1" fill="none"/>
+          <text x="112" y="52" fill="rgba(255,200,64,0.9)" font-size="8" font-family="DM Sans,sans-serif" font-weight="500">~5°</text>
           <!-- PIERNAS -->
-          <line x1="50" y1="118" x2="48" y2="170" stroke="rgba(255,255,255,0.1)" stroke-width="5" stroke-linecap="round"/>
-          <line x1="74" y1="118" x2="76" y2="170" stroke="rgba(255,255,255,0.1)" stroke-width="5" stroke-linecap="round"/>
-          <ellipse cx="48" cy="174" rx="6" ry="3" fill="rgba(255,255,255,0.07)"/>
-          <ellipse cx="76" cy="174" rx="6" ry="3" fill="rgba(255,255,255,0.07)"/>
+          <line x1="38" y1="133" x2="36" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
+          <line x1="62" y1="133" x2="64" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
+          <!-- PIES -->
+          <path d="M30 188 Q36 192 44 190 Q38 194 28 192 Z" fill="rgba(255,255,255,0.1)"/>
+          <path d="M58 188 Q64 192 72 190 Q66 194 56 192 Z" fill="rgba(255,255,255,0.1)"/>
         </svg>
       </div>
-      <div class="mov-angle">≈ 90°</div>
-      <div class="mov-angle-sub" data-i18n="mov2.anglesub">Ángulo del codo</div>
-      <div class="mov-title" data-i18n="mov2.title">Equilibrio óptimo del sistema</div>
-      <div class="mov-desc" data-i18n="mov2.desc">Máxima eficiencia mecánica. La fuerza principal y la oposición interna se equilibran. El sistema articular trabaja en su rango más favorable.</div>
-      <div class="mov-tags"><span class="mov-tag con" data-i18n="tag.con">Concéntrica</span></div>
+      <div class="mov-frame-text" data-i18n="mov1.desc">Alta activación isométrica. Co-contracción máxima para generar tensión interna y estabilizar el sistema antes de que exista movimiento.</div>
     </div>
 
-    <!-- FASE 3: 120° concéntrica avanzada -->
-    <div class="mov-card reveal d2">
-      <div class="mov-phase"><span class="mov-phase-num">03</span> <span data-i18n="mov3.phase">Concéntrica avanzada</span></div>
-      <div class="mov-svg-wrap">
-        <svg viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg" fill="none">
-          <rect x="138" y="0" width="3" height="200" fill="rgba(255,255,255,0.06)"/>
-          <rect x="141" y="0" width="10" height="200" fill="rgba(255,255,255,0.03)"/>
-          <ellipse cx="62" cy="18" rx="11" ry="13" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
-          <rect x="58" y="30" width="8" height="10" rx="2" fill="rgba(255,255,255,0.07)"/>
-          <path d="M44 40 Q40 42 38 60 L38 110 Q38 116 44 118 L80 118 Q86 116 86 110 L86 60 Q84 42 80 40 Z" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.13)" stroke-width="1.2"/>
-          <ellipse cx="84" cy="48" rx="7" ry="6" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-          <!-- HÚMERO -->
-          <line x1="84" y1="52" x2="100" y2="82" stroke="rgba(255,255,255,0.22)" stroke-width="6" stroke-linecap="round"/>
-          <!-- CODO -->
-          <ellipse cx="100" cy="82" rx="5" ry="4" fill="rgba(255,200,64,0.5)" stroke="rgba(255,200,64,0.8)" stroke-width="1"/>
-          <!-- ANTEBRAZO inclinado ~30° atrás del vertical (120° total) -->
-          <line x1="100" y1="82" x2="82" y2="46" stroke="rgba(255,255,255,0.18)" stroke-width="5" stroke-linecap="round"/>
+    <!-- FLECHA 1→2 -->
+    <div class="mov-arrow-wrap">
+      <svg viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="20" y1="5" x2="20" y2="45" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <polygon points="12,42 20,56 28,42" fill="rgba(255,255,255,0.2)"/>
+      </svg>
+    </div>
+
+    <!-- FASE 2 -->
+    <div class="mov-frame">
+      <div class="mov-frame-head">
+        <span class="mov-phase-num">02</span>
+        <span class="mov-phase-label" data-i18n="mov2.phase">Concéntrica media</span>
+        <span class="mov-angle-badge">≈ 90°</span>
+      </div>
+      <div class="mov-fig-wrap">
+        <svg viewBox="0 0 130 210" xmlns="http://www.w3.org/2000/svg" fill="none">
+          <rect x="110" y="0" width="4" height="210" fill="rgba(255,255,255,0.07)"/>
+          <rect x="114" y="0" width="14" height="210" fill="rgba(255,255,255,0.025)"/>
+          <ellipse cx="52" cy="16" rx="12" ry="14" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.25)" stroke-width="1.2"/>
+          <rect x="47" y="29" width="9" height="11" rx="3" fill="rgba(220,220,220,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          <path d="M32 40 C28 44 26 58 26 80 L26 122 C26 130 32 133 42 133 L66 133 C76 133 80 130 80 122 L80 80 C80 58 78 44 74 40 Z" fill="rgba(220,220,220,0.07)" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
+          <path d="M38 48 Q52 55 66 48 Q68 62 52 66 Q36 62 38 48Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="0.8"/>
+          <ellipse cx="74" cy="52" rx="8" ry="7" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <path d="M68 46 Q80 46 82 58 Q78 62 70 58 Q66 54 68 46Z" fill="rgba(200,200,200,0.1)" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
+          <!-- HÚMERO inclinado ~45° -->
+          <line x1="74" y1="56" x2="92" y2="86" stroke="rgba(240,240,240,0.3)" stroke-width="7" stroke-linecap="round"/>
+          <!-- CODO a 90° -->
+          <ellipse cx="92" cy="86" rx="5" ry="4" fill="rgba(255,200,64,0.7)" stroke="rgba(255,200,64,1)" stroke-width="1"/>
+          <!-- ANTEBRAZO vertical hacia arriba -->
+          <line x1="92" y1="86" x2="92" y2="44" stroke="rgba(240,240,240,0.25)" stroke-width="5" stroke-linecap="round"/>
           <!-- MANO -->
-          <rect x="76" y="38" width="11" height="8" rx="2" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
-          <!-- BÍCEPS en acortamiento -->
-          <path d="M86 60 Q92 50 100 60 Q96 72 88 74 Q82 70 86 60Z" fill="rgba(255,64,64,0.45)" stroke="rgba(255,64,64,0.8)" stroke-width="1.2"/>
-          <!-- VECTOR → pared -->
-          <line x1="102" y1="66" x2="128" y2="66" stroke="#ff4040" stroke-width="2" stroke-dasharray="4,2"/>
-          <polygon points="128,62 136,66 128,70" fill="#ff4040"/>
-          <!-- VECTORES ← oposición -->
-          <line x1="80" y1="76" x2="50" y2="76" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="3,2"/>
-          <polygon points="50,72 42,76 50,80" fill="#00e5ff"/>
-          <line x1="78" y1="84" x2="50" y2="84" stroke="rgba(0,229,255,0.5)" stroke-width="1" stroke-dasharray="3,2"/>
-          <polygon points="50,80 42,84 50,88" fill="rgba(0,229,255,0.5)"/>
+          <rect x="89" y="36" width="7" height="10" rx="2" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+          <!-- BÍCEPS máxima contracción — pico prominente -->
+          <path d="M76 60 C82 46 92 52 92 64 C90 74 80 76 74 70 Z" fill="rgba(255,64,64,0.55)" stroke="rgba(255,64,64,0.95)" stroke-width="1.4"/>
+          <path d="M78 58 C84 48 90 54 90 60" stroke="rgba(255,140,140,0.5)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M76 68 C82 76 90 74 92 68 C90 80 80 84 74 78 Z" fill="rgba(200,200,200,0.08)" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
+          <!-- Vector → pared -->
+          <line x1="94" y1="64" x2="106" y2="64" stroke="#ff4040" stroke-width="2" stroke-dasharray="4,2"/>
+          <polygon points="106,61 114,64 106,67" fill="#ff4040"/>
+          <!-- Vectores ← oposición -->
+          <line x1="70" y1="76" x2="46" y2="76" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="3,2"/>
+          <polygon points="46,73 38,76 46,79" fill="#00e5ff"/>
+          <line x1="68" y1="83" x2="46" y2="83" stroke="rgba(0,229,255,0.5)" stroke-width="1" stroke-dasharray="3,2"/>
+          <polygon points="46,80 38,83 46,86" fill="rgba(0,229,255,0.5)"/>
+          <!-- ARCO 90° -->
+          <path d="M92 86 A20 20 0 0 0 112 86" stroke="rgba(255,200,64,0.6)" stroke-width="1" fill="none"/>
+          <text x="110" y="82" fill="rgba(255,200,64,0.9)" font-size="8" font-family="DM Sans,sans-serif" font-weight="500">90°</text>
+          <!-- Sistema articular punto -->
+          <circle cx="92" cy="44" r="2.5" fill="rgba(255,200,64,0.4)"/>
+          <line x1="38" y1="133" x2="36" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
+          <line x1="62" y1="133" x2="64" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
+          <path d="M30 188 Q36 192 44 190 Q38 194 28 192 Z" fill="rgba(255,255,255,0.1)"/>
+          <path d="M58 188 Q64 192 72 190 Q66 194 56 192 Z" fill="rgba(255,255,255,0.1)"/>
+        </svg>
+      </div>
+      <div class="mov-frame-text" data-i18n="mov2.desc">Equilibrio óptimo entre fuerza principal y oposición interna distribuida. Máxima eficiencia del sistema neuromuscular.</div>
+    </div>
+
+    <!-- FLECHA 2→3 -->
+    <div class="mov-arrow-wrap">
+      <svg viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="20" y1="5" x2="20" y2="45" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <polygon points="12,42 20,56 28,42" fill="rgba(255,255,255,0.2)"/>
+      </svg>
+    </div>
+
+    <!-- FASE 3 -->
+    <div class="mov-frame">
+      <div class="mov-frame-head">
+        <span class="mov-phase-num">03</span>
+        <span class="mov-phase-label" data-i18n="mov3.phase">Concéntrica avanzada</span>
+        <span class="mov-angle-badge">≈ 120°</span>
+      </div>
+      <div class="mov-fig-wrap">
+        <svg viewBox="0 0 130 210" xmlns="http://www.w3.org/2000/svg" fill="none">
+          <rect x="110" y="0" width="4" height="210" fill="rgba(255,255,255,0.07)"/>
+          <rect x="114" y="0" width="14" height="210" fill="rgba(255,255,255,0.025)"/>
+          <ellipse cx="52" cy="16" rx="12" ry="14" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.25)" stroke-width="1.2"/>
+          <rect x="47" y="29" width="9" height="11" rx="3" fill="rgba(220,220,220,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          <path d="M32 40 C28 44 26 58 26 80 L26 122 C26 130 32 133 42 133 L66 133 C76 133 80 130 80 122 L80 80 C80 58 78 44 74 40 Z" fill="rgba(220,220,220,0.07)" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
+          <path d="M38 48 Q52 55 66 48 Q68 62 52 66 Q36 62 38 48Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="0.8"/>
+          <ellipse cx="72" cy="52" rx="8" ry="7" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <path d="M66 46 Q78 46 80 58 Q76 62 68 58 Q64 54 66 46Z" fill="rgba(200,200,200,0.1)" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
+          <!-- HÚMERO -->
+          <line x1="72" y1="56" x2="88" y2="90" stroke="rgba(240,240,240,0.3)" stroke-width="7" stroke-linecap="round"/>
+          <!-- CODO -->
+          <ellipse cx="88" cy="90" rx="5" ry="4" fill="rgba(255,200,64,0.7)" stroke="rgba(255,200,64,1)" stroke-width="1"/>
+          <!-- ANTEBRAZO 120° — pasado el vertical, inclinado hacia la pared -->
+          <line x1="88" y1="90" x2="70" y2="52" stroke="rgba(240,240,240,0.25)" stroke-width="5" stroke-linecap="round"/>
+          <!-- MANO -->
+          <rect x="65" y="44" width="7" height="10" rx="2" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+          <!-- BÍCEPS en acortamiento, todavía prominente -->
+          <path d="M74 62 C78 50 88 56 88 68 C86 78 76 80 72 74 Z" fill="rgba(255,64,64,0.48)" stroke="rgba(255,64,64,0.88)" stroke-width="1.3"/>
+          <path d="M76 60 C80 50 86 56 86 64" stroke="rgba(255,140,140,0.4)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M74 72 C80 80 88 78 88 70 C86 82 76 86 72 80 Z" fill="rgba(200,200,200,0.08)" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
+          <!-- Vector → -->
+          <line x1="90" y1="70" x2="104" y2="70" stroke="#ff4040" stroke-width="2" stroke-dasharray="4,2"/>
+          <polygon points="104,67 112,70 104,73" fill="#ff4040"/>
+          <!-- Vectores ← -->
+          <line x1="68" y1="80" x2="44" y2="80" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="3,2"/>
+          <polygon points="44,77 36,80 44,83" fill="#00e5ff"/>
+          <line x1="66" y1="87" x2="44" y2="87" stroke="rgba(0,229,255,0.5)" stroke-width="1" stroke-dasharray="3,2"/>
+          <polygon points="44,84 36,87 44,90" fill="rgba(0,229,255,0.5)"/>
           <!-- ARCO 120° -->
-          <path d="M100 82 A20 20 0 0 0 120 82" stroke="rgba(255,200,64,0.6)" stroke-width="1" fill="none"/>
-          <text x="116" y="78" fill="rgba(255,200,64,0.9)" font-size="9" font-family="'DM Sans',sans-serif" font-weight="500">120°</text>
-          <line x1="50" y1="118" x2="48" y2="170" stroke="rgba(255,255,255,0.1)" stroke-width="5" stroke-linecap="round"/>
-          <line x1="74" y1="118" x2="76" y2="170" stroke="rgba(255,255,255,0.1)" stroke-width="5" stroke-linecap="round"/>
-          <ellipse cx="48" cy="174" rx="6" ry="3" fill="rgba(255,255,255,0.07)"/>
-          <ellipse cx="76" cy="174" rx="6" ry="3" fill="rgba(255,255,255,0.07)"/>
+          <path d="M88 90 A22 22 0 0 0 110 90" stroke="rgba(255,200,64,0.6)" stroke-width="1" fill="none"/>
+          <text x="108" y="86" fill="rgba(255,200,64,0.9)" font-size="8" font-family="DM Sans,sans-serif" font-weight="500">120°</text>
+          <line x1="38" y1="133" x2="36" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
+          <line x1="62" y1="133" x2="64" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
+          <path d="M30 188 Q36 192 44 190 Q38 194 28 192 Z" fill="rgba(255,255,255,0.1)"/>
+          <path d="M58 188 Q64 192 72 190 Q66 194 56 192 Z" fill="rgba(255,255,255,0.1)"/>
         </svg>
       </div>
-      <div class="mov-angle">≈ 120°</div>
-      <div class="mov-angle-sub" data-i18n="mov3.anglesub">Ángulo del codo</div>
-      <div class="mov-title" data-i18n="mov3.title">Oposición interna incrementada</div>
-      <div class="mov-desc" data-i18n="mov3.desc">Los estabilizadores y sinergistas se integran con mayor intensidad. La tensión se redistribuye. El movimiento continúa con control total.</div>
-      <div class="mov-tags"><span class="mov-tag con" data-i18n="tag.con">Concéntrica</span></div>
+      <div class="mov-frame-text" data-i18n="mov3.desc">Se incrementa la oposición interna de estabilizadores y sinergistas. Tensión regulada y movimiento controlado en todo el rango.</div>
     </div>
 
-    <!-- FASE 4: 160° posición final -->
-    <div class="mov-card reveal d3">
-      <div class="mov-phase"><span class="mov-phase-num">04</span> <span data-i18n="mov4.phase">Posición final</span></div>
-      <div class="mov-svg-wrap">
-        <svg viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg" fill="none">
-          <rect x="138" y="0" width="3" height="200" fill="rgba(255,255,255,0.06)"/>
-          <rect x="141" y="0" width="10" height="200" fill="rgba(255,255,255,0.03)"/>
-          <ellipse cx="62" cy="18" rx="11" ry="13" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
-          <rect x="58" y="30" width="8" height="10" rx="2" fill="rgba(255,255,255,0.07)"/>
-          <path d="M44 40 Q40 42 38 60 L38 110 Q38 116 44 118 L80 118 Q86 116 86 110 L86 60 Q84 42 80 40 Z" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.13)" stroke-width="1.2"/>
-          <ellipse cx="84" cy="48" rx="7" ry="6" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+    <!-- FLECHA 3→4 -->
+    <div class="mov-arrow-wrap">
+      <svg viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="20" y1="5" x2="20" y2="45" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <polygon points="12,42 20,56 28,42" fill="rgba(255,255,255,0.2)"/>
+      </svg>
+    </div>
+
+    <!-- FASE 4 -->
+    <div class="mov-frame">
+      <div class="mov-frame-head">
+        <span class="mov-phase-num">04</span>
+        <span class="mov-phase-label" data-i18n="mov4.phase">Posición final</span>
+        <span class="mov-angle-badge">≈ 160°</span>
+      </div>
+      <div class="mov-fig-wrap">
+        <svg viewBox="0 0 130 210" xmlns="http://www.w3.org/2000/svg" fill="none">
+          <rect x="110" y="0" width="4" height="210" fill="rgba(255,255,255,0.07)"/>
+          <rect x="114" y="0" width="14" height="210" fill="rgba(255,255,255,0.025)"/>
+          <ellipse cx="52" cy="16" rx="12" ry="14" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.25)" stroke-width="1.2"/>
+          <rect x="47" y="29" width="9" height="11" rx="3" fill="rgba(220,220,220,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          <path d="M32 40 C28 44 26 58 26 80 L26 122 C26 130 32 133 42 133 L66 133 C76 133 80 130 80 122 L80 80 C80 58 78 44 74 40 Z" fill="rgba(220,220,220,0.07)" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
+          <path d="M38 48 Q52 55 66 48 Q68 62 52 66 Q36 62 38 48Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="0.8"/>
+          <ellipse cx="70" cy="52" rx="8" ry="7" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <path d="M64 46 Q76 46 78 58 Q74 62 66 58 Q62 54 64 46Z" fill="rgba(200,200,200,0.1)" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
           <!-- HÚMERO -->
-          <line x1="84" y1="52" x2="98" y2="84" stroke="rgba(255,255,255,0.22)" stroke-width="6" stroke-linecap="round"/>
+          <line x1="70" y1="56" x2="84" y2="92" stroke="rgba(240,240,240,0.3)" stroke-width="7" stroke-linecap="round"/>
           <!-- CODO -->
-          <ellipse cx="98" cy="84" rx="5" ry="4" fill="rgba(255,200,64,0.5)" stroke="rgba(255,200,64,0.8)" stroke-width="1"/>
-          <!-- ANTEBRAZO muy inclinado hacia atrás (160°) - casi paralelo al torso -->
-          <line x1="98" y1="84" x2="74" y2="52" stroke="rgba(255,255,255,0.18)" stroke-width="5" stroke-linecap="round"/>
+          <ellipse cx="84" cy="92" rx="5" ry="4" fill="rgba(255,200,64,0.7)" stroke="rgba(255,200,64,1)" stroke-width="1"/>
+          <!-- ANTEBRAZO 160° — casi paralelo al torso -->
+          <line x1="84" y1="92" x2="58" y2="54" stroke="rgba(240,240,240,0.25)" stroke-width="5" stroke-linecap="round"/>
           <!-- MANO -->
-          <rect x="68" y="44" width="11" height="8" rx="2" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
-          <!-- BÍCEPS muy contraído, pico -->
-          <path d="M86 62 Q90 54 98 62 Q94 74 87 76 Q82 72 86 62Z" fill="rgba(255,64,64,0.42)" stroke="rgba(255,64,64,0.75)" stroke-width="1.2"/>
-          <!-- VECTOR → pared -->
-          <line x1="100" y1="68" x2="126" y2="68" stroke="#ff4040" stroke-width="2" stroke-dasharray="4,2"/>
-          <polygon points="126,64 134,68 126,72" fill="#ff4040"/>
-          <!-- VECTORES ← oposición -->
-          <line x1="80" y1="78" x2="50" y2="78" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="3,2"/>
-          <polygon points="50,74 42,78 50,82" fill="#00e5ff"/>
-          <line x1="78" y1="86" x2="50" y2="86" stroke="rgba(0,229,255,0.5)" stroke-width="1" stroke-dasharray="3,2"/>
-          <polygon points="50,82 42,86 50,90" fill="rgba(0,229,255,0.5)"/>
+          <rect x="53" y="46" width="7" height="10" rx="2" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+          <!-- BÍCEPS muy contraído -->
+          <path d="M72 64 C74 52 84 58 84 70 C82 80 74 82 70 76 Z" fill="rgba(255,64,64,0.44)" stroke="rgba(255,64,64,0.82)" stroke-width="1.3"/>
+          <path d="M74 62 C76 52 82 58 82 66" stroke="rgba(255,140,140,0.35)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M72 74 C76 82 84 80 84 72 C82 84 74 88 70 82 Z" fill="rgba(200,200,200,0.08)" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
+          <!-- Vector → -->
+          <line x1="86" y1="72" x2="102" y2="72" stroke="#ff4040" stroke-width="2" stroke-dasharray="4,2"/>
+          <polygon points="102,69 110,72 102,75" fill="#ff4040"/>
+          <!-- Vectores ← -->
+          <line x1="66" y1="82" x2="42" y2="82" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="3,2"/>
+          <polygon points="42,79 34,82 42,85" fill="#00e5ff"/>
+          <line x1="64" y1="89" x2="42" y2="89" stroke="rgba(0,229,255,0.5)" stroke-width="1" stroke-dasharray="3,2"/>
+          <polygon points="42,86 34,89 42,92" fill="rgba(0,229,255,0.5)"/>
           <!-- ARCO 160° -->
-          <path d="M98 84 A20 20 0 0 0 118 84" stroke="rgba(255,200,64,0.6)" stroke-width="1" fill="none"/>
-          <text x="114" y="80" fill="rgba(255,200,64,0.9)" font-size="9" font-family="'DM Sans',sans-serif" font-weight="500">160°</text>
+          <path d="M84 92 A24 24 0 0 0 108 92" stroke="rgba(255,200,64,0.6)" stroke-width="1" fill="none"/>
+          <text x="106" y="88" fill="rgba(255,200,64,0.9)" font-size="8" font-family="DM Sans,sans-serif" font-weight="500">160°</text>
           <!-- Nota excéntrica -->
-          <text x="10" y="192" fill="rgba(180,100,255,0.4)" font-size="7.5" font-family="'DM Sans',sans-serif">↩ exc. en desarrollo</text>
-          <line x1="50" y1="118" x2="48" y2="170" stroke="rgba(255,255,255,0.1)" stroke-width="5" stroke-linecap="round"/>
-          <line x1="74" y1="118" x2="76" y2="170" stroke="rgba(255,255,255,0.1)" stroke-width="5" stroke-linecap="round"/>
-          <ellipse cx="48" cy="174" rx="6" ry="3" fill="rgba(255,255,255,0.07)"/>
-          <ellipse cx="76" cy="174" rx="6" ry="3" fill="rgba(255,255,255,0.07)"/>
+          <text x="8" y="202" fill="rgba(180,100,255,0.45)" font-size="7" font-family="DM Sans,sans-serif">↩ exc. en desarrollo</text>
+          <line x1="38" y1="133" x2="36" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
+          <line x1="62" y1="133" x2="64" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
+          <path d="M30 188 Q36 192 44 190 Q38 194 28 192 Z" fill="rgba(255,255,255,0.1)"/>
+          <path d="M58 188 Q64 192 72 190 Q66 194 56 192 Z" fill="rgba(255,255,255,0.1)"/>
         </svg>
       </div>
-      <div class="mov-angle">≈ 160°</div>
-      <div class="mov-angle-sub" data-i18n="mov4.anglesub">Ángulo del codo</div>
-      <div class="mov-title" data-i18n="mov4.title">Co-contracción sostenida</div>
-      <div class="mov-desc" data-i18n="mov4.desc">Máxima proximidad a la pared. La tensión interna se mantiene activa para sostener el control. La fase excéntrica (regreso) replicará el mismo nivel de activación.</div>
-      <div class="mov-tags">
-        <span class="mov-tag con" data-i18n="tag.con">Concéntrica</span>
-        <span class="mov-tag ecc" data-i18n="tag.ecc">→ Excéntrica</span>
-      </div>
+      <div class="mov-frame-text" data-i18n="mov4.desc">Máxima proximidad a la pared. Co-contracción sostenida para mantener el control y la tensión a lo largo de todo el rango de movimiento.</div>
     </div>
 
-  </div>
+  </div><!-- /mov-strip -->
 
-  <!-- LEYENDA -->
-  <div class="mov-legend reveal">
+  <!-- LEYENDA HORIZONTAL -->
+  <div class="mov-legend">
     <div class="mov-legend-item">
       <div class="mov-legend-line" style="background:#ff4040;"></div>
       <span data-i18n="mov.leg1">Vector de fuerza principal</span>
@@ -688,13 +727,24 @@ footer p{font-size:.76rem;color:var(--muted);}
       <span data-i18n="mov.leg2">Oposición interna distribuida</span>
     </div>
     <div class="mov-legend-item">
-      <div style="width:10px;height:10px;border-radius:50%;background:rgba(255,200,64,0.6);flex-shrink:0;"></div>
+      <div style="width:10px;height:10px;border-radius:50%;background:rgba(255,200,64,0.7);flex-shrink:0;"></div>
       <span data-i18n="mov.leg3">Sistema articular (codo)</span>
     </div>
     <div class="mov-legend-item">
-      <div style="width:20px;height:14px;border-radius:2px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);flex-shrink:0;"></div>
+      <div style="width:20px;height:12px;border-radius:2px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);flex-shrink:0;"></div>
       <span data-i18n="mov.leg4">Punto de referencia fijo (pared)</span>
     </div>
+  </div>
+
+  <!-- BENEFICIOS -->
+  <div class="mov-benefits">
+    <span data-i18n="mov.b1">Activación neuromuscular sostenida</span>
+    <span class="mov-sep">·</span>
+    <span data-i18n="mov.b2">Mayor estabilidad articular</span>
+    <span class="mov-sep">·</span>
+    <span data-i18n="mov.b3">Tensión homogénea en todo el rango</span>
+    <span class="mov-sep">·</span>
+    <span data-i18n="mov.b4">Reducción del riesgo de sobrecarga</span>
   </div>
 
 </section>
@@ -841,8 +891,8 @@ footer p{font-size:.76rem;color:var(--muted);}
       <h3 data-i18n="b2.title">Control Neuromuscular</h3>
       <p class="base-desc" data-i18n="b2.desc">Capacidad del sistema nervioso para modular la activación muscular en tiempo real. Base del control voluntario de la tensión.</p>
       <div class="base-ref">
-        <p class="base-ref-text">Enoka, R. M., & Duchateau, J. (2017). Translating fatigue to human performance. <em>Medicine & Science in Sports & Exercise, 49</em>(11), 2228–2238.</p>
-        <a class="base-ref-link" href="https://doi.org/10.1249/MSS.0000000000001357" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1249/MSS.0000000000001357</a>
+        <p class="base-ref-text">Enoka, R. M., & Duchateau, J. (2016). Translating fatigue to human performance. <em>Medicine & Science in Sports & Exercise, 48</em>(11), 2228–2238.</p>
+        <a class="base-ref-link" href="https://doi.org/10.1249/MSS.0000000000000929" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1249/MSS.0000000000000929</a>
       </div>
     </div>
     <div class="base-item reveal d2">
@@ -857,8 +907,8 @@ footer p{font-size:.76rem;color:var(--muted);}
       <h3 data-i18n="b4.title">Activación Isométrica</h3>
       <p class="base-desc" data-i18n="b4.desc">Generación de fuerza sin desplazamiento visible. Punto de partida del método: acumulación de tensión antes del movimiento.</p>
       <div class="base-ref">
-        <p class="base-ref-text">Oranchuk, D. J., et al. (2019). Isometric training and long-term adaptations. <em>Sports Medicine, 49</em>(11), 1691–1702.</p>
-        <a class="base-ref-link" href="https://doi.org/10.1007/s40279-019-01148-4" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1007/s40279-019-01148-4</a>
+        <p class="base-ref-text">Oranchuk, D. J., Storey, A. G., Nelson, A. R., & Cronin, J. B. (2019). Isometric training and long-term adaptations: Effects of muscle length, intensity, and intent. <em>Scandinavian Journal of Medicine & Science in Sports, 29</em>(4), 484–503.</p>
+        <a class="base-ref-link" href="https://doi.org/10.1111/sms.13375" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1111/sms.13375</a>
       </div>
     </div>
     <div class="base-item reveal d1">
@@ -1350,1011 +1400,6 @@ function setLang(lang) {
   });
 }
 </script>
-</body>
-</html
-</section>
-  <div class="nav-links">
-    <a href="#que-es" data-i18n="nav.metodo">El Método</a>
-    <a href="#como" data-i18n="nav.como">Cómo Funciona</a>
-    <a href="#ciencia" data-i18n="nav.ciencia">Simulador</a>
-    <a href="#autor" data-i18n="nav.autor">Autor</a>
-    <a href="#contacto" data-i18n="nav.contacto">Contacto</a>
-  </div>
-  <div class="lang-sw">
-    <button onclick="setLang('es')" class="active">ESP</button>
-    <button onclick="setLang('en')">ENG</button>
-    <button onclick="setLang('it')">ITA</button>
-  </div>
-</nav>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-inner">
-    <div class="hero-tag" data-i18n="hero.tag">Entrenamiento desde adentro hacia afuera</div>
-    <h1>
-      <span class="l1" data-i18n="hero.h1a">Transformación</span>
-      <span class="l2" data-i18n="hero.h1b">Isotónica</span>
-    </h1>
-    <p class="hero-sub" data-i18n="hero.sub">Un modelo de entrenamiento basado en la generación y control de resistencia interna mediante oposición neuromuscular. El movimiento se construye a partir de la tensión del propio cuerpo.</p>
-    <div class="hero-cta">
-      <a href="#que-es" class="btn-primary" data-i18n="hero.cta1">Descubrir PIxTI</a>
-      <a href="#ciencia" class="btn-ghost" data-i18n="hero.cta2">Ver el simulador <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-  </div>
-</section>
-
-<!-- QUE ES -->
-<section id="que-es">
-  <div class="s-label" data-i18n="ques.label">El Método</div>
-  <h2 class="s-title" data-i18n="ques.title">¿Qué es PIxTI?</h2>
-  <p class="s-desc" data-i18n="ques.desc">Principios Isométricos para la Transformación Isotónica. La carga se construye desde el propio cuerpo.</p>
-  <div class="layout">
-    <div class="def-block reveal">
-      <p data-i18n="ques.def1"><strong>PIxTI</strong> es un sistema de entrenamiento neuromuscular basado en la generación consciente de tensión interna. Integra activación muscular, control neuromuscular y oposición interna para producir movimiento bajo condiciones de <strong>tensión continua</strong>.</p>
-      <p style="margin-top:16px;" data-i18n="ques.def2">El músculo protagonista actúa dentro de un sistema que genera resistencia interna activa. No hay carga externa: la tensión emerge del propio aparato neuromuscular.</p>
-      <div class="hl">
-        <span data-i18n="ques.step1">Se genera tensión</span>
-        <span data-i18n="ques.step2">Se sostiene esa tensión</span>
-        <span data-i18n="ques.step3">Se produce movimiento dentro de esa tensión</span>
-      </div>
-    </div>
-    <div class="pilares">
-      <div class="pilar reveal d1">
-        <div class="pilar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="3"/></svg></div>
-        <div><h3 data-i18n="p1.title">El Punto Fijo</h3><p data-i18n="p1.desc">Referencia de apoyo —pared, barra, suelo— que organiza la dirección de la tensión y permite la activación inicial. Puede ser absoluto o relativo.</p></div>
-      </div>
-      <div class="pilar reveal d2">
-        <div class="pilar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2.5 2.5"/></svg></div>
-        <div><h3 data-i18n="p2.title">La Pesa Interna</h3><p data-i18n="p2.desc">Resistencia generada por el propio sistema corporal mediante la integración de estructuras estabilizadoras y control neuromuscular. El cuerpo es la carga.</p></div>
-      </div>
-      <div class="pilar reveal d3">
-        <div class="pilar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 12c0-4.4 3.6-8 8-8s8 3.6 8 8M4 12c0 4.4 3.6 8 8 8"/><path d="m16 16 2 2 2-2M6 8 4 6 2 8"/></svg></div>
-        <div><h3 data-i18n="p3.title">Co-Contracción</h3><p data-i18n="p3.desc">Mecanismo de oposición interna distribuida que involucra múltiples grupos musculares, configurando resistencia a nivel de todo el sistema neuromuscular.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- STATS -->
-<div id="stats">
-  <div class="stat reveal"><div class="stat-num">0°<em>–</em>180°</div><div class="stat-label" data-i18n="stat1">Rango completo con activación sostenida y uniforme</div></div>
-  <div class="stat reveal d1"><div class="stat-num">5</div><div class="stat-label" data-i18n="stat2">Fases de activación que estructuran cada ejercicio</div></div>
-  <div class="stat reveal d2"><div class="stat-num">3</div><div class="stat-label" data-i18n="stat3">Pilares: punto fijo, pesa interna, co-contracción</div></div>
-  <div class="stat reveal d3"><div class="stat-num">100<em>%</em></div><div class="stat-label" data-i18n="stat4">Resistencia generada por el propio sistema neuromuscular</div></div>
-</div>
-
-<div class="divider"></div>
-
-<!-- COMO -->
-<section id="como">
-  <div class="s-label" data-i18n="como.label">Mecánica</div>
-  <h2 class="s-title" data-i18n="como.title">¿Cómo Funciona?</h2>
-  <p class="s-desc" data-i18n="como.desc">Una secuencia continua de activación y control. La isometría se transforma en movimiento.</p>
-  <div class="steps">
-    <div class="step reveal"><div class="step-num">01</div><h3 data-i18n="s1.title">Activación isométrica inicial</h3><p data-i18n="s1.desc">Se genera fuerza contra una referencia de apoyo. Sin desplazamiento visible aún.</p><div class="step-accent" data-i18n="s1.tag">Isometría</div></div>
-    <div class="step reveal d1"><div class="step-num">02</div><h3 data-i18n="s2.title">Generación de tensión interna</h3><p data-i18n="s2.desc">El sistema neuromuscular acumula energía. La tensión se instala en toda la cadena.</p><div class="step-accent" data-i18n="s2.tag">Acumulación</div></div>
-    <div class="step reveal d2"><div class="step-num">03</div><h3 data-i18n="s3.title">Oposición neuromuscular</h3><p data-i18n="s3.desc">Se activa una resistencia interna distribuida. Los grupos antagonistas se integran.</p><div class="step-accent" data-i18n="s3.tag">Oposición</div></div>
-    <div class="step reveal d3"><div class="step-num">04</div><h3 data-i18n="s4.title">Modulación del esfuerzo</h3><p data-i18n="s4.desc">El usuario regula la intensidad en tiempo real mediante control consciente.</p><div class="step-accent" data-i18n="s4.tag">Control</div></div>
-    <div class="step reveal d4"><div class="step-num">05</div><h3 data-i18n="s5.title">Expresión del movimiento</h3><p data-i18n="s5.desc">El movimiento aparece dentro de un entorno de tensión constante. Isotónico activo.</p><div class="step-accent" data-i18n="s5.tag">Movimiento</div></div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- DIFERENCIAL -->
-<section id="diferencial">
-  <div class="s-label" data-i18n="dif.label">Diferencial</div>
-  <h2 class="s-title" data-i18n="dif.title">PIxTI vs. Tradicional</h2>
-  <p class="s-desc" data-i18n="dif.desc">La diferencia no está en el ejercicio. Está en de dónde viene la resistencia.</p>
-  <div class="compare">
-    <div class="compare-col">
-      <h3 data-i18n="dif.trad">Enfoque Tradicional</h3>
-      <ul>
-        <li data-i18n="dif.t1">Carga externa (peso, máquina, banda)</li>
-        <li data-i18n="dif.t2">Variación mecánica del esfuerzo a lo largo del rango</li>
-        <li data-i18n="dif.t3">Dependencia del equipamiento disponible</li>
-        <li data-i18n="dif.t4">Picos de torque en ángulos específicos</li>
-        <li data-i18n="dif.t5">Zonas de baja carga efectiva en los extremos del rango</li>
-      </ul>
-    </div>
-    <div class="compare-col pixti">
-      <h3>PIxTI</h3>
-      <ul>
-        <li data-i18n="dif.p1">Resistencia interna generada por el propio sistema</li>
-        <li data-i18n="dif.p2">Tensión continua y regulable a voluntad</li>
-        <li data-i18n="dif.p3">Sin dependencia de equipamiento externo</li>
-        <li data-i18n="dif.p4">Activación homogénea en todo el rango articular</li>
-        <li data-i18n="dif.p5">El progreso surge del control de la tensión, no del peso</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- MOVIMIENTO DIDÁCTICO -->
-<section id="movimiento">
-  <div class="s-label" data-i18n="mov.label">El Método en Acción</div>
-  <h2 class="s-title" data-i18n="mov.title">Curl de Bíceps PIxTI</h2>
-  <p class="s-desc" data-i18n="mov.desc">Secuencia de activación en cuatro posiciones. La tensión interna no cesa en ningún ángulo del recorrido.</p>
-
-  <div class="mov-grid">
-
-    <!-- FASE 1: 0-10° isométrica -->
-    <div class="mov-card reveal">
-      <div class="mov-phase"><span class="mov-phase-num">01</span> <span data-i18n="mov1.phase">Isométrica inicial</span></div>
-      <div class="mov-svg-wrap">
-        <svg viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg" fill="none">
-          <!-- PARED -->
-          <rect x="138" y="0" width="3" height="200" fill="rgba(255,255,255,0.06)"/>
-          <rect x="141" y="0" width="10" height="200" fill="rgba(255,255,255,0.03)"/>
-          <!-- CABEZA -->
-          <ellipse cx="62" cy="18" rx="11" ry="13" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
-          <!-- CUELLO -->
-          <rect x="58" y="30" width="8" height="10" rx="2" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-          <!-- TORSO -->
-          <path d="M44 40 Q40 42 38 60 L38 110 Q38 116 44 118 L80 118 Q86 116 86 110 L86 60 Q84 42 80 40 Z" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.13)" stroke-width="1.2"/>
-          <!-- HOMBRO derecho -->
-          <ellipse cx="84" cy="48" rx="7" ry="6" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-          <!-- HÚMERO - brazo casi horizontal (0-10°) -->
-          <line x1="84" y1="52" x2="122" y2="58" stroke="rgba(255,255,255,0.22)" stroke-width="6" stroke-linecap="round"/>
-          <!-- CODO -->
-          <ellipse cx="122" cy="58" rx="5" ry="4" fill="rgba(255,200,64,0.5)" stroke="rgba(255,200,64,0.8)" stroke-width="1"/>
-          <!-- ANTEBRAZO casi horizontal hacia pared -->
-          <line x1="122" y1="58" x2="137" y2="61" stroke="rgba(255,255,255,0.18)" stroke-width="5" stroke-linecap="round"/>
-          <!-- MANO / mancuerna -->
-          <rect x="133" y="56" width="9" height="8" rx="2" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
-          <!-- BÍCEPS activado (sobre húmero, tensor) -->
-          <path d="M88 50 Q103 44 120 52 Q116 58 100 60 Q88 58 88 50Z" fill="rgba(255,64,64,0.45)" stroke="rgba(255,64,64,0.8)" stroke-width="1.2"/>
-          <!-- TRÍCEPS lado interno -->
-          <path d="M88 54 Q103 62 120 58 Q116 64 100 66 Q88 62 88 54Z" fill="rgba(255,64,64,0.15)" stroke="rgba(255,64,64,0.3)" stroke-width="0.8"/>
-          <!-- VECTOR fuerza → pared (rojo) -->
-          <line x1="104" y1="54" x2="133" y2="57" stroke="#ff4040" stroke-width="2" stroke-dasharray="4,2"/>
-          <polygon points="133,53 141,57 133,61" fill="#ff4040"/>
-          <!-- VECTORES oposición interna ← (cyan) -->
-          <line x1="96" y1="64" x2="60" y2="68" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="3,2"/>
-          <polygon points="60,64 52,68 60,72" fill="#00e5ff"/>
-          <line x1="92" y1="70" x2="58" y2="74" stroke="rgba(0,229,255,0.5)" stroke-width="1" stroke-dasharray="3,2"/>
-          <polygon points="58,70 50,74 58,78" fill="rgba(0,229,255,0.5)"/>
-          <!-- ARCO ángulo codo -->
-          <path d="M127 58 A10 10 0 0 0 122 48" stroke="rgba(255,200,64,0.6)" stroke-width="1" fill="none"/>
-          <text x="128" y="50" fill="rgba(255,200,64,0.9)" font-size="9" font-family="'DM Sans',sans-serif" font-weight="500">~5°</text>
-          <!-- PIERNAS sugeridas -->
-          <line x1="50" y1="118" x2="48" y2="170" stroke="rgba(255,255,255,0.1)" stroke-width="5" stroke-linecap="round"/>
-          <line x1="74" y1="118" x2="76" y2="170" stroke="rgba(255,255,255,0.1)" stroke-width="5" stroke-linecap="round"/>
-          <ellipse cx="48" cy="174" rx="6" ry="3" fill="rgba(255,255,255,0.07)"/>
-          <ellipse cx="76" cy="174" rx="6" ry="3" fill="rgba(255,255,255,0.07)"/>
-        </svg>
-      </div>
-      <div class="mov-angle">0°–10°</div>
-      <div class="mov-angle-sub" data-i18n="mov1.anglesub">Ángulo del codo</div>
-      <div class="mov-title" data-i18n="mov1.title">Activación isométrica máxima</div>
-      <div class="mov-desc" data-i18n="mov1.desc">Co-contracción máxima. El brazo presiona hacia la pared sin desplazarse. La tensión interna se instala en todo el sistema antes de que exista movimiento visible.</div>
-      <div class="mov-tags"><span class="mov-tag iso" data-i18n="tag.iso">Isométrica</span></div>
-    </div>
-
-    <!-- FASE 2: 90° concéntrica media -->
-    <div class="mov-card reveal d1">
-      <div class="mov-phase"><span class="mov-phase-num">02</span> <span data-i18n="mov2.phase">Concéntrica media</span></div>
-      <div class="mov-svg-wrap">
-        <svg viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg" fill="none">
-          <rect x="138" y="0" width="3" height="200" fill="rgba(255,255,255,0.06)"/>
-          <rect x="141" y="0" width="10" height="200" fill="rgba(255,255,255,0.03)"/>
-          <!-- CABEZA -->
-          <ellipse cx="62" cy="18" rx="11" ry="13" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
-          <rect x="58" y="30" width="8" height="10" rx="2" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-          <!-- TORSO -->
-          <path d="M44 40 Q40 42 38 60 L38 110 Q38 116 44 118 L80 118 Q86 116 86 110 L86 60 Q84 42 80 40 Z" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.13)" stroke-width="1.2"/>
-          <!-- HOMBRO -->
-          <ellipse cx="84" cy="48" rx="7" ry="6" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-          <!-- HÚMERO bajando desde hombro -->
-          <line x1="84" y1="52" x2="102" y2="80" stroke="rgba(255,255,255,0.22)" stroke-width="6" stroke-linecap="round"/>
-          <!-- CODO a 90° -->
-          <ellipse cx="102" cy="80" rx="5" ry="4" fill="rgba(255,200,64,0.5)" stroke="rgba(255,200,64,0.8)" stroke-width="1"/>
-          <!-- ANTEBRAZO vertical hacia arriba -->
-          <line x1="102" y1="80" x2="102" y2="42" stroke="rgba(255,255,255,0.18)" stroke-width="5" stroke-linecap="round"/>
-          <!-- MANO / mancuerna -->
-          <rect x="97" y="34" width="11" height="8" rx="2" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
-          <!-- BÍCEPS contraído (prominente, máxima contracción) -->
-          <path d="M86 58 Q94 46 102 54 Q100 68 92 72 Q84 68 86 58Z" fill="rgba(255,64,64,0.5)" stroke="rgba(255,64,64,0.85)" stroke-width="1.3"/>
-          <!-- TRÍCEPS -->
-          <path d="M86 62 Q94 70 102 66 Q100 78 92 80 Q84 76 86 62Z" fill="rgba(255,64,64,0.15)" stroke="rgba(255,64,64,0.3)" stroke-width="0.8"/>
-          <!-- VECTOR → pared -->
-          <line x1="104" y1="62" x2="130" y2="62" stroke="#ff4040" stroke-width="2" stroke-dasharray="4,2"/>
-          <polygon points="130,58 138,62 130,66" fill="#ff4040"/>
-          <!-- VECTORES ← oposición -->
-          <line x1="82" y1="74" x2="52" y2="74" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="3,2"/>
-          <polygon points="52,70 44,74 52,78" fill="#00e5ff"/>
-          <line x1="80" y1="82" x2="52" y2="82" stroke="rgba(0,229,255,0.5)" stroke-width="1" stroke-dasharray="3,2"/>
-          <polygon points="52,78 44,82 52,86" fill="rgba(0,229,255,0.5)"/>
-          <!-- ARCO 90° -->
-          <path d="M102 80 A18 18 0 0 0 120 80" stroke="rgba(255,200,64,0.6)" stroke-width="1" fill="none"/>
-          <text x="118" y="76" fill="rgba(255,200,64,0.9)" font-size="9" font-family="'DM Sans',sans-serif" font-weight="500">90°</text>
-          <!-- PIERNAS -->
-          <line x1="50" y1="118" x2="48" y2="170" stroke="rgba(255,255,255,0.1)" stroke-width="5" stroke-linecap="round"/>
-          <line x1="74" y1="118" x2="76" y2="170" stroke="rgba(255,255,255,0.1)" stroke-width="5" stroke-linecap="round"/>
-          <ellipse cx="48" cy="174" rx="6" ry="3" fill="rgba(255,255,255,0.07)"/>
-          <ellipse cx="76" cy="174" rx="6" ry="3" fill="rgba(255,255,255,0.07)"/>
-        </svg>
-      </div>
-      <div class="mov-angle">≈ 90°</div>
-      <div class="mov-angle-sub" data-i18n="mov2.anglesub">Ángulo del codo</div>
-      <div class="mov-title" data-i18n="mov2.title">Equilibrio óptimo del sistema</div>
-      <div class="mov-desc" data-i18n="mov2.desc">Máxima eficiencia mecánica. La fuerza principal y la oposición interna se equilibran. El sistema articular trabaja en su rango más favorable.</div>
-      <div class="mov-tags"><span class="mov-tag con" data-i18n="tag.con">Concéntrica</span></div>
-    </div>
-
-    <!-- FASE 3: 120° concéntrica avanzada -->
-    <div class="mov-card reveal d2">
-      <div class="mov-phase"><span class="mov-phase-num">03</span> <span data-i18n="mov3.phase">Concéntrica avanzada</span></div>
-      <div class="mov-svg-wrap">
-        <svg viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg" fill="none">
-          <rect x="138" y="0" width="3" height="200" fill="rgba(255,255,255,0.06)"/>
-          <rect x="141" y="0" width="10" height="200" fill="rgba(255,255,255,0.03)"/>
-          <ellipse cx="62" cy="18" rx="11" ry="13" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
-          <rect x="58" y="30" width="8" height="10" rx="2" fill="rgba(255,255,255,0.07)"/>
-          <path d="M44 40 Q40 42 38 60 L38 110 Q38 116 44 118 L80 118 Q86 116 86 110 L86 60 Q84 42 80 40 Z" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.13)" stroke-width="1.2"/>
-          <ellipse cx="84" cy="48" rx="7" ry="6" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-          <!-- HÚMERO -->
-          <line x1="84" y1="52" x2="100" y2="82" stroke="rgba(255,255,255,0.22)" stroke-width="6" stroke-linecap="round"/>
-          <!-- CODO -->
-          <ellipse cx="100" cy="82" rx="5" ry="4" fill="rgba(255,200,64,0.5)" stroke="rgba(255,200,64,0.8)" stroke-width="1"/>
-          <!-- ANTEBRAZO inclinado ~30° atrás del vertical (120° total) -->
-          <line x1="100" y1="82" x2="82" y2="46" stroke="rgba(255,255,255,0.18)" stroke-width="5" stroke-linecap="round"/>
-          <!-- MANO -->
-          <rect x="76" y="38" width="11" height="8" rx="2" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
-          <!-- BÍCEPS en acortamiento -->
-          <path d="M86 60 Q92 50 100 60 Q96 72 88 74 Q82 70 86 60Z" fill="rgba(255,64,64,0.45)" stroke="rgba(255,64,64,0.8)" stroke-width="1.2"/>
-          <!-- VECTOR → pared -->
-          <line x1="102" y1="66" x2="128" y2="66" stroke="#ff4040" stroke-width="2" stroke-dasharray="4,2"/>
-          <polygon points="128,62 136,66 128,70" fill="#ff4040"/>
-          <!-- VECTORES ← oposición -->
-          <line x1="80" y1="76" x2="50" y2="76" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="3,2"/>
-          <polygon points="50,72 42,76 50,80" fill="#00e5ff"/>
-          <line x1="78" y1="84" x2="50" y2="84" stroke="rgba(0,229,255,0.5)" stroke-width="1" stroke-dasharray="3,2"/>
-          <polygon points="50,80 42,84 50,88" fill="rgba(0,229,255,0.5)"/>
-          <!-- ARCO 120° -->
-          <path d="M100 82 A20 20 0 0 0 120 82" stroke="rgba(255,200,64,0.6)" stroke-width="1" fill="none"/>
-          <text x="116" y="78" fill="rgba(255,200,64,0.9)" font-size="9" font-family="'DM Sans',sans-serif" font-weight="500">120°</text>
-          <line x1="50" y1="118" x2="48" y2="170" stroke="rgba(255,255,255,0.1)" stroke-width="5" stroke-linecap="round"/>
-          <line x1="74" y1="118" x2="76" y2="170" stroke="rgba(255,255,255,0.1)" stroke-width="5" stroke-linecap="round"/>
-          <ellipse cx="48" cy="174" rx="6" ry="3" fill="rgba(255,255,255,0.07)"/>
-          <ellipse cx="76" cy="174" rx="6" ry="3" fill="rgba(255,255,255,0.07)"/>
-        </svg>
-      </div>
-      <div class="mov-angle">≈ 120°</div>
-      <div class="mov-angle-sub" data-i18n="mov3.anglesub">Ángulo del codo</div>
-      <div class="mov-title" data-i18n="mov3.title">Oposición interna incrementada</div>
-      <div class="mov-desc" data-i18n="mov3.desc">Los estabilizadores y sinergistas se integran con mayor intensidad. La tensión se redistribuye. El movimiento continúa con control total.</div>
-      <div class="mov-tags"><span class="mov-tag con" data-i18n="tag.con">Concéntrica</span></div>
-    </div>
-
-    <!-- FASE 4: 160° posición final -->
-    <div class="mov-card reveal d3">
-      <div class="mov-phase"><span class="mov-phase-num">04</span> <span data-i18n="mov4.phase">Posición final</span></div>
-      <div class="mov-svg-wrap">
-        <svg viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg" fill="none">
-          <rect x="138" y="0" width="3" height="200" fill="rgba(255,255,255,0.06)"/>
-          <rect x="141" y="0" width="10" height="200" fill="rgba(255,255,255,0.03)"/>
-          <ellipse cx="62" cy="18" rx="11" ry="13" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
-          <rect x="58" y="30" width="8" height="10" rx="2" fill="rgba(255,255,255,0.07)"/>
-          <path d="M44 40 Q40 42 38 60 L38 110 Q38 116 44 118 L80 118 Q86 116 86 110 L86 60 Q84 42 80 40 Z" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.13)" stroke-width="1.2"/>
-          <ellipse cx="84" cy="48" rx="7" ry="6" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-          <!-- HÚMERO -->
-          <line x1="84" y1="52" x2="98" y2="84" stroke="rgba(255,255,255,0.22)" stroke-width="6" stroke-linecap="round"/>
-          <!-- CODO -->
-          <ellipse cx="98" cy="84" rx="5" ry="4" fill="rgba(255,200,64,0.5)" stroke="rgba(255,200,64,0.8)" stroke-width="1"/>
-          <!-- ANTEBRAZO muy inclinado hacia atrás (160°) - casi paralelo al torso -->
-          <line x1="98" y1="84" x2="74" y2="52" stroke="rgba(255,255,255,0.18)" stroke-width="5" stroke-linecap="round"/>
-          <!-- MANO -->
-          <rect x="68" y="44" width="11" height="8" rx="2" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
-          <!-- BÍCEPS muy contraído, pico -->
-          <path d="M86 62 Q90 54 98 62 Q94 74 87 76 Q82 72 86 62Z" fill="rgba(255,64,64,0.42)" stroke="rgba(255,64,64,0.75)" stroke-width="1.2"/>
-          <!-- VECTOR → pared -->
-          <line x1="100" y1="68" x2="126" y2="68" stroke="#ff4040" stroke-width="2" stroke-dasharray="4,2"/>
-          <polygon points="126,64 134,68 126,72" fill="#ff4040"/>
-          <!-- VECTORES ← oposición -->
-          <line x1="80" y1="78" x2="50" y2="78" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="3,2"/>
-          <polygon points="50,74 42,78 50,82" fill="#00e5ff"/>
-          <line x1="78" y1="86" x2="50" y2="86" stroke="rgba(0,229,255,0.5)" stroke-width="1" stroke-dasharray="3,2"/>
-          <polygon points="50,82 42,86 50,90" fill="rgba(0,229,255,0.5)"/>
-          <!-- ARCO 160° -->
-          <path d="M98 84 A20 20 0 0 0 118 84" stroke="rgba(255,200,64,0.6)" stroke-width="1" fill="none"/>
-          <text x="114" y="80" fill="rgba(255,200,64,0.9)" font-size="9" font-family="'DM Sans',sans-serif" font-weight="500">160°</text>
-          <!-- Nota excéntrica -->
-          <text x="10" y="192" fill="rgba(180,100,255,0.4)" font-size="7.5" font-family="'DM Sans',sans-serif">↩ exc. en desarrollo</text>
-          <line x1="50" y1="118" x2="48" y2="170" stroke="rgba(255,255,255,0.1)" stroke-width="5" stroke-linecap="round"/>
-          <line x1="74" y1="118" x2="76" y2="170" stroke="rgba(255,255,255,0.1)" stroke-width="5" stroke-linecap="round"/>
-          <ellipse cx="48" cy="174" rx="6" ry="3" fill="rgba(255,255,255,0.07)"/>
-          <ellipse cx="76" cy="174" rx="6" ry="3" fill="rgba(255,255,255,0.07)"/>
-        </svg>
-      </div>
-      <div class="mov-angle">≈ 160°</div>
-      <div class="mov-angle-sub" data-i18n="mov4.anglesub">Ángulo del codo</div>
-      <div class="mov-title" data-i18n="mov4.title">Co-contracción sostenida</div>
-      <div class="mov-desc" data-i18n="mov4.desc">Máxima proximidad a la pared. La tensión interna se mantiene activa para sostener el control. La fase excéntrica (regreso) replicará el mismo nivel de activación.</div>
-      <div class="mov-tags">
-        <span class="mov-tag con" data-i18n="tag.con">Concéntrica</span>
-        <span class="mov-tag ecc" data-i18n="tag.ecc">→ Excéntrica</span>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- LEYENDA -->
-  <div class="mov-legend reveal">
-    <div class="mov-legend-item">
-      <div class="mov-legend-line" style="background:#ff4040;"></div>
-      <span data-i18n="mov.leg1">Vector de fuerza principal</span>
-    </div>
-    <div class="mov-legend-item">
-      <div class="mov-legend-line" style="background:rgba(0,229,255,0.7);"></div>
-      <span data-i18n="mov.leg2">Oposición interna distribuida</span>
-    </div>
-    <div class="mov-legend-item">
-      <div style="width:10px;height:10px;border-radius:50%;background:rgba(255,200,64,0.6);flex-shrink:0;"></div>
-      <span data-i18n="mov.leg3">Sistema articular (codo)</span>
-    </div>
-    <div class="mov-legend-item">
-      <div style="width:20px;height:14px;border-radius:2px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);flex-shrink:0;"></div>
-      <span data-i18n="mov.leg4">Punto de referencia fijo (pared)</span>
-    </div>
-  </div>
-
-</section>
-
-<div class="divider"></div>
-
-<!-- SIMULADOR DE CURVAS -->
-<section id="ciencia" style="padding:100px 7%;">
-  <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:20px;margin-bottom:48px;">
-    <div>
-      <div class="s-label" data-i18n="cien.label">Ciencia</div>
-      <h2 class="s-title" data-i18n="cien.title">Simulador de Curvas</h2>
-      <p class="s-desc" data-i18n="cien.desc">Modificá los parámetros y observá cómo cambia la demanda sobre el sistema neuromuscular en cada ángulo del movimiento.</p>
-    </div>
-    <div class="exp-badge" data-i18n="cien.badge">Estado Experimental</div>
-  </div>
-<!-- HEADER -->
-  <div class="hdr">
-    <div class="hdr-left">
-      <div class="logo">PI<span>x</span>TI</div>
-      <div class="hdr-title">Simulador de Curvas de Intensidad</div>
-      <p class="hdr-sub">Modificá los parámetros y observá cómo cambia la demanda sobre el sistema neuromuscular en cada ángulo del movimiento.</p>
-    </div>
-    <div class="exp-badge">Estado Experimental</div>
-  </div>
-
-  <!-- CONTROLES -->
-  <div class="controls">
-    <div class="ctrl">
-      <label>Parámetro 1</label>
-      <div class="ctrl-name" data-i18n="ctrl1.name">Capacidad Máxima Estructural</div>
-      <input type="range" id="r-capmax" min="10" max="60" step="1" value="30">
-      <div class="ctrl-val" id="v-capmax">30 <em>kg</em></div>
-      <div class="ctrl-unit" data-i18n="ctrl1.unit">Capacidad del sistema a 90°</div>
-    </div>
-    <div class="ctrl">
-      <label>Parámetro 2</label>
-      <div class="ctrl-name">Intensidad Objetivo Tradicional</div>
-      <input type="range" id="r-inttrad" min="0.3" max="1.1" step="0.01" value="0.70">
-      <div class="ctrl-val" id="v-inttrad">70 <em>%</em></div>
-      <div class="ctrl-unit" data-i18n="ctrl2.unit">Relación demanda / capacidad</div>
-    </div>
-    <div class="ctrl">
-      <label>Parámetro 3</label>
-      <div class="ctrl-name" data-i18n="ctrl3.name">Masa Externa (Pesa)</div>
-      <input type="range" id="r-masa" min="1" max="50" step="0.5" value="21">
-      <div class="ctrl-val" id="v-masa">21 <em>kg</em></div>
-      <div class="ctrl-unit" data-i18n="ctrl3.unit">Mancuerna, disco u objeto</div>
-    </div>
-    <div class="ctrl">
-      <label>Parámetro 4</label>
-      <div class="ctrl-name" data-i18n="ctrl4.name">Tensión PIxTI</div>
-      <input type="range" id="r-pixti" min="0.5" max="1.0" step="0.01" value="0.90">
-      <div class="ctrl-val" id="v-pixti">90 <em>%</em></div>
-      <div class="ctrl-unit" data-i18n="ctrl4.unit">% de la capacidad estructural</div>
-    </div>
-  </div>
-
-  <!-- INTENSIDADES EN 90° -->
-  <div class="intensity-row">
-    <div class="int-cell">
-      <div class="int-label" data-i18n="ir.trad.label">Intensidad Relativa Tradicional en 90°</div>
-      <div class="int-val" id="ir-trad">—</div>
-      <div class="int-desc">Demanda externa ÷ Capacidad estructural. <strong>Por encima de 100% hay riesgo estructural.</strong></div>
-    </div>
-    <div class="int-cell">
-      <div class="int-label" data-i18n="ir.pixti.label">Intensidad Relativa PIxTI en 90°</div>
-      <div class="int-val ok" id="ir-pixti">—</div>
-      <div class="int-desc" data-i18n="ir.pixti.desc">Carga PIxTI ÷ Capacidad estructural. Resguardo activo sobre tendones, ligamentos y articulaciones.</div>
-    </div>
-  </div>
-
-  <!-- GRÁFICO -->
-  <div class="chart-card">
-    <div class="chart-legend">
-      <div class="leg"><div class="leg-dot" style="background:var(--red)"></div>Demanda Externa (kg)</div>
-      <div class="leg"><div class="leg-dot" style="background:var(--yellow)"></div>Capacidad Estructural (kg)</div>
-      <div class="leg"><div class="leg-dot" style="background:var(--cyan)"></div>Carga PIxTI (kg)</div>
-    </div>
-    <canvas id="chart" height="400"></canvas>
-    <div class="warn-bar" id="warnBar">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-      <span id="warnText">La demanda externa supera la capacidad estructural en algunos ángulos. Riesgo de sobrecarga tendinosa y articular.</span>
-    </div>
-  </div>
-
-  <!-- CONCEPTOS -->
-  <div class="concepts">
-    <div class="concept">
-      <div class="concept-tag"><div class="concept-dot" style="background:var(--red)"></div><span>Curva Roja</span></div>
-      <h3 data-i18n="sc1.title">Demanda Externa</h3>
-      <p>La pesa (mancuerna, disco) aplica una fuerza gravitacional constante. En el método tradicional, esa demanda no cambia con el ángulo: es siempre la misma masa. La curva es plana —lo que varía es la capacidad del sistema para tolerarla.</p>
-    </div>
-    <div class="concept">
-      <div class="concept-tag"><div class="concept-dot" style="background:var(--yellow)"></div><span>Curva Amarilla</span></div>
-      <h3 data-i18n="sc2.title">Capacidad Estructural</h3>
-      <p data-i18n="sc2.desc">Lo que el sistema neuromuscular puede ofrecer en cada ángulo, expresado en kg. Alcanza su máximo a 90° (brazo de momento óptimo) y cae progresivamente hacia los extremos del rango. La articulación queda desprotegida donde la curva cae.</p>
-    </div>
-    <div class="concept">
-      <div class="concept-tag"><div class="concept-dot" style="background:var(--cyan)"></div><span>Curva Cyan</span></div>
-      <h3 data-i18n="sc3.title">Carga PIxTI</h3>
-      <p data-i18n="sc3.desc">Se opera al porcentaje elegido de la capacidad estructural real. La carga interna sigue la forma de la capacidad del sistema: nunca la supera. Esto provee resguardo óseo, tendinoso, ligamentoso y articular en todo el rango de movimiento.</p>
-    </div>
-  </div>
-
-  <!-- NOTA EXPERIMENTAL -->
-  <div class="note">
-    <strong data-i18n="cien.exp.label">⚠ Estado experimental.</strong> Este simulador representa un modelo teórico basado en los principios del Método PIxTI. Los valores de capacidad estructural son estimaciones relativas —no reemplazan una evaluación clínica o funcional. El parámetro de intensidad relativa superior al 99% indica zona de potencial sobrecarga estructural. Ajustá los valores según tu evaluación profesional.
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- PROGRESION -->
-<section id="progresion">
-  <div class="s-label" data-i18n="prog.label">Progresión</div>
-  <h2 class="s-title" data-i18n="prog.title">¿Cómo se Progresa?</h2>
-  <p class="s-desc" data-i18n="prog.desc">No se agrega peso. Se desarrolla la capacidad interna del sistema neuromuscular.</p>
-  <div class="prog-grid">
-    <div class="prog-card reveal"><div class="prog-num">01</div><h3 data-i18n="pg1.title">Mayor generación de tensión</h3><p data-i18n="pg1.desc">Incremento progresivo en la capacidad de producir y acumular fuerza interna en cada repetición.</p></div>
-    <div class="prog-card reveal d1"><div class="prog-num">02</div><h3 data-i18n="pg2.title">Mayor capacidad de sostenerla</h3><p data-i18n="pg2.desc">Resistencia neuromuscular: mantener la tensión a lo largo de todo el recorrido sin colapso de la activación.</p></div>
-    <div class="prog-card reveal d2"><div class="prog-num">03</div><h3 data-i18n="pg3.title">Mayor control de la modulación</h3><p data-i18n="pg3.desc">Regulación voluntaria y precisa de la intensidad en tiempo real durante el movimiento.</p></div>
-    <div class="prog-card reveal d3"><div class="prog-num">04</div><h3 data-i18n="pg4.title">Mayor precisión neuromuscular</h3><p data-i18n="pg4.desc">Refinamiento de la coordinación intermuscular y la activación selectiva de estructuras específicas.</p></div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- BASE CIENTIFICA -->
-<section id="base">
-  <div class="s-label" data-i18n="base.label">Fundamentos</div>
-  <h2 class="s-title" data-i18n="base.title">Base Científica</h2>
-  <p class="s-desc" data-i18n="base.desc">PIxTI integra principios ampliamente estudiados en fisiología del ejercicio y neurociencia motora.</p>
-  <div class="base-grid">
-    <div class="base-item reveal">
-      <h3 data-i18n="b1.title">Co-Contracción Muscular</h3>
-      <p class="base-desc" data-i18n="b1.desc">Activación simultánea de agonistas y antagonistas como mecanismo de estabilización y generación de resistencia interna.</p>
-      <div class="base-ref">
-        <p class="base-ref-text">Latash, M. L. (2018). Muscle coactivation: Definitions, mechanisms, and functions. <em>Journal of Neurophysiology, 120</em>(1), 88–104.</p>
-        <a class="base-ref-link" href="https://doi.org/10.1152/jn.00084.2018" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1152/jn.00084.2018</a>
-      </div>
-    </div>
-    <div class="base-item reveal d1">
-      <h3 data-i18n="b2.title">Control Neuromuscular</h3>
-      <p class="base-desc" data-i18n="b2.desc">Capacidad del sistema nervioso para modular la activación muscular en tiempo real. Base del control voluntario de la tensión.</p>
-      <div class="base-ref">
-        <p class="base-ref-text">Enoka, R. M., & Duchateau, J. (2017). Translating fatigue to human performance. <em>Medicine & Science in Sports & Exercise, 49</em>(11), 2228–2238.</p>
-        <a class="base-ref-link" href="https://doi.org/10.1249/MSS.0000000000001357" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1249/MSS.0000000000001357</a>
-      </div>
-    </div>
-    <div class="base-item reveal d2">
-      <h3 data-i18n="b3.title">Propiocepción</h3>
-      <p class="base-desc" data-i18n="b3.desc">Retroalimentación sensorial interna que permite percibir y regular el estado de tensión del sistema durante el movimiento.</p>
-      <div class="base-ref">
-        <p class="base-ref-text">Proske, U., & Gandevia, S. C. (2012). The proprioceptive senses. <em>Physiological Reviews, 92</em>(4), 1651–1697.</p>
-        <a class="base-ref-link" href="https://doi.org/10.1152/physrev.00048.2011" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1152/physrev.00048.2011</a>
-      </div>
-    </div>
-    <div class="base-item reveal">
-      <h3 data-i18n="b4.title">Activación Isométrica</h3>
-      <p class="base-desc" data-i18n="b4.desc">Generación de fuerza sin desplazamiento visible. Punto de partida del método: acumulación de tensión antes del movimiento.</p>
-      <div class="base-ref">
-        <p class="base-ref-text">Oranchuk, D. J., et al. (2019). Isometric training and long-term adaptations. <em>Sports Medicine, 49</em>(11), 1691–1702.</p>
-        <a class="base-ref-link" href="https://doi.org/10.1007/s40279-019-01148-4" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1007/s40279-019-01148-4</a>
-      </div>
-    </div>
-    <div class="base-item reveal d1">
-      <h3 data-i18n="b5.title">Coordinación Intermuscular</h3>
-      <p class="base-desc" data-i18n="b5.desc">Integración de múltiples grupos musculares y estructuras estabilizadoras en un patrón de activación sistémica distribuida.</p>
-      <div class="base-ref">
-        <p class="base-ref-text">Mohr, M., et al. (2015). Task-dependent intermuscular motor unit synchronization. <em>PLOS ONE, 10</em>(11), e0142048.</p>
-        <a class="base-ref-link" href="https://doi.org/10.1371/journal.pone.0142048" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1371/journal.pone.0142048</a>
-      </div>
-    </div>
-    <div class="base-item reveal d2">
-      <h3 data-i18n="b6.title">Modelo Sistémico</h3>
-      <p class="base-desc" data-i18n="b6.desc">Organización del movimiento como resultado de la interacción coordinada entre múltiples sistemas neuromusculares.</p>
-      <div class="base-ref">
-        <p class="base-ref-text">Latash, M. L. (2012). The bliss (not the problem) of motor abundance. <em>Experimental Brain Research, 217</em>(1), 1–5.</p>
-        <a class="base-ref-link" href="https://doi.org/10.1007/s00221-012-3000-4" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1007/s00221-012-3000-4</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- AUTOR -->
-<section id="autor">
-  <div>
-    <div class="autor-label" data-i18n="autor.label">Quién lo desarrolló</div>
-    <h2 class="autor-name">Ricardo Gabriel Lima</h2>
-    <p class="autor-role" data-i18n="autor.role">Creador y desarrollador de PIxTI</p>
-    <p class="autor-bio" data-i18n="autor.bio">Método experimental de entrenamiento neuromuscular con enfoque en la integración entre la biomecánica, el control motor y el desarrollo de la tensión interna aplicada al movimiento.</p>
-    <p class="autor-credentials" data-i18n="autor.cred">MBA &nbsp;|&nbsp; Profesor de Educación Física y Licenciado en Deportes</p>
-    <div class="tags">
-      <span class="tag" data-i18n="tag.bio">Biomecánica Aplicada</span>
-      <span class="tag" data-i18n="tag.motor">Control Motor</span>
-      <span class="tag" data-i18n="tag.neuro">Entrenamiento Neuromuscular</span>
-    </div>
-    <a class="li-link" href="https://www.linkedin.com/in/ricardo-gabriel-lima-mba/" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.44v6.3zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46C23.21 24 24 23.23 24 22.28V1.72C24 .77 23.21 0 22.23 0z"/></svg>
-      <span data-i18n="autor.li">Ver perfil en LinkedIn</span>
-    </a>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- CONTACTO -->
-<section id="contacto">
-  <div class="contact-inner">
-    <div>
-      <div class="s-label" data-i18n="contact.label">Contacto</div>
-      <h2 class="s-title" data-i18n="contact.title">¿Querés saber más?</h2>
-      <p class="s-desc" data-i18n="contact.desc">Completá el formulario y me comunico a la brevedad.</p>
-    </div>
-    <div class="contact-form" id="contactForm">
-      <div class="form-row">
-        <div class="field"><label data-i18n="form.name">Nombre</label><input type="text" placeholder="Juan" autocomplete="given-name"></div>
-        <div class="field"><label data-i18n="form.surname">Apellido</label><input type="text" placeholder="García" autocomplete="family-name"></div>
-      </div>
-      <div class="field"><label data-i18n="form.email">E-mail</label><input type="email" placeholder="nombre@email.com" autocomplete="email"></div>
-      <div class="field"><label data-i18n="form.phone">Celular</label><input type="tel" placeholder="+54 11 0000-0000" autocomplete="tel"></div>
-      <div class="form-row">
-        <div class="field"><label data-i18n="form.city">Ciudad</label><input type="text" placeholder="Buenos Aires"></div>
-        <div class="field"><label data-i18n="form.country">País</label><input type="text" placeholder="Argentina"></div>
-      </div>
-      <div class="field"><label data-i18n="form.message">Mensaje</label><textarea placeholder="Escribí tu consulta aquí..."></textarea></div>
-      <button class="btn-submit" onclick="submitForm()" data-i18n="form.send">Enviar</button>
-      <div class="form-ok" id="formOk">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-        <span data-i18n="form.ok">Mensaje enviado. ¡Gracias!</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CIERRE -->
-<section id="cierre">
-  <p class="cierre-quote">
-    <span data-i18n="cierre.a">Entrenar implica</span><br>
-    <span data-i18n="cierre.b">generar, sostener</span><br>
-    <span data-i18n="cierre.c">y dominar la fuerza</span><br>
-    <span data-i18n="cierre.d">desde el propio cuerpo.</span>
-  </p>
-  <a href="#que-es" class="btn-primary" data-i18n="cierre.cta">Comenzar desde el principio</a>
-</section>
-
-<footer>
-  <div class="footer-logo">PI<span>x</span>TI</div>
-  <p>&copy; 2026 PIxTI — pixti.ar</p>
-</footer>
-
-<script>
-/* NAV */
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', scrollY > 50));
-
-/* REVEAL */
-const ro = new IntersectionObserver(entries =>
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.08 });
-document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
-
-/* FORM */
-function submitForm() {
-  const ok = document.getElementById('formOk');
-  ok.style.display = 'flex';
-  setTimeout(() => { ok.style.display = 'none'; }, 5000);
-}
-
-/* SIMULADOR */
-Chart.register(window['chartjs-plugin-annotation']);
-Chart.defaults.color = '#52526a';
-Chart.defaults.font.family = 'DM Sans';
-Chart.defaults.font.weight = '300';
-
-const ANGLES = [0,15,30,45,60,75,90,105,120,135,150,165,180];
-const LABELS = ANGLES.map(a => a + '°');
-
-/* Capacidad estructural: C_max * sin(ángulo) */
-function capEstr(capMax) {
-  return ANGLES.map(a => capMax * Math.sin(a * Math.PI / 180));
-}
-
-/* Carga PIxTI: tensionPct * capacidad estructural */
-function cargaPixti(capMax, tensionPct) {
-  return capEstr(capMax).map(v => v * tensionPct);
-}
-
-/* Demanda externa: constante = masa */
-function demandaExt(masa) {
-  return ANGLES.map(() => masa);
-}
-
-/* Intensidades relativas a 90° */
-function irTrad(masa, capMax) { return masa / capMax; }
-function irPixti(capMax, tensionPct) { return tensionPct; }
-
-/* Check danger zones */
-function hasDanger(masa, capMax) {
-  return ANGLES.some(a => {
-    const cap = capMax * Math.sin(a * Math.PI / 180);
-    return cap > 0 && masa / cap > 0.99;
-  });
-}
-
-let myChart;
-
-function buildChart(capMax, masa, tensionPct) {
-  const ctx = document.getElementById('chart').getContext('2d');
-  const cap = capEstr(capMax);
-  const pixti = cargaPixti(capMax, tensionPct);
-  const ext = demandaExt(masa);
-
-  if (myChart) myChart.destroy();
-
-  myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: LABELS,
-      datasets: [
-        {
-          label: 'Demanda Externa',
-          data: ext,
-          borderColor: '#ff4040',
-          borderWidth: 2.5,
-          tension: 0,
-          pointRadius: 0,
-          fill: false,
-          borderDash: [6,3]
-        },
-        {
-          label: 'Capacidad Estructural',
-          data: cap,
-          borderColor: '#ffc840',
-          borderWidth: 2,
-          tension: 0.35,
-          pointRadius: 0,
-          fill: false
-        },
-        {
-          label: 'Carga PIxTI',
-          data: pixti,
-          borderColor: '#00e5ff',
-          borderWidth: 3,
-          tension: 0.35,
-          pointRadius: 0,
-          fill: true,
-          backgroundColor: ctx2 => {
-            const g = ctx2.chart.ctx.createLinearGradient(0,0,0,380);
-            g.addColorStop(0,'rgba(0,229,255,.1)');
-            g.addColorStop(1,'rgba(0,229,255,0)');
-            return g;
-          }
-        }
-      ]
-    },
-    options: {
-      responsive: true,
-      animation: { duration: 280, easing: 'easeInOutQuart' },
-      interaction: { mode: 'index', intersect: false },
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          backgroundColor: '#0b0b0e',
-          borderColor: 'rgba(255,255,255,.07)',
-          borderWidth: 1,
-          titleColor: '#efefef',
-          bodyColor: '#7a7a96',
-          padding: 12,
-          callbacks: {
-            label: c => ` ${c.dataset.label}: ${c.parsed.y.toFixed(2)} kg`
-          }
-        },
-        annotation: {
-          annotations: {
-            line90: {
-              type: 'line', scaleID: 'x', value: '90°',
-              borderColor: 'rgba(255,255,255,.06)',
-              borderWidth: 1, borderDash: [4,4]
-            },
-            lPico: {
-              type: 'label', xValue: '90°', yValue: capMax * 1.04,
-              content: ['Máxima capacidad estructural'],
-              color: 'rgba(255,200,64,.65)', font: { size: 10.5 }, textAlign: 'center'
-            },
-            lPixti: {
-              type: 'label', xValue: '90°', yValue: capMax * tensionPct * 0.78,
-              content: ['Resguardo PIxTI activo'],
-              color: 'rgba(0,229,255,.75)', font: { size: 10.5 }, textAlign: 'center'
-            }
-          }
-        }
-      },
-      scales: {
-        y: {
-          min: 0,
-          suggestedMax: capMax * 1.15,
-          grid: { color: 'rgba(255,255,255,.03)' },
-          border: { display: false },
-          ticks: { font: { size: 11 }, callback: v => v.toFixed(0) + ' kg' },
-          title: { display: true, text: 'Fuerza / Carga (kg)', color: '#3a3a52', font: { size: 11 } }
-        },
-        x: {
-          grid: { display: false },
-          border: { display: false },
-          ticks: { font: { size: 11 } }
-        }
-      }
-    }
-  });
-}
-
-function update() {
-  const capMax     = parseFloat(document.getElementById('r-capmax').value);
-  const intTrad    = parseFloat(document.getElementById('r-inttrad').value);
-  const masa       = parseFloat(document.getElementById('r-masa').value);
-  const tensionPct = parseFloat(document.getElementById('r-pixti').value);
-
-  /* Display values */
-  document.getElementById('v-capmax').innerHTML  = `${capMax} <em>kg</em>`;
-  document.getElementById('v-inttrad').innerHTML = `${Math.round(intTrad*100)} <em>%</em>`;
-  document.getElementById('v-masa').innerHTML    = `${masa} <em>kg</em>`;
-  document.getElementById('v-pixti').innerHTML   = `${Math.round(tensionPct*100)} <em>%</em>`;
-
-  /* Intensidades relativas en 90° */
-  const irT = irTrad(masa, capMax);
-  const irP = irPixti(capMax, tensionPct);
-
-  const irTEl = document.getElementById('ir-trad');
-  irTEl.textContent = (irT * 100).toFixed(1) + '%';
-  irTEl.className = 'int-val ' + (irT > 1 ? 'danger' : irT > 0.85 ? 'warn' : 'ok');
-
-  const irPEl = document.getElementById('ir-pixti');
-  irPEl.textContent = (irP * 100).toFixed(1) + '%';
-  irPEl.className = 'int-val ok';
-
-  /* Danger warning */
-  const danger = hasDanger(masa, capMax);
-  document.getElementById('warnBar').classList.toggle('show', danger);
-
-  buildChart(capMax, masa, tensionPct);
-}
-
-['r-capmax','r-inttrad','r-masa','r-pixti'].forEach(id =>
-  document.getElementById(id).addEventListener('input', update)
-);
-
-update();
-
-/* i18n */
-const T = {
-  es: {
-    'nav.metodo':'El M\u00e9todo','nav.como':'C\u00f3mo Funciona','nav.ciencia':'Simulador','nav.autor':'Autor','nav.contacto':'Contacto',
-    'hero.tag':'Entrenamiento desde adentro hacia afuera','hero.h1a':'Transformaci\u00f3n','hero.h1b':'Isot\u00f3nica',
-    'hero.sub':'Un modelo de entrenamiento basado en la generaci\u00f3n y control de resistencia interna mediante oposici\u00f3n neuromuscular. El movimiento se construye a partir de la tensi\u00f3n del propio cuerpo.',
-    'hero.cta1':'Descubrir PIxTI','hero.cta2':'Ver el simulador \u2192',
-    'ques.label':'El M\u00e9todo','ques.title':'\u00bfQu\u00e9 es PIxTI?','ques.desc':'Principios Isom\u00e9tricos para la Transformaci\u00f3n Isot\u00f3nica. La carga se construye desde el propio cuerpo.',
-    'ques.def1':'<strong>PIxTI</strong> es un sistema de entrenamiento neuromuscular basado en la generaci\u00f3n consciente de tensi\u00f3n interna. Integra activaci\u00f3n muscular, control neuromuscular y oposici\u00f3n interna para producir movimiento bajo condiciones de <strong>tensi\u00f3n continua</strong>.',
-    'ques.def2':'El m\u00fasculo protagonista act\u00faa dentro de un sistema que genera resistencia interna activa. No hay carga externa: la tensi\u00f3n emerge del propio aparato neuromuscular.',
-    'ques.step1':'Se genera tensi\u00f3n','ques.step2':'Se sostiene esa tensi\u00f3n','ques.step3':'Se produce movimiento dentro de esa tensi\u00f3n',
-    'p1.title':'El Punto Fijo','p1.desc':'Referencia de apoyo \u2014pared, barra, suelo\u2014 que organiza la direcci\u00f3n de la tensi\u00f3n y permite la activaci\u00f3n inicial.',
-    'p2.title':'La Pesa Interna','p2.desc':'Resistencia generada por el propio sistema corporal mediante la integraci\u00f3n de estructuras estabilizadoras y control neuromuscular. El cuerpo es la carga.',
-    'p3.title':'Co-Contracci\u00f3n','p3.desc':'Mecanismo de oposici\u00f3n interna distribuida que involucra m\u00faltiples grupos musculares, configurando resistencia a nivel de todo el sistema neuromuscular.',
-    'stat1':'Rango completo con activaci\u00f3n sostenida y uniforme','stat2':'Fases de activaci\u00f3n que estructuran cada ejercicio','stat3':'Pilares: punto fijo, pesa interna, co-contracci\u00f3n','stat4':'Resistencia generada por el propio sistema neuromuscular',
-    'como.label':'Mec\u00e1nica','como.title':'\u00bfC\u00f3mo Funciona?','como.desc':'Una secuencia continua de activaci\u00f3n y control. La isometr\u00eda se transforma en movimiento.',
-    's1.title':'Activaci\u00f3n isom\u00e9trica inicial','s1.desc':'Se genera fuerza contra una referencia de apoyo. Sin desplazamiento visible a\u00fan.','s1.tag':'Isometr\u00eda',
-    's2.title':'Generaci\u00f3n de tensi\u00f3n interna','s2.desc':'El sistema neuromuscular acumula energ\u00eda. La tensi\u00f3n se instala en toda la cadena.','s2.tag':'Acumulaci\u00f3n',
-    's3.title':'Oposici\u00f3n neuromuscular','s3.desc':'Se activa una resistencia interna distribuida. Los grupos antagonistas se integran.','s3.tag':'Oposici\u00f3n',
-    's4.title':'Modulaci\u00f3n del esfuerzo','s4.desc':'El usuario regula la intensidad en tiempo real mediante control consciente.','s4.tag':'Control',
-    's5.title':'Expresi\u00f3n del movimiento','s5.desc':'El movimiento aparece dentro de un entorno de tensi\u00f3n constante. Isot\u00f3nico activo.','s5.tag':'Movimiento',
-    'dif.label':'Diferencial','dif.title':'PIxTI vs. Tradicional','dif.desc':'La diferencia no est\u00e1 en el ejercicio. Est\u00e1 en de d\u00f3nde viene la resistencia.',
-    'dif.trad':'Enfoque Tradicional','dif.t1':'Carga externa (peso, m\u00e1quina, banda)','dif.t2':'Variaci\u00f3n mec\u00e1nica del esfuerzo a lo largo del rango','dif.t3':'Dependencia del equipamiento disponible','dif.t4':'Picos de torque en \u00e1ngulos espec\u00edficos','dif.t5':'Zonas de baja carga efectiva en los extremos del rango',
-    'dif.p1':'Resistencia interna generada por el propio sistema','dif.p2':'Tensi\u00f3n continua y regulable a voluntad','dif.p3':'Sin dependencia de equipamiento externo','dif.p4':'Activaci\u00f3n homog\u00e9nea en todo el rango articular','dif.p5':'El progreso surge del control de la tensi\u00f3n, no del peso',
-    'cien.label':'Ciencia','cien.title':'Simulador de Curvas','cien.desc':'Modific\u00e1 los par\u00e1metros y observ\u00e1 c\u00f3mo cambia la demanda sobre el sistema neuromuscular en cada \u00e1ngulo del movimiento.',
-    'cien.badge':'Estado Experimental',
-    'ctrl1.label':'Par\u00e1metro 1','ctrl1.name':'Capacidad M\u00e1xima Estructural','ctrl1.unit':'Capacidad del sistema a 90\u00b0',
-    'ctrl2.label':'Par\u00e1metro 2','ctrl2.name':'Intensidad Objetivo','ctrl2.unit':'Relaci\u00f3n demanda / capacidad',
-    'ctrl3.label':'Par\u00e1metro 3','ctrl3.name':'Masa Externa (Pesa)','ctrl3.unit':'Mancuerna, disco u objeto',
-    'ctrl4.label':'Par\u00e1metro 4','ctrl4.name':'Tensi\u00f3n PIxTI','ctrl4.unit':'% de la capacidad estructural',
-    'ir.trad.label':'Intensidad Relativa Tradicional en 90\u00b0','ir.trad.desc':'Demanda externa \u00f7 Capacidad estructural. Por encima de 100% hay riesgo estructural.',
-    'ir.pixti.label':'Intensidad Relativa PIxTI en 90\u00b0','ir.pixti.desc':'Carga PIxTI \u00f7 Capacidad estructural. Resguardo activo sobre tendones, ligamentos y articulaciones.',
-    'cien.leg1':'Demanda Externa (kg)','cien.leg2':'Capacidad Estructural (kg)','cien.leg3':'Carga PIxTI (kg)',
-    'cien.warn':'La demanda externa supera la capacidad estructural en algunos \u00e1ngulos. Riesgo de sobrecarga tendinosa y articular.',
-    'sc1.tag':'Curva Roja','sc1.title':'Demanda Externa','sc1.desc':'La pesa aplica una fuerza gravitacional constante. En el m\u00e9todo tradicional, esa demanda no cambia con el \u00e1ngulo: es siempre la misma masa.',
-    'sc2.tag':'Curva Amarilla','sc2.title':'Capacidad Estructural','sc2.desc':'Lo que el sistema neuromuscular puede ofrecer en cada \u00e1ngulo, en kg. Alcanza su m\u00e1ximo a 90\u00b0 y cae hacia los extremos. La articulaci\u00f3n queda desprotegida donde la curva cae por debajo de la demanda.',
-    'sc3.tag':'Curva Cyan','sc3.title':'Carga PIxTI','sc3.desc':'Se opera al porcentaje elegido de la capacidad estructural real. La carga interna sigue la forma del sistema: nunca la supera. Provee resguardo \u00f3seo, tendinoso, ligamentoso y articular en todo el rango.',
-    'cien.exp.label':'\u26a0 Estado experimental.','cien.exp.text':'Este simulador representa un modelo te\u00f3rico basado en los principios del M\u00e9todo PIxTI. Los valores de capacidad estructural son estimaciones relativas \u2014no reemplazan una evaluaci\u00f3n cl\u00ednica o funcional.',
-    'prog.label':'Progresi\u00f3n','prog.title':'\u00bfC\u00f3mo se Progresa?','prog.desc':'No se agrega peso. Se desarrolla la capacidad interna del sistema neuromuscular.',
-    'pg1.title':'Mayor generaci\u00f3n de tensi\u00f3n','pg1.desc':'Incremento progresivo en la capacidad de producir y acumular fuerza interna en cada repetici\u00f3n.',
-    'pg2.title':'Mayor capacidad de sostenerla','pg2.desc':'Resistencia neuromuscular: mantener la tensi\u00f3n a lo largo de todo el recorrido sin colapso de la activaci\u00f3n.',
-    'pg3.title':'Mayor control de la modulaci\u00f3n','pg3.desc':'Regulaci\u00f3n voluntaria y precisa de la intensidad en tiempo real durante el movimiento.',
-    'pg4.title':'Mayor precisi\u00f3n neuromuscular','pg4.desc':'Refinamiento de la coordinaci\u00f3n intermuscular y la activaci\u00f3n selectiva de estructuras espec\u00edficas.',
-    'base.label':'Fundamentos','base.title':'Base Cient\u00edfica','base.desc':'PIxTI integra principios ampliamente estudiados en fisiolog\u00eda del ejercicio y neurociencia motora.',
-    'b1.title':'Co-Contracci\u00f3n Muscular','b1.desc':'Activaci\u00f3n simult\u00e1nea de agonistas y antagonistas como mecanismo de estabilizaci\u00f3n y generaci\u00f3n de resistencia interna.',
-    'b2.title':'Control Neuromuscular','b2.desc':'Capacidad del sistema nervioso para modular la activaci\u00f3n muscular en tiempo real. Base del control voluntario de la tensi\u00f3n.',
-    'b3.title':'Propiocepci\u00f3n','b3.desc':'Retroalimentaci\u00f3n sensorial interna que permite percibir y regular el estado de tensi\u00f3n del sistema durante el movimiento.',
-    'b4.title':'Activaci\u00f3n Isom\u00e9trica','b4.desc':'Generaci\u00f3n de fuerza sin desplazamiento visible. Punto de partida del m\u00e9todo: acumulaci\u00f3n de tensi\u00f3n antes del movimiento.',
-    'b5.title':'Coordinaci\u00f3n Intermuscular','b5.desc':'Integraci\u00f3n de m\u00faltiples grupos musculares y estructuras estabilizadoras en un patr\u00f3n de activaci\u00f3n sist\u00e9mica distribuida.',
-    'b6.title':'Modelo Sist\u00e9mico','b6.desc':'Organizaci\u00f3n del movimiento como resultado de la interacci\u00f3n coordinada entre m\u00faltiples sistemas neuromusculares.',
-    'autor.label':'Qui\u00e9n lo desarroll\u00f3','autor.role':'Creador y desarrollador de PIxTI',
-    'autor.bio':'M\u00e9todo experimental de entrenamiento neuromuscular con enfoque en la integraci\u00f3n entre la biomec\u00e1nica, el control motor y el desarrollo de la tensi\u00f3n interna aplicada al movimiento.',
-    'autor.cred':'MBA \u00a0|\u00a0 Profesor de Educaci\u00f3n F\u00edsica y Licenciado en Deportes',
-    'tag.bio':'Biom ec\u00e1nica Aplicada','tag.motor':'Control Motor','tag.neuro':'Entrenamiento Neuromuscular',
-    'autor.li':'Ver perfil en LinkedIn','autor.cardtag':'Creador \u00b7 PIxTI',
-    'contact.label':'Contacto','contact.title':'\u00bfQuer\u00e9s saber m\u00e1s?','contact.desc':'Complet\u00e1 el formulario y me comunico a la brevedad.',
-    'form.name':'Nombre','form.surname':'Apellido','form.email':'E-mail','form.phone':'Celular','form.city':'Ciudad','form.country':'Pa\u00eds','form.message':'Mensaje','form.send':'Enviar','form.ok':'Mensaje enviado. \u00a1Gracias!',
-    'cierre.a':'Entrenar implica','cierre.b':'generar, sostener','cierre.c':'y dominar la fuerza','cierre.d':'desde el propio cuerpo.','cierre.cta':'Comenzar desde el principio',
-    'mov.label':'El Método en Acción','mov.title':'Curl de Bíceps PIxTI','mov.desc':'Secuencia de activación en cuatro posiciones. La tensión interna no cesa en ningún ángulo del recorrido.',
-    'mov1.anglesub':'Ángulo del codo','mov1.title':'Activación isométrica máxima','mov1.desc':'Co-contracción máxima. El brazo presiona hacia la pared sin desplazarse. La tensión interna se instala en todo el sistema antes de que exista movimiento visible.',
-    'mov2.anglesub':'Ángulo del codo','mov2.title':'Equilibrio óptimo del sistema','mov2.desc':'Máxima eficiencia mecánica. La fuerza principal y la oposición interna se equilibran. El sistema articular trabaja en su rango más favorable.',
-    'mov3.anglesub':'Ángulo del codo','mov3.title':'Oposición interna incrementada','mov3.desc':'Los estabilizadores y sinergistas se integran con mayor intensidad. La tensión se redistribuye. El movimiento continúa con control total.',
-    'mov4.anglesub':'Ángulo del codo','mov4.title':'Co-contracción sostenida','mov4.desc':'Máxima proximidad a la pared. La tensión interna se mantiene activa para sostener el control. La fase excéntrica (regreso) replicará el mismo nivel de activación.',
-    'mov.leg1':'Vector de fuerza principal','mov.leg2':'Oposición interna distribuida','mov.leg3':'Sistema articular','mov.leg4':'Punto de referencia fijo (pared)',
-    'tag.iso':'Isométrica','tag.con':'Concéntrica','tag.ecc':'→ Excéntrica'
-  },
-  en: {
-    'nav.metodo':'The Method','nav.como':'How It Works','nav.ciencia':'Simulator','nav.autor':'Author','nav.contacto':'Contact',
-    'hero.tag':'Training from the inside out','hero.h1a':'Isotonic','hero.h1b':'Transformation',
-    'hero.sub':'A training model based on the generation and control of internal resistance through conscious neuromuscular opposition. Movement is built from the body\'s own tension.',
-    'hero.cta1':'Discover PIxTI','hero.cta2':'See the simulator \u2192',
-    'ques.label':'The Method','ques.title':'What is PIxTI?','ques.desc':'Isometric Principles for Isotonic Transformation. Load is built from within the body.',
-    'ques.def1':'<strong>PIxTI</strong> is a neuromuscular training system based on the conscious generation of internal tension. It integrates muscular activation, neuromuscular control and internal opposition to produce movement under conditions of <strong>continuous tension</strong>.',
-    'ques.def2':'The primary muscle operates within a system that generates active internal resistance. There is no external load: tension emerges from the neuromuscular system itself.',
-    'ques.step1':'Tension is generated','ques.step2':'That tension is sustained','ques.step3':'Movement occurs within that tension',
-    'p1.title':'The Fixed Point','p1.desc':'A support reference \u2014wall, bar, floor\u2014 that organizes the direction of tension and enables initial activation.',
-    'p2.title':'The Internal Weight','p2.desc':'Resistance generated by the body\'s own system through the integration of stabilizing structures and neuromuscular control. The body is the load.',
-    'p3.title':'Co-Contraction','p3.desc':'Distributed internal opposition mechanism involving multiple muscle groups, configuring resistance across the entire neuromuscular system.',
-    'stat1':'Full range with sustained and uniform activation','stat2':'Activation phases that structure each exercise','stat3':'Pillars: fixed point, internal weight, co-contraction','stat4':'Resistance generated by the neuromuscular system itself',
-    'como.label':'Mechanics','como.title':'How Does It Work?','como.desc':'A continuous sequence of activation and control. Isometry transforms into movement.',
-    's1.title':'Initial isometric activation','s1.desc':'Force is generated against a support reference. No visible displacement yet.','s1.tag':'Isometry',
-    's2.title':'Internal tension generation','s2.desc':'The neuromuscular system accumulates energy. Tension settles throughout the chain.','s2.tag':'Accumulation',
-    's3.title':'Neuromuscular opposition','s3.desc':'A distributed internal resistance is activated. Antagonist groups are integrated.','s3.tag':'Opposition',
-    's4.title':'Effort modulation','s4.desc':'The user regulates intensity in real time through conscious control.','s4.tag':'Control',
-    's5.title':'Movement expression','s5.desc':'Movement appears within a constant tension environment. Active isotonic.','s5.tag':'Movement',
-    'dif.label':'Differential','dif.title':'PIxTI vs. Traditional','dif.desc':'The difference is not in the exercise. It is in where the resistance comes from.',
-    'dif.trad':'Traditional Approach','dif.t1':'External load (weight, machine, band)','dif.t2':'Mechanical variation of effort along the range','dif.t3':'Dependence on available equipment','dif.t4':'Torque peaks at specific angles','dif.t5':'Low effective load zones at range extremes',
-    'dif.p1':'Internal resistance generated by the system itself','dif.p2':'Continuous tension, adjustable at will','dif.p3':'No dependence on external equipment','dif.p4':'Homogeneous activation throughout the joint range','dif.p5':'Progress comes from tension control, not weight',
-    'cien.label':'Science','cien.title':'Curve Simulator','cien.desc':'Adjust the parameters and observe how the demand on the neuromuscular system changes at each angle of movement.',
-    'cien.badge':'Experimental Status',
-    'ctrl1.label':'Parameter 1','ctrl1.name':'Maximum Structural Capacity','ctrl1.unit':'System capacity at 90\u00b0',
-    'ctrl2.label':'Parameter 2','ctrl2.name':'Target Intensity','ctrl2.unit':'Demand / capacity ratio',
-    'ctrl3.label':'Parameter 3','ctrl3.name':'External Mass (Weight)','ctrl3.unit':'Dumbbell, plate or object',
-    'ctrl4.label':'Parameter 4','ctrl4.name':'PIxTI Tension','ctrl4.unit':'% of structural capacity',
-    'ir.trad.label':'Traditional Relative Intensity at 90\u00b0','ir.trad.desc':'External demand \u00f7 Structural capacity. Above 100% there is structural risk.',
-    'ir.pixti.label':'PIxTI Relative Intensity at 90\u00b0','ir.pixti.desc':'PIxTI load \u00f7 Structural capacity. Active protection of tendons, ligaments and joints.',
-    'cien.leg1':'External Demand (kg)','cien.leg2':'Structural Capacity (kg)','cien.leg3':'PIxTI Load (kg)',
-    'cien.warn':'External demand exceeds structural capacity at some angles. Risk of tendon and joint overload.',
-    'sc1.tag':'Red Curve','sc1.title':'External Demand','sc1.desc':'The weight applies constant gravitational force. In the traditional method, that demand does not change with angle: it is always the same mass.',
-    'sc2.tag':'Yellow Curve','sc2.title':'Structural Capacity','sc2.desc':'What the neuromuscular system can offer at each angle, in kg. Peaks at 90\u00b0 and drops toward extremes. The joint is unprotected where the curve falls below the external demand.',
-    'sc3.tag':'Cyan Curve','sc3.title':'PIxTI Load','sc3.desc':'Operating at the chosen percentage of real structural capacity. Internal load follows the system\'s form: never exceeds it. Provides bone, tendon, ligament and joint protection throughout the range.',
-    'cien.exp.label':'\u26a0 Experimental status.','cien.exp.text':'This simulator represents a theoretical model based on PIxTI Method principles. Structural capacity values are relative estimates \u2014they do not replace clinical or functional assessment.',
-    'prog.label':'Progression','prog.title':'How Do You Progress?','prog.desc':'No weight is added. The internal capacity of the neuromuscular system is developed.',
-    'pg1.title':'Greater tension generation','pg1.desc':'Progressive increase in the capacity to produce and accumulate internal force in each repetition.',
-    'pg2.title':'Greater capacity to sustain it','pg2.desc':'Neuromuscular endurance: maintaining tension throughout the full range without activation collapse.',
-    'pg3.title':'Greater modulation control','pg3.desc':'Voluntary and precise regulation of intensity in real time during movement.',
-    'pg4.title':'Greater neuromuscular precision','pg4.desc':'Refinement of intermuscular coordination and selective activation of specific structures.',
-    'base.label':'Foundations','base.title':'Scientific Basis','base.desc':'PIxTI integrates principles widely studied in exercise physiology and motor neuroscience.',
-    'b1.title':'Muscle Co-Contraction','b1.desc':'Simultaneous activation of agonists and antagonists as a mechanism for stabilization and internal resistance generation.',
-    'b2.title':'Neuromuscular Control','b2.desc':'The nervous system\'s ability to modulate muscle activation in real time. Foundation of voluntary tension control.',
-    'b3.title':'Proprioception','b3.desc':'Internal sensory feedback that allows perceiving and regulating the tension state of the system during movement.',
-    'b4.title':'Isometric Activation','b4.desc':'Force generation without visible displacement. Starting point of the method: tension accumulation before movement.',
-    'b5.title':'Intermuscular Coordination','b5.desc':'Integration of multiple muscle groups and stabilizing structures in a distributed systemic activation pattern.',
-    'b6.title':'Systemic Model','b6.desc':'Organization of movement as a result of coordinated interaction among multiple neuromuscular systems.',
-    'autor.label':'Who developed it','autor.role':'Creator and developer of PIxTI',
-    'autor.bio':'Experimental neuromuscular training method focused on the integration of biomechanics, motor control and the development of internal tension applied to movement.',
-    'autor.cred':'MBA \u00a0|\u00a0 Physical Education Professor and Sports Degree',
-    'tag.bio':'Applied Biomechanics','tag.motor':'Motor Control','tag.neuro':'Neuromuscular Training',
-    'autor.li':'View LinkedIn profile','autor.cardtag':'Creator \u00b7 PIxTI',
-    'contact.label':'Contact','contact.title':'Want to know more?','contact.desc':'Fill in the form and I\'ll get back to you shortly.',
-    'form.name':'First name','form.surname':'Last name','form.email':'E-mail','form.phone':'Phone','form.city':'City','form.country':'Country','form.message':'Message','form.send':'Send','form.ok':'Message sent. Thank you!',
-    'cierre.a':'Training means','cierre.b':'generating, sustaining','cierre.c':'and mastering force','cierre.d':'from within the body.','cierre.cta':'Start from the beginning',
-    'mov.label':'The Method in Action','mov.title':'PIxTI Bicep Curl','mov.desc':'Four-position activation sequence. Internal tension never stops at any angle of movement.',
-    'mov1.anglesub':'Elbow angle','mov1.title':'Maximum isometric activation','mov1.desc':'Maximum co-contraction. The arm presses toward the wall without moving. Internal tension installs across the entire system before any visible movement occurs.',
-    'mov2.anglesub':'Elbow angle','mov2.title':'Optimal system balance','mov2.desc':'Maximum mechanical efficiency. The primary force and internal opposition are balanced. The joint system works in its most favorable range.',
-    'mov3.anglesub':'Elbow angle','mov3.title':'Increased internal opposition','mov3.desc':'Stabilizers and synergists integrate with greater intensity. Tension redistributes. Movement continues with full control.',
-    'mov4.anglesub':'Elbow angle','mov4.title':'Sustained co-contraction','mov4.desc':'Maximum proximity to the wall. Internal tension remains active to sustain control. The eccentric phase (return) will replicate the same activation level.',
-    'mov.leg1':'Primary force vector','mov.leg2':'Distributed internal opposition','mov.leg3':'Joint system','mov.leg4':'Fixed reference point (wall)',
-    'tag.iso':'Isometric','tag.con':'Concentric','tag.ecc':'→ Eccentric'
-  },
-  it: {
-    'nav.metodo':'Il Metodo','nav.como':'Come Funziona','nav.ciencia':'Simulatore','nav.autor':'Autore','nav.contacto':'Contatto',
-    'hero.tag':'Allenamento dall\'interno verso l\'esterno','hero.h1a':'Trasformazione','hero.h1b':'Isotonica',
-    'hero.sub':'Un modello di allenamento basato sulla generazione e il controllo della resistenza interna mediante opposizione neuromuscolare cosciente.',
-    'hero.cta1':'Scoprire PIxTI','hero.cta2':'Vedere il simulatore \u2192',
-    'ques.label':'Il Metodo','ques.title':'Cos\'è PIxTI?','ques.desc':'Principi Isometrici per la Trasformazione Isotonica. Il carico si costruisce dall\'interno del corpo.',
-    'ques.def1':'<strong>PIxTI</strong> è un sistema di allenamento neuromuscolare basato sulla generazione cosciente di tensione interna. Integra attivazione muscolare, controllo neuromuscolare e opposizione interna per produrre movimento in condizioni di <strong>tensione continua</strong>.',
-    'ques.def2':'Il muscolo protagonista opera all\'interno di un sistema che genera resistenza interna attiva. Non c\'è carico esterno: la tensione emerge dall\'apparato neuromuscolare stesso.',
-    'ques.step1':'Si genera tensione','ques.step2':'Si mantiene quella tensione','ques.step3':'Il movimento avviene all\'interno di quella tensione',
-    'p1.title':'Il Punto Fisso','p1.desc':'Riferimento di appoggio \u2014parete, sbarra, suolo\u2014 che organizza la direzione della tensione e permette l\'attivazione iniziale.',
-    'p2.title':'Il Peso Interno','p2.desc':'Resistenza generata dal proprio sistema corporeo attraverso l\'integrazione di strutture stabilizzatrici e controllo neuromuscolare. Il corpo è il carico.',
-    'p3.title':'Co-Contrazione','p3.desc':'Meccanismo di opposizione interna distribuita che coinvolge più gruppi muscolari, configurando resistenza a livello dell\'intero sistema neuromuscolare.',
-    'stat1':'Range completo con attivazione sostenuta e uniforme','stat2':'Fasi di attivazione che strutturano ogni esercizio','stat3':'Pilastri: punto fisso, peso interno, co-contrazione','stat4':'Resistenza generata dal proprio sistema neuromuscolare',
-    'como.label':'Meccanica','como.title':'Come Funziona?','como.desc':'Una sequenza continua di attivazione e controllo. L\'isometria si trasforma in movimento.',
-    's1.title':'Attivazione isometrica iniziale','s1.desc':'Si genera forza contro un riferimento di appoggio. Nessuno spostamento visibile ancora.','s1.tag':'Isometria',
-    's2.title':'Generazione di tensione interna','s2.desc':'Il sistema neuromuscolare accumula energia. La tensione si installa in tutta la catena.','s2.tag':'Accumulo',
-    's3.title':'Opposizione neuromuscolare','s3.desc':'Si attiva una resistenza interna distribuita. I gruppi antagonisti si integrano.','s3.tag':'Opposizione',
-    's4.title':'Modulazione dello sforzo','s4.desc':'L\'utente regola l\'intensità in tempo reale attraverso il controllo cosciente.','s4.tag':'Controllo',
-    's5.title':'Espressione del movimento','s5.desc':'Il movimento appare all\'interno di un ambiente di tensione costante. Isotonico attivo.','s5.tag':'Movimento',
-    'dif.label':'Differenziale','dif.title':'PIxTI vs. Tradizionale','dif.desc':'La differenza non è nell\'esercizio. È da dove proviene la resistenza.',
-    'dif.trad':'Approccio Tradizionale','dif.t1':'Carico esterno (peso, macchina, elastico)','dif.t2':'Variazione meccanica dello sforzo lungo il range','dif.t3':'Dipendenza dall\'attrezzatura disponibile','dif.t4':'Picchi di coppia ad angoli specifici','dif.t5':'Zone di basso carico effettivo agli estremi del range',
-    'dif.p1':'Resistenza interna generata dal sistema stesso','dif.p2':'Tensione continua e regolabile a volontà','dif.p3':'Nessuna dipendenza da attrezzatura esterna','dif.p4':'Attivazione omogenea in tutto il range articolare','dif.p5':'Il progresso deriva dal controllo della tensione, non dal peso',
-    'cien.label':'Scienza','cien.title':'Simulatore di Curve','cien.desc':'Modifica i parametri e osserva come cambia la domanda sul sistema neuromuscolare ad ogni angolo del movimento.',
-    'cien.badge':'Stato Sperimentale',
-    'ctrl1.label':'Parametro 1','ctrl1.name':'Capacità Massima Strutturale','ctrl1.unit':'Capacità del sistema a 90\u00b0',
-    'ctrl2.label':'Parametro 2','ctrl2.name':'Intensità Obiettivo','ctrl2.unit':'Rapporto domanda / capacità',
-    'ctrl3.label':'Parametro 3','ctrl3.name':'Massa Esterna (Peso)','ctrl3.unit':'Manubrio, disco o oggetto',
-    'ctrl4.label':'Parametro 4','ctrl4.name':'Tensione PIxTI','ctrl4.unit':'% della capacità strutturale',
-    'ir.trad.label':'Intensità Relativa Tradizionale a 90\u00b0','ir.trad.desc':'Domanda esterna \u00f7 Capacità strutturale. Oltre il 100% c\'è rischio strutturale.',
-    'ir.pixti.label':'Intensità Relativa PIxTI a 90\u00b0','ir.pixti.desc':'Carico PIxTI \u00f7 Capacità strutturale. Protezione attiva di tendini, legamenti e articolazioni.',
-    'cien.leg1':'Domanda Esterna (kg)','cien.leg2':'Capacità Strutturale (kg)','cien.leg3':'Carico PIxTI (kg)',
-    'cien.warn':'La domanda esterna supera la capacità strutturale ad alcuni angoli. Rischio di sovraccarico tendineo e articolare.',
-    'sc1.tag':'Curva Rossa','sc1.title':'Domanda Esterna','sc1.desc':'Il peso applica una forza gravitazionale costante. Nel metodo tradizionale, quella domanda non cambia con l\'angolo: è sempre la stessa massa.',
-    'sc2.tag':'Curva Gialla','sc2.title':'Capacità Strutturale','sc2.desc':'Ciò che il sistema neuromuscolare può offrire ad ogni angolo, in kg. Raggiunge il massimo a 90\u00b0 e cala verso gli estremi. L\'articolazione rimane sprotetta dove la curva scende sotto la domanda.',
-    'sc3.tag':'Curva Cyan','sc3.title':'Carico PIxTI','sc3.desc':'Si opera alla percentuale scelta della capacità strutturale reale. Il carico interno segue la forma del sistema: non la supera mai. Fornisce protezione ossea, tendinea, legamentosa e articolare in tutto il range.',
-    'cien.exp.label':'\u26a0 Stato sperimentale.','cien.exp.text':'Questo simulatore rappresenta un modello teorico basato sui principi del Metodo PIxTI. I valori di capacità strutturale sono stime relative \u2014non sostituiscono una valutazione clinica o funzionale.',
-    'prog.label':'Progressione','prog.title':'Come si Progredisce?','prog.desc':'Non si aggiunge peso. Si sviluppa la capacità interna del sistema neuromuscolare.',
-    'pg1.title':'Maggiore generazione di tensione','pg1.desc':'Incremento progressivo nella capacità di produrre e accumulare forza interna in ogni ripetizione.',
-    'pg2.title':'Maggiore capacità di mantenerla','pg2.desc':'Resistenza neuromuscolare: mantenere la tensione lungo tutto il percorso senza collasso dell\'attivazione.',
-    'pg3.title':'Maggiore controllo della modulazione','pg3.desc':'Regolazione volontaria e precisa dell\'intensità in tempo reale durante il movimento.',
-    'pg4.title':'Maggiore precisione neuromuscolare','pg4.desc':'Raffinamento della coordinazione intermuscolare e dell\'attivazione selettiva di strutture specifiche.',
-    'base.label':'Fondamenti','base.title':'Base Scientifica','base.desc':'PIxTI integra principi ampiamente studiati in fisiologia dell\'esercizio e neuroscienze motorie.',
-    'b1.title':'Co-Contrazione Muscolare','b1.desc':'Attivazione simultanea di agonisti e antagonisti come meccanismo di stabilizzazione e generazione di resistenza interna.',
-    'b2.title':'Controllo Neuromuscolare','b2.desc':'Capacità del sistema nervioso di modulare l\'attivazione muscolare in tempo reale. Base del controllo volontario della tensione.',
-    'b3.title':'Propriocezione','b3.desc':'Feedback sensoriale interno che consente di percepire e regolare lo stato di tensione del sistema durante il movimento.',
-    'b4.title':'Attivazione Isometrica','b4.desc':'Generazione di forza senza spostamento visibile. Punto di partenza del metodo: accumulo di tensione prima del movimento.',
-    'b5.title':'Coordinazione Intermuscolare','b5.desc':'Integrazione di più gruppi muscolari e strutture stabilizzatrici in un pattern di attivazione sistemica distribuita.',
-    'b6.title':'Modello Sistemico','b6.desc':'Organizzazione del movimento come risultato dell\'interazione coordinata tra più sistemi neuromuscolari.',
-    'autor.label':'Chi lo ha sviluppato','autor.role':'Creatore e sviluppatore di PIxTI',
-    'autor.bio':'Metodo sperimentale di allenamento neuromuscolare incentrato sull\'integrazione tra biomeccanica, controllo motorio e sviluppo della tensione interna applicata al movimento.',
-    'autor.cred':'MBA \u00a0|\u00a0 Professore di Educazione Fisica e Laureato in Scienze Motorie',
-    'tag.bio':'Biomeccanica Applicata','tag.motor':'Controllo Motorio','tag.neuro':'Allenamento Neuromuscolare',
-    'autor.li':'Vedi profilo LinkedIn','autor.cardtag':'Creatore \u00b7 PIxTI',
-    'contact.label':'Contatto','contact.title':'Vuoi saperne di più?','contact.desc':'Compila il modulo e ti rispondo al più presto.',
-    'form.name':'Nome','form.surname':'Cognome','form.email':'E-mail','form.phone':'Cellulare','form.city':'Città','form.country':'Paese','form.message':'Messaggio','form.send':'Invia','form.ok':'Messaggio inviato. Grazie!',
-    'cierre.a':'Allenarsi significa','cierre.b':'generare, sostenere','cierre.c':'e dominare la forza','cierre.d':'dall\'interno del proprio corpo.','cierre.cta':'Ricominciare dall\'inizio',
-    'mov.label':'Il Metodo in Azione','mov.title':'Curl per il Bicipite PIxTI','mov.desc':'Sequenza di attivazione in quattro posizioni. La tensione interna non cessa ad alcun angolo del percorso.',
-    'mov1.anglesub':'Angolo del gomito','mov1.title':'Attivazione isometrica massima','mov1.desc':'Co-contrazione massima. Il braccio spinge verso la parete senza spostarsi. La tensione interna si installa in tutto il sistema prima che esista movimento visibile.',
-    'mov2.anglesub':'Angolo del gomito','mov2.title':'Equilibrio ottimale del sistema','mov2.desc':'Massima efficienza meccanica. La forza principale e l\'opposizione interna si equilibrano. Il sistema articolare lavora nel suo range più favorevole.',
-    'mov3.anglesub':'Angolo del gomito','mov3.title':'Opposizione interna incrementata','mov3.desc':'Gli stabilizzatori e sinergisti si integrano con maggiore intensità. La tensione si ridistribuisce. Il movimento continua con controllo totale.',
-    'mov4.anglesub':'Angolo del gomito','mov4.title':'Co-contrazione sostenuta','mov4.desc':'Massima vicinanza alla parete. La tensione interna rimane attiva per sostenere il controllo. La fase eccentrica (ritorno) replicherà lo stesso livello di attivazione.',
-    'mov.leg1':'Vettore di forza principale','mov.leg2':'Opposizione interna distribuita','mov.leg3':'Sistema articolare','mov.leg4':'Punto di riferimento fisso (parete)',
-    'tag.iso':'Isometrica','tag.con':'Concentrica','tag.ecc':'→ Eccentrica'
-  }
-};
-
-function setLang(lang) {
-  document.querySelectorAll('.lang-sw button').forEach(b => b.classList.toggle('active', b.textContent.trim().toLowerCase() === lang));
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const k = el.getAttribute('data-i18n');
-    if (T[lang] && T[lang][k] !== undefined) el.innerHTML = T[lang][k];
-  });
-}
-</script>
 </body>
 </html>
