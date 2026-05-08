@@ -774,28 +774,28 @@ footer p{font-size:.76rem;color:var(--muted);}
   <!-- CONTROLES -->
   <div class="controls">
     <div class="ctrl">
-      <label>Parámetro 1</label>
+      <label data-i18n="ctrl1.label">Parámetro 1</label>
       <div class="ctrl-name" data-i18n="ctrl1.name">Capacidad Máxima Estructural</div>
       <input type="range" id="r-capmax" min="10" max="60" step="1" value="30">
       <div class="ctrl-val" id="v-capmax">30 <em>kg</em></div>
       <div class="ctrl-unit" data-i18n="ctrl1.unit">Capacidad del sistema a 90°</div>
     </div>
     <div class="ctrl">
-      <label>Parámetro 2</label>
-      <div class="ctrl-name">Intensidad Objetivo Tradicional</div>
+      <label data-i18n="ctrl2.label">Parámetro 2</label>
+      <div class="ctrl-name" data-i18n="ctrl2.name">Intensidad Objetivo</div>
       <input type="range" id="r-inttrad" min="0.3" max="1.1" step="0.01" value="0.70">
       <div class="ctrl-val" id="v-inttrad">70 <em>%</em></div>
       <div class="ctrl-unit" data-i18n="ctrl2.unit">Relación demanda / capacidad</div>
     </div>
     <div class="ctrl">
-      <label>Parámetro 3</label>
+      <label data-i18n="ctrl3.label">Parámetro 3</label>
       <div class="ctrl-name" data-i18n="ctrl3.name">Masa Externa (Pesa)</div>
       <input type="range" id="r-masa" min="1" max="50" step="0.5" value="21">
       <div class="ctrl-val" id="v-masa">21 <em>kg</em></div>
       <div class="ctrl-unit" data-i18n="ctrl3.unit">Mancuerna, disco u objeto</div>
     </div>
     <div class="ctrl">
-      <label>Parámetro 4</label>
+      <label data-i18n="ctrl4.label">Parámetro 4</label>
       <div class="ctrl-name" data-i18n="ctrl4.name">Tensión PIxTI</div>
       <input type="range" id="r-pixti" min="0.5" max="1.0" step="0.01" value="0.90">
       <div class="ctrl-val" id="v-pixti">90 <em>%</em></div>
@@ -808,7 +808,7 @@ footer p{font-size:.76rem;color:var(--muted);}
     <div class="int-cell">
       <div class="int-label" data-i18n="ir.trad.label">Intensidad Relativa Tradicional en 90°</div>
       <div class="int-val" id="ir-trad">—</div>
-      <div class="int-desc">Demanda externa ÷ Capacidad estructural. <strong>Por encima de 100% hay riesgo estructural.</strong></div>
+      <div class="int-desc" data-i18n="ir.trad.desc">Demanda externa ÷ Capacidad estructural. Por encima de 100% hay riesgo estructural.</div>
     </div>
     <div class="int-cell">
       <div class="int-label" data-i18n="ir.pixti.label">Intensidad Relativa PIxTI en 90°</div>
@@ -820,14 +820,14 @@ footer p{font-size:.76rem;color:var(--muted);}
   <!-- GRÁFICO -->
   <div class="chart-card">
     <div class="chart-legend">
-      <div class="leg"><div class="leg-dot" style="background:var(--red)"></div>Demanda Externa (kg)</div>
-      <div class="leg"><div class="leg-dot" style="background:var(--yellow)"></div>Capacidad Estructural (kg)</div>
-      <div class="leg"><div class="leg-dot" style="background:var(--cyan)"></div>Carga PIxTI (kg)</div>
+      <div class="leg"><div class="leg-dot" style="background:var(--red)"></div><span data-i18n="cien.leg1">Demanda Externa (kg)</span></div>
+      <div class="leg"><div class="leg-dot" style="background:var(--yellow)"></div><span data-i18n="cien.leg2">Capacidad Estructural (kg)</span></div>
+      <div class="leg"><div class="leg-dot" style="background:var(--cyan)"></div><span data-i18n="cien.leg3">Carga PIxTI (kg)</span></div>
     </div>
     <canvas id="chart" height="400"></canvas>
     <div class="warn-bar" id="warnBar">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-      <span id="warnText">La demanda externa supera la capacidad estructural en algunos ángulos. Riesgo de sobrecarga tendinosa y articular.</span>
+      <span id="warnText" data-i18n="cien.warn">La demanda externa supera la capacidad estructural en algunos ángulos. Riesgo de sobrecarga tendinosa y articular.</span>
     </div>
   </div>
 
@@ -852,7 +852,7 @@ footer p{font-size:.76rem;color:var(--muted);}
 
   <!-- NOTA EXPERIMENTAL -->
   <div class="note">
-    <strong data-i18n="cien.exp.label">⚠ Estado experimental.</strong> Este simulador representa un modelo teórico basado en los principios del Método PIxTI. Los valores de capacidad estructural son estimaciones relativas —no reemplazan una evaluación clínica o funcional. El parámetro de intensidad relativa superior al 99% indica zona de potencial sobrecarga estructural. Ajustá los valores según tu evaluación profesional.
+    <strong data-i18n="cien.exp.label">⚠ Estado experimental.</strong> <span data-i18n="cien.exp.text">Este simulador representa un modelo teórico basado en los principios del Método PIxTI. Los valores de capacidad estructural son estimaciones relativas —no reemplazan una evaluación clínica o funcional. Una intensidad relativa superior al 99% indica zona de potencial sobrecarga estructural.</span>
   </div>
 </section>
 
@@ -1402,21 +1402,4 @@ function setLang(lang) {
 </script>
 
 </body>
-
-<form
-  action="https://formspree.io/f/mdabdqrj"
-  method="POST"
->
-  <label>
-    Your email:
-    <input type="email" name="email">
-  </label>
-  <label>
-    Your message:
-    <textarea name="message"></textarea>
-  </label>
-  <!-- your other form fields go here -->
-  <button type="submit">Send</button>
-</form>
-
 </html>
