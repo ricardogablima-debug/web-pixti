@@ -250,24 +250,26 @@ canvas{display:block;width:100%!important;}
 .base-category-label{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:2px;color:var(--white);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;}
 .base-category-label::before{content:'';width:3px;height:1.4rem;background:var(--cyan);border-radius:2px;flex-shrink:0;}
 #base .base-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
-.base-item{position:relative;overflow:hidden;}
-.base-quote{
-  position:absolute;inset:0;
-  background:rgba(0,229,255,0.06);
-  border:1px solid rgba(0,229,255,0.3);
-  border-radius:var(--r);
-  padding:22px;
-  display:flex;flex-direction:column;justify-content:center;gap:14px;
-  opacity:0;
-  transform:translateY(8px);
-  transition:opacity .3s ease, transform .3s ease;
-  pointer-events:none;
-}
-.base-item:hover .base-quote{opacity:1;transform:translateY(0);}
-.base-item:hover{border-color:rgba(0,229,255,0.35);background:rgba(0,229,255,0.04);}
-.base-quote-mark{font-size:2rem;color:var(--cyan);opacity:.3;line-height:1;font-family:Georgia,serif;}
-.base-quote-text{font-size:.8rem;color:var(--white);line-height:1.7;font-style:italic;}
-.base-quote-attr{font-size:.68rem;color:var(--cyan);opacity:.7;letter-spacing:.5px;}
+.base-item:hover{border-color:rgba(0,229,255,0.25);background:rgba(0,229,255,0.02);}
+.base-epigraph{margin-top:16px;padding-top:14px;border-top:1px solid var(--border);font-size:.78rem;color:var(--muted2);font-style:italic;line-height:1.65;}
+.base-epigraph-attr{display:block;margin-top:6px;font-size:.68rem;color:var(--muted);font-style:normal;letter-spacing:.3px;}
+
+/* LEYENDA DE NIVELES */
+.base-legend{display:flex;flex-wrap:wrap;gap:24px;margin-top:20px;margin-bottom:40px;padding:16px 20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);}
+.base-legend-item{display:flex;align-items:flex-start;gap:10px;}
+.base-legend-bar{width:3px;border-radius:2px;flex-shrink:0;margin-top:2px;}
+.base-legend-text{}
+.base-legend-label{font-size:.62rem;font-weight:500;letter-spacing:1.8px;text-transform:uppercase;margin-bottom:2px;}
+.base-legend-desc{font-size:.74rem;color:var(--muted);line-height:1.5;}
+
+/* BARRAS LATERALES EN CADA CARD */
+.base-item{position:relative;}
+.base-simple{position:relative;padding-left:12px;}
+.base-simple::before{content:'';position:absolute;left:0;top:2px;bottom:2px;width:2px;border-radius:2px;background:var(--white);opacity:.2;}
+.base-desc{position:relative;padding-left:12px;}
+.base-desc::before{content:'';position:absolute;left:0;top:2px;bottom:2px;width:2px;border-radius:2px;background:var(--cyan);opacity:.25;}
+.base-epigraph{margin-top:16px;padding-top:14px;padding-left:12px;border-top:1px solid var(--border);font-size:.78rem;color:var(--muted2);font-style:italic;line-height:1.65;position:relative;}
+.base-epigraph::before{content:'';position:absolute;left:0;top:14px;bottom:0;width:2px;border-radius:2px;background:var(--yellow);opacity:.35;}
 
 /* AUTOR */
 #autor{max-width:680px;}
@@ -907,6 +909,32 @@ footer p{font-size:.76rem;color:var(--muted);}
   <h2 class="s-title" data-i18n="base.title">Base Científica</h2>
   <p class="s-desc" data-i18n="base.desc">PIxTI integra principios ampliamente estudiados en fisiología del ejercicio y neurociencia motora.</p>
 
+
+  <!-- LEYENDA DE NIVELES DE LECTURA -->
+  <div class="base-legend">
+    <div class="base-legend-item">
+      <div class="base-legend-bar" style="background:var(--white);opacity:.4;height:36px;"></div>
+      <div class="base-legend-text">
+        <div class="base-legend-label" style="color:var(--white);" data-i18n="base.leg1.label">Para el practicante</div>
+        <div class="base-legend-desc" data-i18n="base.leg1.desc">Explicación directa del concepto en lenguaje accesible.</div>
+      </div>
+    </div>
+    <div class="base-legend-item">
+      <div class="base-legend-bar" style="background:var(--cyan);opacity:.5;height:36px;"></div>
+      <div class="base-legend-text">
+        <div class="base-legend-label" style="color:var(--cyan);" data-i18n="base.leg2.label">Para el especialista</div>
+        <div class="base-legend-desc" data-i18n="base.leg2.desc">Descripción técnica del principio científico.</div>
+      </div>
+    </div>
+    <div class="base-legend-item">
+      <div class="base-legend-bar" style="background:var(--yellow);opacity:.5;height:36px;"></div>
+      <div class="base-legend-text">
+        <div class="base-legend-label" style="color:var(--yellow);" data-i18n="base.leg3.label">Cita científica</div>
+        <div class="base-legend-desc" data-i18n="base.leg3.desc">Frase clave extraída del paper original.</div>
+      </div>
+    </div>
+  </div>
+
   <!-- FISIOLOGÍA -->
   <div class="base-category">
     <div class="base-category-label" data-i18n="base.cat1">Fisiología</div>
@@ -921,11 +949,7 @@ footer p{font-size:.76rem;color:var(--muted);}
         <p class="base-ref-text">Herzog, W. (2018). The role of titin in muscle force generation, muscle deceptions and muscle diseases. <em>Advances in Experimental Medicine and Biology, 1088</em>, 3–25.</p>
         <a class="base-ref-link" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7001402/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>PMC7001402</a>
       </div>
-      <div class="base-quote">
-        <div class="base-quote-mark">"</div>
-        <div class="base-quote-text" data-i18n="bq7"></div>
-        <div class="base-quote-attr">— Herzog, 2018</div>
-      </div>
+      <p class="base-epigraph">"La titina funciona como un resorte molecular cuya rigidez aumenta con la activación muscular. Actúa como un tercer elemento contráctil junto a la actina y la miosina, amplificando la fuerza excéntrica y resguardando la integridad del sarcómero."<span class="base-epigraph-attr">— Herzog, 2018</span></p>
     </div>
 
     <div class="base-item reveal d1">
@@ -937,11 +961,7 @@ footer p{font-size:.76rem;color:var(--muted);}
         <p class="base-ref-text">Wackerhage, H., et al. (2019). Molecular mechanisms of mechanical load-induced skeletal muscle hypertrophy. <em>Journal of Applied Physiology, 127</em>(2), 479–491.</p>
         <a class="base-ref-link" href="https://journals.physiology.org/doi/full/10.1152/japplphysiol.00211.2018" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1152/japplphysiol.00211.2018</a>
       </div>
-      <div class="base-quote">
-        <div class="base-quote-mark">"</div>
-        <div class="base-quote-text" data-i18n="bq8"></div>
-        <div class="base-quote-attr">— Wackerhage et al., 2019</div>
-      </div>
+      <p class="base-epigraph">"La vía mTORC1 es el principal regulador de la síntesis proteica muscular inducida por el ejercicio. La deformación mecánica de la célula activa esta cascada — la carga mecánica opera, en términos moleculares, como el interruptor del crecimiento."<span class="base-epigraph-attr">— Wackerhage et al., 2019</span></p>
     </div>
 
     <div class="base-item reveal d2">
@@ -953,11 +973,7 @@ footer p{font-size:.76rem;color:var(--muted);}
         <p class="base-ref-text">Latash, M. L. (2018). Muscle coactivation: Definitions, mechanisms, and functions. <em>Journal of Neurophysiology, 120</em>(1), 88–104.</p>
         <a class="base-ref-link" href="https://doi.org/10.1152/jn.00084.2018" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1152/jn.00084.2018</a>
       </div>
-      <div class="base-quote">
-        <div class="base-quote-mark">"</div>
-        <div class="base-quote-text" data-i18n="bq1"></div>
-        <div class="base-quote-attr">— Latash, 2018</div>
-      </div>
+      <p class="base-epigraph">"La co-activación muscular es una estrategia deliberada del sistema nervioso para estabilizar el movimiento y reducir su variabilidad. El cerebro organiza la redundancia muscular como una ventaja — la herramienta con la que garantiza precisión bajo incertidumbre."<span class="base-epigraph-attr">— Latash, 2018</span></p>
     </div>
 
     <div class="base-item reveal">
@@ -969,11 +985,7 @@ footer p{font-size:.76rem;color:var(--muted);}
         <p class="base-ref-text">Enoka, R. M., &amp; Duchateau, J. (2016). Translating fatigue to human performance. <em>Medicine &amp; Science in Sports &amp; Exercise, 48</em>(11), 2228–2238.</p>
         <a class="base-ref-link" href="https://doi.org/10.1249/MSS.0000000000000929" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1249/MSS.0000000000000929</a>
       </div>
-      <div class="base-quote">
-        <div class="base-quote-mark">"</div>
-        <div class="base-quote-text" data-i18n="bq2"></div>
-        <div class="base-quote-attr">— Enoka &amp; Duchateau, 2016</div>
-      </div>
+      <p class="base-epigraph">"Sostener una contracción submáxima requiere que el sistema nervioso ajuste en tiempo real la frecuencia de activación de cada unidad motora. La fatiga es, en términos funcionales, una pérdida progresiva de ese control fino."<span class="base-epigraph-attr">— Enoka & Duchateau, 2016</span></p>
     </div>
 
     <div class="base-item reveal d1">
@@ -985,11 +997,7 @@ footer p{font-size:.76rem;color:var(--muted);}
         <p class="base-ref-text">Duchateau, J., &amp; Enoka, R. M. (2016). Neural adaptations to resistance training: Characteristics and mechanisms. <em>Journal of Applied Physiology, 120</em>(11), 1297–1308.</p>
         <a class="base-ref-link" href="https://journals.physiology.org/doi/full/10.1152/japplphysiol.00368.2015" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1152/japplphysiol.00368.2015</a>
       </div>
-      <div class="base-quote">
-        <div class="base-quote-mark">"</div>
-        <div class="base-quote-text" data-i18n="bqN1">El entrenamiento de fuerza produce adaptaciones neurales que mejoran la coordinación entre agonistas y antagonistas. La ganancia de fuerza inicial es predominantemente neural — antes que estructural.</div>
-        <div class="base-quote-attr">— Duchateau &amp; Enoka, 2016</div>
-      </div>
+      <p class="base-epigraph">"El entrenamiento de fuerza produce adaptaciones neurales que mejoran la coordinación entre agonistas y antagonistas. La ganancia de fuerza inicial es predominantemente neural — antes que estructural."<span class="base-epigraph-attr">— Duchateau & Enoka, 2016</span></p>
     </div>
 
     <div class="base-item reveal d2">
@@ -1001,11 +1009,7 @@ footer p{font-size:.76rem;color:var(--muted);}
         <p class="base-ref-text">Proske, U., &amp; Gandevia, S. C. (2012). The proprioceptive senses. <em>Physiological Reviews, 92</em>(4), 1651–1697.</p>
         <a class="base-ref-link" href="https://doi.org/10.1152/physrev.00048.2011" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1152/physrev.00048.2011</a>
       </div>
-      <div class="base-quote">
-        <div class="base-quote-mark">"</div>
-        <div class="base-quote-text" data-i18n="bq3"></div>
-        <div class="base-quote-attr">— Proske &amp; Gandevia, 2012</div>
-      </div>
+      <p class="base-epigraph">"El sistema nervioso construye una representación interna del cuerpo integrando señales de husos musculares, órganos tendinosos de Golgi y receptores articulares. Esa imagen interna es la condición previa de todo movimiento voluntario preciso."<span class="base-epigraph-attr">— Proske & Gandevia, 2012</span></p>
     </div>
 
     <div class="base-item reveal">
@@ -1017,11 +1021,7 @@ footer p{font-size:.76rem;color:var(--muted);}
         <p class="base-ref-text">Bohm, S., Mersmann, F., &amp; Arampatzis, A. (2015). Tendon adaptation to mechanical-loading: A systematic review and meta-analysis. <em>eLife, 4</em>, e07011.</p>
         <a class="base-ref-link" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4345524/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>PMC4345524</a>
       </div>
-      <div class="base-quote">
-        <div class="base-quote-mark">"</div>
-        <div class="base-quote-text" data-i18n="bqN2">El tendón responde a la carga mecánica de forma umbral: por debajo de cierta intensidad no hay síntesis de colágeno. La tensión progresiva y controlada es el único estímulo eficaz para su remodelación.</div>
-        <div class="base-quote-attr">— Bohm et al., 2015</div>
-      </div>
+      <p class="base-epigraph">"El tendón responde a la carga mecánica de forma umbral: por debajo de cierta intensidad no hay síntesis de colágeno. La tensión progresiva y controlada es el único estímulo eficaz para su remodelación."<span class="base-epigraph-attr">— Bohm et al., 2015</span></p>
     </div>
 
     <div class="base-item reveal d1">
@@ -1033,11 +1033,7 @@ footer p{font-size:.76rem;color:var(--muted);}
         <p class="base-ref-text">Enoka, R. M., &amp; Duchateau, J. (2008). Muscle fatigue: What, why and how it influences muscle function. <em>Journal of Physiology, 586</em>(1), 11–23.</p>
         <a class="base-ref-link" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2375544/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>PMC2375544</a>
       </div>
-      <div class="base-quote">
-        <div class="base-quote-mark">"</div>
-        <div class="base-quote-text" data-i18n="bqN3">La fatiga central activa mecanismos de inhibición neural que incrementan la co-activación del antagonista, comprometiendo la eficiencia técnica y elevando el riesgo estructural. El entrenamiento al fallo sistémico opera por encima del umbral de seguridad.</div>
-        <div class="base-quote-attr">— Enoka &amp; Duchateau, 2008</div>
-      </div>
+      <p class="base-epigraph">"La fatiga central activa mecanismos de inhibición neural que incrementan la co-activación del antagonista, comprometiendo la eficiencia técnica y elevando el riesgo estructural. El entrenamiento al fallo sistémico opera por encima del umbral de seguridad."<span class="base-epigraph-attr">— Enoka & Duchateau, 2008</span></p>
     </div>
 
     </div>
@@ -1057,11 +1053,7 @@ footer p{font-size:.76rem;color:var(--muted);}
         <p class="base-ref-text">Mohr, M., et al. (2015). Task-dependent intermuscular motor unit synchronization during isometric and dynamic tasks. <em>PLOS ONE, 10</em>(11), e0142048.</p>
         <a class="base-ref-link" href="https://doi.org/10.1371/journal.pone.0142048" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1371/journal.pone.0142048</a>
       </div>
-      <div class="base-quote">
-        <div class="base-quote-mark">"</div>
-        <div class="base-quote-text" data-i18n="bq5"></div>
-        <div class="base-quote-attr">— Mohr et al., 2015</div>
-      </div>
+      <p class="base-epigraph">"Durante las contracciones isométricas, las unidades motoras de distintos músculos sincronizan su activación. La fuerza es, en consecuencia, el producto de una red neuromuscular integrada — a diferencia de la acción aislada de un músculo individual."<span class="base-epigraph-attr">— Mohr et al., 2015</span></p>
     </div>
 
     <div class="base-item reveal d1">
@@ -1073,11 +1065,7 @@ footer p{font-size:.76rem;color:var(--muted);}
         <p class="base-ref-text">Latash, M. L. (2012). The bliss (not the problem) of motor abundance. <em>Experimental Brain Research, 217</em>(1), 1–5.</p>
         <a class="base-ref-link" href="https://doi.org/10.1007/s00221-012-3000-4" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1007/s00221-012-3000-4</a>
       </div>
-      <div class="base-quote">
-        <div class="base-quote-mark">"</div>
-        <div class="base-quote-text" data-i18n="bq6"></div>
-        <div class="base-quote-attr">— Latash, 2012</div>
-      </div>
+      <p class="base-epigraph">"La redundancia del sistema motor es la base de su adaptabilidad: le permite al sistema nervioso encontrar múltiples soluciones para un mismo movimiento, manteniendo estabilidad sin sacrificar flexibilidad de ejecución."<span class="base-epigraph-attr">— Latash, 2012</span></p>
     </div>
 
     <div class="base-item reveal d2">
@@ -1089,11 +1077,7 @@ footer p{font-size:.76rem;color:var(--muted);}
         <p class="base-ref-text">Huijing, P. A. (2009). Epimuscular myofascial force transmission: A critical review of its relevance for muscle function. <em>Journal of Electromyography and Kinesiology, 19</em>(3), 368–381.</p>
         <a class="base-ref-link" href="https://pubmed.ncbi.nlm.nih.gov/19062310/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>PMID:19062310</a>
       </div>
-      <div class="base-quote">
-        <div class="base-quote-mark">"</div>
-        <div class="base-quote-text" data-i18n="bq13"></div>
-        <div class="base-quote-attr">— Huijing, 2009</div>
-      </div>
+      <p class="base-epigraph">"La fuerza muscular se transmite tanto a lo largo del tendón como lateralmente a través de las vías epimusculares de la fascia. Un músculo actúa siempre en red — su tensión se distribuye y modifica la función de las estructuras adyacentes."<span class="base-epigraph-attr">— Huijing, 2009</span></p>
     </div>
 
     <div class="base-item reveal">
@@ -1105,11 +1089,7 @@ footer p{font-size:.76rem;color:var(--muted);}
         <p class="base-ref-text">O'Conor, C. J., et al. (2013). Articular cartilage mechanobiology and the therapeutic potential of loading. <em>Joint Bone Spine, 80</em>(5), 451–453.</p>
         <a class="base-ref-link" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3731114/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>PMC3731114</a>
       </div>
-      <div class="base-quote">
-        <div class="base-quote-mark">"</div>
-        <div class="base-quote-text" data-i18n="bq12"></div>
-        <div class="base-quote-attr">— O'Conor et al., 2013</div>
-      </div>
+      <p class="base-epigraph">"La presión hidrostática fisiológica estimula la producción de proteoglicanos y sostiene la viabilidad de los condrocitos. El cartílago se nutre del movimiento — la carga apropiada es su principal mecanismo de mantenimiento y protección."<span class="base-epigraph-attr">— O'Conor et al., 2013</span></p>
     </div>
 
     <div class="base-item reveal d1">
@@ -1121,11 +1101,7 @@ footer p{font-size:.76rem;color:var(--muted);}
         <p class="base-ref-text">Hodges, P. W., &amp; Richardson, C. A. (1997). Contraction of the abdominal muscles associated with movement of the lower limb. <em>Physical Therapy, 77</em>(2), 132–144.</p>
         <a class="base-ref-link" href="https://pubmed.ncbi.nlm.nih.gov/10423044/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>PMID:10423044</a>
       </div>
-      <div class="base-quote">
-        <div class="base-quote-mark">"</div>
-        <div class="base-quote-text" data-i18n="bqN4">La activación anticipatoria del transverso del abdomen genera presión intraabdominal antes del movimiento del miembro, actuando como un mecanismo de estabilización proactivo de la columna lumbar.</div>
-        <div class="base-quote-attr">— Hodges &amp; Richardson, 1997</div>
-      </div>
+      <p class="base-epigraph">"La activación anticipatoria del transverso del abdomen genera presión intraabdominal antes del movimiento del miembro, actuando como un mecanismo de estabilización proactivo de la columna lumbar."<span class="base-epigraph-attr">— Hodges & Richardson, 1997</span></p>
     </div>
 
     <div class="base-item reveal d2">
@@ -1137,11 +1113,7 @@ footer p{font-size:.76rem;color:var(--muted);}
         <p class="base-ref-text">Setton, L. A., &amp; Chen, J. (2006). The effects of mechanical loading on intervertebral disc metabolism and cytology. <em>Journal of Bone and Joint Surgery, 88</em>(Suppl 2), 49–57.</p>
         <a class="base-ref-link" href="https://pubmed.ncbi.nlm.nih.gov/16595444/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>PMID:16595444</a>
       </div>
-      <div class="base-quote">
-        <div class="base-quote-mark">"</div>
-        <div class="base-quote-text" data-i18n="bq11"></div>
-        <div class="base-quote-attr">— Setton &amp; Chen, 2006</div>
-      </div>
+      <p class="base-epigraph">"El disco intervertebral requiere carga mecánica para mantener su metabolismo y su hidratación. La carga controlada es el estímulo que lo mantiene funcional y resiliente — a diferencia de la inmovilidad, que conduce progresivamente a su degeneración."<span class="base-epigraph-attr">— Setton & Chen, 2006</span></p>
     </div>
 
     </div>
@@ -1161,11 +1133,7 @@ footer p{font-size:.76rem;color:var(--muted);}
         <p class="base-ref-text">Oranchuk, D. J., Storey, A. G., Nelson, A. R., &amp; Cronin, J. B. (2019). Isometric training and long-term adaptations: Effects of muscle length, intensity, and intent. <em>Scandinavian Journal of Medicine &amp; Science in Sports, 29</em>(4), 484–503.</p>
         <a class="base-ref-link" href="https://onlinelibrary.wiley.com/doi/full/10.1111/sms.13375" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1111/sms.13375</a>
       </div>
-      <div class="base-quote">
-        <div class="base-quote-mark">"</div>
-        <div class="base-quote-text" data-i18n="bq4"></div>
-        <div class="base-quote-attr">— Oranchuk et al., 2019</div>
-      </div>
+      <p class="base-epigraph">"El entrenamiento isométrico en rangos largos genera las mayores adaptaciones de fuerza y las transfiere a ángulos articulares que estuvieron fuera del entrenamiento directo. La isometría en estiramiento fortalece y, a la vez, reorganiza el sistema neuromuscular."<span class="base-epigraph-attr">— Oranchuk et al., 2019</span></p>
     </div>
 
     <div class="base-item reveal d1">
@@ -1177,11 +1145,7 @@ footer p{font-size:.76rem;color:var(--muted);}
         <p class="base-ref-text">Oranchuk, D. J., et al. (2019). Isometric training and long-term adaptations: Effects of muscle length, intensity, and intent. <em>Scandinavian Journal of Medicine &amp; Science in Sports, 29</em>(4), 484–503.</p>
         <a class="base-ref-link" href="https://onlinelibrary.wiley.com/doi/full/10.1111/sms.13375" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1111/sms.13375</a>
       </div>
-      <div class="base-quote">
-        <div class="base-quote-mark">"</div>
-        <div class="base-quote-text" data-i18n="bq10"></div>
-        <div class="base-quote-attr">— Oranchuk et al., 2019</div>
-      </div>
+      <p class="base-epigraph">"El entrenamiento isométrico en longitud muscular larga produjo la mayor hipertrofia y la transferencia más amplia de fuerza en todo el rango articular. Es, en términos de eficiencia estructural, la modalidad más potente para la remodelación muscular."<span class="base-epigraph-attr">— Oranchuk et al., 2019</span></p>
     </div>
 
     <div class="base-item reveal d2">
@@ -1193,11 +1157,7 @@ footer p{font-size:.76rem;color:var(--muted);}
         <p class="base-ref-text">Behm, D. G., &amp; Sale, D. G. (1993). Intended rather than actual movement velocity determines velocity-specific training response. <em>Journal of Applied Physiology, 74</em>(1), 359–368.</p>
         <a class="base-ref-link" href="https://journals.physiology.org/doi/abs/10.1152/jappl.1993.74.1.359" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1152/jappl.1993.74.1.359</a>
       </div>
-      <div class="base-quote">
-        <div class="base-quote-mark">"</div>
-        <div class="base-quote-text" data-i18n="bq14"></div>
-        <div class="base-quote-attr">— Behm &amp; Sale, 1993</div>
-      </div>
+      <p class="base-epigraph">"Las adaptaciones neurales del entrenamiento están determinadas por la velocidad que el sistema nervioso intenta producir — con independencia de la velocidad real alcanzada. La intención de máxima velocidad recluta las fibras de mayor umbral incluso bajo carga máxima."<span class="base-epigraph-attr">— Behm & Sale, 1993</span></p>
     </div>
 
     <div class="base-item reveal">
@@ -1209,11 +1169,7 @@ footer p{font-size:.76rem;color:var(--muted);}
         <p class="base-ref-text">Guerriero, A., Varalda, C., &amp; Piacentini, M. F. (2020). Velocity-based resistance training: From theory to practical applications. <em>Sports, 8</em>(4), 48.</p>
         <a class="base-ref-link" href="https://www.mdpi.com/2075-4663/8/4/48" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.3390/sports8040048</a>
       </div>
-      <div class="base-quote">
-        <div class="base-quote-mark">"</div>
-        <div class="base-quote-text" data-i18n="bqN5">La pérdida de velocidad durante la serie es un indicador sensible de la fatiga neuromuscular acumulada. Regular el volumen en función de esa pérdida permite maximizar las adaptaciones preservando la calidad técnica.</div>
-        <div class="base-quote-attr">— Guerriero et al., 2020</div>
-      </div>
+      <p class="base-epigraph">"La pérdida de velocidad durante la serie es un indicador sensible de la fatiga neuromuscular acumulada. Regular el volumen en función de esa pérdida permite maximizar las adaptaciones preservando la calidad técnica."<span class="base-epigraph-attr">— Guerriero et al., 2020</span></p>
     </div>
 
     <div class="base-item reveal d1">
@@ -1225,11 +1181,7 @@ footer p{font-size:.76rem;color:var(--muted);}
         <p class="base-ref-text">Androulakis-Korakakis, P., et al. (2020). The minimum effective training dose required to increase 1RM strength. <em>Sports Medicine, 50</em>(4), 751–765.</p>
         <a class="base-ref-link" href="https://link.springer.com/article/10.1007/s40279-019-01236-0" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1007/s40279-019-01236-0</a>
       </div>
-      <div class="base-quote">
-        <div class="base-quote-mark">"</div>
-        <div class="base-quote-text" data-i18n="bqN6">Una sola serie por ejercicio, llevada a alta intensidad relativa, es suficiente para maximizar las ganancias de fuerza en la mayoría de los sujetos entrenados. El volumen adicional no aumenta el estímulo — aumenta la fatiga.</div>
-        <div class="base-quote-attr">— Androulakis-Korakakis et al., 2020</div>
-      </div>
+      <p class="base-epigraph">"Una sola serie por ejercicio, llevada a alta intensidad relativa, es suficiente para maximizar las ganancias de fuerza en la mayoría de los sujetos entrenados. El volumen adicional no aumenta el estímulo — aumenta la fatiga."<span class="base-epigraph-attr">— Androulakis-Korakakis et al., 2020</span></p>
     </div>
 
     <div class="base-item reveal d2">
@@ -1241,11 +1193,7 @@ footer p{font-size:.76rem;color:var(--muted);}
         <p class="base-ref-text">Baar, K. (2017). Minimizing injury and maximizing return to play: Lessons from engineered ligaments. <em>Sports Medicine, 47</em>(Suppl 1), 5–11.</p>
         <a class="base-ref-link" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5371618/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>PMC5371618</a>
       </div>
-      <div class="base-quote">
-        <div class="base-quote-mark">"</div>
-        <div class="base-quote-text" data-i18n="bq9"></div>
-        <div class="base-quote-attr">— Baar, 2017</div>
-      </div>
+      <p class="base-epigraph">"Períodos breves de carga tensional elevada estimulan la síntesis de colágeno en tendones y ligamentos con mayor eficacia que el ejercicio prolongado de baja intensidad. El tejido conectivo se fortalece con picos de tensión controlada."<span class="base-epigraph-attr">— Baar, 2017</span></p>
     </div>
 
     </div>
@@ -1258,9 +1206,9 @@ footer p{font-size:.76rem;color:var(--muted);}
 <!-- AUTOR -->
 <section id="autor">
   <div>
-    <div class="autor-label" data-i18n="autor.label">Quién lo desarrolló</div>
+    <div class="autor-label" data-i18n="autor.label">Creador del Método PIxTI</div>
     <h2 class="autor-name">Ricardo Gabriel Lima</h2>
-    <p class="autor-role" data-i18n="autor.role">Creador y desarrollador de PIxTI</p>
+    <p class="autor-role" data-i18n="autor.role">Autor y desarrollador del sitio web</p>
     <p class="autor-bio" data-i18n="autor.bio">Método experimental de entrenamiento neuromuscular con enfoque en la integración entre la biomecánica, el control motor y el desarrollo de la tensión interna aplicada al movimiento.</p>
     <p class="autor-credentials" data-i18n="autor.cred">MBA &nbsp;|&nbsp; Profesor de Educación Física y Licenciado en Deportes</p>
     <div class="tags">
@@ -1634,7 +1582,7 @@ const T = {
     "base.label": "Fundamentos",
     "base.title": "Base Científica",
     "base.desc": "PIxTI integra principios ampliamente estudiados en fisiología del ejercicio y neurociencia motora.",
-    "base.cat1": "Fisiología",
+    "base.leg1.label":"Para el practicante","base.leg1.desc":"Explicación directa del concepto en lenguaje accesible.","base.leg2.label":"Para el especialista","base.leg2.desc":"Descripción técnica del principio científico.","base.leg3.label":"Cita científica","base.leg3.desc":"Frase clave extraída del paper original.","base.cat1": "Fisiología",
     "base.cat2": "Biomecánica",
     "base.cat3": "Metodología del Entrenamiento",
     "b1.title": "Co-Contracción Muscular",
@@ -1649,8 +1597,8 @@ const T = {
     "b5.desc": "Integración de múltiples grupos musculares y estructuras estabilizadoras en un patrón de activación sistémica distribuida.",
     "b6.title": "Modelo Sistémico",
     "b6.desc": "Organización del movimiento como resultado de la interacción coordinada entre múltiples sistemas neuromusculares.",
-    "autor.label": "Quién lo desarrolló",
-    "autor.role": "Creador y desarrollador de PIxTI",
+    "autor.label": "Creador del Método PIxTI",
+    "autor.role": "Autor y desarrollador del sitio web",
     "autor.bio": "Método experimental de entrenamiento neuromuscular con enfoque en la integración entre la biomecánica, el control motor y el desarrollo de la tensión interna aplicada al movimiento.",
     "autor.cred": "MBA | Profesor de Educación Física y Licenciado en Deportes",
     "tag.bio": "Biomecánica Aplicada",
@@ -1839,7 +1787,7 @@ const T = {
     "base.label": "Foundations",
     "base.title": "Scientific Basis",
     "base.desc": "PIxTI integrates principles widely studied in exercise physiology and motor neuroscience.",
-    "base.cat1": "Physiology",
+    "base.leg1.label":"For the practitioner","base.leg1.desc":"Direct explanation of the concept in accessible language.","base.leg2.label":"For the specialist","base.leg2.desc":"Technical description of the scientific principle.","base.leg3.label":"Scientific citation","base.leg3.desc":"Key phrase extracted from the original paper.","base.cat1": "Physiology",
     "base.cat2": "Biomechanics",
     "base.cat3": "Training Methodology",
     "b1.title": "Muscle Co-Contraction",
@@ -1854,8 +1802,8 @@ const T = {
     "b5.desc": "Integration of multiple muscle groups and stabilizing structures in a distributed systemic activation pattern.",
     "b6.title": "Systemic Model",
     "b6.desc": "Organization of movement as a result of coordinated interaction among multiple neuromuscular systems.",
-    "autor.label": "Who developed it",
-    "autor.role": "Creator and developer of PIxTI",
+    "autor.label": "Creator of the PIxTI Method",
+    "autor.role": "Author and developer of the website",
     "autor.bio": "Experimental neuromuscular training method focused on the integration of biomechanics, motor control and the development of internal tension applied to movement.",
     "autor.cred": "MBA | Physical Education Professor and Sports Degree",
     "tag.bio": "Applied Biomechanics",
@@ -2044,7 +1992,7 @@ const T = {
     "base.label": "Fondamenti",
     "base.title": "Base Scientifica",
     "base.desc": "PIxTI integra principi ampiamente studiati in fisiologia dell'esercizio e neuroscienze motorie.",
-    "base.cat1": "Fisiologia",
+    "base.leg1.label":"Per il praticante","base.leg1.desc":"Spiegazione diretta del concetto in linguaggio accessibile.","base.leg2.label":"Per lo specialista","base.leg2.desc":"Descrizione tecnica del principio scientifico.","base.leg3.label":"Citazione scientifica","base.leg3.desc":"Frase chiave estratta dal paper originale.","base.cat1": "Fisiologia",
     "base.cat2": "Biomeccanica",
     "base.cat3": "Metodologia dell'Allenamento",
     "b1.title": "Co-Contrazione Muscolare",
@@ -2059,8 +2007,8 @@ const T = {
     "b5.desc": "Integrazione di più gruppi muscolari e strutture stabilizzatrici in un pattern di attivazione sistemica distribuita.",
     "b6.title": "Modello Sistemico",
     "b6.desc": "Organizzazione del movimento come risultato dell'interazione coordinata tra più sistemi neuromuscolari.",
-    "autor.label": "Chi lo ha sviluppato",
-    "autor.role": "Creatore e sviluppatore di PIxTI",
+    "autor.label": "Creatore del Metodo PIxTI",
+    "autor.role": "Autore e sviluppatore del sito web",
     "autor.bio": "Metodo sperimentale di allenamento neuromuscolare incentrato sull'integrazione tra biomeccanica, controllo motorio e sviluppo della tensione interna applicata al movimento.",
     "autor.cred": "MBA | Professore di Educazione Fisica e Laureato in Scienze Motorie",
     "tag.bio": "Biomeccanica Applicata",
