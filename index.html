@@ -327,6 +327,36 @@ footer p{font-size:.76rem;color:var(--muted);}
 
 /* MOVIMIENTO DIDÁCTICO */
 #movimiento{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.mov3d-wrap{display:grid;grid-template-columns:1fr 340px;gap:24px;margin-top:48px;align-items:start;}
+.mov3d-viewer{position:relative;border-radius:var(--r);overflow:hidden;border:1px solid var(--border);background:#000;aspect-ratio:4/3;}
+.mov3d-viewer iframe{width:100%;height:100%;display:block;border:none;}
+.mov3d-overlay{position:absolute;inset:0;pointer-events:none;display:flex;flex-direction:column;justify-content:space-between;padding:16px;}
+.mov3d-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(5,5,7,.75);backdrop-filter:blur(10px);border:1px solid var(--border);padding:6px 12px;border-radius:100px;font-size:.68rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--cyan);width:fit-content;}
+.mov3d-badge-dot{width:5px;height:5px;border-radius:50%;background:var(--cyan);animation:blink 2s infinite;flex-shrink:0;}
+.mov3d-attr{font-size:.65rem;color:rgba(255,255,255,.3);text-align:right;}
+.mov3d-attr a{color:rgba(0,229,255,.4);text-decoration:none;}
+.mov3d-attr a:hover{color:var(--cyan);}
+.mov3d-panel{display:flex;flex-direction:column;gap:0;}
+.mov3d-panel-title{font-size:.68rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);margin-bottom:16px;}
+.mov3d-phases{display:flex;flex-direction:column;gap:2px;}
+.mov3d-phase{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px 18px;transition:border-color .2s,background .2s;cursor:default;}
+.mov3d-phase:hover{border-color:rgba(0,229,255,.25);background:rgba(0,229,255,.02);}
+.mov3d-phase-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;}
+.mov3d-phase-num{font-family:'Bebas Neue',sans-serif;font-size:1rem;color:var(--cyan);letter-spacing:1px;}
+.mov3d-phase-angle{font-family:'Bebas Neue',sans-serif;font-size:.95rem;color:rgba(255,200,64,.8);letter-spacing:1px;}
+.mov3d-phase-name{font-size:.82rem;font-weight:500;color:var(--white);margin-bottom:4px;}
+.mov3d-phase-desc{font-size:.74rem;color:var(--muted);line-height:1.55;margin-bottom:8px;}
+.mov3d-phase-tag{display:inline-block;font-size:.58rem;font-weight:500;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:100px;border:1px solid;}
+.mov3d-phase-tag.iso{color:rgba(255,200,64,.8);border-color:rgba(255,200,64,.25);background:rgba(255,200,64,.05);}
+.mov3d-phase-tag.con{color:rgba(0,229,255,.8);border-color:rgba(0,229,255,.25);background:rgba(0,229,255,.05);}
+.mov3d-phase-tag.ecc{color:rgba(180,100,255,.8);border-color:rgba(180,100,255,.25);background:rgba(180,100,255,.05);}
+.mov3d-legend{margin-top:16px;padding-top:14px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:8px;}
+.mov3d-legend-item{display:flex;align-items:center;gap:8px;font-size:.7rem;color:var(--muted2);}
+.mov3d-legend-line{width:20px;height:2px;border-radius:2px;flex-shrink:0;}
+.mov-benefits{margin-top:24px;display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:.7rem;color:var(--muted);padding:14px 0;border-top:1px solid var(--border);}
+.mov-sep{color:var(--border);font-size:.8rem;}
+@media(max-width:900px){.mov3d-wrap{grid-template-columns:1fr;}.mov3d-viewer{aspect-ratio:16/10;}}
+#movimiento{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
 .mov-strip{display:grid;grid-template-columns:1fr 32px 1fr 32px 1fr 32px 1fr;align-items:start;gap:0;margin-top:56px;}
 .mov-frame{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:border-color .25s;}
 .mov-frame:hover{border-color:rgba(0,229,255,.2);}
@@ -500,271 +530,103 @@ footer p{font-size:.76rem;color:var(--muted);}
   <h2 class="s-title" data-i18n="mov.title">Curl de Bíceps PIxTI</h2>
   <p class="s-desc" data-i18n="mov.desc">Secuencia completa del movimiento. La tensión interna no cesa en ningún ángulo del recorrido.</p>
 
-  <!-- TIRA CONTINUA -->
-  <div class="mov-strip">
+  <!-- 3D VIEWER + HUD -->
+  <div class="mov3d-wrap">
 
-    <!-- FASE 1 -->
-    <div class="mov-frame">
-      <div class="mov-frame-head">
-        <span class="mov-phase-num">01</span>
-        <span class="mov-phase-label" data-i18n="mov1.phase">Isométrica inicial</span>
-        <span class="mov-angle-badge">0°–10°</span>
+    <!-- SKETCHFAB EMBED -->
+    <div class="mov3d-viewer">
+      <iframe
+        title="Muscular Male Body"
+        frameborder="0"
+        allowfullscreen
+        mozallowfullscreen="true"
+        webkitallowfullscreen="true"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        src="https://sketchfab.com/models/0c07aa0b45594df5a01441e6bac70f03/embed?autospin=0&autostart=1&preload=1&ui_theme=dark&ui_infos=0&ui_controls=1&ui_stop=0&transparent=0&camera=0&dnt=1">
+      </iframe>
+      <!-- OVERLAY LABEL -->
+      <div class="mov3d-overlay">
+        <div class="mov3d-badge">
+          <span class="mov3d-badge-dot"></span>
+          <span data-i18n="mov3d.badge">Modelo 3D interactivo</span>
+        </div>
+        <div class="mov3d-attr">
+          "Muscular Male Body" by <a href="https://sketchfab.com/xuzo" target="_blank" rel="noopener">fvrnx</a> — Sketchfab
+        </div>
       </div>
-      <div class="mov-fig-wrap">
-        <svg viewBox="0 0 130 210" xmlns="http://www.w3.org/2000/svg" fill="none">
-          <!-- PARED -->
-          <rect x="110" y="0" width="4" height="210" fill="rgba(255,255,255,0.07)"/>
-          <rect x="114" y="0" width="14" height="210" fill="rgba(255,255,255,0.025)"/>
-          <!-- CABEZA -->
-          <ellipse cx="52" cy="16" rx="12" ry="14" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.25)" stroke-width="1.2"/>
-          <!-- CUELLO -->
-          <rect x="47" y="29" width="9" height="11" rx="3" fill="rgba(220,220,220,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-          <!-- TORSO -->
-          <path d="M32 40 C28 44 26 58 26 80 L26 122 C26 130 32 133 42 133 L66 133 C76 133 80 130 80 122 L80 80 C80 58 78 44 74 40 Z" fill="rgba(220,220,220,0.07)" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
-          <!-- PECHO / músculo pectoral sugerido -->
-          <path d="M38 48 Q52 55 66 48 Q68 62 52 66 Q36 62 38 48Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="0.8"/>
-          <!-- HOMBRO -->
-          <ellipse cx="76" cy="52" rx="8" ry="7" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-          <!-- DELTOIDES -->
-          <path d="M70 46 Q82 46 84 58 Q80 62 72 58 Q68 54 70 46Z" fill="rgba(200,200,200,0.1)" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
-          <!-- HÚMERO — casi horizontal 0-10° -->
-          <line x1="76" y1="56" x2="108" y2="60" stroke="rgba(240,240,240,0.3)" stroke-width="7" stroke-linecap="round"/>
-          <!-- CODO -->
-          <ellipse cx="108" cy="60" rx="5" ry="4" fill="rgba(255,200,64,0.7)" stroke="rgba(255,200,64,1)" stroke-width="1"/>
-          <!-- ANTEBRAZO — horizontal hacia pared -->
-          <line x1="108" y1="60" x2="111" y2="62" stroke="rgba(240,240,240,0.25)" stroke-width="5" stroke-linecap="round"/>
-          <!-- BÍCEPS — tenso isométrico (rojo prominente) -->
-          <path d="M80 52 C90 44 106 50 108 58 C104 64 90 66 80 60 Z" fill="rgba(255,64,64,0.5)" stroke="rgba(255,64,64,0.9)" stroke-width="1.3"/>
-          <!-- BÍCEPS highlight -->
-          <path d="M86 50 C94 46 104 52 106 56" stroke="rgba(255,120,120,0.4)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          <!-- TRÍCEPS -->
-          <path d="M80 60 C90 66 106 62 108 60 C104 68 88 72 80 66 Z" fill="rgba(200,200,200,0.08)" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
-          <!-- ANTEBRAZO músculo -->
-          <path d="M94 62 C102 60 110 62 111 66 C108 70 98 70 92 68 Z" fill="rgba(200,200,200,0.1)" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
-          <!-- MANO / agarre barra -->
-          <rect x="108" y="56" width="5" height="10" rx="2" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
-          <!-- BARRA paralela al suelo -->
-          <rect x="109" y="59" width="3" height="3" rx="1" fill="rgba(180,180,180,0.6)"/>
-          <!-- VECTOR fuerza → pared (rojo) -->
-          <line x1="94" y1="56" x2="106" y2="57" stroke="#ff4040" stroke-width="2" stroke-dasharray="4,2"/>
-          <polygon points="106,54 114,57 106,60" fill="#ff4040"/>
-          <!-- VECTORES oposición ← (cyan) -->
-          <line x1="72" y1="68" x2="48" y2="71" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="3,2"/>
-          <polygon points="48,68 40,71 48,74" fill="#00e5ff"/>
-          <line x1="70" y1="75" x2="48" y2="78" stroke="rgba(0,229,255,0.5)" stroke-width="1" stroke-dasharray="3,2"/>
-          <polygon points="48,75 40,78 48,81" fill="rgba(0,229,255,0.5)"/>
-          <line x1="68" y1="82" x2="46" y2="85" stroke="rgba(0,229,255,0.3)" stroke-width="0.8" stroke-dasharray="3,2"/>
-          <polygon points="46,82 38,85 46,88" fill="rgba(0,229,255,0.3)"/>
-          <!-- ARCO ángulo -->
-          <path d="M108 60 A12 12 0 0 0 108 48" stroke="rgba(255,200,64,0.6)" stroke-width="1" fill="none"/>
-          <text x="112" y="52" fill="rgba(255,200,64,0.9)" font-size="8" font-family="DM Sans,sans-serif" font-weight="500">~5°</text>
-          <!-- PIERNAS -->
-          <line x1="38" y1="133" x2="36" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
-          <line x1="62" y1="133" x2="64" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
-          <!-- PIES -->
-          <path d="M30 188 Q36 192 44 190 Q38 194 28 192 Z" fill="rgba(255,255,255,0.1)"/>
-          <path d="M58 188 Q64 192 72 190 Q66 194 56 192 Z" fill="rgba(255,255,255,0.1)"/>
-        </svg>
+    </div>
+
+    <!-- PANEL LATERAL: fases PIxTI -->
+    <div class="mov3d-panel">
+      <div class="mov3d-panel-title" data-i18n="mov3d.title">5 Momentos PIxTI</div>
+      <div class="mov3d-phases">
+
+        <div class="mov3d-phase">
+          <div class="mov3d-phase-head">
+            <span class="mov3d-phase-num">01</span>
+            <span class="mov3d-phase-angle">0°–10°</span>
+          </div>
+          <div class="mov3d-phase-name" data-i18n="mov1.title">Activación Isométrica</div>
+          <div class="mov3d-phase-desc" data-i18n="mov1.desc">Co-contracción máxima. La tensión interna se instala antes de que exista movimiento visible.</div>
+          <div class="mov3d-phase-tag iso" data-i18n="tag.iso">Isométrica</div>
+        </div>
+
+        <div class="mov3d-phase">
+          <div class="mov3d-phase-head">
+            <span class="mov3d-phase-num">02</span>
+            <span class="mov3d-phase-angle">≈ 90°</span>
+          </div>
+          <div class="mov3d-phase-name" data-i18n="mov2.title">Equilibrio Óptimo</div>
+          <div class="mov3d-phase-desc" data-i18n="mov2.desc">Máxima eficiencia mecánica. Fuerza principal y oposición interna en equilibrio.</div>
+          <div class="mov3d-phase-tag con" data-i18n="tag.con">Concéntrica</div>
+        </div>
+
+        <div class="mov3d-phase">
+          <div class="mov3d-phase-head">
+            <span class="mov3d-phase-num">03</span>
+            <span class="mov3d-phase-angle">≈ 120°</span>
+          </div>
+          <div class="mov3d-phase-name" data-i18n="mov3.title">Oposición Incrementada</div>
+          <div class="mov3d-phase-desc" data-i18n="mov3.desc">Estabilizadores y sinergistas se integran. Tensión redistribuida con control total.</div>
+          <div class="mov3d-phase-tag con" data-i18n="tag.con">Concéntrica</div>
+        </div>
+
+        <div class="mov3d-phase">
+          <div class="mov3d-phase-head">
+            <span class="mov3d-phase-num">04</span>
+            <span class="mov3d-phase-angle">≈ 160°</span>
+          </div>
+          <div class="mov3d-phase-name" data-i18n="mov4.title">Co-Contracción Sostenida</div>
+          <div class="mov3d-phase-desc" data-i18n="mov4.desc">Máxima proximidad a la pared. La tensión se mantiene activa en todo el sistema.</div>
+          <div class="mov3d-phase-tag con" data-i18n="tag.con">Concéntrica</div>
+        </div>
+
+        <div class="mov3d-phase">
+          <div class="mov3d-phase-head">
+            <span class="mov3d-phase-num">05</span>
+            <span class="mov3d-phase-angle">160°→ 0°</span>
+          </div>
+          <div class="mov3d-phase-name" data-i18n="mov5.title">Fase Excéntrica</div>
+          <div class="mov3d-phase-desc" data-i18n="mov5.desc">El regreso replica el mismo nivel de activación. La tensión interna no cesa.</div>
+          <div class="mov3d-phase-tag ecc" data-i18n="tag.ecc">→ Excéntrica</div>
+        </div>
+
       </div>
-      <div class="mov-frame-text" data-i18n="mov1.desc">Alta activación isométrica. Co-contracción máxima para generar tensión interna y estabilizar el sistema antes de que exista movimiento.</div>
-    </div>
 
-    <!-- FLECHA 1→2 -->
-    <div class="mov-arrow-wrap">
-      <svg viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="20" y1="5" x2="20" y2="45" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="4,3"/>
-        <polygon points="12,42 20,56 28,42" fill="rgba(255,255,255,0.2)"/>
-      </svg>
-    </div>
-
-    <!-- FASE 2 -->
-    <div class="mov-frame">
-      <div class="mov-frame-head">
-        <span class="mov-phase-num">02</span>
-        <span class="mov-phase-label" data-i18n="mov2.phase">Concéntrica media</span>
-        <span class="mov-angle-badge">≈ 90°</span>
+      <!-- VECTORES LEYENDA -->
+      <div class="mov3d-legend">
+        <div class="mov3d-legend-item">
+          <div class="mov3d-legend-line" style="background:#ff4040;"></div>
+          <span data-i18n="mov.leg1">Vector de fuerza principal</span>
+        </div>
+        <div class="mov3d-legend-item">
+          <div class="mov3d-legend-line" style="background:#00e5ff;"></div>
+          <span data-i18n="mov.leg2">Oposición interna distribuida</span>
+        </div>
       </div>
-      <div class="mov-fig-wrap">
-        <svg viewBox="0 0 130 210" xmlns="http://www.w3.org/2000/svg" fill="none">
-          <rect x="110" y="0" width="4" height="210" fill="rgba(255,255,255,0.07)"/>
-          <rect x="114" y="0" width="14" height="210" fill="rgba(255,255,255,0.025)"/>
-          <ellipse cx="52" cy="16" rx="12" ry="14" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.25)" stroke-width="1.2"/>
-          <rect x="47" y="29" width="9" height="11" rx="3" fill="rgba(220,220,220,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-          <path d="M32 40 C28 44 26 58 26 80 L26 122 C26 130 32 133 42 133 L66 133 C76 133 80 130 80 122 L80 80 C80 58 78 44 74 40 Z" fill="rgba(220,220,220,0.07)" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
-          <path d="M38 48 Q52 55 66 48 Q68 62 52 66 Q36 62 38 48Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="0.8"/>
-          <ellipse cx="74" cy="52" rx="8" ry="7" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-          <path d="M68 46 Q80 46 82 58 Q78 62 70 58 Q66 54 68 46Z" fill="rgba(200,200,200,0.1)" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
-          <!-- HÚMERO inclinado ~45° -->
-          <line x1="74" y1="56" x2="92" y2="86" stroke="rgba(240,240,240,0.3)" stroke-width="7" stroke-linecap="round"/>
-          <!-- CODO a 90° -->
-          <ellipse cx="92" cy="86" rx="5" ry="4" fill="rgba(255,200,64,0.7)" stroke="rgba(255,200,64,1)" stroke-width="1"/>
-          <!-- ANTEBRAZO vertical hacia arriba -->
-          <line x1="92" y1="86" x2="92" y2="44" stroke="rgba(240,240,240,0.25)" stroke-width="5" stroke-linecap="round"/>
-          <!-- MANO -->
-          <rect x="89" y="36" width="7" height="10" rx="2" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
-          <!-- BÍCEPS máxima contracción — pico prominente -->
-          <path d="M76 60 C82 46 92 52 92 64 C90 74 80 76 74 70 Z" fill="rgba(255,64,64,0.55)" stroke="rgba(255,64,64,0.95)" stroke-width="1.4"/>
-          <path d="M78 58 C84 48 90 54 90 60" stroke="rgba(255,140,140,0.5)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          <path d="M76 68 C82 76 90 74 92 68 C90 80 80 84 74 78 Z" fill="rgba(200,200,200,0.08)" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
-          <!-- Vector → pared -->
-          <line x1="94" y1="64" x2="106" y2="64" stroke="#ff4040" stroke-width="2" stroke-dasharray="4,2"/>
-          <polygon points="106,61 114,64 106,67" fill="#ff4040"/>
-          <!-- Vectores ← oposición -->
-          <line x1="70" y1="76" x2="46" y2="76" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="3,2"/>
-          <polygon points="46,73 38,76 46,79" fill="#00e5ff"/>
-          <line x1="68" y1="83" x2="46" y2="83" stroke="rgba(0,229,255,0.5)" stroke-width="1" stroke-dasharray="3,2"/>
-          <polygon points="46,80 38,83 46,86" fill="rgba(0,229,255,0.5)"/>
-          <!-- ARCO 90° -->
-          <path d="M92 86 A20 20 0 0 0 112 86" stroke="rgba(255,200,64,0.6)" stroke-width="1" fill="none"/>
-          <text x="110" y="82" fill="rgba(255,200,64,0.9)" font-size="8" font-family="DM Sans,sans-serif" font-weight="500">90°</text>
-          <!-- Sistema articular punto -->
-          <circle cx="92" cy="44" r="2.5" fill="rgba(255,200,64,0.4)"/>
-          <line x1="38" y1="133" x2="36" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
-          <line x1="62" y1="133" x2="64" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
-          <path d="M30 188 Q36 192 44 190 Q38 194 28 192 Z" fill="rgba(255,255,255,0.1)"/>
-          <path d="M58 188 Q64 192 72 190 Q66 194 56 192 Z" fill="rgba(255,255,255,0.1)"/>
-        </svg>
-      </div>
-      <div class="mov-frame-text" data-i18n="mov2.desc">Equilibrio óptimo entre fuerza principal y oposición interna distribuida. Máxima eficiencia del sistema neuromuscular.</div>
     </div>
 
-    <!-- FLECHA 2→3 -->
-    <div class="mov-arrow-wrap">
-      <svg viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="20" y1="5" x2="20" y2="45" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="4,3"/>
-        <polygon points="12,42 20,56 28,42" fill="rgba(255,255,255,0.2)"/>
-      </svg>
-    </div>
-
-    <!-- FASE 3 -->
-    <div class="mov-frame">
-      <div class="mov-frame-head">
-        <span class="mov-phase-num">03</span>
-        <span class="mov-phase-label" data-i18n="mov3.phase">Concéntrica avanzada</span>
-        <span class="mov-angle-badge">≈ 120°</span>
-      </div>
-      <div class="mov-fig-wrap">
-        <svg viewBox="0 0 130 210" xmlns="http://www.w3.org/2000/svg" fill="none">
-          <rect x="110" y="0" width="4" height="210" fill="rgba(255,255,255,0.07)"/>
-          <rect x="114" y="0" width="14" height="210" fill="rgba(255,255,255,0.025)"/>
-          <ellipse cx="52" cy="16" rx="12" ry="14" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.25)" stroke-width="1.2"/>
-          <rect x="47" y="29" width="9" height="11" rx="3" fill="rgba(220,220,220,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-          <path d="M32 40 C28 44 26 58 26 80 L26 122 C26 130 32 133 42 133 L66 133 C76 133 80 130 80 122 L80 80 C80 58 78 44 74 40 Z" fill="rgba(220,220,220,0.07)" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
-          <path d="M38 48 Q52 55 66 48 Q68 62 52 66 Q36 62 38 48Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="0.8"/>
-          <ellipse cx="72" cy="52" rx="8" ry="7" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-          <path d="M66 46 Q78 46 80 58 Q76 62 68 58 Q64 54 66 46Z" fill="rgba(200,200,200,0.1)" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
-          <!-- HÚMERO -->
-          <line x1="72" y1="56" x2="88" y2="90" stroke="rgba(240,240,240,0.3)" stroke-width="7" stroke-linecap="round"/>
-          <!-- CODO -->
-          <ellipse cx="88" cy="90" rx="5" ry="4" fill="rgba(255,200,64,0.7)" stroke="rgba(255,200,64,1)" stroke-width="1"/>
-          <!-- ANTEBRAZO 120° — pasado el vertical, inclinado hacia la pared -->
-          <line x1="88" y1="90" x2="70" y2="52" stroke="rgba(240,240,240,0.25)" stroke-width="5" stroke-linecap="round"/>
-          <!-- MANO -->
-          <rect x="65" y="44" width="7" height="10" rx="2" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
-          <!-- BÍCEPS en acortamiento, todavía prominente -->
-          <path d="M74 62 C78 50 88 56 88 68 C86 78 76 80 72 74 Z" fill="rgba(255,64,64,0.48)" stroke="rgba(255,64,64,0.88)" stroke-width="1.3"/>
-          <path d="M76 60 C80 50 86 56 86 64" stroke="rgba(255,140,140,0.4)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          <path d="M74 72 C80 80 88 78 88 70 C86 82 76 86 72 80 Z" fill="rgba(200,200,200,0.08)" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
-          <!-- Vector → -->
-          <line x1="90" y1="70" x2="104" y2="70" stroke="#ff4040" stroke-width="2" stroke-dasharray="4,2"/>
-          <polygon points="104,67 112,70 104,73" fill="#ff4040"/>
-          <!-- Vectores ← -->
-          <line x1="68" y1="80" x2="44" y2="80" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="3,2"/>
-          <polygon points="44,77 36,80 44,83" fill="#00e5ff"/>
-          <line x1="66" y1="87" x2="44" y2="87" stroke="rgba(0,229,255,0.5)" stroke-width="1" stroke-dasharray="3,2"/>
-          <polygon points="44,84 36,87 44,90" fill="rgba(0,229,255,0.5)"/>
-          <!-- ARCO 120° -->
-          <path d="M88 90 A22 22 0 0 0 110 90" stroke="rgba(255,200,64,0.6)" stroke-width="1" fill="none"/>
-          <text x="108" y="86" fill="rgba(255,200,64,0.9)" font-size="8" font-family="DM Sans,sans-serif" font-weight="500">120°</text>
-          <line x1="38" y1="133" x2="36" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
-          <line x1="62" y1="133" x2="64" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
-          <path d="M30 188 Q36 192 44 190 Q38 194 28 192 Z" fill="rgba(255,255,255,0.1)"/>
-          <path d="M58 188 Q64 192 72 190 Q66 194 56 192 Z" fill="rgba(255,255,255,0.1)"/>
-        </svg>
-      </div>
-      <div class="mov-frame-text" data-i18n="mov3.desc">Se incrementa la oposición interna de estabilizadores y sinergistas. Tensión regulada y movimiento controlado en todo el rango.</div>
-    </div>
-
-    <!-- FLECHA 3→4 -->
-    <div class="mov-arrow-wrap">
-      <svg viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="20" y1="5" x2="20" y2="45" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="4,3"/>
-        <polygon points="12,42 20,56 28,42" fill="rgba(255,255,255,0.2)"/>
-      </svg>
-    </div>
-
-    <!-- FASE 4 -->
-    <div class="mov-frame">
-      <div class="mov-frame-head">
-        <span class="mov-phase-num">04</span>
-        <span class="mov-phase-label" data-i18n="mov4.phase">Posición final</span>
-        <span class="mov-angle-badge">≈ 160°</span>
-      </div>
-      <div class="mov-fig-wrap">
-        <svg viewBox="0 0 130 210" xmlns="http://www.w3.org/2000/svg" fill="none">
-          <rect x="110" y="0" width="4" height="210" fill="rgba(255,255,255,0.07)"/>
-          <rect x="114" y="0" width="14" height="210" fill="rgba(255,255,255,0.025)"/>
-          <ellipse cx="52" cy="16" rx="12" ry="14" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.25)" stroke-width="1.2"/>
-          <rect x="47" y="29" width="9" height="11" rx="3" fill="rgba(220,220,220,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-          <path d="M32 40 C28 44 26 58 26 80 L26 122 C26 130 32 133 42 133 L66 133 C76 133 80 130 80 122 L80 80 C80 58 78 44 74 40 Z" fill="rgba(220,220,220,0.07)" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
-          <path d="M38 48 Q52 55 66 48 Q68 62 52 66 Q36 62 38 48Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="0.8"/>
-          <ellipse cx="70" cy="52" rx="8" ry="7" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-          <path d="M64 46 Q76 46 78 58 Q74 62 66 58 Q62 54 64 46Z" fill="rgba(200,200,200,0.1)" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
-          <!-- HÚMERO -->
-          <line x1="70" y1="56" x2="84" y2="92" stroke="rgba(240,240,240,0.3)" stroke-width="7" stroke-linecap="round"/>
-          <!-- CODO -->
-          <ellipse cx="84" cy="92" rx="5" ry="4" fill="rgba(255,200,64,0.7)" stroke="rgba(255,200,64,1)" stroke-width="1"/>
-          <!-- ANTEBRAZO 160° — casi paralelo al torso -->
-          <line x1="84" y1="92" x2="58" y2="54" stroke="rgba(240,240,240,0.25)" stroke-width="5" stroke-linecap="round"/>
-          <!-- MANO -->
-          <rect x="53" y="46" width="7" height="10" rx="2" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
-          <!-- BÍCEPS muy contraído -->
-          <path d="M72 64 C74 52 84 58 84 70 C82 80 74 82 70 76 Z" fill="rgba(255,64,64,0.44)" stroke="rgba(255,64,64,0.82)" stroke-width="1.3"/>
-          <path d="M74 62 C76 52 82 58 82 66" stroke="rgba(255,140,140,0.35)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          <path d="M72 74 C76 82 84 80 84 72 C82 84 74 88 70 82 Z" fill="rgba(200,200,200,0.08)" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
-          <!-- Vector → -->
-          <line x1="86" y1="72" x2="102" y2="72" stroke="#ff4040" stroke-width="2" stroke-dasharray="4,2"/>
-          <polygon points="102,69 110,72 102,75" fill="#ff4040"/>
-          <!-- Vectores ← -->
-          <line x1="66" y1="82" x2="42" y2="82" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="3,2"/>
-          <polygon points="42,79 34,82 42,85" fill="#00e5ff"/>
-          <line x1="64" y1="89" x2="42" y2="89" stroke="rgba(0,229,255,0.5)" stroke-width="1" stroke-dasharray="3,2"/>
-          <polygon points="42,86 34,89 42,92" fill="rgba(0,229,255,0.5)"/>
-          <!-- ARCO 160° -->
-          <path d="M84 92 A24 24 0 0 0 108 92" stroke="rgba(255,200,64,0.6)" stroke-width="1" fill="none"/>
-          <text x="106" y="88" fill="rgba(255,200,64,0.9)" font-size="8" font-family="DM Sans,sans-serif" font-weight="500">160°</text>
-          <!-- Nota excéntrica -->
-          <text x="8" y="202" fill="rgba(180,100,255,0.45)" font-size="7" font-family="DM Sans,sans-serif">↩ exc. en desarrollo</text>
-          <line x1="38" y1="133" x2="36" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
-          <line x1="62" y1="133" x2="64" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
-          <path d="M30 188 Q36 192 44 190 Q38 194 28 192 Z" fill="rgba(255,255,255,0.1)"/>
-          <path d="M58 188 Q64 192 72 190 Q66 194 56 192 Z" fill="rgba(255,255,255,0.1)"/>
-        </svg>
-      </div>
-      <div class="mov-frame-text" data-i18n="mov4.desc">Máxima proximidad a la pared. Co-contracción sostenida para mantener el control y la tensión a lo largo de todo el rango de movimiento.</div>
-    </div>
-
-  </div><!-- /mov-strip -->
-
-  <!-- LEYENDA HORIZONTAL -->
-  <div class="mov-legend">
-    <div class="mov-legend-item">
-      <div class="mov-legend-line" style="background:#ff4040;"></div>
-      <span data-i18n="mov.leg1">Vector de fuerza principal</span>
-    </div>
-    <div class="mov-legend-item">
-      <div class="mov-legend-line" style="background:rgba(0,229,255,0.7);"></div>
-      <span data-i18n="mov.leg2">Oposición interna distribuida</span>
-    </div>
-    <div class="mov-legend-item">
-      <div style="width:10px;height:10px;border-radius:50%;background:rgba(255,200,64,0.7);flex-shrink:0;"></div>
-      <span data-i18n="mov.leg3">Sistema articular (codo)</span>
-    </div>
-    <div class="mov-legend-item">
-      <div style="width:20px;height:12px;border-radius:2px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);flex-shrink:0;"></div>
-      <span data-i18n="mov.leg4">Punto de referencia fijo (pared)</span>
-    </div>
-  </div>
+  </div><!-- /mov3d-wrap -->
 
   <!-- BENEFICIOS -->
   <div class="mov-benefits">
@@ -1646,7 +1508,7 @@ const T = {
     "mov.leg2": "Oposición interna distribuida",
     "mov.leg3": "Sistema articular (codo)",
     "mov.leg4": "Punto de referencia fijo (pared)",
-    "mov.b1": "Activación neuromuscular sostenida",
+    "mov3d.badge": "Modelo 3D interactivo", "mov3d.title": "5 Momentos PIxTI", "mov5.title": "Fase Excéntrica", "mov5.desc": "El regreso replica el mismo nivel de activación. La tensión interna no cesa.", "mov.b1": "Activación neuromuscular sostenida",
     "mov.b2": "Mayor estabilidad articular",
     "mov.b3": "Tensión homogénea en todo el rango",
     "mov.b4": "Reducción del riesgo de sobrecarga",
@@ -1851,7 +1713,7 @@ const T = {
     "mov.leg2": "Distributed internal opposition",
     "mov.leg3": "Joint system (elbow)",
     "mov.leg4": "Fixed reference point (wall)",
-    "mov.b1": "Sustained neuromuscular activation",
+    "mov3d.badge": "Interactive 3D model", "mov3d.title": "5 PIxTI Moments", "mov5.title": "Eccentric Phase", "mov5.desc": "The return replicates the same activation level. Internal tension never stops.", "mov.b1": "Sustained neuromuscular activation",
     "mov.b2": "Greater joint stability",
     "mov.b3": "Homogeneous tension throughout range",
     "mov.b4": "Reduced risk of overload",
@@ -2056,7 +1918,7 @@ const T = {
     "mov.leg2": "Opposizione interna distribuita",
     "mov.leg3": "Sistema articolare (gomito)",
     "mov.leg4": "Punto di riferimento fisso (parete)",
-    "mov.b1": "Attivazione neuromuscolare sostenuta",
+    "mov3d.badge": "Modello 3D interattivo", "mov3d.title": "5 Momenti PIxTI", "mov5.title": "Fase Eccentrica", "mov5.desc": "Il ritorno replica lo stesso livello di attivazione. La tensione interna non cessa.", "mov.b1": "Attivazione neuromuscolare sostenuta",
     "mov.b2": "Maggiore stabilità articolare",
     "mov.b3": "Tensione omogenea in tutto il range",
     "mov.b4": "Riduzione del rischio di sovraccarico",
