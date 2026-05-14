@@ -331,9 +331,9 @@ footer p{font-size:.76rem;color:var(--muted);}
 .mov-frame{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:border-color .25s;}
 .mov-frame:hover{border-color:rgba(0,229,255,.2);}
 .mov-frame-head{display:flex;align-items:center;gap:8px;padding:14px 16px 10px;border-bottom:1px solid var(--border);}
-.mov-phase-num{font-family:"Bebas Neue",sans-serif;font-size:1.2rem;color:var(--cyan);letter-spacing:1px;line-height:1;}
+.mov-phase-num{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--cyan);letter-spacing:1px;line-height:1;}
 .mov-phase-label{font-size:.62rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);flex:1;}
-.mov-angle-badge{font-family:"Bebas Neue",sans-serif;font-size:.95rem;letter-spacing:1px;color:rgba(255,200,64,0.9);}
+.mov-angle-badge{font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:1px;color:rgba(255,200,64,0.9);}
 .mov-fig-wrap{width:100%;padding:8px 4px 4px;}
 .mov-fig-wrap svg{width:100%;display:block;}
 .mov-frame-text{padding:12px 16px 16px;font-size:.74rem;color:var(--muted);line-height:1.65;border-top:1px solid var(--border);}
@@ -345,7 +345,947 @@ footer p{font-size:.76rem;color:var(--muted);}
 .mov-benefits{margin-top:20px;display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:.7rem;color:var(--muted);padding:14px 0;border-top:1px solid var(--border);}
 .mov-sep{color:var(--border);font-size:.8rem;}
 @media(max-width:900px){.mov-strip{grid-template-columns:1fr 24px 1fr;}.mov-strip .mov-frame:nth-child(5),.mov-strip .mov-frame:nth-child(7),.mov-strip .mov-arrow-wrap:nth-child(6){display:none;}}
-@media(max-width:560px){.mov-strip{grid-template-columns:1fr;}.mov-arrow-wrap{display:none;}}
+@media(max-width:560px){.mov-strip{grid-template-columns:1fr;}.mov-arrow-wrap{padding-top:0;transform:rotate(0deg);}}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+  #que-es .layout,#contacto .contact-inner{grid-template-columns:1fr;gap:48px;}
+  #como .steps,.sim-controls{grid-template-columns:1fr 1fr;}
+  #diferencial .compare,#base .base-grid{grid-template-columns:1fr;}
+  .sim-concepts{grid-template-columns:1fr 1fr;}
+  #stats,#progresion .prog-grid{grid-template-columns:1fr 1fr;}
+  .intensity-row,.form-row{grid-template-columns:1fr;}
+}
+@media(max-width:640px){
+  nav{justify-content:center;flex-wrap:wrap;gap:10px;padding:14px 5%;}
+  .nav-links{display:none;}
+  #como .steps,.sim-controls,.sim-concepts{grid-template-columns:1fr;}
+  #stats{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="logo">PI<span>x</span>TI</div>
+  <div class="nav-links">
+    <a href="#que-es" data-i18n="nav.metodo">El Método</a>
+    <a href="#como" data-i18n="nav.como">Cómo Funciona</a>
+    <a href="#ciencia" data-i18n="nav.ciencia">Simulador</a>
+    <a href="#autor" data-i18n="nav.autor">Autor</a>
+    <a href="#contacto" data-i18n="nav.contacto">Contacto</a>
+  </div>
+  <div class="lang-sw">
+    <button onclick="setLang('es')" class="active">ESP</button>
+    <button onclick="setLang('en')">ENG</button>
+    <button onclick="setLang('it')">ITA</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-tag" data-i18n="hero.tag">Entrenamiento desde adentro hacia afuera</div>
+    <h1>
+      <span class="l1" data-i18n="hero.h1a">Transformación</span>
+      <span class="l2" data-i18n="hero.h1b">Isotónica</span>
+    </h1>
+    <p class="hero-sub" data-i18n="hero.sub">Un modelo de entrenamiento basado en la generación y control de resistencia interna mediante oposición neuromuscular. El movimiento se construye a partir de la tensión del propio cuerpo.</p>
+    <div class="hero-cta">
+      <a href="#que-es" class="btn-primary" data-i18n="hero.cta1">Descubrir PIxTI</a>
+      <a href="#ciencia" class="btn-ghost" data-i18n="hero.cta2">Ver el simulador <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- QUE ES -->
+<section id="que-es">
+  <div class="s-label" data-i18n="ques.label">El Método</div>
+  <h2 class="s-title" data-i18n="ques.title">¿Qué es PIxTI?</h2>
+  <p class="s-desc" data-i18n="ques.desc">Principios Isométricos para la Transformación Isotónica. La carga se construye desde el propio cuerpo.</p>
+  <div class="layout">
+    <div class="def-block reveal">
+      <p data-i18n="ques.def1"><strong>PIxTI</strong> es un sistema de entrenamiento neuromuscular basado en la generación consciente de tensión interna. Integra activación muscular, control neuromuscular y oposición interna para producir movimiento bajo condiciones de <strong>tensión continua</strong>.</p>
+      <p style="margin-top:16px;" data-i18n="ques.def2">El músculo protagonista actúa dentro de un sistema que genera resistencia interna activa. No hay carga externa: la tensión emerge del propio aparato neuromuscular.</p>
+      <div class="hl">
+        <span data-i18n="ques.step1">Se genera tensión</span>
+        <span data-i18n="ques.step2">Se sostiene esa tensión</span>
+        <span data-i18n="ques.step3">Se produce movimiento dentro de esa tensión</span>
+      </div>
+    </div>
+    <div class="pilares">
+      <div class="pilar reveal d1">
+        <div class="pilar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <div><h3 data-i18n="p1.title">El Punto Fijo</h3><p data-i18n="p1.desc">Referencia de apoyo —pared, barra, suelo— que organiza la dirección de la tensión y permite la activación inicial. Puede ser absoluto o relativo.</p></div>
+      </div>
+      <div class="pilar reveal d2">
+        <div class="pilar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2.5 2.5"/></svg></div>
+        <div><h3 data-i18n="p2.title">La Pesa Interna</h3><p data-i18n="p2.desc">Resistencia generada por el propio sistema corporal mediante la integración de estructuras estabilizadoras y control neuromuscular. El cuerpo es la carga.</p></div>
+      </div>
+      <div class="pilar reveal d3">
+        <div class="pilar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 12c0-4.4 3.6-8 8-8s8 3.6 8 8M4 12c0 4.4 3.6 8 8 8"/><path d="m16 16 2 2 2-2M6 8 4 6 2 8"/></svg></div>
+        <div><h3 data-i18n="p3.title">Co-Contracción</h3><p data-i18n="p3.desc">Mecanismo de oposición interna distribuida que involucra múltiples grupos musculares, configurando resistencia a nivel de todo el sistema neuromuscular.</p></div>
+      </div>
+      <div class="pilar reveal d4">
+        <div class="pilar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg></div>
+        <div><h3 data-i18n="p4.title">La Perilla de Control</h3><p data-i18n="p4.desc">Capacidad de regular voluntariamente la intensidad de la tensión interna en tiempo real. El usuario decide cuánta resistencia genera, sostiene y controla en cada grado del movimiento.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- STATS -->
+<div id="stats">
+  <div class="stat reveal"><div class="stat-num">0°<em>–</em>180°</div><div class="stat-label" data-i18n="stat1">Rango completo con activación sostenida y uniforme</div></div>
+  <div class="stat reveal d1"><div class="stat-num">5</div><div class="stat-label" data-i18n="stat2">Fases de activación que estructuran cada ejercicio</div></div>
+  <div class="stat reveal d2"><div class="stat-num">4</div><div class="stat-label" data-i18n="stat3">Pilares: punto fijo, pesa interna, co-contracción</div></div>
+  <div class="stat reveal d3"><div class="stat-num">100<em>%</em></div><div class="stat-label" data-i18n="stat4">Resistencia generada por el propio sistema neuromuscular</div></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- COMO -->
+<section id="como">
+  <div class="s-label" data-i18n="como.label">Mecánica</div>
+  <h2 class="s-title" data-i18n="como.title">¿Cómo Funciona?</h2>
+  <p class="s-desc" data-i18n="como.desc">Una secuencia continua de activación y control. La isometría se transforma en movimiento.</p>
+  <div class="steps">
+    <div class="step reveal"><div class="step-num">01</div><h3 data-i18n="s1.title">Activación isométrica inicial</h3><p data-i18n="s1.desc">Se genera fuerza contra una referencia de apoyo. Sin desplazamiento visible aún.</p><div class="step-accent" data-i18n="s1.tag">Isometría</div></div>
+    <div class="step reveal d1"><div class="step-num">02</div><h3 data-i18n="s2.title">Generación de tensión interna</h3><p data-i18n="s2.desc">El sistema neuromuscular acumula energía. La tensión se instala en toda la cadena.</p><div class="step-accent" data-i18n="s2.tag">Acumulación</div></div>
+    <div class="step reveal d2"><div class="step-num">03</div><h3 data-i18n="s3.title">Oposición neuromuscular</h3><p data-i18n="s3.desc">Se activa una resistencia interna distribuida. Los grupos antagonistas se integran.</p><div class="step-accent" data-i18n="s3.tag">Oposición</div></div>
+    <div class="step reveal d3"><div class="step-num">04</div><h3 data-i18n="s4.title">Modulación del esfuerzo</h3><p data-i18n="s4.desc">El usuario regula la intensidad en tiempo real mediante control consciente.</p><div class="step-accent" data-i18n="s4.tag">Control</div></div>
+    <div class="step reveal d4"><div class="step-num">05</div><h3 data-i18n="s5.title">Expresión del movimiento</h3><p data-i18n="s5.desc">El movimiento aparece dentro de un entorno de tensión constante. Isotónico activo.</p><div class="step-accent" data-i18n="s5.tag">Movimiento</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DIFERENCIAL -->
+<section id="diferencial">
+  <div class="s-label" data-i18n="dif.label">Diferencial</div>
+  <h2 class="s-title" data-i18n="dif.title">PIxTI vs. Tradicional</h2>
+  <p class="s-desc" data-i18n="dif.desc">La diferencia no está en el ejercicio. Está en de dónde viene la resistencia.</p>
+  <div class="compare">
+    <div class="compare-col">
+      <h3 data-i18n="dif.trad">Enfoque Tradicional</h3>
+      <ul>
+        <li data-i18n="dif.t1">Carga externa (peso, máquina, banda)</li>
+        <li data-i18n="dif.t2">Variación mecánica del esfuerzo a lo largo del rango</li>
+        <li data-i18n="dif.t3">Dependencia del equipamiento disponible</li>
+        <li data-i18n="dif.t4">Picos de torque en ángulos específicos</li>
+        <li data-i18n="dif.t5">Zonas de baja carga efectiva en los extremos del rango</li>
+      </ul>
+    </div>
+    <div class="compare-col pixti">
+      <h3>PIxTI</h3>
+      <ul>
+        <li data-i18n="dif.p1">Resistencia interna generada por el propio sistema</li>
+        <li data-i18n="dif.p2">Tensión continua y regulable a voluntad</li>
+        <li data-i18n="dif.p3">Sin dependencia de equipamiento externo</li>
+        <li data-i18n="dif.p4">Activación homogénea en todo el rango articular</li>
+        <li data-i18n="dif.p5">El progreso surge del control de la tensión, no del peso</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- MOVIMIENTO DIDÁCTICO -->
+<section id="movimiento">
+  <div class="s-label" data-i18n="mov.label">El Método en Acción</div>
+  <h2 class="s-title" data-i18n="mov.title">Curl de Bíceps PIxTI</h2>
+  <p class="s-desc" data-i18n="mov.desc">Secuencia completa del movimiento. La tensión interna no cesa en ningún ángulo del recorrido.</p>
+
+  <!-- TIRA CONTINUA -->
+  <div class="mov-strip">
+
+    <!-- FASE 1 -->
+    <div class="mov-frame">
+      <div class="mov-frame-head">
+        <span class="mov-phase-num">01</span>
+        <span class="mov-phase-label" data-i18n="mov1.phase">Isométrica inicial</span>
+        <span class="mov-angle-badge">0°–10°</span>
+      </div>
+      <div class="mov-fig-wrap">
+        <svg viewBox="0 0 130 210" xmlns="http://www.w3.org/2000/svg" fill="none">
+          <!-- PARED -->
+          <rect x="110" y="0" width="4" height="210" fill="rgba(255,255,255,0.07)"/>
+          <rect x="114" y="0" width="14" height="210" fill="rgba(255,255,255,0.025)"/>
+          <!-- CABEZA -->
+          <ellipse cx="52" cy="16" rx="12" ry="14" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.25)" stroke-width="1.2"/>
+          <!-- CUELLO -->
+          <rect x="47" y="29" width="9" height="11" rx="3" fill="rgba(220,220,220,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          <!-- TORSO -->
+          <path d="M32 40 C28 44 26 58 26 80 L26 122 C26 130 32 133 42 133 L66 133 C76 133 80 130 80 122 L80 80 C80 58 78 44 74 40 Z" fill="rgba(220,220,220,0.07)" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
+          <!-- PECHO / músculo pectoral sugerido -->
+          <path d="M38 48 Q52 55 66 48 Q68 62 52 66 Q36 62 38 48Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="0.8"/>
+          <!-- HOMBRO -->
+          <ellipse cx="76" cy="52" rx="8" ry="7" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <!-- DELTOIDES -->
+          <path d="M70 46 Q82 46 84 58 Q80 62 72 58 Q68 54 70 46Z" fill="rgba(200,200,200,0.1)" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
+          <!-- HÚMERO — casi horizontal 0-10° -->
+          <line x1="76" y1="56" x2="108" y2="60" stroke="rgba(240,240,240,0.3)" stroke-width="7" stroke-linecap="round"/>
+          <!-- CODO -->
+          <ellipse cx="108" cy="60" rx="5" ry="4" fill="rgba(255,200,64,0.7)" stroke="rgba(255,200,64,1)" stroke-width="1"/>
+          <!-- ANTEBRAZO — horizontal hacia pared -->
+          <line x1="108" y1="60" x2="111" y2="62" stroke="rgba(240,240,240,0.25)" stroke-width="5" stroke-linecap="round"/>
+          <!-- BÍCEPS — tenso isométrico (rojo prominente) -->
+          <path d="M80 52 C90 44 106 50 108 58 C104 64 90 66 80 60 Z" fill="rgba(255,64,64,0.5)" stroke="rgba(255,64,64,0.9)" stroke-width="1.3"/>
+          <!-- BÍCEPS highlight -->
+          <path d="M86 50 C94 46 104 52 106 56" stroke="rgba(255,120,120,0.4)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <!-- TRÍCEPS -->
+          <path d="M80 60 C90 66 106 62 108 60 C104 68 88 72 80 66 Z" fill="rgba(200,200,200,0.08)" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
+          <!-- ANTEBRAZO músculo -->
+          <path d="M94 62 C102 60 110 62 111 66 C108 70 98 70 92 68 Z" fill="rgba(200,200,200,0.1)" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
+          <!-- MANO / agarre barra -->
+          <rect x="108" y="56" width="5" height="10" rx="2" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+          <!-- BARRA paralela al suelo -->
+          <rect x="109" y="59" width="3" height="3" rx="1" fill="rgba(180,180,180,0.6)"/>
+          <!-- VECTOR fuerza → pared (rojo) -->
+          <line x1="94" y1="56" x2="106" y2="57" stroke="#ff4040" stroke-width="2" stroke-dasharray="4,2"/>
+          <polygon points="106,54 114,57 106,60" fill="#ff4040"/>
+          <!-- VECTORES oposición ← (cyan) -->
+          <line x1="72" y1="68" x2="48" y2="71" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="3,2"/>
+          <polygon points="48,68 40,71 48,74" fill="#00e5ff"/>
+          <line x1="70" y1="75" x2="48" y2="78" stroke="rgba(0,229,255,0.5)" stroke-width="1" stroke-dasharray="3,2"/>
+          <polygon points="48,75 40,78 48,81" fill="rgba(0,229,255,0.5)"/>
+          <line x1="68" y1="82" x2="46" y2="85" stroke="rgba(0,229,255,0.3)" stroke-width="0.8" stroke-dasharray="3,2"/>
+          <polygon points="46,82 38,85 46,88" fill="rgba(0,229,255,0.3)"/>
+          <!-- ARCO ángulo -->
+          <path d="M108 60 A12 12 0 0 0 108 48" stroke="rgba(255,200,64,0.6)" stroke-width="1" fill="none"/>
+          <text x="112" y="52" fill="rgba(255,200,64,0.9)" font-size="8" font-family="DM Sans,sans-serif" font-weight="500">~5°</text>
+          <!-- PIERNAS -->
+          <line x1="38" y1="133" x2="36" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
+          <line x1="62" y1="133" x2="64" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
+          <!-- PIES -->
+          <path d="M30 188 Q36 192 44 190 Q38 194 28 192 Z" fill="rgba(255,255,255,0.1)"/>
+          <path d="M58 188 Q64 192 72 190 Q66 194 56 192 Z" fill="rgba(255,255,255,0.1)"/>
+        </svg>
+      </div>
+      <div class="mov-frame-text" data-i18n="mov1.desc">Alta activación isométrica. Co-contracción máxima para generar tensión interna y estabilizar el sistema antes de que exista movimiento.</div>
+    </div>
+
+    <!-- FLECHA 1→2 -->
+    <div class="mov-arrow-wrap">
+      <svg viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="20" y1="5" x2="20" y2="45" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <polygon points="12,42 20,56 28,42" fill="rgba(255,255,255,0.2)"/>
+      </svg>
+    </div>
+
+    <!-- FASE 2 -->
+    <div class="mov-frame">
+      <div class="mov-frame-head">
+        <span class="mov-phase-num">02</span>
+        <span class="mov-phase-label" data-i18n="mov2.phase">Concéntrica media</span>
+        <span class="mov-angle-badge">≈ 90°</span>
+      </div>
+      <div class="mov-fig-wrap">
+        <svg viewBox="0 0 130 210" xmlns="http://www.w3.org/2000/svg" fill="none">
+          <rect x="110" y="0" width="4" height="210" fill="rgba(255,255,255,0.07)"/>
+          <rect x="114" y="0" width="14" height="210" fill="rgba(255,255,255,0.025)"/>
+          <ellipse cx="52" cy="16" rx="12" ry="14" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.25)" stroke-width="1.2"/>
+          <rect x="47" y="29" width="9" height="11" rx="3" fill="rgba(220,220,220,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          <path d="M32 40 C28 44 26 58 26 80 L26 122 C26 130 32 133 42 133 L66 133 C76 133 80 130 80 122 L80 80 C80 58 78 44 74 40 Z" fill="rgba(220,220,220,0.07)" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
+          <path d="M38 48 Q52 55 66 48 Q68 62 52 66 Q36 62 38 48Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="0.8"/>
+          <ellipse cx="74" cy="52" rx="8" ry="7" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <path d="M68 46 Q80 46 82 58 Q78 62 70 58 Q66 54 68 46Z" fill="rgba(200,200,200,0.1)" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
+          <!-- HÚMERO inclinado ~45° -->
+          <line x1="74" y1="56" x2="92" y2="86" stroke="rgba(240,240,240,0.3)" stroke-width="7" stroke-linecap="round"/>
+          <!-- CODO a 90° -->
+          <ellipse cx="92" cy="86" rx="5" ry="4" fill="rgba(255,200,64,0.7)" stroke="rgba(255,200,64,1)" stroke-width="1"/>
+          <!-- ANTEBRAZO vertical hacia arriba -->
+          <line x1="92" y1="86" x2="92" y2="44" stroke="rgba(240,240,240,0.25)" stroke-width="5" stroke-linecap="round"/>
+          <!-- MANO -->
+          <rect x="89" y="36" width="7" height="10" rx="2" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+          <!-- BÍCEPS máxima contracción — pico prominente -->
+          <path d="M76 60 C82 46 92 52 92 64 C90 74 80 76 74 70 Z" fill="rgba(255,64,64,0.55)" stroke="rgba(255,64,64,0.95)" stroke-width="1.4"/>
+          <path d="M78 58 C84 48 90 54 90 60" stroke="rgba(255,140,140,0.5)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M76 68 C82 76 90 74 92 68 C90 80 80 84 74 78 Z" fill="rgba(200,200,200,0.08)" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
+          <!-- Vector → pared -->
+          <line x1="94" y1="64" x2="106" y2="64" stroke="#ff4040" stroke-width="2" stroke-dasharray="4,2"/>
+          <polygon points="106,61 114,64 106,67" fill="#ff4040"/>
+          <!-- Vectores ← oposición -->
+          <line x1="70" y1="76" x2="46" y2="76" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="3,2"/>
+          <polygon points="46,73 38,76 46,79" fill="#00e5ff"/>
+          <line x1="68" y1="83" x2="46" y2="83" stroke="rgba(0,229,255,0.5)" stroke-width="1" stroke-dasharray="3,2"/>
+          <polygon points="46,80 38,83 46,86" fill="rgba(0,229,255,0.5)"/>
+          <!-- ARCO 90° -->
+          <path d="M92 86 A20 20 0 0 0 112 86" stroke="rgba(255,200,64,0.6)" stroke-width="1" fill="none"/>
+          <text x="110" y="82" fill="rgba(255,200,64,0.9)" font-size="8" font-family="DM Sans,sans-serif" font-weight="500">90°</text>
+          <!-- Sistema articular punto -->
+          <circle cx="92" cy="44" r="2.5" fill="rgba(255,200,64,0.4)"/>
+          <line x1="38" y1="133" x2="36" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
+          <line x1="62" y1="133" x2="64" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
+          <path d="M30 188 Q36 192 44 190 Q38 194 28 192 Z" fill="rgba(255,255,255,0.1)"/>
+          <path d="M58 188 Q64 192 72 190 Q66 194 56 192 Z" fill="rgba(255,255,255,0.1)"/>
+        </svg>
+      </div>
+      <div class="mov-frame-text" data-i18n="mov2.desc">Equilibrio óptimo entre fuerza principal y oposición interna distribuida. Máxima eficiencia del sistema neuromuscular.</div>
+    </div>
+
+    <!-- FLECHA 2→3 -->
+    <div class="mov-arrow-wrap">
+      <svg viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="20" y1="5" x2="20" y2="45" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <polygon points="12,42 20,56 28,42" fill="rgba(255,255,255,0.2)"/>
+      </svg>
+    </div>
+
+    <!-- FASE 3 -->
+    <div class="mov-frame">
+      <div class="mov-frame-head">
+        <span class="mov-phase-num">03</span>
+        <span class="mov-phase-label" data-i18n="mov3.phase">Concéntrica avanzada</span>
+        <span class="mov-angle-badge">≈ 120°</span>
+      </div>
+      <div class="mov-fig-wrap">
+        <svg viewBox="0 0 130 210" xmlns="http://www.w3.org/2000/svg" fill="none">
+          <rect x="110" y="0" width="4" height="210" fill="rgba(255,255,255,0.07)"/>
+          <rect x="114" y="0" width="14" height="210" fill="rgba(255,255,255,0.025)"/>
+          <ellipse cx="52" cy="16" rx="12" ry="14" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.25)" stroke-width="1.2"/>
+          <rect x="47" y="29" width="9" height="11" rx="3" fill="rgba(220,220,220,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          <path d="M32 40 C28 44 26 58 26 80 L26 122 C26 130 32 133 42 133 L66 133 C76 133 80 130 80 122 L80 80 C80 58 78 44 74 40 Z" fill="rgba(220,220,220,0.07)" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
+          <path d="M38 48 Q52 55 66 48 Q68 62 52 66 Q36 62 38 48Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="0.8"/>
+          <ellipse cx="72" cy="52" rx="8" ry="7" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <path d="M66 46 Q78 46 80 58 Q76 62 68 58 Q64 54 66 46Z" fill="rgba(200,200,200,0.1)" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
+          <!-- HÚMERO -->
+          <line x1="72" y1="56" x2="88" y2="90" stroke="rgba(240,240,240,0.3)" stroke-width="7" stroke-linecap="round"/>
+          <!-- CODO -->
+          <ellipse cx="88" cy="90" rx="5" ry="4" fill="rgba(255,200,64,0.7)" stroke="rgba(255,200,64,1)" stroke-width="1"/>
+          <!-- ANTEBRAZO 120° — pasado el vertical, inclinado hacia la pared -->
+          <line x1="88" y1="90" x2="70" y2="52" stroke="rgba(240,240,240,0.25)" stroke-width="5" stroke-linecap="round"/>
+          <!-- MANO -->
+          <rect x="65" y="44" width="7" height="10" rx="2" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+          <!-- BÍCEPS en acortamiento, todavía prominente -->
+          <path d="M74 62 C78 50 88 56 88 68 C86 78 76 80 72 74 Z" fill="rgba(255,64,64,0.48)" stroke="rgba(255,64,64,0.88)" stroke-width="1.3"/>
+          <path d="M76 60 C80 50 86 56 86 64" stroke="rgba(255,140,140,0.4)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M74 72 C80 80 88 78 88 70 C86 82 76 86 72 80 Z" fill="rgba(200,200,200,0.08)" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
+          <!-- Vector → -->
+          <line x1="90" y1="70" x2="104" y2="70" stroke="#ff4040" stroke-width="2" stroke-dasharray="4,2"/>
+          <polygon points="104,67 112,70 104,73" fill="#ff4040"/>
+          <!-- Vectores ← -->
+          <line x1="68" y1="80" x2="44" y2="80" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="3,2"/>
+          <polygon points="44,77 36,80 44,83" fill="#00e5ff"/>
+          <line x1="66" y1="87" x2="44" y2="87" stroke="rgba(0,229,255,0.5)" stroke-width="1" stroke-dasharray="3,2"/>
+          <polygon points="44,84 36,87 44,90" fill="rgba(0,229,255,0.5)"/>
+          <!-- ARCO 120° -->
+          <path d="M88 90 A22 22 0 0 0 110 90" stroke="rgba(255,200,64,0.6)" stroke-width="1" fill="none"/>
+          <text x="108" y="86" fill="rgba(255,200,64,0.9)" font-size="8" font-family="DM Sans,sans-serif" font-weight="500">120°</text>
+          <line x1="38" y1="133" x2="36" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
+          <line x1="62" y1="133" x2="64" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
+          <path d="M30 188 Q36 192 44 190 Q38 194 28 192 Z" fill="rgba(255,255,255,0.1)"/>
+          <path d="M58 188 Q64 192 72 190 Q66 194 56 192 Z" fill="rgba(255,255,255,0.1)"/>
+        </svg>
+      </div>
+      <div class="mov-frame-text" data-i18n="mov3.desc">Se incrementa la oposición interna de estabilizadores y sinergistas. Tensión regulada y movimiento controlado en todo el rango.</div>
+    </div>
+
+    <!-- FLECHA 3→4 -->
+    <div class="mov-arrow-wrap">
+      <svg viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="20" y1="5" x2="20" y2="45" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <polygon points="12,42 20,56 28,42" fill="rgba(255,255,255,0.2)"/>
+      </svg>
+    </div>
+
+    <!-- FASE 4 -->
+    <div class="mov-frame">
+      <div class="mov-frame-head">
+        <span class="mov-phase-num">04</span>
+        <span class="mov-phase-label" data-i18n="mov4.phase">Posición final</span>
+        <span class="mov-angle-badge">≈ 160°</span>
+      </div>
+      <div class="mov-fig-wrap">
+        <svg viewBox="0 0 130 210" xmlns="http://www.w3.org/2000/svg" fill="none">
+          <rect x="110" y="0" width="4" height="210" fill="rgba(255,255,255,0.07)"/>
+          <rect x="114" y="0" width="14" height="210" fill="rgba(255,255,255,0.025)"/>
+          <ellipse cx="52" cy="16" rx="12" ry="14" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.25)" stroke-width="1.2"/>
+          <rect x="47" y="29" width="9" height="11" rx="3" fill="rgba(220,220,220,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          <path d="M32 40 C28 44 26 58 26 80 L26 122 C26 130 32 133 42 133 L66 133 C76 133 80 130 80 122 L80 80 C80 58 78 44 74 40 Z" fill="rgba(220,220,220,0.07)" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
+          <path d="M38 48 Q52 55 66 48 Q68 62 52 66 Q36 62 38 48Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="0.8"/>
+          <ellipse cx="70" cy="52" rx="8" ry="7" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <path d="M64 46 Q76 46 78 58 Q74 62 66 58 Q62 54 64 46Z" fill="rgba(200,200,200,0.1)" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
+          <!-- HÚMERO -->
+          <line x1="70" y1="56" x2="84" y2="92" stroke="rgba(240,240,240,0.3)" stroke-width="7" stroke-linecap="round"/>
+          <!-- CODO -->
+          <ellipse cx="84" cy="92" rx="5" ry="4" fill="rgba(255,200,64,0.7)" stroke="rgba(255,200,64,1)" stroke-width="1"/>
+          <!-- ANTEBRAZO 160° — casi paralelo al torso -->
+          <line x1="84" y1="92" x2="58" y2="54" stroke="rgba(240,240,240,0.25)" stroke-width="5" stroke-linecap="round"/>
+          <!-- MANO -->
+          <rect x="53" y="46" width="7" height="10" rx="2" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+          <!-- BÍCEPS muy contraído -->
+          <path d="M72 64 C74 52 84 58 84 70 C82 80 74 82 70 76 Z" fill="rgba(255,64,64,0.44)" stroke="rgba(255,64,64,0.82)" stroke-width="1.3"/>
+          <path d="M74 62 C76 52 82 58 82 66" stroke="rgba(255,140,140,0.35)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M72 74 C76 82 84 80 84 72 C82 84 74 88 70 82 Z" fill="rgba(200,200,200,0.08)" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
+          <!-- Vector → -->
+          <line x1="86" y1="72" x2="102" y2="72" stroke="#ff4040" stroke-width="2" stroke-dasharray="4,2"/>
+          <polygon points="102,69 110,72 102,75" fill="#ff4040"/>
+          <!-- Vectores ← -->
+          <line x1="66" y1="82" x2="42" y2="82" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="3,2"/>
+          <polygon points="42,79 34,82 42,85" fill="#00e5ff"/>
+          <line x1="64" y1="89" x2="42" y2="89" stroke="rgba(0,229,255,0.5)" stroke-width="1" stroke-dasharray="3,2"/>
+          <polygon points="42,86 34,89 42,92" fill="rgba(0,229,255,0.5)"/>
+          <!-- ARCO 160° -->
+          <path d="M84 92 A24 24 0 0 0 108 92" stroke="rgba(255,200,64,0.6)" stroke-width="1" fill="none"/>
+          <text x="106" y="88" fill="rgba(255,200,64,0.9)" font-size="8" font-family="DM Sans,sans-serif" font-weight="500">160°</text>
+          <!-- Nota excéntrica -->
+          <text x="8" y="202" fill="rgba(180,100,255,0.45)" font-size="7" font-family="DM Sans,sans-serif">↩ exc. en desarrollo</text>
+          <line x1="38" y1="133" x2="36" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
+          <line x1="62" y1="133" x2="64" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
+          <path d="M30 188 Q36 192 44 190 Q38 194 28 192 Z" fill="rgba(255,255,255,0.1)"/>
+          <path d="M58 188 Q64 192 72 190 Q66 194 56 192 Z" fill="rgba(255,255,255,0.1)"/>
+        </svg>
+      </div>
+      <div class="mov-frame-text" data-i18n="mov4.desc">Máxima proximidad a la pared. Co-contracción sostenida para mantener el control y la tensión a lo largo de todo el rango de movimiento.</div>
+    </div>
+
+  </div><!-- /mov-strip -->
+
+  <!-- LEYENDA HORIZONTAL -->
+  <div class="mov-legend">
+    <div class="mov-legend-item">
+      <div class="mov-legend-line" style="background:#ff4040;"></div>
+      <span data-i18n="mov.leg1">Vector de fuerza principal</span>
+    </div>
+    <div class="mov-legend-item">
+      <div class="mov-legend-line" style="background:rgba(0,229,255,0.7);"></div>
+      <span data-i18n="mov.leg2">Oposición interna distribuida</span>
+    </div>
+    <div class="mov-legend-item">
+      <div style="width:10px;height:10px;border-radius:50%;background:rgba(255,200,64,0.7);flex-shrink:0;"></div>
+      <span data-i18n="mov.leg3">Sistema articular (codo)</span>
+    </div>
+    <div class="mov-legend-item">
+      <div style="width:20px;height:12px;border-radius:2px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);flex-shrink:0;"></div>
+      <span data-i18n="mov.leg4">Punto de referencia fijo (pared)</span>
+    </div>
+  </div>
+
+  <!-- BENEFICIOS -->
+  <div class="mov-benefits">
+    <span data-i18n="mov.b1">Activación neuromuscular sostenida</span>
+    <span class="mov-sep">·</span>
+    <span data-i18n="mov.b2">Mayor estabilidad articular</span>
+    <span class="mov-sep">·</span>
+    <span data-i18n="mov.b3">Tensión homogénea en todo el rango</span>
+    <span class="mov-sep">·</span>
+    <span data-i18n="mov.b4">Reducción del riesgo de sobrecarga</span>
+  </div>
+
+</section>
+
+<div class="divider"></div>
+
+<!-- SIMULADOR DE CURVAS -->
+<section id="ciencia" style="padding:100px 7%;">
+  <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:20px;margin-bottom:48px;">
+    <div>
+      <div class="s-label" data-i18n="cien.label">Ciencia</div>
+      <h2 class="s-title" data-i18n="cien.title">Simulador de Curvas</h2>
+      <p class="s-desc" data-i18n="cien.desc">Modificá los parámetros y observá cómo cambia la demanda sobre el sistema neuromuscular en cada ángulo del movimiento.</p>
+    </div>
+    <div class="exp-badge" data-i18n="cien.badge">Estado Experimental</div>
+  </div>
+<!-- HEADER -->
+  <div class="hdr">
+    <div class="hdr-left">
+      <div class="logo">PI<span>x</span>TI</div>
+      <div class="hdr-title">Simulador de Curvas de Intensidad</div>
+      <p class="hdr-sub">Modificá los parámetros y observá cómo cambia la demanda sobre el sistema neuromuscular en cada ángulo del movimiento.</p>
+    </div>
+    <div class="exp-badge">Estado Experimental</div>
+  </div>
+
+  <!-- CONTROLES -->
+  <div class="controls">
+    <div class="ctrl">
+      <label data-i18n="ctrl1.label">Parámetro 1</label>
+      <div class="ctrl-name" data-i18n="ctrl1.name">Capacidad Máxima Estructural</div>
+      <input type="range" id="r-capmax" min="10" max="60" step="1" value="30">
+      <div class="ctrl-val" id="v-capmax">30 <em>kg</em></div>
+      <div class="ctrl-unit" data-i18n="ctrl1.unit">Capacidad del sistema a 90°</div>
+    </div>
+    <div class="ctrl">
+      <label data-i18n="ctrl2.label">Parámetro 2</label>
+      <div class="ctrl-name" data-i18n="ctrl2.name">Intensidad Objetivo</div>
+      <input type="range" id="r-inttrad" min="0.3" max="1.1" step="0.01" value="0.70">
+      <div class="ctrl-val" id="v-inttrad">70 <em>%</em></div>
+      <div class="ctrl-unit" data-i18n="ctrl2.unit">Relación demanda / capacidad</div>
+    </div>
+    <div class="ctrl">
+      <label data-i18n="ctrl3.label">Parámetro 3</label>
+      <div class="ctrl-name" data-i18n="ctrl3.name">Masa Externa (Pesa)</div>
+      <input type="range" id="r-masa" min="1" max="50" step="0.5" value="21">
+      <div class="ctrl-val" id="v-masa">21 <em>kg</em></div>
+      <div class="ctrl-unit" data-i18n="ctrl3.unit">Mancuerna, disco u objeto</div>
+    </div>
+    <div class="ctrl">
+      <label data-i18n="ctrl4.label">Parámetro 4</label>
+      <div class="ctrl-name" data-i18n="ctrl4.name">Tensión PIxTI</div>
+      <input type="range" id="r-pixti" min="0.5" max="1.0" step="0.01" value="0.90">
+      <div class="ctrl-val" id="v-pixti">90 <em>%</em></div>
+      <div class="ctrl-unit" data-i18n="ctrl4.unit">% de la capacidad estructural</div>
+    </div>
+  </div>
+
+  <!-- INTENSIDADES EN 90° -->
+  <div class="intensity-row">
+    <div class="int-cell">
+      <div class="int-label" data-i18n="ir.trad.label">Intensidad Relativa Tradicional en 90°</div>
+      <div class="int-val" id="ir-trad">—</div>
+      <div class="int-desc" data-i18n="ir.trad.desc">Demanda externa ÷ Capacidad estructural. Por encima de 100% hay riesgo estructural.</div>
+    </div>
+    <div class="int-cell">
+      <div class="int-label" data-i18n="ir.pixti.label">Intensidad Relativa PIxTI en 90°</div>
+      <div class="int-val ok" id="ir-pixti">—</div>
+      <div class="int-desc" data-i18n="ir.pixti.desc">Carga PIxTI ÷ Capacidad estructural. Resguardo activo sobre tendones, ligamentos y articulaciones.</div>
+    </div>
+  </div>
+
+  <!-- GRÁFICO -->
+  <div class="chart-card">
+    <div class="chart-legend">
+      <div class="leg"><div class="leg-dot" style="background:var(--red)"></div><span data-i18n="cien.leg1">Demanda Externa (kg)</span></div>
+      <div class="leg"><div class="leg-dot" style="background:var(--yellow)"></div><span data-i18n="cien.leg2">Capacidad Estructural (kg)</span></div>
+      <div class="leg"><div class="leg-dot" style="background:var(--cyan)"></div><span data-i18n="cien.leg3">Carga PIxTI (kg)</span></div>
+    </div>
+    <canvas id="chart" height="400"></canvas>
+    <div class="warn-bar" id="warnBar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <span id="warnText" data-i18n="cien.warn">La demanda externa supera la capacidad estructural en algunos ángulos. Riesgo de sobrecarga tendinosa y articular.</span>
+    </div>
+  </div>
+
+  <!-- CONCEPTOS -->
+  <div class="concepts">
+    <div class="concept">
+      <div class="concept-tag"><div class="concept-dot" style="background:var(--red)"></div><span>Curva Roja</span></div>
+      <h3 data-i18n="sc1.title">Demanda Externa</h3>
+      <p>La pesa (mancuerna, disco) aplica una fuerza gravitacional constante. En el método tradicional, esa demanda no cambia con el ángulo: es siempre la misma masa. La curva es plana —lo que varía es la capacidad del sistema para tolerarla.</p>
+    </div>
+    <div class="concept">
+      <div class="concept-tag"><div class="concept-dot" style="background:var(--yellow)"></div><span>Curva Amarilla</span></div>
+      <h3 data-i18n="sc2.title">Capacidad Estructural</h3>
+      <p data-i18n="sc2.desc">Lo que el sistema neuromuscular puede ofrecer en cada ángulo, expresado en kg. Alcanza su máximo a 90° (brazo de momento óptimo) y cae progresivamente hacia los extremos del rango. La articulación queda desprotegida donde la curva cae.</p>
+    </div>
+    <div class="concept">
+      <div class="concept-tag"><div class="concept-dot" style="background:var(--cyan)"></div><span>Curva Cyan</span></div>
+      <h3 data-i18n="sc3.title">Carga PIxTI</h3>
+      <p data-i18n="sc3.desc">Se opera al porcentaje elegido de la capacidad estructural real. La carga interna sigue la forma de la capacidad del sistema: nunca la supera. Esto provee resguardo óseo, tendinoso, ligamentoso y articular en todo el rango de movimiento.</p>
+    </div>
+  </div>
+
+  <!-- NOTA EXPERIMENTAL -->
+  <div class="note">
+    <strong data-i18n="cien.exp.label">⚠ Estado experimental.</strong> <span data-i18n="cien.exp.text">Este simulador representa un modelo teórico basado en los principios del Método PIxTI. Los valores de capacidad estructural son estimaciones relativas —no reemplazan una evaluación clínica o funcional. Una intensidad relativa superior al 99% indica zona de potencial sobrecarga estructural.</span>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROGRESION -->
+<section id="progresion">
+  <div class="s-label" data-i18n="prog.label">Progresión</div>
+  <h2 class="s-title" data-i18n="prog.title">¿Cómo se Progresa?</h2>
+  <p class="s-desc" data-i18n="prog.desc">No se agrega peso. Se desarrolla la capacidad interna del sistema neuromuscular.</p>
+  <div class="prog-grid">
+    <div class="prog-card reveal"><div class="prog-num">01</div><h3 data-i18n="pg1.title">Mayor generación de tensión</h3><p data-i18n="pg1.desc">Incremento progresivo en la capacidad de producir y acumular fuerza interna en cada repetición.</p></div>
+    <div class="prog-card reveal d1"><div class="prog-num">02</div><h3 data-i18n="pg2.title">Mayor capacidad de sostenerla</h3><p data-i18n="pg2.desc">Resistencia neuromuscular: mantener la tensión a lo largo de todo el recorrido sin colapso de la activación.</p></div>
+    <div class="prog-card reveal d2"><div class="prog-num">03</div><h3 data-i18n="pg3.title">Mayor control de la modulación</h3><p data-i18n="pg3.desc">Regulación voluntaria y precisa de la intensidad en tiempo real durante el movimiento.</p></div>
+    <div class="prog-card reveal d3"><div class="prog-num">04</div><h3 data-i18n="pg4.title">Mayor precisión neuromuscular</h3><p data-i18n="pg4.desc">Refinamiento de la coordinación intermuscular y la activación selectiva de estructuras específicas.</p></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BASE CIENTIFICA -->
+<section id="base">
+  <div class="s-label" data-i18n="base.label">Fundamentos</div>
+  <h2 class="s-title" data-i18n="base.title">Base Científica</h2>
+  <p class="s-desc" data-i18n="base.desc">PIxTI integra principios ampliamente estudiados en fisiología del ejercicio y neurociencia motora.</p>
+
+
+  <!-- LEYENDA DE NIVELES DE LECTURA -->
+  <div class="base-legend">
+    <div class="base-legend-item">
+      <div class="base-legend-bar" style="background:var(--white);opacity:.4;height:36px;"></div>
+      <div class="base-legend-text">
+        <div class="base-legend-label" style="color:var(--white);" data-i18n="base.leg1.label">Para el practicante</div>
+        <div class="base-legend-desc" data-i18n="base.leg1.desc">Explicación directa del concepto en lenguaje accesible.</div>
+      </div>
+    </div>
+    <div class="base-legend-item">
+      <div class="base-legend-bar" style="background:var(--cyan);opacity:.5;height:36px;"></div>
+      <div class="base-legend-text">
+        <div class="base-legend-label" style="color:var(--cyan);" data-i18n="base.leg2.label">Para el especialista</div>
+        <div class="base-legend-desc" data-i18n="base.leg2.desc">Descripción técnica del principio científico.</div>
+      </div>
+    </div>
+    <div class="base-legend-item">
+      <div class="base-legend-bar" style="background:var(--yellow);opacity:.5;height:36px;"></div>
+      <div class="base-legend-text">
+        <div class="base-legend-label" style="color:var(--yellow);" data-i18n="base.leg3.label">Cita científica</div>
+        <div class="base-legend-desc" data-i18n="base.leg3.desc">Frase clave extraída del paper original.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FISIOLOGÍA -->
+  <div class="base-category">
+    <div class="base-category-label" data-i18n="base.cat1">Fisiología</div>
+    <div class="base-grid">
+
+    <div class="base-item reveal">
+      <div class="base-concept-label">El Resorte Inteligente del Músculo</div>
+      <h3>Titina y Fuerza Excéntrica</h3>
+      <p class="base-simple">El músculo tiene un tercer resorte molecular que lo protege y lo hace más fuerte en la fase de bajada. PIxTI lo activa.</p>
+      <p class="base-desc">La titina actúa como tercer filamento contráctil. Su activación mediante tensión pesada amplifica la fuerza excéntrica y protege la integridad del sarcómero.</p>
+      <div class="base-ref">
+        <p class="base-ref-text">Herzog, W. (2018). The role of titin in muscle force generation, muscle deceptions and muscle diseases. <em>Advances in Experimental Medicine and Biology, 1088</em>, 3–25.</p>
+        <a class="base-ref-link" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7001402/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>PMC7001402</a>
+      </div>
+      <p class="base-epigraph">"La titina funciona como un resorte molecular cuya rigidez aumenta con la activación muscular. Actúa como un tercer elemento contráctil junto a la actina y la miosina, amplificando la fuerza excéntrica y resguardando la integridad del sarcómero."<span class="base-epigraph-attr">— Herzog, 2018</span></p>
+    </div>
+
+    <div class="base-item reveal d1">
+      <div class="base-concept-label">El Interruptor Molecular del Crecimiento</div>
+      <h3>Mecanotransducción y mTOR</h3>
+      <p class="base-simple">Cuando el músculo siente tensión mecánica, enciende el interruptor del crecimiento. Sin tensión real, no hay señal de adaptación.</p>
+      <p class="base-desc">La deformación mecánica de la célula muscular activa la vía mTORC1, regulando la síntesis proteica y la hipertrofia estructural.</p>
+      <div class="base-ref">
+        <p class="base-ref-text">Wackerhage, H., et al. (2019). Molecular mechanisms of mechanical load-induced skeletal muscle hypertrophy. <em>Journal of Applied Physiology, 127</em>(2), 479–491.</p>
+        <a class="base-ref-link" href="https://journals.physiology.org/doi/full/10.1152/japplphysiol.00211.2018" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1152/japplphysiol.00211.2018</a>
+      </div>
+      <p class="base-epigraph">"La vía mTORC1 es el principal regulador de la síntesis proteica muscular inducida por el ejercicio. La deformación mecánica de la célula activa esta cascada — la carga mecánica opera, en términos moleculares, como el interruptor del crecimiento."<span class="base-epigraph-attr">— Wackerhage et al., 2019</span></p>
+    </div>
+
+    <div class="base-item reveal d2">
+      <div class="base-concept-label">Co-Contracción Muscular</div>
+      <h3>Estabilización por Co-Activación</h3>
+      <p class="base-simple">Cuando agonista y antagonista trabajan juntos, el movimiento es más estable y controlado. En PIxTI eso ocurre de forma deliberada.</p>
+      <p class="base-desc">La co-activación muscular es una estrategia deliberada del sistema nervioso para estabilizar el movimiento y gestionar la redundancia del aparato motor.</p>
+      <div class="base-ref">
+        <p class="base-ref-text">Latash, M. L. (2018). Muscle coactivation: Definitions, mechanisms, and functions. <em>Journal of Neurophysiology, 120</em>(1), 88–104.</p>
+        <a class="base-ref-link" href="https://doi.org/10.1152/jn.00084.2018" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1152/jn.00084.2018</a>
+      </div>
+      <p class="base-epigraph">"La co-activación muscular es una estrategia deliberada del sistema nervioso para estabilizar el movimiento y reducir su variabilidad. El cerebro organiza la redundancia muscular como una ventaja — la herramienta con la que garantiza precisión bajo incertidumbre."<span class="base-epigraph-attr">— Latash, 2018</span></p>
+    </div>
+
+    <div class="base-item reveal">
+      <div class="base-concept-label">Control Neuromuscular</div>
+      <h3>Modulación Voluntaria de la Tensión</h3>
+      <p class="base-simple">El sistema nervioso regula la fuerza en tiempo real. Entrenarlo mejora la precisión del movimiento más allá de la fuerza bruta.</p>
+      <p class="base-desc">El sistema nervioso ajusta en tiempo real la frecuencia de activación de cada unidad motora. La fatiga es, en términos funcionales, una pérdida progresiva de ese control fino.</p>
+      <div class="base-ref">
+        <p class="base-ref-text">Enoka, R. M., &amp; Duchateau, J. (2016). Translating fatigue to human performance. <em>Medicine &amp; Science in Sports &amp; Exercise, 48</em>(11), 2228–2238.</p>
+        <a class="base-ref-link" href="https://doi.org/10.1249/MSS.0000000000000929" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1249/MSS.0000000000000929</a>
+      </div>
+      <p class="base-epigraph">"Sostener una contracción submáxima requiere que el sistema nervioso ajuste en tiempo real la frecuencia de activación de cada unidad motora. La fatiga es, en términos funcionales, una pérdida progresiva de ese control fino."<span class="base-epigraph-attr">— Enoka & Duchateau, 2016</span></p>
+    </div>
+
+    <div class="base-item reveal d1">
+      <div class="base-concept-label">La Orquesta Neuromuscular</div>
+      <h3>Adaptaciones Neurales al Entrenamiento</h3>
+      <p class="base-simple">Las primeras ganancias de fuerza son neurales, no musculares. El sistema nervioso aprende antes de que el músculo crezca.</p>
+      <p class="base-desc">El entrenamiento de fuerza mejora la eficiencia del comando neural, optimizando la coordinación entre agonistas y antagonistas para potenciar la expresión de fuerza.</p>
+      <div class="base-ref">
+        <p class="base-ref-text">Duchateau, J., &amp; Enoka, R. M. (2016). Neural adaptations to resistance training: Characteristics and mechanisms. <em>Journal of Applied Physiology, 120</em>(11), 1297–1308.</p>
+        <a class="base-ref-link" href="https://journals.physiology.org/doi/full/10.1152/japplphysiol.00368.2015" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1152/japplphysiol.00368.2015</a>
+      </div>
+      <p class="base-epigraph">"El entrenamiento de fuerza produce adaptaciones neurales que mejoran la coordinación entre agonistas y antagonistas. La ganancia de fuerza inicial es predominantemente neural — antes que estructural."<span class="base-epigraph-attr">— Duchateau & Enoka, 2016</span></p>
+    </div>
+
+    <div class="base-item reveal d2">
+      <div class="base-concept-label">Propiocepción</div>
+      <h3>El Mapa Interno del Cuerpo</h3>
+      <p class="base-simple">El cuerpo construye un mapa interno de su posición y tensión. PIxTI entrena esa percepción como parte del método.</p>
+      <p class="base-desc">El sistema nervioso construye una representación interna del cuerpo integrando señales de husos musculares, órganos tendinosos y receptores articulares. Esa imagen interna es la condición previa de todo movimiento voluntario preciso.</p>
+      <div class="base-ref">
+        <p class="base-ref-text">Proske, U., &amp; Gandevia, S. C. (2012). The proprioceptive senses. <em>Physiological Reviews, 92</em>(4), 1651–1697.</p>
+        <a class="base-ref-link" href="https://doi.org/10.1152/physrev.00048.2011" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1152/physrev.00048.2011</a>
+      </div>
+      <p class="base-epigraph">"El sistema nervioso construye una representación interna del cuerpo integrando señales de husos musculares, órganos tendinosos de Golgi y receptores articulares. Esa imagen interna es la condición previa de todo movimiento voluntario preciso."<span class="base-epigraph-attr">— Proske & Gandevia, 2012</span></p>
+    </div>
+
+    <div class="base-item reveal">
+      <div class="base-concept-label">Blindaje de Tendones: Carga y Magnitud</div>
+      <h3>Umbral de Carga y Síntesis de Colágeno</h3>
+      <p class="base-simple">El tendón necesita superar cierto nivel de tensión para producir colágeno nuevo. La carga liviana no lo estimula.</p>
+      <p class="base-desc">El tejido tendinoso requiere superar un umbral de carga mínimo para activar la síntesis de colágeno. La tensión controlada y progresiva es el estímulo que transforma tendones vulnerables en estructuras resilientes.</p>
+      <div class="base-ref">
+        <p class="base-ref-text">Bohm, S., Mersmann, F., &amp; Arampatzis, A. (2015). Tendon adaptation to mechanical-loading: A systematic review and meta-analysis. <em>eLife, 4</em>, e07011.</p>
+        <a class="base-ref-link" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4345524/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>PMC4345524</a>
+      </div>
+      <p class="base-epigraph">"El tendón responde a la carga mecánica de forma umbral: por debajo de cierta intensidad no hay síntesis de colágeno. La tensión progresiva y controlada es el único estímulo eficaz para su remodelación."<span class="base-epigraph-attr">— Bohm et al., 2015</span></p>
+    </div>
+
+    <div class="base-item reveal d1">
+      <div class="base-concept-label">Fatiga Central y Seguridad</div>
+      <h3>El Freno Neural como Señal de Protección</h3>
+      <p class="base-simple">Entrenar hasta el fallo total activa un freno neural que compromete la técnica y aumenta el riesgo de lesión.</p>
+      <p class="base-desc">La fatiga central activa mecanismos de inhibición neural que incrementan la co-activación del antagonista, comprometiendo la eficiencia técnica y elevando el riesgo estructural.</p>
+      <div class="base-ref">
+        <p class="base-ref-text">Enoka, R. M., &amp; Duchateau, J. (2008). Muscle fatigue: What, why and how it influences muscle function. <em>Journal of Physiology, 586</em>(1), 11–23.</p>
+        <a class="base-ref-link" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2375544/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>PMC2375544</a>
+      </div>
+      <p class="base-epigraph">"La fatiga central activa mecanismos de inhibición neural que incrementan la co-activación del antagonista, comprometiendo la eficiencia técnica y elevando el riesgo estructural. El entrenamiento al fallo sistémico opera por encima del umbral de seguridad."<span class="base-epigraph-attr">— Enoka & Duchateau, 2008</span></p>
+    </div>
+
+    </div>
+  </div>
+
+  <!-- BIOMECÁNICA -->
+  <div class="base-category">
+    <div class="base-category-label" data-i18n="base.cat2">Biomecánica</div>
+    <div class="base-grid">
+
+    <div class="base-item reveal">
+      <div class="base-concept-label">Coordinación Intermuscular</div>
+      <h3>Sincronización de Unidades Motoras</h3>
+      <p class="base-simple">La fuerza no viene de un músculo solo. Viene de la sincronización de toda una red neuromuscular actuando en conjunto.</p>
+      <p class="base-desc">Durante las contracciones isométricas, las unidades motoras de distintos músculos sincronizan su activación. La fuerza es el producto de una red neuromuscular integrada.</p>
+      <div class="base-ref">
+        <p class="base-ref-text">Mohr, M., et al. (2015). Task-dependent intermuscular motor unit synchronization during isometric and dynamic tasks. <em>PLOS ONE, 10</em>(11), e0142048.</p>
+        <a class="base-ref-link" href="https://doi.org/10.1371/journal.pone.0142048" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1371/journal.pone.0142048</a>
+      </div>
+      <p class="base-epigraph">"Durante las contracciones isométricas, las unidades motoras de distintos músculos sincronizan su activación. La fuerza es, en consecuencia, el producto de una red neuromuscular integrada — a diferencia de la acción aislada de un músculo individual."<span class="base-epigraph-attr">— Mohr et al., 2015</span></p>
+    </div>
+
+    <div class="base-item reveal d1">
+      <div class="base-concept-label">Modelo Sistémico</div>
+      <h3>Control Motor y Sinergias</h3>
+      <p class="base-simple">El cuerpo siempre encuentra más de una forma de hacer un movimiento. Esa redundancia es una ventaja, no un problema.</p>
+      <p class="base-desc">La redundancia del sistema motor es la base de su adaptabilidad: permite al sistema nervioso encontrar múltiples soluciones para un mismo movimiento, manteniendo estabilidad sin sacrificar flexibilidad de ejecución.</p>
+      <div class="base-ref">
+        <p class="base-ref-text">Latash, M. L. (2012). The bliss (not the problem) of motor abundance. <em>Experimental Brain Research, 217</em>(1), 1–5.</p>
+        <a class="base-ref-link" href="https://doi.org/10.1007/s00221-012-3000-4" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1007/s00221-012-3000-4</a>
+      </div>
+      <p class="base-epigraph">"La redundancia del sistema motor es la base de su adaptabilidad: le permite al sistema nervioso encontrar múltiples soluciones para un mismo movimiento, manteniendo estabilidad sin sacrificar flexibilidad de ejecución."<span class="base-epigraph-attr">— Latash, 2012</span></p>
+    </div>
+
+    <div class="base-item reveal d2">
+      <div class="base-concept-label">Coherencia Tensional: La Red Miofascial</div>
+      <h3>Transmisión Miofascial Epimuscular</h3>
+      <p class="base-simple">La tensión muscular viaja por la fascia y afecta a músculos vecinos. Un ejercicio bien hecho es siempre un trabajo en red.</p>
+      <p class="base-desc">La fuerza muscular se transmite tanto a lo largo del tendón como lateralmente a través de las vías epimusculares de la fascia. Un músculo actúa siempre en red.</p>
+      <div class="base-ref">
+        <p class="base-ref-text">Huijing, P. A. (2009). Epimuscular myofascial force transmission: A critical review of its relevance for muscle function. <em>Journal of Electromyography and Kinesiology, 19</em>(3), 368–381.</p>
+        <a class="base-ref-link" href="https://pubmed.ncbi.nlm.nih.gov/19062310/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>PMID:19062310</a>
+      </div>
+      <p class="base-epigraph">"La fuerza muscular se transmite tanto a lo largo del tendón como lateralmente a través de las vías epimusculares de la fascia. Un músculo actúa siempre en red — su tensión se distribuye y modifica la función de las estructuras adyacentes."<span class="base-epigraph-attr">— Huijing, 2009</span></p>
+    </div>
+
+    <div class="base-item reveal">
+      <div class="base-concept-label">Medicina para el Cartílago</div>
+      <h3>Mecanobiología del Cartílago Articular</h3>
+      <p class="base-simple">El cartílago se nutre con movimiento y carga. La inactividad lo degrada más que el ejercicio bien dosificado.</p>
+      <p class="base-desc">La presión hidrostática fisiológica estimula la producción de proteoglicanos y sostiene la viabilidad de los condrocitos. El cartílago se nutre del movimiento.</p>
+      <div class="base-ref">
+        <p class="base-ref-text">O'Conor, C. J., et al. (2013). Articular cartilage mechanobiology and the therapeutic potential of loading. <em>Joint Bone Spine, 80</em>(5), 451–453.</p>
+        <a class="base-ref-link" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3731114/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>PMC3731114</a>
+      </div>
+      <p class="base-epigraph">"La presión hidrostática fisiológica estimula la producción de proteoglicanos y sostiene la viabilidad de los condrocitos. El cartílago se nutre del movimiento — la carga apropiada es su principal mecanismo de mantenimiento y protección."<span class="base-epigraph-attr">— O'Conor et al., 2013</span></p>
+    </div>
+
+    <div class="base-item reveal d1">
+      <div class="base-concept-label">La Estabilización por Presión</div>
+      <h3>Core, Columna y Presión Intraabdominal</h3>
+      <p class="base-simple">El core protege la columna generando presión interna antes del movimiento, como un escudo neumático natural.</p>
+      <p class="base-desc">La presión intraabdominal actúa como un escudo neumático que reduce la carga mecánica sobre los discos lumbares, coordinando el control segmentario de la columna durante el esfuerzo.</p>
+      <div class="base-ref">
+        <p class="base-ref-text">Hodges, P. W., &amp; Richardson, C. A. (1997). Contraction of the abdominal muscles associated with movement of the lower limb. <em>Physical Therapy, 77</em>(2), 132–144.</p>
+        <a class="base-ref-link" href="https://pubmed.ncbi.nlm.nih.gov/10423044/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>PMID:10423044</a>
+      </div>
+      <p class="base-epigraph">"La activación anticipatoria del transverso del abdomen genera presión intraabdominal antes del movimiento del miembro, actuando como un mecanismo de estabilización proactivo de la columna lumbar."<span class="base-epigraph-attr">— Hodges & Richardson, 1997</span></p>
+    </div>
+
+    <div class="base-item reveal d2">
+      <div class="base-concept-label">Carga Controlada: Longevidad del Disco</div>
+      <h3>Metabolismo del Disco Intervertebral</h3>
+      <p class="base-simple">El disco intervertebral necesita carga para mantenerse hidratado y funcional. El reposo prolongado lo deteriora.</p>
+      <p class="base-desc">El disco intervertebral requiere carga mecánica para mantener su metabolismo y su hidratación. La carga controlada es el estímulo que lo mantiene funcional y resiliente.</p>
+      <div class="base-ref">
+        <p class="base-ref-text">Setton, L. A., &amp; Chen, J. (2006). The effects of mechanical loading on intervertebral disc metabolism and cytology. <em>Journal of Bone and Joint Surgery, 88</em>(Suppl 2), 49–57.</p>
+        <a class="base-ref-link" href="https://pubmed.ncbi.nlm.nih.gov/16595444/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>PMID:16595444</a>
+      </div>
+      <p class="base-epigraph">"El disco intervertebral requiere carga mecánica para mantener su metabolismo y su hidratación. La carga controlada es el estímulo que lo mantiene funcional y resiliente — a diferencia de la inmovilidad, que conduce progresivamente a su degeneración."<span class="base-epigraph-attr">— Setton & Chen, 2006</span></p>
+    </div>
+
+    </div>
+  </div>
+
+  <!-- METODOLOGÍA -->
+  <div class="base-category">
+    <div class="base-category-label" data-i18n="base.cat3">Metodología del Entrenamiento</div>
+    <div class="base-grid">
+
+    <div class="base-item reveal">
+      <div class="base-concept-label">Activación Isométrica</div>
+      <h3>Acumulación de Tensión Antes del Movimiento</h3>
+      <p class="base-simple">Mantener la tensión con el músculo estirado produce ganancias de fuerza que se extienden a todo el rango de movimiento.</p>
+      <p class="base-desc">El entrenamiento isométrico en rangos largos genera las mayores adaptaciones de fuerza y las transfiere a ángulos articulares fuera del rango entrenado directamente.</p>
+      <div class="base-ref">
+        <p class="base-ref-text">Oranchuk, D. J., Storey, A. G., Nelson, A. R., &amp; Cronin, J. B. (2019). Isometric training and long-term adaptations: Effects of muscle length, intensity, and intent. <em>Scandinavian Journal of Medicine &amp; Science in Sports, 29</em>(4), 484–503.</p>
+        <a class="base-ref-link" href="https://onlinelibrary.wiley.com/doi/full/10.1111/sms.13375" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1111/sms.13375</a>
+      </div>
+      <p class="base-epigraph">"El entrenamiento isométrico en rangos largos genera las mayores adaptaciones de fuerza y las transfiere a ángulos articulares que estuvieron fuera del entrenamiento directo. La isometría en estiramiento fortalece y, a la vez, reorganiza el sistema neuromuscular."<span class="base-epigraph-attr">— Oranchuk et al., 2019</span></p>
+    </div>
+
+    <div class="base-item reveal d1">
+      <div class="base-concept-label">El Poder del Ángulo Estirado</div>
+      <h3>Isometría en Rangos Largos</h3>
+      <p class="base-simple">Entrenar con el músculo alargado produce más hipertrofia y protege mejor las articulaciones que el rango parcial.</p>
+      <p class="base-desc">El entrenamiento isométrico en longitud muscular larga produjo la mayor hipertrofia y la transferencia más amplia de fuerza en todo el rango articular. Es la modalidad más potente para la remodelación estructural.</p>
+      <div class="base-ref">
+        <p class="base-ref-text">Oranchuk, D. J., et al. (2019). Isometric training and long-term adaptations: Effects of muscle length, intensity, and intent. <em>Scandinavian Journal of Medicine &amp; Science in Sports, 29</em>(4), 484–503.</p>
+        <a class="base-ref-link" href="https://onlinelibrary.wiley.com/doi/full/10.1111/sms.13375" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1111/sms.13375</a>
+      </div>
+      <p class="base-epigraph">"El entrenamiento isométrico en longitud muscular larga produjo la mayor hipertrofia y la transferencia más amplia de fuerza en todo el rango articular. Es, en términos de eficiencia estructural, la modalidad más potente para la remodelación muscular."<span class="base-epigraph-attr">— Oranchuk et al., 2019</span></p>
+    </div>
+
+    <div class="base-item reveal d2">
+      <div class="base-concept-label">Intención Neural y Velocidad</div>
+      <h3>La Mente sobre la Materia</h3>
+      <p class="base-simple">Intentar moverse rápido, aunque la carga no lo permita, recluta las fibras más potentes. La intención entrena.</p>
+      <p class="base-desc">Las adaptaciones neurales del entrenamiento están determinadas por la velocidad que el sistema nervioso intenta producir, con independencia de la velocidad real alcanzada.</p>
+      <div class="base-ref">
+        <p class="base-ref-text">Behm, D. G., &amp; Sale, D. G. (1993). Intended rather than actual movement velocity determines velocity-specific training response. <em>Journal of Applied Physiology, 74</em>(1), 359–368.</p>
+        <a class="base-ref-link" href="https://journals.physiology.org/doi/abs/10.1152/jappl.1993.74.1.359" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1152/jappl.1993.74.1.359</a>
+      </div>
+      <p class="base-epigraph">"Las adaptaciones neurales del entrenamiento están determinadas por la velocidad que el sistema nervioso intenta producir — con independencia de la velocidad real alcanzada. La intención de máxima velocidad recluta las fibras de mayor umbral incluso bajo carga máxima."<span class="base-epigraph-attr">— Behm & Sale, 1993</span></p>
+    </div>
+
+    <div class="base-item reveal">
+      <div class="base-concept-label">Control de la Velocidad (VBT)</div>
+      <h3>Velocidad como Indicador de Carga Real</h3>
+      <p class="base-simple">Cuando la velocidad del movimiento cae, la fatiga ya comprometió la calidad. Ese es el momento de parar.</p>
+      <p class="base-desc">El monitoreo de la pérdida de velocidad durante el entrenamiento permite regular la carga real, evitando la fatiga tóxica y preservando la calidad técnica y la eficiencia neuromuscular.</p>
+      <div class="base-ref">
+        <p class="base-ref-text">Guerriero, A., Varalda, C., &amp; Piacentini, M. F. (2020). Velocity-based resistance training: From theory to practical applications. <em>Sports, 8</em>(4), 48.</p>
+        <a class="base-ref-link" href="https://www.mdpi.com/2075-4663/8/4/48" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.3390/sports8040048</a>
+      </div>
+      <p class="base-epigraph">"La pérdida de velocidad durante la serie es un indicador sensible de la fatiga neuromuscular acumulada. Regular el volumen en función de esa pérdida permite maximizar las adaptaciones preservando la calidad técnica."<span class="base-epigraph-attr">— Guerriero et al., 2020</span></p>
+    </div>
+
+    <div class="base-item reveal d1">
+      <div class="base-concept-label">La Dosis Mínima Efectiva</div>
+      <h3>Eficiencia sobre Volumen</h3>
+      <p class="base-simple">Una sola serie bien ejecutada, con alta tensión real, es suficiente para progresar. El exceso de volumen no suma — resta.</p>
+      <p class="base-desc">Una sola serie de alta intensidad es suficiente para maximizar las ganancias de fuerza en la mayoría de los sujetos. El entrenamiento efectivo prioriza la intensidad de la tensión sobre el volumen acumulado.</p>
+      <div class="base-ref">
+        <p class="base-ref-text">Androulakis-Korakakis, P., et al. (2020). The minimum effective training dose required to increase 1RM strength. <em>Sports Medicine, 50</em>(4), 751–765.</p>
+        <a class="base-ref-link" href="https://link.springer.com/article/10.1007/s40279-019-01236-0" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1007/s40279-019-01236-0</a>
+      </div>
+      <p class="base-epigraph">"Una sola serie por ejercicio, llevada a alta intensidad relativa, es suficiente para maximizar las ganancias de fuerza en la mayoría de los sujetos entrenados. El volumen adicional no aumenta el estímulo — aumenta la fatiga."<span class="base-epigraph-attr">— Androulakis-Korakakis et al., 2020</span></p>
+    </div>
+
+    <div class="base-item reveal d2">
+      <div class="base-concept-label">Blindaje de Tendones: Carga y Síntesis</div>
+      <h3>Colágeno y Alta Tensión</h3>
+      <p class="base-simple">El colágeno se produce en respuesta a picos de tensión elevada y breve. No al volumen prolongado de baja intensidad.</p>
+      <p class="base-desc">Períodos breves de carga tensional elevada estimulan la síntesis de colágeno en tendones y ligamentos con mayor eficacia que el ejercicio prolongado de baja intensidad.</p>
+      <div class="base-ref">
+        <p class="base-ref-text">Baar, K. (2017). Minimizing injury and maximizing return to play: Lessons from engineered ligaments. <em>Sports Medicine, 47</em>(Suppl 1), 5–11.</p>
+        <a class="base-ref-link" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5371618/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>PMC5371618</a>
+      </div>
+      <p class="base-epigraph">"Períodos breves de carga tensional elevada estimulan la síntesis de colágeno en tendones y ligamentos con mayor eficacia que el ejercicio prolongado de baja intensidad. El tejido conectivo se fortalece con picos de tensión controlada."<span class="base-epigraph-attr">— Baar, 2017</span></p>
+    </div>
+
+    </div>
+  </div>
+
+</section>
+
+<div class="divider"></div>
+
+<!-- AUTOR -->
+<section id="autor">
+  <div>
+    <div class="autor-label" data-i18n="autor.label">Creador del Método PIxTI</div>
+    <h2 class="autor-name">Ricardo Gabriel Lima</h2>
+    <p class="autor-role" data-i18n="autor.role">Autor y desarrollador del sitio web</p>
+    <p class="autor-bio" data-i18n="autor.bio">Método experimental de entrenamiento neuromuscular con enfoque en la integración entre la biomecánica, el control motor y el desarrollo de la tensión interna aplicada al movimiento.</p>
+    <p class="autor-credentials" data-i18n="autor.cred">MBA &nbsp;|&nbsp; Profesor de Educación Física y Licenciado en Deportes</p>
+    <div class="tags">
+      <span class="tag" data-i18n="tag.bio">Biomecánica Aplicada</span>
+      <span class="tag" data-i18n="tag.motor">Control Motor</span>
+      <span class="tag" data-i18n="tag.neuro">Entrenamiento Neuromuscular</span>
+    </div>
+    <a class="li-link" href="https://www.linkedin.com/in/ricardo-gabriel-lima-mba/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.44v6.3zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46C23.21 24 24 23.23 24 22.28V1.72C24 .77 23.21 0 22.23 0z"/></svg>
+      <span data-i18n="autor.li">Ver perfil en LinkedIn</span>
+    </a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="contact-inner">
+    <div>
+      <div class="s-label" data-i18n="contact.label">Contacto</div>
+      <h2 class="s-title" data-i18n="contact.title">¿Querés saber más?</h2>
+      <p class="s-desc" data-i18n="contact.desc">Completá el formulario y me comunico a la brevedad.</p>
+    </div>
+    <div class="contact-form" id="contactForm">
+      <div class="form-row">
+        <div class="field"><label data-i18n="form.name">Nombre</label><input type="text" placeholder="Juan" autocomplete="given-name"></div>
+        <div class="field"><label data-i18n="form.surname">Apellido</label><input type="text" placeholder="García" autocomplete="family-name"></div>
+      </div>
+      <div class="field"><label data-i18n="form.email">E-mail</label><input type="email" placeholder="nombre@email.com" autocomplete="email"></div>
+      <div class="field"><label data-i18n="form.phone">Celular</label><input type="tel" placeholder="+54 11 0000-0000" autocomplete="tel"></div>
+      <div class="form-row">
+        <div class="field"><label data-i18n="form.city">Ciudad</label><input type="text" placeholder="Buenos Aires"></div>
+        <div class="field"><label data-i18n="form.country">País</label><input type="text" placeholder="Argentina"></div>
+      </div>
+      <div class="field"><label data-i18n="form.message">Mensaje</label><textarea placeholder="Escribí tu consulta aquí..."></textarea></div>
+      <button class="btn-submit" onclick="submitForm()" data-i18n="form.send">Enviar</button>
+      <div class="form-ok" id="formOk">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+        <span data-i18n="form.ok">Mensaje enviado. ¡Gracias!</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CIERRE -->
+<section id="cierre">
+  <p class="cierre-quote">
+    <span data-i18n="cierre.a">Entrenar implica</span><br>
+    <span data-i18n="cierre.b">generar, sostener</span><br>
+    <span data-i18n="cierre.c">y dominar la fuerza</span><br>
+    <span data-i18n="cierre.d">desde el propio cuerpo.</span>
+  </p>
+  <a href="#que-es" class="btn-primary" data-i18n="cierre.cta">Comenzar desde el principio</a>
+</section>
+
+<footer>
+  <div class="footer-logo">PI<span>x</span>TI</div>
+  <p>&copy; 2026 PIxTI — pixti.ar</p>
+</footer>
+
+<script>
+/* NAV */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', scrollY > 50));
+
+/* REVEAL */
+const ro = new IntersectionObserver(entries =>
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+/* FORM */
+function submitForm() {
+  const ok = document.getElementById('formOk');
+  ok.style.display = 'flex';
+  setTimeout(() => { ok.style.display = 'none'; }, 5000);
+}
 
 /* SIMULADOR */
 Chart.register(window['chartjs-plugin-annotation']);
@@ -488,731 +1428,7 @@ function buildChart(capMax, masa, tensionPct) {
       }
     }
   });
-
-</style>
-</head>
-<body>
-
-<nav id="navbar">
-  <div class="logo">PI<span>x</span>TI</div>
-  <div class="nav-links">
-    <a href="#que-es" data-i18n="nav.metodo">El Método</a>
-    <a href="#como" data-i18n="nav.como">Cómo Funciona</a>
-    <a href="#ciencia" data-i18n="nav.ciencia">Simulador</a>
-    <a href="#base" data-i18n="nav.base">Ciencia</a>
-    <a href="#autor" data-i18n="nav.autor">Autor</a>
-    <a href="#contacto" data-i18n="nav.contacto">Contacto</a>
-  </div>
-  <div class="lang-sw">
-    <button onclick="setLang('es')" class="active">ESP</button>
-    <button onclick="setLang('en')">ENG</button>
-    <button onclick="setLang('it')">ITA</button>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-inner">
-    <div class="hero-tag" data-i18n="hero.tag">Entrenamiento desde adentro hacia afuera</div>
-    <h1>
-      <span class="l1" data-i18n="hero.h1a">Transformación</span>
-      <span class="l2" data-i18n="hero.h1b">Isotónica</span>
-    </h1>
-    <p class="hero-sub" data-i18n="hero.sub">Un modelo de entrenamiento basado en la generación y control de resistencia interna mediante oposición neuromuscular. El movimiento se construye a partir de la tensión del propio cuerpo.</p>
-    <div class="hero-cta">
-      <a href="#que-es" class="btn-primary" data-i18n="hero.cta1">Descubrir PIxTI</a>
-      <a href="#ciencia" class="btn-ghost" data-i18n="hero.cta2">Ver el simulador <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-  </div>
-</section>
-
-<!-- QUÉ ES -->
-<section id="que-es">
-  <div class="s-label" data-i18n="ques.label">El Método</div>
-  <h2 class="s-title" data-i18n="ques.title">¿Qué es PIxTI?</h2>
-  <p class="s-desc" data-i18n="ques.desc">Principios Isométricos para la Transformación Isotónica. La carga se construye desde el propio cuerpo.</p>
-  <div class="layout">
-    <div class="def-block reveal">
-      <p data-i18n="ques.def1"><strong>PIxTI</strong> es un sistema de entrenamiento neuromuscular basado en la generación consciente de tensión interna. Integra activación muscular, control neuromuscular y oposición interna para producir movimiento bajo condiciones de <strong>tensión continua</strong>.</p>
-      <p style="margin-top:16px;" data-i18n="ques.def2">El músculo protagonista actúa dentro de un sistema que genera resistencia interna activa. No hay carga externa: la tensión emerge del propio aparato neuromuscular.</p>
-      <div class="hl">
-        <span data-i18n="ques.step1">Se genera tensión</span>
-        <span data-i18n="ques.step2">Se sostiene esa tensión</span>
-        <span data-i18n="ques.step3">Se produce movimiento dentro de esa tensión</span>
-      </div>
-    </div>
-    <div class="pilares">
-      <div class="pilar reveal d1">
-        <div class="pilar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="3"/></svg></div>
-        <div>
-          <h3 data-i18n="p1.title">El Punto Fijo</h3>
-          <p data-i18n="p1.desc">Referencia de apoyo —pared, barra, suelo— que organiza la dirección de la tensión y permite la activación inicial y continua.</p>
-        </div>
-      </div>
-      <div class="pilar reveal d2">
-        <div class="pilar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2.5 2.5"/></svg></div>
-        <div>
-          <h3 data-i18n="p2.title">La Pesa Interna</h3>
-          <p data-i18n="p2.desc">Resistencia generada por el propio sistema corporal mediante la integración de estructuras estabilizadoras y control neuromuscular. El cuerpo es la carga.</p>
-        </div>
-      </div>
-      <div class="pilar reveal d3">
-        <div class="pilar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 12c0-4.4 3.6-8 8-8s8 3.6 8 8M4 12c0 4.4 3.6 8 8 8"/><path d="m16 16 2 2 2-2M6 8 4 6 2 8"/></svg></div>
-        <div>
-          <h3 data-i18n="p3.title">Co-Contracción</h3>
-          <p data-i18n="p3.desc">Mecanismo de oposición interna distribuida que involucra múltiples grupos musculares, configurando resistencia a nivel de todo el sistema neuromuscular.</p>
-        </div>
-      </div>
-      <div class="pilar reveal d4">
-        <div class="pilar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg></div>
-        <div>
-          <h3 data-i18n="p4.title">La Perilla de Control</h3>
-          <p data-i18n="p4.desc">Capacidad de regular voluntariamente la intensidad de la tensión interna en tiempo real. El profesor y el usuario deciden cuánta resistencia generar, sostener y controlar en cada grado del movimiento, tanto en la fase de co-contracción como en la acción principal.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- STATS -->
-<div id="stats">
-  <div class="stat reveal"><div class="stat-num">0°<em>–</em>180°</div><div class="stat-label" data-i18n="stat1">Rango completo con activación sostenida y uniforme</div></div>
-  <div class="stat reveal d1"><div class="stat-num">5</div><div class="stat-label" data-i18n="stat2">Fases de activación que estructuran cada ejercicio</div></div>
-  <div class="stat reveal d2"><div class="stat-num">4</div><div class="stat-label" data-i18n="stat3">4 Pilares: punto fijo, pesa interna, co-contracción y perilla de control</div></div>
-  <div class="stat reveal d3"><div class="stat-num">100<em>%</em></div><div class="stat-label" data-i18n="stat4">Resistencia generada por el propio sistema neuromuscular</div></div>
-</div>
-
-<div class="divider"></div>
-
-<!-- CÓMO FUNCIONA -->
-<section id="como">
-  <div class="s-label" data-i18n="como.label">Mecánica</div>
-  <h2 class="s-title" data-i18n="como.title">¿Cómo Funciona?</h2>
-  <p class="s-desc" data-i18n="como.desc">Una secuencia continua de activación y control. La isometría se transforma en movimiento.</p>
-  <div class="steps">
-    <div class="step reveal"><div class="step-num">01</div><h3 data-i18n="s1.title">Activación isométrica inicial</h3><p data-i18n="s1.desc">Se genera fuerza contra una referencia de apoyo. Sin desplazamiento visible aún.</p><div class="step-accent" data-i18n="s1.tag">Isometría</div></div>
-    <div class="step reveal d1"><div class="step-num">02</div><h3 data-i18n="s2.title">Generación de tensión interna</h3><p data-i18n="s2.desc">El sistema neuromuscular acumula energía. La tensión se instala en toda la cadena.</p><div class="step-accent" data-i18n="s2.tag">Acumulación</div></div>
-    <div class="step reveal d2"><div class="step-num">03</div><h3 data-i18n="s3.title">Oposición neuromuscular</h3><p data-i18n="s3.desc">Se activa una resistencia interna distribuida. Los grupos antagonistas se integran.</p><div class="step-accent" data-i18n="s3.tag">Oposición</div></div>
-    <div class="step reveal d3"><div class="step-num">04</div><h3 data-i18n="s4.title">Modulación del esfuerzo</h3><p data-i18n="s4.desc">El usuario regula la intensidad en tiempo real mediante control consciente.</p><div class="step-accent" data-i18n="s4.tag">Control</div></div>
-    <div class="step reveal d4"><div class="step-num">05</div><h3 data-i18n="s5.title">Expresión del movimiento</h3><p data-i18n="s5.desc">El movimiento aparece dentro de un entorno de tensión constante. Isotónico activo.</p><div class="step-accent" data-i18n="s5.tag">Movimiento</div></div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- DIFERENCIAL -->
-<section id="diferencial">
-  <div class="s-label" data-i18n="dif.label">Diferencial</div>
-  <h2 class="s-title" data-i18n="dif.title">PIxTI vs. Tradicional</h2>
-  <p class="s-desc" data-i18n="dif.desc">La diferencia no está en el ejercicio. Está en de dónde viene la resistencia.</p>
-  <div class="compare">
-    <div class="compare-col">
-      <h3 data-i18n="dif.trad">Enfoque Tradicional</h3>
-      <ul>
-        <li data-i18n="dif.t1">Carga externa (peso, máquina, banda)</li>
-        <li data-i18n="dif.t2">Variación mecánica del esfuerzo a lo largo del rango</li>
-        <li data-i18n="dif.t3">Dependencia del equipamiento disponible</li>
-        <li data-i18n="dif.t4">Picos de torque en ángulos específicos</li>
-        <li data-i18n="dif.t5">Zonas de baja carga efectiva en los extremos del rango</li>
-      </ul>
-    </div>
-    <div class="compare-col pixti">
-      <h3>PIxTI</h3>
-      <ul>
-        <li data-i18n="dif.p1">Resistencia interna generada por el propio sistema</li>
-        <li data-i18n="dif.p2">Tensión continua y regulable a voluntad</li>
-        <li data-i18n="dif.p3">Sin dependencia de equipamiento externo</li>
-        <li data-i18n="dif.p4">Activación homogénea en todo el rango articular</li>
-        <li data-i18n="dif.p5">El progreso surge del control de la tensión, no del peso</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- MOVIMIENTO DIDÁCTICO -->
-<section id="movimiento">
-  <div class="s-label" data-i18n="mov.label">El Método en Acción</div>
-  <h2 class="s-title" data-i18n="mov.title">Curl de Bíceps PIxTI</h2>
-  <p class="s-desc" data-i18n="mov.desc">Secuencia completa del movimiento. La tensión interna no cesa en ningún ángulo del recorrido.</p>
-  <div class="mov-strip">
-    <div class="mov-frame reveal">
-      <div class="mov-frame-head"><span class="mov-phase-num">01</span><span class="mov-phase-label" data-i18n="mov1.phase">Isométrica inicial</span><span class="mov-angle-badge">0°–10°</span></div>
-      <div class="mov-fig-wrap">
-        <svg viewBox="0 0 130 210" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="110" y="0" width="4" height="210" fill="rgba(255,255,255,0.07)"/>
-          <rect x="114" y="0" width="14" height="210" fill="rgba(255,255,255,0.025)"/>
-          <ellipse cx="52" cy="16" rx="12" ry="14" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.25)" stroke-width="1.2"/>
-          <rect x="47" y="29" width="9" height="11" rx="3" fill="rgba(220,220,220,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-          <path d="M32 40 C28 44 26 58 26 80 L26 122 C26 130 32 133 42 133 L66 133 C76 133 80 130 80 122 L80 80 C80 58 78 44 74 40 Z" fill="rgba(220,220,220,0.07)" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
-          <ellipse cx="84" cy="48" rx="7" ry="6" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-          <line x1="84" y1="52" x2="112" y2="58" stroke="rgba(255,255,255,0.22)" stroke-width="6" stroke-linecap="round"/>
-          <ellipse cx="112" cy="58" rx="5" ry="4" fill="rgba(255,200,64,0.6)" stroke="rgba(255,200,64,0.9)" stroke-width="1"/>
-          <line x1="112" y1="58" x2="111" y2="61" stroke="rgba(255,255,255,0.18)" stroke-width="5" stroke-linecap="round"/>
-          <rect x="108" y="56" width="5" height="10" rx="2" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
-          <path d="M88 50 C98 44 112 50 112 58 C108 64 96 66 88 60 Z" fill="rgba(255,64,64,0.5)" stroke="rgba(255,64,64,0.85)" stroke-width="1.3"/>
-          <line x1="100" y1="54" x2="107" y2="55" stroke="#ff4040" stroke-width="2" stroke-dasharray="4,2"/>
-          <polygon points="107,52 115,55 107,58" fill="#ff4040"/>
-          <line x1="74" y1="68" x2="50" y2="71" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="3,2"/>
-          <polygon points="50,68 42,71 50,74" fill="#00e5ff"/>
-          <line x1="72" y1="75" x2="50" y2="78" stroke="rgba(0,229,255,0.5)" stroke-width="1" stroke-dasharray="3,2"/>
-          <polygon points="50,75 42,78 50,81" fill="rgba(0,229,255,0.5)"/>
-          <line x1="38" y1="133" x2="36" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
-          <line x1="62" y1="133" x2="64" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div class="mov-frame-text" data-i18n="mov1.desc">Alta activación isométrica. Co-contracción máxima para generar tensión interna y estabilizar el sistema antes de que exista movimiento.</div>
-    </div>
-    <div class="mov-arrow-wrap"><svg viewBox="0 0 40 60" fill="none"><line x1="20" y1="5" x2="20" y2="45" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="4,3"/><polygon points="12,42 20,56 28,42" fill="rgba(255,255,255,0.2)"/></svg></div>
-    <div class="mov-frame reveal d1">
-      <div class="mov-frame-head"><span class="mov-phase-num">02</span><span class="mov-phase-label" data-i18n="mov2.phase">Concéntrica media</span><span class="mov-angle-badge">≈ 90°</span></div>
-      <div class="mov-fig-wrap">
-        <svg viewBox="0 0 130 210" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="110" y="0" width="4" height="210" fill="rgba(255,255,255,0.07)"/>
-          <rect x="114" y="0" width="14" height="210" fill="rgba(255,255,255,0.025)"/>
-          <ellipse cx="52" cy="16" rx="12" ry="14" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.25)" stroke-width="1.2"/>
-          <rect x="47" y="29" width="9" height="11" rx="3" fill="rgba(220,220,220,0.08)"/>
-          <path d="M32 40 C28 44 26 58 26 80 L26 122 C26 130 32 133 42 133 L66 133 C76 133 80 130 80 122 L80 80 C80 58 78 44 74 40 Z" fill="rgba(220,220,220,0.07)" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
-          <ellipse cx="74" cy="52" rx="7" ry="6" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-          <line x1="74" y1="56" x2="92" y2="86" stroke="rgba(255,255,255,0.22)" stroke-width="6" stroke-linecap="round"/>
-          <ellipse cx="92" cy="86" rx="5" ry="4" fill="rgba(255,200,64,0.6)" stroke="rgba(255,200,64,0.9)" stroke-width="1"/>
-          <line x1="92" y1="86" x2="92" y2="44" stroke="rgba(255,255,255,0.18)" stroke-width="5" stroke-linecap="round"/>
-          <rect x="89" y="36" width="7" height="10" rx="2" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
-          <path d="M76 60 C82 46 92 52 92 64 C90 74 80 76 74 70 Z" fill="rgba(255,64,64,0.55)" stroke="rgba(255,64,64,0.9)" stroke-width="1.4"/>
-          <line x1="94" y1="64" x2="106" y2="64" stroke="#ff4040" stroke-width="2" stroke-dasharray="4,2"/>
-          <polygon points="106,61 114,64 106,67" fill="#ff4040"/>
-          <line x1="70" y1="76" x2="46" y2="76" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="3,2"/>
-          <polygon points="46,73 38,76 46,79" fill="#00e5ff"/>
-          <line x1="68" y1="83" x2="46" y2="83" stroke="rgba(0,229,255,0.5)" stroke-width="1" stroke-dasharray="3,2"/>
-          <polygon points="46,80 38,83 46,86" fill="rgba(0,229,255,0.5)"/>
-          <path d="M92 86 A18 18 0 0 0 110 86" stroke="rgba(255,200,64,0.6)" stroke-width="1" fill="none"/>
-          <text x="110" y="82" fill="rgba(255,200,64,0.9)" font-size="8" font-family="DM Sans,sans-serif">90°</text>
-          <line x1="38" y1="133" x2="36" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
-          <line x1="62" y1="133" x2="64" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div class="mov-frame-text" data-i18n="mov2.desc">Equilibrio óptimo entre fuerza principal y oposición interna distribuida. Máxima eficiencia del sistema neuromuscular.</div>
-    </div>
-    <div class="mov-arrow-wrap"><svg viewBox="0 0 40 60" fill="none"><line x1="20" y1="5" x2="20" y2="45" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="4,3"/><polygon points="12,42 20,56 28,42" fill="rgba(255,255,255,0.2)"/></svg></div>
-    <div class="mov-frame reveal d2">
-      <div class="mov-frame-head"><span class="mov-phase-num">03</span><span class="mov-phase-label" data-i18n="mov3.phase">Concéntrica avanzada</span><span class="mov-angle-badge">≈ 120°</span></div>
-      <div class="mov-fig-wrap">
-        <svg viewBox="0 0 130 210" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="110" y="0" width="4" height="210" fill="rgba(255,255,255,0.07)"/>
-          <rect x="114" y="0" width="14" height="210" fill="rgba(255,255,255,0.025)"/>
-          <ellipse cx="52" cy="16" rx="12" ry="14" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.25)" stroke-width="1.2"/>
-          <rect x="47" y="29" width="9" height="11" rx="3" fill="rgba(220,220,220,0.08)"/>
-          <path d="M32 40 C28 44 26 58 26 80 L26 122 C26 130 32 133 42 133 L66 133 C76 133 80 130 80 122 L80 80 C80 58 78 44 74 40 Z" fill="rgba(220,220,220,0.07)" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
-          <ellipse cx="72" cy="52" rx="7" ry="6" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-          <line x1="72" y1="56" x2="88" y2="90" stroke="rgba(255,255,255,0.22)" stroke-width="6" stroke-linecap="round"/>
-          <ellipse cx="88" cy="90" rx="5" ry="4" fill="rgba(255,200,64,0.6)" stroke="rgba(255,200,64,0.9)" stroke-width="1"/>
-          <line x1="88" y1="90" x2="70" y2="52" stroke="rgba(255,255,255,0.18)" stroke-width="5" stroke-linecap="round"/>
-          <rect x="65" y="44" width="7" height="10" rx="2" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
-          <path d="M74 62 C78 50 88 56 88 68 C86 78 76 80 72 74 Z" fill="rgba(255,64,64,0.48)" stroke="rgba(255,64,64,0.85)" stroke-width="1.3"/>
-          <line x1="90" y1="70" x2="104" y2="70" stroke="#ff4040" stroke-width="2" stroke-dasharray="4,2"/>
-          <polygon points="104,67 112,70 104,73" fill="#ff4040"/>
-          <line x1="68" y1="80" x2="44" y2="80" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="3,2"/>
-          <polygon points="44,77 36,80 44,83" fill="#00e5ff"/>
-          <line x1="66" y1="87" x2="44" y2="87" stroke="rgba(0,229,255,0.5)" stroke-width="1" stroke-dasharray="3,2"/>
-          <polygon points="44,84 36,87 44,90" fill="rgba(0,229,255,0.5)"/>
-          <path d="M88 90 A22 22 0 0 0 110 90" stroke="rgba(255,200,64,0.6)" stroke-width="1" fill="none"/>
-          <text x="108" y="86" fill="rgba(255,200,64,0.9)" font-size="8" font-family="DM Sans,sans-serif">120°</text>
-          <line x1="38" y1="133" x2="36" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
-          <line x1="62" y1="133" x2="64" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div class="mov-frame-text" data-i18n="mov3.desc">Se incrementa la oposición interna de estabilizadores y sinergistas. Tensión regulada y movimiento controlado en todo el rango.</div>
-    </div>
-    <div class="mov-arrow-wrap"><svg viewBox="0 0 40 60" fill="none"><line x1="20" y1="5" x2="20" y2="45" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="4,3"/><polygon points="12,42 20,56 28,42" fill="rgba(255,255,255,0.2)"/></svg></div>
-    <div class="mov-frame reveal d3">
-      <div class="mov-frame-head"><span class="mov-phase-num">04</span><span class="mov-phase-label" data-i18n="mov4.phase">Posición final</span><span class="mov-angle-badge">≈ 160°</span></div>
-      <div class="mov-fig-wrap">
-        <svg viewBox="0 0 130 210" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="110" y="0" width="4" height="210" fill="rgba(255,255,255,0.07)"/>
-          <rect x="114" y="0" width="14" height="210" fill="rgba(255,255,255,0.025)"/>
-          <ellipse cx="52" cy="16" rx="12" ry="14" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.25)" stroke-width="1.2"/>
-          <rect x="47" y="29" width="9" height="11" rx="3" fill="rgba(220,220,220,0.08)"/>
-          <path d="M32 40 C28 44 26 58 26 80 L26 122 C26 130 32 133 42 133 L66 133 C76 133 80 130 80 122 L80 80 C80 58 78 44 74 40 Z" fill="rgba(220,220,220,0.07)" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
-          <ellipse cx="70" cy="52" rx="7" ry="6" fill="rgba(220,220,220,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-          <line x1="70" y1="56" x2="84" y2="92" stroke="rgba(255,255,255,0.22)" stroke-width="6" stroke-linecap="round"/>
-          <ellipse cx="84" cy="92" rx="5" ry="4" fill="rgba(255,200,64,0.6)" stroke="rgba(255,200,64,0.9)" stroke-width="1"/>
-          <line x1="84" y1="92" x2="58" y2="54" stroke="rgba(255,255,255,0.18)" stroke-width="5" stroke-linecap="round"/>
-          <rect x="53" y="46" width="7" height="10" rx="2" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
-          <path d="M72 64 C74 52 84 58 84 70 C82 80 74 82 70 76 Z" fill="rgba(255,64,64,0.44)" stroke="rgba(255,64,64,0.82)" stroke-width="1.3"/>
-          <line x1="86" y1="72" x2="102" y2="72" stroke="#ff4040" stroke-width="2" stroke-dasharray="4,2"/>
-          <polygon points="102,69 110,72 102,75" fill="#ff4040"/>
-          <line x1="66" y1="82" x2="42" y2="82" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="3,2"/>
-          <polygon points="42,79 34,82 42,85" fill="#00e5ff"/>
-          <line x1="64" y1="89" x2="42" y2="89" stroke="rgba(0,229,255,0.5)" stroke-width="1" stroke-dasharray="3,2"/>
-          <polygon points="42,86 34,89 42,92" fill="rgba(0,229,255,0.5)"/>
-          <path d="M84 92 A24 24 0 0 0 108 92" stroke="rgba(255,200,64,0.6)" stroke-width="1" fill="none"/>
-          <text x="106" y="88" fill="rgba(255,200,64,0.9)" font-size="8" font-family="DM Sans,sans-serif">160°</text>
-          <text x="8" y="202" fill="rgba(180,100,255,0.4)" font-size="7" font-family="DM Sans,sans-serif">↩ exc. en desarrollo</text>
-          <line x1="38" y1="133" x2="36" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
-          <line x1="62" y1="133" x2="64" y2="188" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div class="mov-frame-text" data-i18n="mov4.desc">Máxima proximidad a la pared. Co-contracción sostenida para mantener el control y la tensión a lo largo de todo el rango de movimiento.</div>
-    </div>
-  </div>
-  <div class="mov-legend reveal">
-    <div class="mov-legend-item"><div class="mov-legend-line" style="background:#ff4040;"></div><span data-i18n="mov.leg1">Vector de fuerza principal</span></div>
-    <div class="mov-legend-item"><div class="mov-legend-line" style="background:rgba(0,229,255,0.7);"></div><span data-i18n="mov.leg2">Oposición interna distribuida</span></div>
-    <div class="mov-legend-item"><div style="width:10px;height:10px;border-radius:50%;background:rgba(255,200,64,0.6);flex-shrink:0;"></div><span data-i18n="mov.leg3">Sistema articular (codo)</span></div>
-    <div class="mov-legend-item"><div style="width:20px;height:12px;border-radius:2px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);flex-shrink:0;"></div><span data-i18n="mov.leg4">Punto de referencia fijo (pared)</span></div>
-  </div>
-  <div class="mov-benefits">
-    <span data-i18n="mov.b1">Activación neuromuscular sostenida</span><span class="mov-sep">·</span>
-    <span data-i18n="mov.b2">Mayor estabilidad articular</span><span class="mov-sep">·</span>
-    <span data-i18n="mov.b3">Tensión homogénea en todo el rango</span><span class="mov-sep">·</span>
-    <span data-i18n="mov.b4">Reducción del riesgo de sobrecarga</span>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- SIMULADOR -->
-<section id="ciencia">
-  <div class="sim-header">
-    <div>
-      <div class="s-label" data-i18n="cien.label">Ciencia</div>
-      <h2 class="s-title" data-i18n="cien.title">Simulador de Curvas</h2>
-      <p class="s-desc" data-i18n="cien.desc">Modificá los parámetros y observá cómo cambia la demanda sobre el sistema neuromuscular en cada ángulo del movimiento.</p>
-    </div>
-    <div class="exp-badge" data-i18n="cien.badge">Estado Experimental</div>
-  </div>
-  <div class="sim-controls">
-    <div class="ctrl"><label data-i18n="ctrl1.label">Parámetro 1</label><div class="ctrl-name" data-i18n="ctrl1.name">Capacidad Máxima Estructural</div><input type="range" id="r-capmax" min="10" max="60" step="1" value="30"><div class="ctrl-val" id="v-capmax">30 <em>kg</em></div><div class="ctrl-unit" data-i18n="ctrl1.unit">Capacidad del sistema a 90°</div></div>
-    <div class="ctrl"><label data-i18n="ctrl2.label">Parámetro 2</label><div class="ctrl-name" data-i18n="ctrl2.name">Intensidad Objetivo</div><input type="range" id="r-inttrad" min="0.3" max="1.1" step="0.01" value="0.70"><div class="ctrl-val" id="v-inttrad">70 <em>%</em></div><div class="ctrl-unit" data-i18n="ctrl2.unit">Relación demanda / capacidad</div></div>
-    <div class="ctrl"><label data-i18n="ctrl3.label">Parámetro 3</label><div class="ctrl-name" data-i18n="ctrl3.name">Masa Externa (Pesa)</div><input type="range" id="r-masa" min="1" max="50" step="0.5" value="21"><div class="ctrl-val" id="v-masa">21 <em>kg</em></div><div class="ctrl-unit" data-i18n="ctrl3.unit">Mancuerna, disco u objeto</div></div>
-    <div class="ctrl"><label data-i18n="ctrl4.label">Parámetro 4</label><div class="ctrl-name" data-i18n="ctrl4.name">Tensión PIxTI</div><input type="range" id="r-pixti" min="0.5" max="1.0" step="0.01" value="0.90"><div class="ctrl-val" id="v-pixti">90 <em>%</em></div><div class="ctrl-unit" data-i18n="ctrl4.unit">% de la capacidad estructural</div></div>
-  </div>
-  <div class="intensity-row">
-    <div class="int-cell"><div class="int-label" data-i18n="ir.trad.label">Intensidad Relativa Tradicional en 90°</div><div class="int-val" id="ir-trad">—</div><div class="int-desc" data-i18n="ir.trad.desc">Demanda externa ÷ Capacidad estructural. Por encima de 100% hay riesgo estructural.</div></div>
-    <div class="int-cell"><div class="int-label" data-i18n="ir.pixti.label">Intensidad Relativa PIxTI en 90°</div><div class="int-val ok" id="ir-pixti">—</div><div class="int-desc" data-i18n="ir.pixti.desc">Carga PIxTI ÷ Capacidad estructural. Resguardo activo sobre tendones, ligamentos y articulaciones.</div></div>
-  </div>
-  <div class="chart-card">
-    <div class="chart-legend">
-      <div class="leg"><div class="leg-dot" style="background:var(--red)"></div><span data-i18n="cien.leg1">Demanda Externa (kg)</span></div>
-      <div class="leg"><div class="leg-dot" style="background:var(--yellow)"></div><span data-i18n="cien.leg2">Capacidad Estructural (kg)</span></div>
-      <div class="leg"><div class="leg-dot" style="background:var(--cyan)"></div><span data-i18n="cien.leg3">Carga PIxTI (kg)</span></div>
-    </div>
-    <canvas id="simChart" height="380"></canvas>
-    <div class="warn-bar" id="warnBar">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-      <span data-i18n="cien.warn">La demanda externa supera la capacidad estructural en algunos ángulos. Riesgo de sobrecarga tendinosa y articular.</span>
-    </div>
-  </div>
-  <div class="sim-concepts">
-    <div class="sim-concept"><div class="sim-concept-tag"><div class="sim-concept-dot" style="background:var(--red)"></div><span data-i18n="sc1.tag">Curva Roja</span></div><h3 data-i18n="sc1.title">Demanda Externa</h3><p data-i18n="sc1.desc">La pesa aplica una fuerza gravitacional constante. En el método tradicional, esa demanda no cambia con el ángulo: es siempre la misma masa.</p></div>
-    <div class="sim-concept"><div class="sim-concept-tag"><div class="sim-concept-dot" style="background:var(--yellow)"></div><span data-i18n="sc2.tag">Curva Amarilla</span></div><h3 data-i18n="sc2.title">Capacidad Estructural</h3><p data-i18n="sc2.desc">Lo que el sistema neuromuscular puede ofrecer en cada ángulo, en kg. Alcanza su máximo a 90° y cae hacia los extremos. La articulación queda desprotegida donde la curva cae por debajo de la demanda.</p></div>
-    <div class="sim-concept"><div class="sim-concept-tag"><div class="sim-concept-dot" style="background:var(--cyan)"></div><span data-i18n="sc3.tag">Curva Cyan</span></div><h3 data-i18n="sc3.title">Carga PIxTI</h3><p data-i18n="sc3.desc">Se opera al porcentaje elegido de la capacidad estructural real. La carga interna sigue la forma del sistema: nunca la supera. Provee resguardo óseo, tendinoso, ligamentoso y articular en todo el rango.</p></div>
-  </div>
-  <div class="exp-note"><strong data-i18n="cien.exp.label">⚠ Estado experimental.</strong> <span data-i18n="cien.exp.text">Este simulador representa un modelo teórico basado en los principios del Método PIxTI. Los valores de capacidad estructural son estimaciones relativas —no reemplazan una evaluación clínica o funcional.</span></div>
-</section>
-
-<div class="divider"></div>
-
-<!-- PROGRESIÓN -->
-<section id="progresion">
-  <div class="s-label" data-i18n="prog.label">Progresión</div>
-  <h2 class="s-title" data-i18n="prog.title">¿Cómo se Progresa?</h2>
-  <p class="s-desc" data-i18n="prog.desc">No se agrega peso. Se desarrolla la capacidad interna del sistema neuromuscular.</p>
-  <div class="prog-grid">
-    <div class="prog-card reveal"><div class="prog-num">01</div><h3 data-i18n="pg1.title">Mayor generación de tensión</h3><p data-i18n="pg1.desc">Incremento progresivo en la capacidad de producir y acumular fuerza interna en cada repetición.</p></div>
-    <div class="prog-card reveal d1"><div class="prog-num">02</div><h3 data-i18n="pg2.title">Mayor capacidad de sostenerla</h3><p data-i18n="pg2.desc">Resistencia neuromuscular: mantener la tensión a lo largo de todo el recorrido sin colapso de la activación.</p></div>
-    <div class="prog-card reveal d2"><div class="prog-num">03</div><h3 data-i18n="pg3.title">Mayor control de la modulación</h3><p data-i18n="pg3.desc">Regulación voluntaria y precisa de la intensidad en tiempo real durante el movimiento.</p></div>
-    <div class="prog-card reveal d3"><div class="prog-num">04</div><h3 data-i18n="pg4.title">Mayor precisión neuromuscular</h3><p data-i18n="pg4.desc">Refinamiento de la coordinación intermuscular y la activación selectiva de estructuras específicas.</p></div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-
-<section id="base">
-  <div class="s-label" data-i18n="base.label">Fundamentos</div>
-  <h2 class="s-title" data-i18n="base.title">Base Científica</h2>
-  <p class="s-desc" data-i18n="base.desc">PIxTI integra principios ampliamente estudiados en fisiología del ejercicio y neurociencia motora.</p>
-
-  <div class="base-legend">
-    <div class="base-legend-item">
-      <div class="base-legend-bar" style="background:var(--white);opacity:.4;height:36px;"></div>
-      <div class="base-legend-text">
-        <div class="base-legend-label" style="color:var(--white);" data-i18n="base.leg1.label">Para el practicante</div>
-        <div class="base-legend-desc" data-i18n="base.leg1.desc">Explicación directa del concepto en lenguaje accesible.</div>
-      </div>
-    </div>
-    <div class="base-legend-item">
-      <div class="base-legend-bar" style="background:var(--cyan);opacity:.5;height:36px;"></div>
-      <div class="base-legend-text">
-        <div class="base-legend-label" style="color:var(--cyan);" data-i18n="base.leg2.label">Para el especialista</div>
-        <div class="base-legend-desc" data-i18n="base.leg2.desc">Descripción técnica del principio científico.</div>
-      </div>
-    </div>
-    <div class="base-legend-item">
-      <div class="base-legend-bar" style="background:var(--yellow);opacity:.5;height:36px;"></div>
-      <div class="base-legend-text">
-        <div class="base-legend-label" style="color:var(--yellow);" data-i18n="base.leg3.label">Cita científica</div>
-        <div class="base-legend-desc" data-i18n="base.leg3.desc">Frase clave extraída del paper original.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="base-category">
-    <div class="base-category-label" data-i18n="base.cat1">Fisiología</div>
-    <div class="base-grid">
-    <div class="base-item reveal">
-      <div class="base-concept-label">El Resorte Inteligente del Músculo</div>
-      <h3>Titina y Fuerza Excéntrica</h3>
-      <p class="base-simple">El músculo tiene un tercer resorte molecular que lo protege y lo hace más fuerte en la fase de bajada. PIxTI lo activa.</p>
-      <p class="base-desc">La titina actúa como tercer filamento contráctil. Su activación mediante tensión pesada amplifica la fuerza excéntrica y protege la integridad del sarcómero.</p>
-      <div class="base-ref">
-        <p class="base-ref-text">Herzog, W. (2018). The role of titin in muscle force generation, muscle deceptions and muscle diseases. <em>Advances in Experimental Medicine and Biology, 1088</em>, 3–25.</p>
-        <a class="base-ref-link" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7001402/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>PMC7001402</a>
-      </div>
-      <p class="base-epigraph">"La titina funciona como un resorte molecular cuya rigidez aumenta con la activación muscular. Actúa como un tercer elemento contráctil junto a la actina y la miosina, amplificando la fuerza excéntrica y resguardando la integridad del sarcómero."<span class="base-epigraph-attr">— Herzog, 2018</span></p>
-    </div>
-    <div class="base-item reveal d1">
-      <div class="base-concept-label">El Interruptor Molecular del Crecimiento</div>
-      <h3>Mecanotransducción y mTOR</h3>
-      <p class="base-simple">Cuando el músculo siente tensión mecánica, enciende el interruptor del crecimiento. Sin tensión real, no hay señal de adaptación.</p>
-      <p class="base-desc">La deformación mecánica de la célula muscular activa la vía mTORC1, regulando la síntesis proteica y la hipertrofia estructural.</p>
-      <div class="base-ref">
-        <p class="base-ref-text">Wackerhage, H., et al. (2019). Molecular mechanisms of mechanical load-induced skeletal muscle hypertrophy. <em>Journal of Applied Physiology, 127</em>(2), 479–491.</p>
-        <a class="base-ref-link" href="https://journals.physiology.org/doi/full/10.1152/japplphysiol.00211.2018" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1152/japplphysiol.00211.2018</a>
-      </div>
-      <p class="base-epigraph">"La vía mTORC1 es el principal regulador de la síntesis proteica muscular inducida por el ejercicio. La deformación mecánica de la célula activa esta cascada — la carga mecánica opera, en términos moleculares, como el interruptor del crecimiento."<span class="base-epigraph-attr">— Wackerhage et al., 2019</span></p>
-    </div>
-    <div class="base-item reveal d2">
-      <div class="base-concept-label">Co-Contracción Muscular</div>
-      <h3>Estabilización por Co-Activación</h3>
-      <p class="base-simple">Cuando agonista y antagonista trabajan juntos, el movimiento es más estable y controlado. En PIxTI eso ocurre de forma deliberada.</p>
-      <p class="base-desc">La co-activación muscular es una estrategia deliberada del sistema nervioso para estabilizar el movimiento y gestionar la redundancia del aparato motor.</p>
-      <div class="base-ref">
-        <p class="base-ref-text">Latash, M. L. (2018). Muscle coactivation: Definitions, mechanisms, and functions. <em>Journal of Neurophysiology, 120</em>(1), 88–104.</p>
-        <a class="base-ref-link" href="https://doi.org/10.1152/jn.00084.2018" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1152/jn.00084.2018</a>
-      </div>
-      <p class="base-epigraph">"La co-activación muscular es una estrategia deliberada del sistema nervioso para estabilizar el movimiento y reducir su variabilidad. El cerebro organiza la redundancia muscular como una ventaja — la herramienta con la que garantiza precisión bajo incertidumbre."<span class="base-epigraph-attr">— Latash, 2018</span></p>
-    </div>
-    <div class="base-item reveal">
-      <div class="base-concept-label">Control Neuromuscular</div>
-      <h3>Modulación Voluntaria de la Tensión</h3>
-      <p class="base-simple">El sistema nervioso regula la fuerza en tiempo real. Entrenarlo mejora la precisión del movimiento más allá de la fuerza bruta.</p>
-      <p class="base-desc">El sistema nervioso ajusta en tiempo real la frecuencia de activación de cada unidad motora. La fatiga es, en términos funcionales, una pérdida progresiva de ese control fino.</p>
-      <div class="base-ref">
-        <p class="base-ref-text">Enoka, R. M., &amp; Duchateau, J. (2016). Translating fatigue to human performance. <em>Medicine &amp; Science in Sports &amp; Exercise, 48</em>(11), 2228–2238.</p>
-        <a class="base-ref-link" href="https://doi.org/10.1249/MSS.0000000000000929" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1249/MSS.0000000000000929</a>
-      </div>
-      <p class="base-epigraph">"Sostener una contracción submáxima requiere que el sistema nervioso ajuste en tiempo real la frecuencia de activación de cada unidad motora. La fatiga es, en términos funcionales, una pérdida progresiva de ese control fino."<span class="base-epigraph-attr">— Enoka &amp; Duchateau, 2016</span></p>
-    </div>
-    <div class="base-item reveal d1">
-      <div class="base-concept-label">La Orquesta Neuromuscular</div>
-      <h3>Adaptaciones Neurales al Entrenamiento</h3>
-      <p class="base-simple">Las primeras ganancias de fuerza son neurales, no musculares. El sistema nervioso aprende antes de que el músculo crezca.</p>
-      <p class="base-desc">El entrenamiento de fuerza mejora la eficiencia del comando neural, optimizando la coordinación entre agonistas y antagonistas para potenciar la expresión de fuerza.</p>
-      <div class="base-ref">
-        <p class="base-ref-text">Duchateau, J., &amp; Enoka, R. M. (2016). Neural adaptations to resistance training: Characteristics and mechanisms. <em>Journal of Applied Physiology, 120</em>(11), 1297–1308.</p>
-        <a class="base-ref-link" href="https://journals.physiology.org/doi/full/10.1152/japplphysiol.00368.2015" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1152/japplphysiol.00368.2015</a>
-      </div>
-      <p class="base-epigraph">"El entrenamiento de fuerza produce adaptaciones neurales que mejoran la coordinación entre agonistas y antagonistas. La ganancia de fuerza inicial es predominantemente neural — antes que estructural."<span class="base-epigraph-attr">— Duchateau &amp; Enoka, 2016</span></p>
-    </div>
-    <div class="base-item reveal d2">
-      <div class="base-concept-label">Propiocepción</div>
-      <h3>El Mapa Interno del Cuerpo</h3>
-      <p class="base-simple">El cuerpo construye un mapa interno de su posición y tensión. PIxTI entrena esa percepción como parte del método.</p>
-      <p class="base-desc">El sistema nervioso construye una representación interna del cuerpo integrando señales de husos musculares, órganos tendinosos y receptores articulares. Esa imagen interna es la condición previa de todo movimiento voluntario preciso.</p>
-      <div class="base-ref">
-        <p class="base-ref-text">Proske, U., &amp; Gandevia, S. C. (2012). The proprioceptive senses. <em>Physiological Reviews, 92</em>(4), 1651–1697.</p>
-        <a class="base-ref-link" href="https://doi.org/10.1152/physrev.00048.2011" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1152/physrev.00048.2011</a>
-      </div>
-      <p class="base-epigraph">"El sistema nervioso construye una representación interna del cuerpo integrando señales de husos musculares, órganos tendinosos de Golgi y receptores articulares. Esa imagen interna es la condición previa de todo movimiento voluntario preciso."<span class="base-epigraph-attr">— Proske &amp; Gandevia, 2012</span></p>
-    </div>
-    <div class="base-item reveal">
-      <div class="base-concept-label">Blindaje de Tendones: Carga y Magnitud</div>
-      <h3>Umbral de Carga y Síntesis de Colágeno</h3>
-      <p class="base-simple">El tendón necesita superar cierto nivel de tensión para producir colágeno nuevo. La carga liviana no lo estimula.</p>
-      <p class="base-desc">El tejido tendinoso requiere superar un umbral de carga mínimo para activar la síntesis de colágeno. La tensión controlada y progresiva transforma tendones vulnerables en estructuras resilientes.</p>
-      <div class="base-ref">
-        <p class="base-ref-text">Bohm, S., Mersmann, F., &amp; Arampatzis, A. (2015). Tendon adaptation to mechanical-loading: A systematic review and meta-analysis. <em>eLife, 4</em>, e07011.</p>
-        <a class="base-ref-link" href="https://doi.org/10.7554/eLife.07011" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.7554/eLife.07011</a>
-      </div>
-      <p class="base-epigraph">"El tendón responde a la carga mecánica de forma umbral: por debajo de cierta intensidad no hay síntesis de colágeno. La tensión progresiva y controlada es el único estímulo eficaz para su remodelación."<span class="base-epigraph-attr">— Bohm et al., 2015</span></p>
-    </div>
-    <div class="base-item reveal d1">
-      <div class="base-concept-label">Fatiga Central y Seguridad</div>
-      <h3>El Freno Neural como Señal de Protección</h3>
-      <p class="base-simple">Entrenar hasta el fallo total activa un freno neural que compromete la técnica y aumenta el riesgo de lesión.</p>
-      <p class="base-desc">La fatiga central activa mecanismos de inhibición neural que incrementan la co-activación del antagonista, comprometiendo la eficiencia técnica y elevando el riesgo estructural.</p>
-      <div class="base-ref">
-        <p class="base-ref-text">Enoka, R. M., &amp; Duchateau, J. (2008). Muscle fatigue: What, why and how it influences muscle function. <em>Journal of Physiology, 586</em>(1), 11–23.</p>
-        <a class="base-ref-link" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2375544/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>PMC2375544</a>
-      </div>
-      <p class="base-epigraph">"La fatiga central activa mecanismos de inhibición neural que incrementan la co-activación del antagonista, comprometiendo la eficiencia técnica y elevando el riesgo estructural. El entrenamiento al fallo sistémico opera por encima del umbral de seguridad."<span class="base-epigraph-attr">— Enoka &amp; Duchateau, 2008</span></p>
-    </div>
-    </div>
-  </div>
-
-  <div class="base-category">
-    <div class="base-category-label" data-i18n="base.cat2">Biomecánica</div>
-    <div class="base-grid">
-    <div class="base-item reveal">
-      <div class="base-concept-label">Coordinación Intermuscular</div>
-      <h3>Sincronización de Unidades Motoras</h3>
-      <p class="base-simple">La fuerza no viene de un músculo solo. Viene de la sincronización de toda una red neuromuscular actuando en conjunto.</p>
-      <p class="base-desc">Durante las contracciones isométricas, las unidades motoras de distintos músculos sincronizan su activación. La fuerza es el producto de una red neuromuscular integrada.</p>
-      <div class="base-ref">
-        <p class="base-ref-text">Mohr, M., et al. (2015). Task-dependent intermuscular motor unit synchronization during isometric and dynamic tasks. <em>PLOS ONE, 10</em>(11), e0142048.</p>
-        <a class="base-ref-link" href="https://doi.org/10.1371/journal.pone.0142048" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1371/journal.pone.0142048</a>
-      </div>
-      <p class="base-epigraph">"Durante las contracciones isométricas, las unidades motoras de distintos músculos sincronizan su activación. La fuerza es, en consecuencia, el producto de una red neuromuscular integrada — a diferencia de la acción aislada de un músculo individual."<span class="base-epigraph-attr">— Mohr et al., 2015</span></p>
-    </div>
-    <div class="base-item reveal d1">
-      <div class="base-concept-label">Modelo Sistémico</div>
-      <h3>Control Motor y Sinergias</h3>
-      <p class="base-simple">La aparente redundancia del sistema motor es su mayor ventaja — permite múltiples soluciones para un mismo movimiento.</p>
-      <p class="base-desc">La redundancia del sistema motor es la base de su adaptabilidad: permite al sistema nervioso encontrar múltiples soluciones para un mismo movimiento, manteniendo estabilidad sin sacrificar flexibilidad.</p>
-      <div class="base-ref">
-        <p class="base-ref-text">Latash, M. L. (2012). The bliss (not the problem) of motor abundance. <em>Experimental Brain Research, 217</em>(1), 1–5.</p>
-        <a class="base-ref-link" href="https://doi.org/10.1007/s00221-012-3000-4" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1007/s00221-012-3000-4</a>
-      </div>
-      <p class="base-epigraph">"La redundancia del sistema motor es la base de su adaptabilidad: le permite al sistema nervioso encontrar múltiples soluciones para un mismo movimiento, manteniendo estabilidad sin sacrificar flexibilidad de ejecución."<span class="base-epigraph-attr">— Latash, 2012</span></p>
-    </div>
-    <div class="base-item reveal d2">
-      <div class="base-concept-label">Coherencia Tensional: La Red Miofascial</div>
-      <h3>Transmisión Miofascial Epimuscular</h3>
-      <p class="base-simple">La tensión muscular viaja por la fascia y afecta a músculos vecinos. Un ejercicio bien hecho es siempre un trabajo en red.</p>
-      <p class="base-desc">La fuerza muscular se transmite tanto a lo largo del tendón como lateralmente a través de las vías epimusculares de la fascia. Un músculo actúa siempre en red.</p>
-      <div class="base-ref">
-        <p class="base-ref-text">Huijing, P. A. (2009). Epimuscular myofascial force transmission: A critical review of its relevance for muscle function. <em>Journal of Electromyography and Kinesiology, 19</em>(3), 368–381.</p>
-        <a class="base-ref-link" href="https://pubmed.ncbi.nlm.nih.gov/19062310/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>PMID:19062310</a>
-      </div>
-      <p class="base-epigraph">"La fuerza muscular se transmite tanto a lo largo del tendón como lateralmente a través de las vías epimusculares de la fascia. Un músculo actúa siempre en red — su tensión se distribuye y modifica la función de las estructuras adyacentes."<span class="base-epigraph-attr">— Huijing, 2009</span></p>
-    </div>
-    <div class="base-item reveal">
-      <div class="base-concept-label">Medicina para el Cartílago</div>
-      <h3>Mecanobiología del Cartílago Articular</h3>
-      <p class="base-simple">El cartílago se nutre con movimiento y carga. La inactividad lo degrada más que el ejercicio bien dosificado.</p>
-      <p class="base-desc">La presión hidrostática fisiológica estimula la producción de proteoglicanos y sostiene la viabilidad de los condrocitos. El cartílago se nutre del movimiento.</p>
-      <div class="base-ref">
-        <p class="base-ref-text">O'Conor, C. J., et al. (2013). Articular cartilage mechanobiology and the therapeutic potential of loading. <em>Joint Bone Spine, 80</em>(5), 451–453.</p>
-        <a class="base-ref-link" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3731114/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>PMC3731114</a>
-      </div>
-      <p class="base-epigraph">"La presión hidrostática fisiológica estimula la producción de proteoglicanos y sostiene la viabilidad de los condrocitos. El cartílago se nutre del movimiento — la carga apropiada es su principal mecanismo de mantenimiento y protección."<span class="base-epigraph-attr">— O'Conor et al., 2013</span></p>
-    </div>
-    <div class="base-item reveal d1">
-      <div class="base-concept-label">La Estabilización por Presión</div>
-      <h3>Core, Columna y Presión Intraabdominal</h3>
-      <p class="base-simple">El core protege la columna generando presión interna antes del movimiento, como un escudo neumático natural.</p>
-      <p class="base-desc">La presión intraabdominal actúa como un mecanismo de estabilización proactivo que reduce la carga mecánica sobre los discos lumbares durante el esfuerzo.</p>
-      <div class="base-ref">
-        <p class="base-ref-text">Hodges, P. W., &amp; Richardson, C. A. (1997). Contraction of the abdominal muscles associated with movement of the lower limb. <em>Physical Therapy, 77</em>(2), 132–144.</p>
-        <a class="base-ref-link" href="https://pubmed.ncbi.nlm.nih.gov/10423044/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>PMID:10423044</a>
-      </div>
-      <p class="base-epigraph">"La activación anticipatoria del transverso del abdomen genera presión intraabdominal antes del movimiento del miembro, actuando como un mecanismo de estabilización proactivo de la columna lumbar."<span class="base-epigraph-attr">— Hodges &amp; Richardson, 1997</span></p>
-    </div>
-    <div class="base-item reveal d2">
-      <div class="base-concept-label">Carga Controlada: Longevidad del Disco</div>
-      <h3>Metabolismo del Disco Intervertebral</h3>
-      <p class="base-simple">El disco intervertebral necesita carga para mantenerse hidratado y funcional. El reposo prolongado lo deteriora.</p>
-      <p class="base-desc">El disco intervertebral requiere carga mecánica para mantener su metabolismo y su hidratación. La carga controlada es el estímulo que lo mantiene funcional y resiliente.</p>
-      <div class="base-ref">
-        <p class="base-ref-text">Setton, L. A., &amp; Chen, J. (2006). The effects of mechanical loading on intervertebral disc metabolism and cytology. <em>Journal of Bone and Joint Surgery, 88</em>(Suppl 2), 49–57.</p>
-        <a class="base-ref-link" href="https://pubmed.ncbi.nlm.nih.gov/16595444/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>PMID:16595444</a>
-      </div>
-      <p class="base-epigraph">"El disco intervertebral requiere carga mecánica para mantener su metabolismo y su hidratación. La carga controlada es el estímulo que lo mantiene funcional y resiliente — a diferencia de la inmovilidad, que conduce progresivamente a su degeneración."<span class="base-epigraph-attr">— Setton &amp; Chen, 2006</span></p>
-    </div>
-    <div class="base-item reveal">
-      <div class="base-concept-label">El Límite del Tendón</div>
-      <h3>Curva de Esfuerzo-Deformación</h3>
-      <p class="base-simple">Los tendones tienen un límite. Pasarlo sin control provoca micro-roturas permanentes, no adaptación.</p>
-      <p class="base-desc">Superar el umbral fisiológico del tejido tendinoso genera deslizamiento de las microfibrillas de colágeno. La diferencia entre adaptación y lesión es la magnitud y el control de la carga.</p>
-      <div class="base-ref">
-        <p class="base-ref-text">Wang, J. H. C. (2006). Mechanical properties of tendons. <em>Journal of Biomechanics, 39</em>(9), 1563–1582.</p>
-        <a class="base-ref-link" href="https://pubmed.ncbi.nlm.nih.gov/16000201/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>PMID:16000201</a>
-      </div>
-      <p class="base-epigraph">"Las cargas que exceden el umbral fisiológico provocan el deslizamiento de las microfibrillas de colágeno, llevando a la rotura macroscópica o tendinosis por sobrecarga aguda. El límite estructural del tendón no es flexible."<span class="base-epigraph-attr">— Wang, 2006</span></p>
-    </div>
-    <div class="base-item reveal d1">
-      <div class="base-concept-label">El Colapso de la Columna</div>
-      <h3>Cizallamiento y Disco Intervertebral</h3>
-      <p class="base-simple">Bajo carga máxima sin control del core, la columna sufre fuerzas que el disco no puede tolerar. PIxTI trabaja por debajo de ese umbral.</p>
-      <p class="base-desc">La fatiga de los estabilizadores profundos bajo cargas máximas permite que la columna sufra fuerzas de cizallamiento que el disco intervertebral no puede soportar sin riesgo de herniación.</p>
-      <div class="base-ref">
-        <p class="base-ref-text">McGill, S. M. (2007). <em>Low back disorders: Evidence-based prevention and rehabilitation</em> (2nd ed.). Human Kinetics.</p>
-        <a class="base-ref-link" href="https://www.ncbi.nlm.nih.gov/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>McGill, 2007</a>
-      </div>
-      <p class="base-epigraph">"Bajo cargas máximas absolutas, la mínima pérdida de neutralidad espinal dispara la presión intradiscal a niveles que pueden causar herniación aguda o fractura del platillo vertebral. El límite de seguridad se pierde cuando la carga supera la capacidad de soporte del core."<span class="base-epigraph-attr">— McGill, 2007</span></p>
-    </div>
-    <div class="base-item reveal d2">
-      <div class="base-concept-label">El Fallo del Cartílago</div>
-      <h3>Carga Supracrítica y Apoptosis</h3>
-      <p class="base-simple">El cartílago tiene un límite de presión. Superarlo en cargas sin control inicia degeneración acelerada.</p>
-      <p class="base-desc">Por encima del límite de presión hidrostática fisiológica, el líquido sinovial es expulsado demasiado rápido, provocando apoptosis de condrocitos y micro-fracturas en el hueso subcondral.</p>
-      <div class="base-ref">
-        <p class="base-ref-text">Sophia Fox, A. J., Bedi, A., &amp; Rodeo, S. A. (2009). The basic science of articular cartilage: structure, composition, and function. <em>Sports Health, 1</em>(6), 461–468.</p>
-        <a class="base-ref-link" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3445147/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>PMC3445147</a>
-      </div>
-      <p class="base-epigraph">"Cargas de impacto o presiones extremas pueden causar muerte celular de condrocitos y micro-fracturas en el hueso subcondral, iniciando procesos degenerativos rápidos. La carga apropiada nutre; la carga extrema destruye."<span class="base-epigraph-attr">— Sophia Fox et al., 2009</span></p>
-    </div>
-    </div>
-  </div>
-
-  <div class="base-category">
-    <div class="base-category-label" data-i18n="base.cat3">Metodología del Entrenamiento</div>
-    <div class="base-grid">
-    <div class="base-item reveal">
-      <div class="base-concept-label">Activación Isométrica</div>
-      <h3>Acumulación de Tensión Antes del Movimiento</h3>
-      <p class="base-simple">Mantener la tensión con el músculo estirado produce ganancias de fuerza que se extienden a todo el rango de movimiento.</p>
-      <p class="base-desc">El entrenamiento isométrico en rangos largos genera las mayores adaptaciones de fuerza y las transfiere a ángulos articulares fuera del rango entrenado directamente.</p>
-      <div class="base-ref">
-        <p class="base-ref-text">Oranchuk, D. J., Storey, A. G., Nelson, A. R., &amp; Cronin, J. B. (2019). Isometric training and long-term adaptations: Effects of muscle length, intensity, and intent. <em>Scandinavian Journal of Medicine &amp; Science in Sports, 29</em>(4), 484–503.</p>
-        <a class="base-ref-link" href="https://onlinelibrary.wiley.com/doi/full/10.1111/sms.13375" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1111/sms.13375</a>
-      </div>
-      <p class="base-epigraph">"El entrenamiento isométrico en rangos largos genera las mayores adaptaciones de fuerza y las transfiere a ángulos articulares que estuvieron fuera del entrenamiento directo. La isometría en estiramiento fortalece y, a la vez, reorganiza el sistema neuromuscular."<span class="base-epigraph-attr">— Oranchuk et al., 2019</span></p>
-    </div>
-    <div class="base-item reveal d1">
-      <div class="base-concept-label">El Poder del Ángulo Estirado</div>
-      <h3>Isometría en Rangos Largos</h3>
-      <p class="base-simple">Entrenar con el músculo alargado produce más hipertrofia y protege mejor las articulaciones que el rango parcial.</p>
-      <p class="base-desc">El entrenamiento isométrico en longitud muscular larga produjo la mayor hipertrofia y la transferencia más amplia de fuerza en todo el rango articular. Es la modalidad más potente para la remodelación estructural.</p>
-      <div class="base-ref">
-        <p class="base-ref-text">Oranchuk, D. J., et al. (2019). Isometric training and long-term adaptations: Effects of muscle length, intensity, and intent. <em>Scandinavian Journal of Medicine &amp; Science in Sports, 29</em>(4), 484–503.</p>
-        <a class="base-ref-link" href="https://onlinelibrary.wiley.com/doi/full/10.1111/sms.13375" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1111/sms.13375</a>
-      </div>
-      <p class="base-epigraph">"El entrenamiento isométrico en longitud muscular larga produjo la mayor hipertrofia y la transferencia más amplia de fuerza en todo el rango articular. Es, en términos de eficiencia estructural, la modalidad más potente para la remodelación muscular."<span class="base-epigraph-attr">— Oranchuk et al., 2019</span></p>
-    </div>
-    <div class="base-item reveal d2">
-      <div class="base-concept-label">Intención Neural y Velocidad</div>
-      <h3>La Mente sobre la Materia</h3>
-      <p class="base-simple">Intentar moverse rápido, aunque la carga no lo permita, recluta las fibras más potentes. La intención entrena.</p>
-      <p class="base-desc">Las adaptaciones neurales del entrenamiento están determinadas por la velocidad que el sistema nervioso intenta producir, con independencia de la velocidad real alcanzada.</p>
-      <div class="base-ref">
-        <p class="base-ref-text">Behm, D. G., &amp; Sale, D. G. (1993). Intended rather than actual movement velocity determines velocity-specific training response. <em>Journal of Applied Physiology, 74</em>(1), 359–368.</p>
-        <a class="base-ref-link" href="https://journals.physiology.org/doi/abs/10.1152/jappl.1993.74.1.359" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1152/jappl.1993.74.1.359</a>
-      </div>
-      <p class="base-epigraph">"Las adaptaciones neurales del entrenamiento están determinadas por la velocidad que el sistema nervioso intenta producir — con independencia de la velocidad real alcanzada. La intención de máxima velocidad recluta las fibras de mayor umbral incluso bajo carga máxima."<span class="base-epigraph-attr">— Behm &amp; Sale, 1993</span></p>
-    </div>
-    <div class="base-item reveal">
-      <div class="base-concept-label">Control de la Velocidad (VBT)</div>
-      <h3>Velocidad como Indicador de Carga Real</h3>
-      <p class="base-simple">Cuando la velocidad del movimiento cae, la fatiga ya comprometió la calidad. Ese es el momento de parar.</p>
-      <p class="base-desc">El monitoreo de la pérdida de velocidad durante el entrenamiento permite regular la carga real, evitando la fatiga tóxica y preservando la calidad técnica y la eficiencia neuromuscular.</p>
-      <div class="base-ref">
-        <p class="base-ref-text">Guerriero, A., Varalda, C., &amp; Piacentini, M. F. (2020). Velocity-based resistance training: From theory to practical applications. <em>Sports, 8</em>(4), 48.</p>
-        <a class="base-ref-link" href="https://www.mdpi.com/2075-4663/8/4/48" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.3390/sports8040048</a>
-      </div>
-      <p class="base-epigraph">"La pérdida de velocidad durante la serie es un indicador sensible de la fatiga neuromuscular acumulada. Regular el volumen en función de esa pérdida permite maximizar las adaptaciones preservando la calidad técnica."<span class="base-epigraph-attr">— Guerriero et al., 2020</span></p>
-    </div>
-    <div class="base-item reveal d1">
-      <div class="base-concept-label">La Dosis Mínima Efectiva</div>
-      <h3>Eficiencia sobre Volumen</h3>
-      <p class="base-simple">Una sola serie de alta intensidad es suficiente para maximizar las ganancias de fuerza en la mayoría de los sujetos.</p>
-      <p class="base-desc">El entrenamiento efectivo prioriza la intensidad de la tensión sobre el volumen acumulado. El exceso de series no suma adaptación — suma fatiga.</p>
-      <div class="base-ref">
-        <p class="base-ref-text">Androulakis-Korakakis, P., et al. (2020). The minimum effective training dose required to increase 1RM strength. <em>Sports Medicine, 50</em>(4), 751–765.</p>
-        <a class="base-ref-link" href="https://link.springer.com/article/10.1007/s40279-019-01236-0" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>doi:10.1007/s40279-019-01236-0</a>
-      </div>
-      <p class="base-epigraph">"Una sola serie por ejercicio, llevada a alta intensidad relativa, es suficiente para maximizar las ganancias de fuerza en la mayoría de los sujetos entrenados. El volumen adicional no aumenta el estímulo — aumenta la fatiga."<span class="base-epigraph-attr">— Androulakis-Korakakis et al., 2020</span></p>
-    </div>
-    <div class="base-item reveal d2">
-      <div class="base-concept-label">Blindaje de Tendones: Carga y Síntesis</div>
-      <h3>Colágeno y Alta Tensión</h3>
-      <p class="base-simple">Períodos breves de carga tensional elevada fortalecen tendones y ligamentos más que el ejercicio prolongado de baja intensidad.</p>
-      <p class="base-desc">Las ráfagas de alta tensión estimulan la síntesis de colágeno en tendones y ligamentos con mayor eficacia que el ejercicio prolongado de baja intensidad. El tejido conectivo se fortalece con picos de tensión controlada.</p>
-      <div class="base-ref">
-        <p class="base-ref-text">Baar, K. (2017). Minimizing injury and maximizing return to play: Lessons from engineered ligaments. <em>Sports Medicine, 47</em>(Suppl 1), 5–11.</p>
-        <a class="base-ref-link" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5371618/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>PMC5371618</a>
-      </div>
-      <p class="base-epigraph">"Períodos breves de carga tensional elevada estimulan la síntesis de colágeno en tendones y ligamentos con mayor eficacia que el ejercicio prolongado de baja intensidad. El tejido conectivo se fortalece con picos de tensión controlada."<span class="base-epigraph-attr">— Baar, 2017</span></p>
-    </div>
-    <div class="base-item reveal">
-      <div class="base-concept-label">Intensidad Alta y Seguridad</div>
-      <h3>Control Neural bajo Carga Elevada</h3>
-      <p class="base-simple">Cargas muy altas con pocas repeticiones y sin fatiga acumulada maximizan la fuerza cuidando la integridad estructural.</p>
-      <p class="base-desc">Las intensidades muy altas con bajo número de repeticiones, evitando la fatiga acumulada, son las que maximizan la fuerza preservando la integridad del sistema neuromuscular y articular.</p>
-      <div class="base-ref">
-        <p class="base-ref-text">García-Pallarés, J., et al. (2019). Very high resistance training intensities and low numbers of repetitions per set maximize muscle strength gains. <em>Medical Science Monitor, 25</em>, 1.</p>
-        <a class="base-ref-link" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6327313/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>PMC6327313</a>
-      </div>
-      <p class="base-epigraph">"Las intensidades muy altas con bajo número de repeticiones —evitando la fatiga acumulada— son las que maximizan la fuerza cuidando la integridad del atleta. El control es la variable que separa la adaptación de la lesión."<span class="base-epigraph-attr">— García-Pallarés et al., 2019</span></p>
-    </div>
-    </div>
-  </div>
-
-</section>
-
-<div class="divider"></div>
-
-<!-- AUTOR -->
-<section id="autor">
-  <div>
-    <div class="autor-label" data-i18n="autor.label">Creador del Método PIxTI</div>
-    <h2 class="autor-name">Ricardo Gabriel Lima</h2>
-    <p class="autor-role" data-i18n="autor.role">Autor y desarrollador del sitio web</p>
-    <p class="autor-bio" data-i18n="autor.bio">Método experimental de entrenamiento neuromuscular con enfoque en la integración entre la biomecánica, el control motor y el desarrollo de la tensión interna aplicada al movimiento.</p>
-    <p class="autor-credentials" data-i18n="autor.cred">MBA &nbsp;|&nbsp; Profesor de Educación Física y Licenciado en Deportes</p>
-    <div class="tags">
-      <span class="tag" data-i18n="tag.bio">Biomecánica Aplicada</span>
-      <span class="tag" data-i18n="tag.motor">Control Motor</span>
-      <span class="tag" data-i18n="tag.neuro">Entrenamiento Neuromuscular</span>
-    </div>
-    <a class="li-link" href="https://www.linkedin.com/in/ricardo-gabriel-lima-mba/" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.44v6.3zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46C23.21 24 24 23.23 24 22.28V1.72C24 .77 23.21 0 22.23 0z"/></svg>
-      <span data-i18n="autor.li">Ver perfil en LinkedIn</span>
-    </a>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- CONTACTO -->
-<section id="contacto">
-  <div class="contact-inner">
-    <div>
-      <div class="s-label" data-i18n="contact.label">Contacto</div>
-      <h2 class="s-title" data-i18n="contact.title">¿Querés saber más?</h2>
-      <p class="s-desc" data-i18n="contact.desc">Completá el formulario y me comunico a la brevedad.</p>
-    </div>
-    <div class="contact-form" id="contactForm">
-      <div class="form-row">
-        <div class="field"><label data-i18n="form.name">Nombre</label><input type="text" placeholder="Juan" autocomplete="given-name"></div>
-        <div class="field"><label data-i18n="form.surname">Apellido</label><input type="text" placeholder="García" autocomplete="family-name"></div>
-      </div>
-      <div class="field"><label data-i18n="form.email">E-mail</label><input type="email" placeholder="nombre@email.com" autocomplete="email"></div>
-      <div class="field"><label data-i18n="form.phone">Celular</label><input type="tel" placeholder="+54 11 0000-0000" autocomplete="tel"></div>
-      <div class="form-row">
-        <div class="field"><label data-i18n="form.city">Ciudad</label><input type="text" placeholder="Buenos Aires"></div>
-        <div class="field"><label data-i18n="form.country">País</label><input type="text" placeholder="Argentina"></div>
-      </div>
-      <div class="field"><label data-i18n="form.message">Mensaje</label><textarea placeholder="Escribí tu consulta aquí..."></textarea></div>
-      <button class="btn-submit" onclick="submitForm()" data-i18n="form.send">Enviar</button>
-      <div class="form-ok" id="formOk">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-        <span data-i18n="form.ok">Mensaje enviado. ¡Gracias!</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CIERRE -->
-<section id="cierre">
-  <p class="cierre-quote">
-    <span data-i18n="cierre.a">Entrenar implica</span><br>
-    <span data-i18n="cierre.b">generar, sostener</span><br>
-    <span data-i18n="cierre.c">y dominar la fuerza</span><br>
-    <span data-i18n="cierre.d">desde el propio cuerpo.</span>
-  </p>
-  <a href="#que-es" class="btn-primary" data-i18n="cierre.cta">Comenzar desde el principio</a>
-</section>
-
-<footer>
-  <div class="footer-logo">PI<span>x</span>TI</div>
-  <p>&copy; 2026 PIxTI — pixti.ar</p>
-</footer>
+}
 
 function update() {
   const capMax     = parseFloat(document.getElementById('r-capmax').value);
@@ -1366,12 +1582,7 @@ const T = {
     "base.label": "Fundamentos",
     "base.title": "Base Científica",
     "base.desc": "PIxTI integra principios ampliamente estudiados en fisiología del ejercicio y neurociencia motora.",
-    "base.leg1.label":"Para el practicante","base.leg1.desc":"Explicación directa del concepto en lenguaje accesible.","base.leg2.label":"Para el especialista","base.leg2.desc":"Descripción técnica del principio científico.","base.leg3.label":"Cita científica","base.leg3.desc":"Frase clave extraída del paper original.","bqW1": "Las cargas que exceden el umbral fisiológico provocan el deslizamiento de las microfibrillas de colágeno, llevando a la rotura macroscópica o tendinosis por sobrecarga aguda. El límite estructural del tendón no es flexible.",
-    "bqW2": "Bajo cargas máximas absolutas, la mínima pérdida de neutralidad espinal dispara la presión intradiscal a niveles que pueden causar herniación aguda o fractura del platillo vertebral. El límite de seguridad se pierde cuando la carga supera la capacidad de soporte del core.",
-    "bqW3": "Cargas de impacto o presiones extremas pueden causar muerte celular de condrocitos y micro-fracturas en el hueso subcondral, iniciando procesos degenerativos rápidos. La carga apropiada nutre; la carga extrema destruye.",
-    "bqG1": "Las intensidades muy altas con bajo número de repeticiones —evitando la fatiga acumulada— son las que maximizan la fuerza cuidando la integridad del atleta. El control es la variable que separa la adaptación de la lesión.",
-    "base.cat4": "Límites y Seguridad Estructural",
-    "base.cat1": "Fisiología",
+    "base.leg1.label":"Para el practicante","base.leg1.desc":"Explicación directa del concepto en lenguaje accesible.","base.leg2.label":"Para el especialista","base.leg2.desc":"Descripción técnica del principio científico.","base.leg3.label":"Cita científica","base.leg3.desc":"Frase clave extraída del paper original.","base.cat1": "Fisiología",
     "base.cat2": "Biomecánica",
     "base.cat3": "Metodología del Entrenamiento",
     "b1.title": "Co-Contracción Muscular",
@@ -1435,7 +1646,7 @@ const T = {
     "mov.leg2": "Oposición interna distribuida",
     "mov.leg3": "Sistema articular (codo)",
     "mov.leg4": "Punto de referencia fijo (pared)",
-    "mov3d.badge": "Modelo 3D interactivo", "mov3d.title": "5 Momentos PIxTI", "mov5.title": "Fase Excéntrica", "mov5.desc": "El regreso replica el mismo nivel de activación. La tensión interna no cesa.", "mov.b1": "Activación neuromuscular sostenida",
+    "mov.b1": "Activación neuromuscular sostenida",
     "mov.b2": "Mayor estabilidad articular",
     "mov.b3": "Tensión homogénea en todo el rango",
     "mov.b4": "Reducción del riesgo de sobrecarga",
@@ -1576,12 +1787,7 @@ const T = {
     "base.label": "Foundations",
     "base.title": "Scientific Basis",
     "base.desc": "PIxTI integrates principles widely studied in exercise physiology and motor neuroscience.",
-    "base.leg1.label":"For the practitioner","base.leg1.desc":"Direct explanation of the concept in accessible language.","base.leg2.label":"For the specialist","base.leg2.desc":"Technical description of the scientific principle.","base.leg3.label":"Scientific citation","base.leg3.desc":"Key phrase extracted from the original paper.","bqW1": "Loads exceeding the physiological threshold cause microfiber sliding in collagen, leading to macroscopic rupture or acute overload tendinosis. The structural limit of the tendon is not flexible.",
-    "bqW2": "Under absolute maximum loads, minimal loss of spinal neutrality spikes intradiscal pressure to levels that can cause acute herniation or vertebral endplate fracture. The safety limit is lost when load exceeds core support capacity.",
-    "bqW3": "Impact loads or extreme pressures can cause chondrocyte cell death and subchondral bone micro-fractures, initiating rapid degenerative processes. Appropriate load nourishes; extreme load destroys.",
-    "bqG1": "Very high intensities with low repetition numbers — avoiding accumulated fatigue — are those that maximize strength while protecting athlete integrity. Control is the variable that separates adaptation from injury.",
-    "base.cat4": "Structural Limits and Safety",
-    "base.cat1": "Physiology",
+    "base.leg1.label":"For the practitioner","base.leg1.desc":"Direct explanation of the concept in accessible language.","base.leg2.label":"For the specialist","base.leg2.desc":"Technical description of the scientific principle.","base.leg3.label":"Scientific citation","base.leg3.desc":"Key phrase extracted from the original paper.","base.cat1": "Physiology",
     "base.cat2": "Biomechanics",
     "base.cat3": "Training Methodology",
     "b1.title": "Muscle Co-Contraction",
@@ -1645,7 +1851,7 @@ const T = {
     "mov.leg2": "Distributed internal opposition",
     "mov.leg3": "Joint system (elbow)",
     "mov.leg4": "Fixed reference point (wall)",
-    "mov3d.badge": "Interactive 3D model", "mov3d.title": "5 PIxTI Moments", "mov5.title": "Eccentric Phase", "mov5.desc": "The return replicates the same activation level. Internal tension never stops.", "mov.b1": "Sustained neuromuscular activation",
+    "mov.b1": "Sustained neuromuscular activation",
     "mov.b2": "Greater joint stability",
     "mov.b3": "Homogeneous tension throughout range",
     "mov.b4": "Reduced risk of overload",
@@ -1786,12 +1992,7 @@ const T = {
     "base.label": "Fondamenti",
     "base.title": "Base Scientifica",
     "base.desc": "PIxTI integra principi ampiamente studiati in fisiologia dell'esercizio e neuroscienze motorie.",
-    "base.leg1.label":"Per il praticante","base.leg1.desc":"Spiegazione diretta del concetto in linguaggio accessibile.","base.leg2.label":"Per lo specialista","base.leg2.desc":"Descrizione tecnica del principio scientifico.","base.leg3.label":"Citazione scientifica","base.leg3.desc":"Frase chiave estratta dal paper originale.","bqW1": "I carichi che superano la soglia fisiologica provocano lo scivolamento delle microfibrille di collagene, portando alla rottura macroscopica o tendinosi da sovraccarico acuto. Il limite strutturale del tendine non è flessibile.",
-    "bqW2": "Sotto carichi massimali assoluti, la minima perdita di neutralità spinale fa schizzare la pressione intradiscale a livelli che possono causare erniazione acuta o frattura del piatto vertebrale. Il limite di sicurezza si perde quando il carico supera la capacità di supporto del core.",
-    "bqW3": "Carichi di impatto o pressioni estreme possono causare morte cellulare dei condrociti e micro-fratture nell\'osso subcondrale, avviando processi degenerativi rapidi. Il carico appropriato nutre; il carico estremo distrugge.",
-    "bqG1": "Le intensità molto elevate con basso numero di ripetizioni — evitando la fatica accumulata — sono quelle che massimizzano la forza preservando l\'integrità dell\'atleta. Il controllo è la variabile che separa l\'adattamento dall\'infortunio.",
-    "base.cat4": "Limiti e Sicurezza Strutturale",
-    "base.cat1": "Fisiologia",
+    "base.leg1.label":"Per il praticante","base.leg1.desc":"Spiegazione diretta del concetto in linguaggio accessibile.","base.leg2.label":"Per lo specialista","base.leg2.desc":"Descrizione tecnica del principio scientifico.","base.leg3.label":"Citazione scientifica","base.leg3.desc":"Frase chiave estratta dal paper originale.","base.cat1": "Fisiologia",
     "base.cat2": "Biomeccanica",
     "base.cat3": "Metodologia dell'Allenamento",
     "b1.title": "Co-Contrazione Muscolare",
@@ -1855,7 +2056,7 @@ const T = {
     "mov.leg2": "Opposizione interna distribuita",
     "mov.leg3": "Sistema articolare (gomito)",
     "mov.leg4": "Punto di riferimento fisso (parete)",
-    "mov3d.badge": "Modello 3D interattivo", "mov3d.title": "5 Momenti PIxTI", "mov5.title": "Fase Eccentrica", "mov5.desc": "Il ritorno replica lo stesso livello di attivazione. La tensione interna non cessa.", "mov.b1": "Attivazione neuromuscolare sostenuta",
+    "mov.b1": "Attivazione neuromuscolare sostenuta",
     "mov.b2": "Maggiore stabilità articolare",
     "mov.b3": "Tensione omogenea in tutto il range",
     "mov.b4": "Riduzione del rischio di sovraccarico",
@@ -1883,7 +2084,7 @@ const T = {
     "bqN5": "La perdita di velocità durante la serie è un indicatore sensibile della fatica neuromuscolare accumulata. Regolare il volume in funzione di quella perdita permette di massimizzare gli adattamenti preservando la qualità tecnica.",
     "bqN6": "Una singola serie per esercizio, eseguita ad alta intensità relativa, è sufficiente per massimizzare i guadagni di forza nella maggior parte dei soggetti allenati. Il volume aggiuntivo non aumenta lo stimolo — aumenta la fatica."
   }
-};
+};;
 
 function setLang(lang) {
   document.querySelectorAll('.lang-sw button').forEach(b => b.classList.toggle('active', b.textContent.trim().toLowerCase() === lang));
@@ -1894,7 +2095,5 @@ function setLang(lang) {
 }
 </script>
 
-</body>
-</html>
 </body>
 </html>
