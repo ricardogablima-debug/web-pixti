@@ -2101,29 +2101,23 @@ function setLang(lang) {
 
 <script>
   (function () {
-    // Inicialización de EmailJS (Reemplazá TU_PUBLIC_KEY por tu clave de la sección Account)
     emailjs.init("gnfXU-Riqpq8d1y65");
   })();
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const contactForm = document.getElementById("contact-form") || document.querySelector("form");
+  const form = document.getElementById("contact-form");
+  if (form) {
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
 
-    if (contactForm) {
-      contactForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        // Reemplazá TU_SERVICE_ID por tu Service ID de EmailJS (ej: service_xxxxxxx)
-        emailjs.sendForm("service_01ly1os", "template_vjeya6k", this)
-          .then(function () {
-            alert("¡Mensaje enviado con éxito!");
-            contactForm.reset();
-          }, function (error) {
-            alert("Error al enviar el mensaje. Por favor, intentalo de nuevo.");
-            console.error("Error EmailJS:", error);
-          });
-      });
-    }
-  });
+      emailjs.sendForm("service_01ly1os", "template_vjeya6k", this)
+        .then(function () {
+          alert("¡Mensaje enviado con éxito!");
+          form.reset();
+        }, function (error) {
+          alert("Error de EmailJS: " + JSON.stringify(error));
+        });
+    });
+  }
 </script>
 
 </body>
