@@ -2084,7 +2084,7 @@ const T = {
     "bqN5": "La perdita di velocità durante la serie è un indicatore sensibile della fatica neuromuscolare accumulata. Regolare il volume in funzione di quella perdita permette di massimizzare gli adattamenti preservando la qualità tecnica.",
     "bqN6": "Una singola serie per esercizio, eseguita ad alta intensità relativa, è sufficiente per massimizzare i guadagni di forza nella maggior parte dei soggetti allenati. Il volume aggiuntivo non aumenta lo stimolo — aumenta la fatica."
   }
-};;
+};
 
 function setLang(lang) {
   document.querySelectorAll('.lang-sw button').forEach(b => b.classList.toggle('active', b.textContent.trim().toLowerCase() === lang));
@@ -2093,6 +2093,36 @@ function setLang(lang) {
     if (T[lang] && T[lang][k] !== undefined) el.innerHTML = T[lang][k];
   });
 }
+</script>
+
+<!-- SDK de EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<script>
+  (function () {
+    // Inicialización de EmailJS (Reemplazá TU_PUBLIC_KEY por tu clave de la sección Account)
+    emailjs.init("gnfXU-Riqpq8d1y65");
+  })();
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const contactForm = document.getElementById("contact-form") || document.querySelector("form");
+
+    if (contactForm) {
+      contactForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        // Reemplazá TU_SERVICE_ID por tu Service ID de EmailJS (ej: service_xxxxxxx)
+        emailjs.sendForm("service_01ly1os", "template_vjeya6k", this)
+          .then(function () {
+            alert("¡Mensaje enviado con éxito!");
+            contactForm.reset();
+          }, function (error) {
+            alert("Error al enviar el mensaje. Por favor, intentalo de nuevo.");
+            console.error("Error EmailJS:", error);
+          });
+      });
+    }
+  });
 </script>
 
 </body>
