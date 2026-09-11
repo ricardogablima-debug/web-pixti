@@ -1233,19 +1233,20 @@ footer p{font-size:.76rem;color:var(--muted);}
       <h2 class="s-title" data-i18n="contact.title">¿Querés saber más?</h2>
       <p class="s-desc" data-i18n="contact.desc">Completá el formulario y me comunico a la brevedad.</p>
     </div>
-    <div class="contact-form" id="contactForm">
-      <div class="form-row">
-        <div class="field"><label data-i18n="form.name">Nombre</label><input type="text" placeholder="Juan" autocomplete="given-name"></div>
-        <div class="field"><label data-i18n="form.surname">Apellido</label><input type="text" placeholder="García" autocomplete="family-name"></div>
-      </div>
-      <div class="field"><label data-i18n="form.email">E-mail</label><input type="email" placeholder="nombre@email.com" autocomplete="email"></div>
-      <div class="field"><label data-i18n="form.phone">Celular</label><input type="tel" placeholder="+54 11 0000-0000" autocomplete="tel"></div>
-      <div class="form-row">
-        <div class="field"><label data-i18n="form.city">Ciudad</label><input type="text" placeholder="Buenos Aires"></div>
-        <div class="field"><label data-i18n="form.country">País</label><input type="text" placeholder="Argentina"></div>
-      </div>
-      <div class="field"><label data-i18n="form.message">Mensaje</label><textarea placeholder="Escribí tu consulta aquí..."></textarea></div>
-      <button class="btn-submit" onclick="submitForm()" data-i18n="form.send">Enviar</button>
+   <form class="contact-form" id="contact-form">
+  <div class="form-row">
+    <div class="field"><label data-i18n="form.name">Nombre</label><input type="text" name="nombre" placeholder="Juan" autocomplete="given-name"></div>
+    <div class="field"><label data-i18n="form.surname">Apellido</label><input type="text" name="apellido" placeholder="García" autocomplete="family-name"></div>
+  </div>
+  <div class="field"><label data-i18n="form.email">E-mail</label><input type="email" name="email" placeholder="nombre@email.com" autocomplete="email"></div>
+  <div class="field"><label data-i18n="form.phone">Celular</label><input type="tel" name="celular" placeholder="+54 11 0000-0000" autocomplete="tel"></div>
+  <div class="form-row">
+    <div class="field"><label data-i18n="form.city">Ciudad</label><input type="text" name="ciudad" placeholder="Buenos Aires"></div>
+    <div class="field"><label data-i18n="form.country">País</label><input type="text" name="pais" placeholder="Argentina"></div>
+  </div>
+  <div class="field"><label data-i18n="form.message">Mensaje</label><textarea name="mensaje" placeholder="Escribí tu consulta aquí..."></textarea></div>
+  <button type="submit" class="btn-submit" data-i18n="form.send">Enviar</button>
+</form>
       <div class="form-ok" id="formOk">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
         <span data-i18n="form.ok">Mensaje enviado. ¡Gracias!</span>
