@@ -1,43 +1,62 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Promoción de PIxTI: introducción al patrón, propiocepción, ejercicios y circuitos.">
-<title>Promoción de PIxTI®</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Promoción de PIxTI®: aprendé el patrón de activación y movimiento, explorá ejercicios por grupo muscular y circuitos de práctica.">
+<title>Promoción de PIxTI® | Aprendé el patrón</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#050507;--surface:#111116;--cyan:#00e5ff;--white:#efefef;--muted:#aaaabd}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;line-height:1.7}
-header,main,footer{max-width:1100px;margin:auto;padding:24px 6%}header{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;border-bottom:1px solid #282832}
-.logo{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:3px}.logo span{color:var(--cyan)}a{color:var(--cyan)}header a{text-decoration:none;font-size:.9rem}
-h1,h2{font-family:'Bebas Neue',sans-serif;letter-spacing:1px;line-height:1.1}h1{font-size:clamp(3rem,8vw,6rem);margin:65px 0 18px}h2{font-size:clamp(2rem,5vw,3rem);margin:0 0 20px}p{max-width:760px;color:var(--muted)}.intro{font-size:1.1rem}.tag{font-size:.75rem;letter-spacing:2px;color:var(--cyan);text-transform:uppercase}
-section{padding:52px 0;border-bottom:1px solid #282832}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}.card{padding:24px;background:var(--surface);border:1px solid #252530;border-radius:12px}.card strong{color:var(--white)}.card p{font-size:.9rem;margin-bottom:0}.num{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--cyan)}.note{font-size:.85rem}footer{color:var(--muted);font-size:.8rem}
+:root{--bg:#050507;--surface:#0e141a;--panel:#111c25;--cyan:#00e5ff;--white:#f4f6f7;--muted:#b6c0c8;--border:#294150}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font-family:"DM Sans",sans-serif;line-height:1.65}a{color:inherit}a:focus-visible,button:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+.site-header{display:flex;justify-content:space-between;align-items:center;gap:22px;flex-wrap:wrap;padding:18px max(24px,4vw);border-bottom:1px solid var(--border);background:#070b10}.brand{font-family:"Bebas Neue",sans-serif;font-size:2rem;letter-spacing:2px;text-decoration:none}.brand span{color:var(--cyan)}.site-header nav{display:flex;flex-wrap:wrap;gap:18px;font-size:.82rem}.site-header nav a{text-decoration:none;color:#d0d9de}.site-header nav a[aria-current]{color:var(--cyan)}
+main{max-width:1600px;margin:auto}.hero{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(320px,1fr);background:linear-gradient(135deg,#0d1b22,#050608);border-bottom:2px solid var(--border)}
+.hero-main{min-height:580px;position:relative;padding:clamp(28px,5vw,72px);display:flex;flex-direction:column;justify-content:center;overflow:hidden;background:radial-gradient(ellipse at 78% 52%,#173642 0%,transparent 53%)}.hero-main:after{content:"";position:absolute;right:-10%;bottom:-30%;width:65%;aspect-ratio:1;border:1px solid #205063;border-radius:50%;pointer-events:none}
+.eyebrow{color:var(--cyan);text-transform:uppercase;letter-spacing:.15em;font-weight:700;font-size:.78rem}h1,h2{font-family:"Bebas Neue",sans-serif;letter-spacing:.025em;line-height:1.04}h1{font-size:clamp(3.5rem,7vw,7rem);max-width:760px;margin:26px 0}h1 em{color:var(--cyan);font-style:normal}.hero-lead{font-size:clamp(1rem,1.7vw,1.4rem);max-width:580px;color:#e2e8ed}
+.hero-visual{position:relative;max-width:560px;padding:24px;margin-top:28px;background:#0a151b;border:1px solid var(--border);border-radius:18px}.hero-visual strong{display:block;color:var(--cyan);margin-bottom:8px}.hero-visual p{margin:0;color:var(--muted);font-size:.91rem}.hero-visual .placeholder{height:110px;display:flex;align-items:center;justify-content:center;border:1px dashed #3a6674;border-radius:12px;margin-bottom:15px;color:#a8dbe2;text-align:center;padding:15px}
+.steps{padding:32px 26px;background:#081018;border-left:1px solid var(--border)}.steps h2{font-size:clamp(2rem,3vw,3rem);margin:5px 0 25px}.step{display:grid;grid-template-columns:45px 1fr;gap:16px;align-items:start;background:var(--surface);border:1px solid var(--border);padding:20px;border-radius:14px;margin-bottom:12px}.number{width:40px;height:40px;display:grid;place-items:center;border-radius:50%;background:var(--cyan);color:#001219;font-weight:700}.step h3{font-size:1.05rem;margin:0 0 5px}.step p{margin:0;color:var(--muted);font-size:.88rem}
+.content{padding:clamp(25px,4vw,65px)}.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap}.section-head h2{font-size:clamp(2.5rem,4.5vw,4rem);margin:0}.section-head p{color:var(--muted);max-width:600px}.library{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:25px}.muscle{display:flex;flex-direction:column;justify-content:end;min-height:170px;text-decoration:none;background:linear-gradient(150deg,#1b303b,#0c1219 75%);border:1px solid #456577;border-radius:13px;padding:18px;transition:transform .2s,border-color .2s}.muscle:hover{transform:translateY(-3px);border-color:var(--cyan)}.muscle .index{font-family:"Bebas Neue",sans-serif;font-size:2rem;color:var(--cyan);opacity:.7}.muscle strong{font-size:1.05rem}.muscle small{color:#c0cbd0}.info-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:25px}.info{background:#0d161d;border:1px solid var(--border);border-radius:14px;padding:24px}.info h3{margin:0 0 8px}.info p{color:var(--muted);margin:0}.disclaimer{color:#aebbc3;font-size:.86rem;margin-top:25px;max-width:950px}footer{border-top:1px solid var(--border);padding:25px 5%;color:var(--muted);font-size:.83rem}
+@media(max-width:1050px){.hero{grid-template-columns:1fr}.hero-main{min-height:unset}.steps{border-left:0}.library{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:650px){.site-header{align-items:flex-start}.library{grid-template-columns:repeat(2,minmax(0,1fr))}.info-grid{grid-template-columns:1fr}.hero-main{padding:30px 22px}.steps{padding:24px 20px}.content{padding:28px 20px}h1{font-size:3.8rem}.muscle{min-height:140px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.muscle{transition:none}}
 </style>
 </head>
 <body>
-<header><div class="logo">PI<span>x</span>TI®</div><a href="index.html">← Volver al sitio principal</a></header>
+<header class="site-header"><a class="brand" href="index.html" aria-label="PIxTI, inicio">PI<span>x</span>TI®</a>
+<nav aria-label="Navegación principal"><a href="promocion.html" aria-current="page">Promoción de PIxTI</a><a href="index.html#que-es">El Método</a><a href="index.html#como">Cómo Funciona</a><a href="index.html#ciencia">Simulador</a><a href="index.html#autor">Autor</a><a href="index.html#contacto">Contacto</a></nav></header>
 <main>
-<div class="tag">Aprender · Practicar · Progresar</div>
-<h1>Promoción de PIxTI®</h1>
-<p class="intro">Aprendé a generar tensión muscular, regularla y trasladarla al movimiento. Una introducción práctica al patrón PIxTI® para personas con diferentes experiencias deportivas.</p>
-<section id="patron"><div class="tag">01 / Metodología</div><h2>El patrón PIxTI®</h2>
-<div class="grid">
-<div class="card"><div class="num">01</div><strong>Anclaje isométrico</strong><p>Generar una contracción voluntaria breve en una posición estable.</p></div>
-<div class="card"><div class="num">02</div><strong>Activación interna</strong><p>Reconocer la musculatura involucrada y regular el esfuerzo.</p></div>
-<div class="card"><div class="num">03</div><strong>Reacción contraria</strong><p>Organizar una oposición muscular voluntaria y controlada.</p></div>
-<div class="card"><div class="num">04</div><strong>Movilidad consciente</strong><p>Realizar el recorrido articular buscando continuidad de activación.</p></div>
+<div class="hero">
+<section class="hero-main" aria-labelledby="hero-title"><div class="eyebrow">Aprender · Practicar · Progresar</div>
+<h1 id="hero-title">Aprendé PIxTI® con el ejercicio de <em>bíceps</em></h1>
+<p class="hero-lead">Generá tensión muscular, reconocé la oposición y aprendé a regularla durante el movimiento.</p>
+<div class="hero-visual" role="note"><div class="placeholder">Espacio reservado para la imagen didáctica aprobada del ejercicio de bíceps</div><strong>Referencia biomecánica de la demostración</strong><p>Ambos pies apoyados · Flexión de cadera cercana a 45° · Barra fija y estable · Flexión de codo contra una reacción externa identificable.</p></div>
+</section>
+<aside class="steps" aria-labelledby="steps-title"><h2 id="steps-title">El patrón PIxTI® en 4 momentos</h2>
+<div class="step"><span class="number">1</span><div><h3>Anclaje isométrico</h3><p>Establecé una posición segura y aplicá fuerza brevemente contra un punto fijo, sin desplazamiento.</p></div></div>
+<div class="step"><span class="number">2</span><div><h3>Activación interna</h3><p>Reconocé la musculatura involucrada y regulá voluntariamente la contracción.</p></div></div>
+<div class="step"><span class="number">3</span><div><h3>Reacción contraria</h3><p>Identificá la oposición a la acción principal y organizá el control de la tensión.</p></div></div>
+<div class="step"><span class="number">4</span><div><h3>Movilidad consciente</h3><p>Continuá con un movimiento articular controlado, buscando sostener la activación.</p></div></div>
+</aside></div>
+<section class="content" id="biblioteca"><div class="section-head"><h2>Biblioteca de ejercicios PIxTI®</h2><p>Explorá el patrón según el grupo muscular. Las fichas completas y sus demostraciones se incorporarán progresivamente.</p></div>
+<div class="library">
+<a class="muscle" href="#aprendizaje"><span class="index">01</span><strong>Bíceps</strong><small>Flexión del codo</small></a>
+<a class="muscle" href="#aprendizaje"><span class="index">02</span><strong>Tríceps</strong><small>Extensión del codo</small></a>
+<a class="muscle" href="#aprendizaje"><span class="index">03</span><strong>Pectorales</strong><small>Empuje y aducción horizontal</small></a>
+<a class="muscle" href="#aprendizaje"><span class="index">04</span><strong>Dorsales</strong><small>Tracción y extensión del hombro</small></a>
+<a class="muscle" href="#aprendizaje"><span class="index">05</span><strong>Cuádriceps</strong><small>Extensión de rodilla</small></a>
+<a class="muscle" href="#aprendizaje"><span class="index">06</span><strong>Gemelos y sóleo</strong><small>Flexión plantar</small></a>
+<a class="muscle" href="#aprendizaje"><span class="index">07</span><strong>Isquiotibiales</strong><small>Flexión de rodilla y extensión de cadera</small></a>
+<a class="muscle" href="#aprendizaje"><span class="index">08</span><strong>Glúteos</strong><small>Extensión y estabilización de cadera</small></a>
+<a class="muscle" href="#aprendizaje"><span class="index">09</span><strong>Deltoides</strong><small>Movimientos del hombro</small></a>
+<a class="muscle" href="#aprendizaje"><span class="index">10</span><strong>Zona media</strong><small>Control del tronco</small></a>
+<a class="muscle" href="#aprendizaje"><span class="index">11</span><strong>Aductores y abductores</strong><small>Control de cadera</small></a>
+<a class="muscle" href="#aprendizaje"><span class="index">12</span><strong>Antebrazos</strong><small>Muñeca y agarre</small></a>
 </div></section>
-<section id="propiocepcion"><div class="tag">02 / Introducción</div><h2>Sentir antes de entrenar</h2><p>La experiencia propioceptiva permite reconocer posiciones, movimientos y esfuerzos. Comenzá con contracciones suaves y movimientos lentos, prestando atención al control articular y a la respiración.</p></section>
-<section id="ejercicios"><div class="tag">03 / Aplicación</div><h2>Ejercicios y espacios</h2><div class="grid">
-<div class="card"><strong>Barra fija</strong><p>Anclajes isométricos de tracción o empuje con estructura inmóvil y segura.</p></div>
-<div class="card"><strong>Soga inextensible</strong><p>Tracción con un anclaje verificado y sin riesgo de desprendimiento.</p></div>
-<div class="card"><strong>Pared</strong><p>Empujes controlados y exploración de diferentes ángulos articulares.</p></div>
-<div class="card"><strong>Sin implementos</strong><p>Activación voluntaria y movimientos articulares conscientes.</p></div>
-</div><p class="note">El anclaje isométrico y el movimiento posterior son fases distintas. Evitá anclajes improvisados o estructuras inestables.</p></section>
-<section id="circuitos"><div class="tag">04 / Práctica</div><h2>Circuitos PIxTI®</h2><p>Propuesta inicial: introducción propioceptiva, cuatro estaciones de ejercicios y cierre con observación de la ejecución. La intensidad, las series, las repeticiones y los descansos se adaptan al participante.</p></section>
-<section id="objetivos"><div class="tag">05 / Progresión</div><h2>Objetivos del entrenamiento</h2><p>El método permite diseñar propuestas orientadas al aprendizaje motor, control neuromuscular, fuerza, hipertrofia y resistencia muscular mediante la selección de variables. La magnitud de las adaptaciones específicas de PIxTI® requiere validación experimental.</p></section>
-</main>
-<footer>PIxTI® · Promoción y educación del movimiento · Material introductorio</footer>
+<section class="content" id="aprendizaje"><div class="section-head"><h2>Aprendé, practicá y progresá</h2><p>La práctica comienza con el reconocimiento propioceptivo y avanza hacia el control del movimiento.</p></div><div class="info-grid">
+<article class="info"><h3>Introducción propioceptiva</h3><p>Reconocé posiciones articulares, musculatura activa y niveles de esfuerzo antes de aumentar la complejidad.</p></article>
+<article class="info"><h3>Ejercicios y anclajes</h3><p>Usá superficies y estructuras estables. Diferenciá el anclaje isométrico de la fase dinámica posterior.</p></article>
+<article class="info"><h3>Circuitos y progresiones</h3><p>Organizá ejercicios, repeticiones, intensidad y recuperación de acuerdo con la experiencia y el objetivo.</p></article></div>
+<p class="disclaimer">PIxTI® se presenta como una propuesta metodológica de control neuromuscular. Sus efectos específicos sobre fuerza máxima, hipertrofia y transferencia entre ángulos articulares requieren evaluación científica. Evitá esfuerzos máximos y anclajes inseguros durante el aprendizaje.</p>
+</section>
+</main><footer>PIxTI® · Promoción y educación del movimiento · <a href="index.html">Volver al sitio principal</a></footer>
 </body></html>
